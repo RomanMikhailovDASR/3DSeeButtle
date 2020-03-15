@@ -10,132 +10,16 @@
 #define INC_3DSEEBUTTLE_PAINTING_H
 
 #include <iostream>
-
-double rotate_y=135;  //начальный поворот куба по у
-double rotate_x=325; //начальный поворот куба по х
+double rotate_y=180;  //начальный поворот куба по у
+double rotate_x=0; //начальный поворот куба по х
 double sizeCell = -0.05; //размеры кубиков
 double stepCell = 0.1; //шаг при определении
 double quantityCell = 0.5-0.25; //количестве кубиков, тоесть их всего  (quantityCell/stepCell)   #### вычел 0.4, чтобы сместить кубики и чтобы крутились вокруг центра
 double transparency = 0.3; //прозрачность кубиков
-double r = 0.5, g = 0.5, b = 0.5;
-double red = 1, green = 1, blue = 0;
+double r=1, g=1, b=0;
 //функция рисует 3Д кубики на экране
-bool show_first_cube = true; //определяет поле игрока
-bool show_second_cube = false;
-
-float i_min = -1, i_max = 1, j_min = -1, j_max = 1, y_min = -1, y_max = 1;
-
-float& r_i_min = i_min;
-float& r_j_min = j_min;
-float& r_y_min = y_min;
-float& r_i_max = i_max;
-float& r_j_max = j_max;
-float& r_y_max = y_max;
-double& r_r = r;
-double& r_g = g;
-double& r_b = b;
-double& r_rotate_x = rotate_x;
-double& r_rotate_y = rotate_y;
-
-void default_position (float& r_i_min, float& r_j_min, float& r_y_min, float& r_i_max, float& r_j_max, float& r_y_max, double& r_r, double& r_g, double& r_b,double& r_rotate_x, double& r_rotate_y) {
-    r_i_min = -1;
-    r_j_min = -1;
-    r_y_min = -1;
-    r_i_max = 1;
-    r_j_max = 1;
-    r_y_max = 1;
-    r_r = 0.5;
-    r_g = 0.5;
-    r_b = 0.5;
-    r_rotate_x = 325;
-    r_rotate_y = 135;
-}
-
-void view_first_side (float& r_i_min, float& r_j_min, float& r_y_min, float& r_i_max, float& r_j_max, float& r_y_max, double& r_r, double& r_g, double& r_b, double& r_rotate_x, double& r_rotate_y) {
-    r_i_min = 0.24;
-    r_j_min = -1;
-    r_y_min = -1;
-    r_i_max = 0.26;
-    r_j_max = 1;
-    r_y_max = 1;
-    r_r = 1;
-    r_g = 0;
-    r_b = 0;
-    r_rotate_x = 325;
-    r_rotate_y = 135;
-}
-
-void view_second_side (float& r_i_min, float& r_j_min, float& r_y_min, float& r_i_max, float& r_j_max, float& r_y_max, double& r_r, double& r_g, double& r_b, double& r_rotate_x, double& r_rotate_y) {
-    r_i_min = -1;
-    r_j_min = 0.24;
-    r_y_min = -1;
-    r_i_max = 1;
-    r_j_max = 0.26;
-    r_y_max = 1;
-    r_r = 0;
-    r_g = 1;
-    r_b = 0;
-    r_rotate_x=325;
-    r_rotate_y=135;
-}
-
-void view_third_side (float& r_i_min, float& r_j_min, float& r_y_min, float& r_i_max, float& r_j_max, float& r_y_max, double& r_r, double& r_g, double& r_b, double& r_rotate_x, double& r_rotate_y) {
-    r_i_min = -1;
-    r_j_min = -1;
-    r_y_min = 0.24;
-    r_i_max = 1;
-    r_j_max = 1;
-    r_y_max = 0.26;
-    r_r = 0;
-    r_g = 0;
-    r_b = 1;
-    r_rotate_x=325;
-    r_rotate_y=135;
-}
-////////////////////////////////////////////////////////////////////////
-////////////////переходим к плоскому виду///////////////////////////////
-////////////////////////////////////////////////////////////////////////
-void choose_first_side (float& r_i_min, float& r_j_min, float& r_y_min, float& r_i_max, float& r_j_max, float& r_y_max, double& r_r, double& r_g, double& r_b, double& r_rotate_x, double& r_rotate_y) {
-    r_i_min = 0.24;
-    r_j_min = -1;
-    r_y_min = -1;
-    r_i_max = 0.26;
-    r_j_max = 1;
-    r_y_max = 1;
-    r_r = 1;
-    r_g = 0;
-    r_b = 0;
-    r_rotate_x = -180;
-    r_rotate_y = -90;
-}
-
-void choose_second_side (float& r_i_min, float& r_j_min, float& r_y_min, float& r_i_max, float& r_j_max, float& r_y_max, double& r_r, double& r_g, double& r_b, double& r_rotate_x, double& r_rotate_y) {
-    r_i_min = -1;
-    r_j_min = 0.24;
-    r_y_min = -1;
-    r_i_max = 1;
-    r_j_max = 0.26;
-    r_y_max = 1;
-    r_r = 0;
-    r_g = 1;
-    r_b = 0;
-    r_rotate_x = -90;
-    r_rotate_y = 270;
-}
-
-void choose_third_side (float& r_i_min, float& r_j_min, float& r_y_min, float& r_i_max, float& r_j_max, float& r_y_max, double& r_r, double& r_g, double& r_b, double& r_rotate_x, double& r_rotate_y) {
-    r_i_min = -1;
-    r_j_min = -1;
-    r_y_min = 0.24;
-    r_i_max = 1;
-    r_j_max = 1;
-    r_y_max = 0.26;
-    r_r = 0;
-    r_g = 0;
-    r_b = 1;
-    r_rotate_x = -180;
-    r_rotate_y = 0;
-}
+bool  show_first_cube = true; //определяет поле игрока
+bool  show_second_cube = false;
 
 void displayCell() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //очищаем экран, чтобы картинки "не размножались"
@@ -145,20 +29,22 @@ void displayCell() {
 
     glEnable(GL_ALPHA_TEST); //включаем прозрачность
     glEnable(GL_BLEND);  //разрешаем мешать цвета
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);  //устанавдиваем уровень прозрачности - пока до конца не разобрался
+    glBlendFunc(GL_SRC_ALPHA,
+                GL_ONE_MINUS_SRC_ALPHA);  //устанавдиваем уровень прозрачности - пока до конца не разобрался
 
     if (show_first_cube == true) {
-        red = r;
-        green = g;
-        blue = b;
-        for (float i = -0.25; i < quantityCell; i += stepCell)  //опять же начинаю с -0.25  ### это чтобы сместить кубики и чтобы крутились вокруг центра
+        r = 1;
+        g = 0;
+        b = 0;
+        for (float i = -0.25; i <
+                              quantityCell; i += stepCell)  //опять же начинаю с -0.25  ### это чтобы сместить кубики и чтобы крутились вокруг центра
         {
             for (float j = -0.25; j < quantityCell; j += stepCell)  //аналогия
             {
                 for (float y = -0.25; y < quantityCell; y += stepCell)   //аналогия
                 {
                     //std::cout<<y;
-                    if ((i > i_min && i < i_max) && (j > j_min && j < j_max) && (y > y_min && y < y_max)) {
+                    if (y > 0 && j > 0) {
 
                         glBegin(GL_POLYGON);  //начинаем рисовать грань
                         glColor4f(r, g, b, transparency);
@@ -614,7 +500,7 @@ void displayCell() {
         }
     }
 
-    else if (show_second_cube == true) {
+    if (show_second_cube == true) {
         r = 0;
         g = 0;
         b = 1;
@@ -1103,22 +989,6 @@ void changeSize(int w, int h)
 }
 
 //функция взаимодействия с клавиатурой
-void Keyboard (unsigned char key, int x, int y) {
-    if (key == '7') {
-        choose_first_side(r_i_min, r_j_min, r_y_min, r_i_max, r_j_max, r_y_max, r_r, r_g, r_b, r_rotate_x, r_rotate_y);
-    }
-
-    if (key == '8') {
-        choose_second_side(r_i_min, r_j_min, r_y_min, r_i_max, r_j_max, r_y_max, r_r, r_g, r_b, r_rotate_x, r_rotate_y);
-    }
-
-    if (key == '9') {
-        choose_third_side(r_i_min, r_j_min, r_y_min, r_i_max, r_j_max, r_y_max, r_r, r_g, r_b, r_rotate_x, r_rotate_y);
-    }
-         glutPostRedisplay(); //а это просто обязательная функция
-
-}
-
 void specialKeys( int key, int x, int y) {
 
     if (key == GLUT_KEY_RIGHT) //если нажата клавиша "вправо", то поворачиваем
@@ -1136,33 +1006,33 @@ void specialKeys( int key, int x, int y) {
     else if (key == GLUT_KEY_PAGE_UP) {
         show_first_cube = true;
         show_second_cube = false;
-
     }
+
     else if (key == GLUT_KEY_PAGE_DOWN) {
         show_second_cube = true;
         show_first_cube = false;
-
-    }
-    else if (key == GLUT_KEY_F7) {
-        view_first_side(r_i_min, r_j_min, r_y_min, r_i_max, r_j_max, r_y_max, r_r, r_g, r_b, r_rotate_x,
-                        r_rotate_y);
-    }
-    else if (key == GLUT_KEY_F8) {
-        view_second_side(r_i_min, r_j_min, r_y_min, r_i_max, r_j_max, r_y_max, r_r, r_g, r_b, r_rotate_x,
-                         r_rotate_y);
-    }
-    else if (key == GLUT_KEY_F9) {
-        view_third_side(r_i_min, r_j_min, r_y_min, r_i_max, r_j_max, r_y_max, r_r, r_g, r_b, r_rotate_x,
-                        r_rotate_y);
     }
 
-    else if (key == GLUT_KEY_HOME) {
-        default_position(r_i_min, r_j_min, r_y_min, r_i_max, r_j_max, r_y_max, r_r, r_g, r_b, r_rotate_x, r_rotate_y);
+    else if (key == GLUT_KEY_F12) {
+        rotate_y = -180;
+        rotate_x = 0;
     }
-     glutPostRedisplay(); //а это просто обязательная функция
+
+    else if (key == GLUT_KEY_F11) {
+        rotate_y = -180;
+        rotate_x = 270;
+    }
+
+    else if (key == GLUT_KEY_F10) {
+        rotate_y = -270;
+        rotate_x = 0;
+    }
+
+    glutPostRedisplay(); //а это просто обязательная функция
+
 }
 
-/////////////////////////////////////////////////////////////////
+
 
 
 #endif //INC_3DSEEBUTTLE_PAINTING_H
