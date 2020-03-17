@@ -1,6 +1,7 @@
 
 #include <GL/glut.h>  //библиотека GLUT
 #include "Painting.h"  //подключаем файлы заголовочные
+#include "WorkWithKeys.h"  //работа с клавиатурой
 //много всего и всё служебное
 
 int main(int argc, char* argv[]) {

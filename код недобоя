@@ -6,10 +6,49 @@
 // то я напишу здесь сразу реализацию и не буду создавать .cpp файлы (незачем)
 
 
+cmake_minimum_required(VERSION 3.15)
+project(3DSeeButtle)
+
+set(CMAKE_CXX_STANDARD 20)
+
+add_executable(3DSeeButtle main.cpp Painting_second_cube.h)
+find_package(OpenGL REQUIRED)
+find_package(GLUT REQUIRED)
+include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} )
+
+target_link_libraries(3DSeeButtle ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} )
+
+find_package(SFML 2.5 COMPONENTS graphics audio REQUIRED)
+
+target_link_libraries(3DSeeButtle sfml-graphics sfml-audio)
+
+
+
+
+#include <GL/glut.h>  //библиотека GLUT
+#include "Painting.h"  //подключаем файлы заголовочные
+//много всего и всё служебное
+
+int main(int argc, char* argv[]) {
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);  //параметры окна(двойная буферизация и всё такое)
+    glutInitWindowSize(1200, 800);  //это размеры окна
+    glutCreateWindow("Awesome Cube");  //это название создающегося окна
+    glEnable(GL_DEPTH_TEST);  //тест глубины или что-то такое
+    glutDisplayFunc(displayCell);  //вызвываем функцию, которая рисует кубы
+    glutReshapeFunc(changeSize);
+    glutKeyboardFunc(Keyboard);
+    glutSpecialFunc(specialKeys);  //вызываем функцию для поворотов кубиков
+
+    glutMainLoop();  //а это бесконечный цикл
+    return 0;
+
+}
+
+
 #ifndef INC_3DSEEBUTTLE_PAINTING_H
 #define INC_3DSEEBUTTLE_PAINTING_H
 
-#include "ChooseSide.h"
 #include <iostream>
 
 double rotate_y=135;  //начальный поворот куба по у
@@ -38,9 +77,105 @@ double& r_b = b;
 double& r_rotate_x = rotate_x;
 double& r_rotate_y = rotate_y;
 
+void default_position (float& r_i_min, float& r_j_min, float& r_y_min, float& r_i_max, float& r_j_max, float& r_y_max, double& r_r, double& r_g, double& r_b,double& r_rotate_x, double& r_rotate_y) {
+    r_i_min = -1;
+    r_j_min = -1;
+    r_y_min = -1;
+    r_i_max = 1;
+    r_j_max = 1;
+    r_y_max = 1;
+    r_r = 0.5;
+    r_g = 0.5;
+    r_b = 0.5;
+    r_rotate_x = 325;
+    r_rotate_y = 135;
+}
+
+void view_first_side (float& r_i_min, float& r_j_min, float& r_y_min, float& r_i_max, float& r_j_max, float& r_y_max, double& r_r, double& r_g, double& r_b, double& r_rotate_x, double& r_rotate_y) {
+    r_i_min = 0.24;
+    r_j_min = -1;
+    r_y_min = -1;
+    r_i_max = 0.26;
+    r_j_max = 1;
+    r_y_max = 1;
+    r_r = 1;
+    r_g = 0;
+    r_b = 0;
+    r_rotate_x = 325;
+    r_rotate_y = 135;
+}
+
+void view_second_side (float& r_i_min, float& r_j_min, float& r_y_min, float& r_i_max, float& r_j_max, float& r_y_max, double& r_r, double& r_g, double& r_b, double& r_rotate_x, double& r_rotate_y) {
+    r_i_min = -1;
+    r_j_min = 0.24;
+    r_y_min = -1;
+    r_i_max = 1;
+    r_j_max = 0.26;
+    r_y_max = 1;
+    r_r = 0;
+    r_g = 1;
+    r_b = 0;
+    r_rotate_x=325;
+    r_rotate_y=135;
+}
+
+void view_third_side (float& r_i_min, float& r_j_min, float& r_y_min, float& r_i_max, float& r_j_max, float& r_y_max, double& r_r, double& r_g, double& r_b, double& r_rotate_x, double& r_rotate_y) {
+    r_i_min = -1;
+    r_j_min = -1;
+    r_y_min = 0.24;
+    r_i_max = 1;
+    r_j_max = 1;
+    r_y_max = 0.26;
+    r_r = 0;
+    r_g = 0;
+    r_b = 1;
+    r_rotate_x=325;
+    r_rotate_y=135;
+}
 ////////////////////////////////////////////////////////////////////////
 ////////////////переходим к плоскому виду///////////////////////////////
 ////////////////////////////////////////////////////////////////////////
+void choose_first_side (float& r_i_min, float& r_j_min, float& r_y_min, float& r_i_max, float& r_j_max, float& r_y_max, double& r_r, double& r_g, double& r_b, double& r_rotate_x, double& r_rotate_y) {
+    r_i_min = 0.24;
+    r_j_min = -1;
+    r_y_min = -1;
+    r_i_max = 0.26;
+    r_j_max = 1;
+    r_y_max = 1;
+    r_r = 1;
+    r_g = 0;
+    r_b = 0;
+    r_rotate_x = -180;
+    r_rotate_y = -90;
+}
+
+void choose_second_side (float& r_i_min, float& r_j_min, float& r_y_min, float& r_i_max, float& r_j_max, float& r_y_max, double& r_r, double& r_g, double& r_b, double& r_rotate_x, double& r_rotate_y) {
+    r_i_min = -1;
+    r_j_min = 0.24;
+    r_y_min = -1;
+    r_i_max = 1;
+    r_j_max = 0.26;
+    r_y_max = 1;
+    r_r = 0;
+    r_g = 1;
+    r_b = 0;
+    r_rotate_x = -90;
+    r_rotate_y = 270;
+}
+
+void choose_third_side (float& r_i_min, float& r_j_min, float& r_y_min, float& r_i_max, float& r_j_max, float& r_y_max, double& r_r, double& r_g, double& r_b, double& r_rotate_x, double& r_rotate_y) {
+    r_i_min = -1;
+    r_j_min = -1;
+    r_y_min = 0.24;
+    r_i_max = 1;
+    r_j_max = 1;
+    r_y_max = 0.26;
+    r_r = 0;
+    r_g = 0;
+    r_b = 1;
+    r_rotate_x = -180;
+    r_rotate_y = 0;
+}
 
 void displayCell() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //очищаем экран, чтобы картинки "не размножались"
@@ -1007,6 +1142,65 @@ void changeSize(int w, int h)
     glLoadIdentity();
 }
 
+//функция взаимодействия с клавиатурой
+void Keyboard (unsigned char key, int x, int y) {
+    if (key == '7') {
+        choose_first_side(r_i_min, r_j_min, r_y_min, r_i_max, r_j_max, r_y_max, r_r, r_g, r_b, r_rotate_x, r_rotate_y);
+    }
+
+    if (key == '8') {
+        choose_second_side(r_i_min, r_j_min, r_y_min, r_i_max, r_j_max, r_y_max, r_r, r_g, r_b, r_rotate_x, r_rotate_y);
+    }
+
+    if (key == '9') {
+        choose_third_side(r_i_min, r_j_min, r_y_min, r_i_max, r_j_max, r_y_max, r_r, r_g, r_b, r_rotate_x, r_rotate_y);
+    }
+         glutPostRedisplay(); //а это просто обязательная функция
+
+}
+
+void specialKeys( int key, int x, int y) {
+
+    if (key == GLUT_KEY_RIGHT) //если нажата клавиша "вправо", то поворачиваем
+        rotate_y += 5;
+
+    else if (key == GLUT_KEY_LEFT)  //аналогично для левой клавиши
+        rotate_y -= 5;
+
+    else if (key == GLUT_KEY_UP)  //это уже повороты  вверх и вниз
+        rotate_x += 5;
+
+    else if (key == GLUT_KEY_DOWN)
+        rotate_x -= 5;
+
+    else if (key == GLUT_KEY_PAGE_UP) {
+        show_first_cube = true;
+        show_second_cube = false;
+
+    }
+    else if (key == GLUT_KEY_PAGE_DOWN) {
+        show_second_cube = true;
+        show_first_cube = false;
+
+    }
+    else if (key == GLUT_KEY_F7) {
+        view_first_side(r_i_min, r_j_min, r_y_min, r_i_max, r_j_max, r_y_max, r_r, r_g, r_b, r_rotate_x,
+                        r_rotate_y);
+    }
+    else if (key == GLUT_KEY_F8) {
+        view_second_side(r_i_min, r_j_min, r_y_min, r_i_max, r_j_max, r_y_max, r_r, r_g, r_b, r_rotate_x,
+                         r_rotate_y);
+    }
+    else if (key == GLUT_KEY_F9) {
+        view_third_side(r_i_min, r_j_min, r_y_min, r_i_max, r_j_max, r_y_max, r_r, r_g, r_b, r_rotate_x,
+                        r_rotate_y);
+    }
+
+    else if (key == GLUT_KEY_HOME) {
+        default_position(r_i_min, r_j_min, r_y_min, r_i_max, r_j_max, r_y_max, r_r, r_g, r_b, r_rotate_x, r_rotate_y);
+    }
+     glutPostRedisplay(); //а это просто обязательная функция
+}
 
 /////////////////////////////////////////////////////////////////
 

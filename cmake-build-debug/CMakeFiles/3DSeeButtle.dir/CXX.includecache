@@ -6,13 +6,23 @@
 
 #IncludeRegexTransform: 
 
+/home/xaero/Документы/Repo/3DSeeButtle/ChooseSide.h
+
 /home/xaero/Документы/Repo/3DSeeButtle/Painting.h
+ChooseSide.h
+/home/xaero/Документы/Repo/3DSeeButtle/ChooseSide.h
 iostream
 -
+
+/home/xaero/Документы/Repo/3DSeeButtle/WorkWithKeys.h
+Painting.h
+/home/xaero/Документы/Repo/3DSeeButtle/Painting.h
 
 /home/xaero/Документы/Repo/3DSeeButtle/main.cpp
 GL/glut.h
 -
 Painting.h
 /home/xaero/Документы/Repo/3DSeeButtle/Painting.h
+WorkWithKeys.h
+/home/xaero/Документы/Repo/3DSeeButtle/WorkWithKeys.h
 
