@@ -38,16 +38,6 @@ void specialKeys( int key, int x, int y) {
     else if (key == GLUT_KEY_DOWN)
         rotate_x -= 5;
 
-    else if (key == GLUT_KEY_PAGE_UP) {
-        show_first_cube = true;
-        show_second_cube = false;
-
-    }
-    else if (key == GLUT_KEY_PAGE_DOWN) {
-        show_second_cube = true;
-        show_first_cube = false;
-
-    }
     else if (key == GLUT_KEY_F7) {
         view_first_side(r_i_min, r_j_min, r_y_min, r_i_max, r_j_max, r_y_max, r_r, r_g, r_b, r_rotate_x,
                         r_rotate_y);
