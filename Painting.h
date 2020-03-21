@@ -53,11 +53,15 @@ void displayCell() {
     glEnable(GL_BLEND);  //разрешаем мешать цвета
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);  //устанавдиваем уровень прозрачности - пока до конца не разобрался
 
+    red = r;
+    green = g;
+    blue = b;
+
     Cube a[125];
-    for (int i = 0; i < 1; i+= 1)
-        for(int j = 0; j < 1; j+= 1)
-            for (int k = 0; k < 2; k+= 1)
-                a[i + j + k] = Cube(1, i, j, k, 1, 0, 0, 0.3);
+    for (int i = 0; i < 5; i++)
+        for(int j = 0; j < 5; j++)
+            for (int k = 0; k < 5; k++)
+                a[i + j + k] = Cube(0.2, i / 5. - 0.4, j / 5. - 0.4, k / 5. - 0.4, r, b, g, 0.25);
 /*
     if (show_first_cube == true) {
         red = r;
