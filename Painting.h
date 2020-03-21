@@ -57,11 +57,11 @@ void displayCell() {
     green = g;
     blue = b;
 
-    Cube a[125];
+    Cube a[5][5][5];
     for (int i = 0; i < 5; i++)
         for(int j = 0; j < 5; j++)
             for (int k = 0; k < 5; k++)
-                a[i + j + k] = Cube(0.2, i / 5. - 0.4, j / 5. - 0.4, k / 5. - 0.4, r, b, g, 0.25);
+                a[i][j][k] = Cube(0.2, i / 5. - 0.4, j / 5. - 0.4, k / 5. - 0.4, r, b, g, 0.25);
 /*
     if (show_first_cube == true) {
         red = r;

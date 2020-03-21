@@ -268,7 +268,9 @@ public:
         glVertex3f(-sizeCell + i, -sizeCell + j, -sizeCell + y);
         glEnd();*/
     }
+    void setRed(double red){
 
+    };
 
 };
 
