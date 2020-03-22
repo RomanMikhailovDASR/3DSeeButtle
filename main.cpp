@@ -2,7 +2,6 @@
 #include <GL/glut.h>  //библиотека GLUT
 #include "Painting.h"  //подключаем файлы заголовочные
 #include "WorkWithKeys.h"  //работа с клавиатурой
-#include "Cube.h"
 //много всего и всё служебное
 
 int main(int argc, char* argv[]) {
@@ -15,6 +14,7 @@ int main(int argc, char* argv[]) {
     glutReshapeFunc(changeSize);
     glutKeyboardFunc(Keyboard);
     glutSpecialFunc(specialKeys);  //вызываем функцию для поворотов кубиков
+
 
     glutMainLoop();  //а это бесконечный цикл
     return 0;
