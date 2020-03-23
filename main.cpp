@@ -4,7 +4,8 @@
 #include "WorkWithKeys.h"  //работа с клавиатурой
 //много всего и всё служебное
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[])
+{
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);  //параметры окна(двойная буферизация и всё такое)
     glutInitWindowSize(1200, 800);  //это размеры окна
@@ -15,7 +16,7 @@ int main(int argc, char* argv[]) {
     glutKeyboardFunc(Keyboard);
     glutSpecialFunc(specialKeys);
     glutReshapeFunc(changeSize);
-      //вызываем функцию для поворотов кубиков
+    //вызываем функцию для поворотов кубиков
 
 
     glutMainLoop();  //а это бесконечный цикл

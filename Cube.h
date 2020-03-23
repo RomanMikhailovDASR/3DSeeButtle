@@ -24,6 +24,7 @@ private:
 
 public:
     int forTransparancy;
+
     Cube()
     {
         transparency = 0;
@@ -59,12 +60,14 @@ public:
         this->green = Green;
     }
 
-    void setTransparency(double transparancy){
+    void setTransparency(double transparancy)
+    {
         this->transparency = transparancy;
         forTransparancy = 1;
     }
 
-    void setTransparancyNothing(){
+    void setTransparancyNothing()
+    {
         if (forTransparancy == 0)
         {
             transparency = 0.11;

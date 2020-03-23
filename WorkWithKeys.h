@@ -45,16 +45,16 @@ void specialKeys(int key, int x, int y)
 
     else if (key == GLUT_KEY_F7)
     {
-        view_first_side(r_rotate_x,r_rotate_y);
+        view_first_side(r_rotate_x, r_rotate_y);
     } else if (key == GLUT_KEY_F8)
     {
-        view_second_side(r_rotate_x,r_rotate_y);
+        view_second_side(r_rotate_x, r_rotate_y);
     } else if (key == GLUT_KEY_F9)
     {
-        view_third_side(r_rotate_x,r_rotate_y);
+        view_third_side(r_rotate_x, r_rotate_y);
     } else if (key == GLUT_KEY_HOME)
     {
-        default_position(r_rotate_x,r_rotate_y);
+        default_position(r_rotate_x, r_rotate_y);
     }
     glutPostRedisplay(); //а это просто обязательная функция
 }

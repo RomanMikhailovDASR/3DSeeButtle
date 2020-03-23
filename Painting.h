@@ -36,10 +36,10 @@ void displayCell()
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);  //устанавдиваем уровень прозрачности - пока до конца не разобрался
 
      if (forOnePaint == 0){
-            for (int i = 0; i < LengthBigCube; i++)
-                 for (int j = 0; j < LengthBigCube; j++)
-                     for (int k = 0; k < LengthBigCube; k++)
-                      {
+         for (int i = 0; i < LengthBigCube; i++)
+             for (int j = 0; j < LengthBigCube; j++)
+                 for (int k = 0; k < LengthBigCube; k++)
+                 {
                          a[i][j][k] = Cube(0.2, i / 5. - 0.4, j / 5. - 0.4, k / 5. - 0.4, 0.11);
                          a[i][j][k].setColor(0.5, 0.8, 0.5);
                          forOnePaint = 1;
