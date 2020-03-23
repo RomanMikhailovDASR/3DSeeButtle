@@ -5,13 +5,15 @@
 #ifndef INC_3DSEEBUTTLE_CUBE_H
 #define INC_3DSEEBUTTLE_CUBE_H
 const int LengthBigCube = 5;
-
+int forEnter = 0;
+bool firstSide = 0, secondSide = 0, thirdSide = 0;
 class Cube
 {
 private:
     double transparency;  //прозрачность
     double length;  //длина стороны
     int forHit;  //для ударов и выбора кубика
+      //для переключений между режимами игрыы (выбор, стрельба)
 
 
     double red = 0.5;
@@ -47,6 +49,7 @@ public:
         this->transparency = transparency;
         forHit = 0;
         forTransparancy = 0;
+        forEnter = 0;
 
         this->x = x;
         this->y = y;

@@ -46,7 +46,6 @@ void displayCell()
                       }
                 }
 
-
     for (int i = 0; i < LengthBigCube; i++)
         for (int j = 0; j < LengthBigCube; j++)
             for (int k = 0; k < LengthBigCube; k++)
@@ -54,8 +53,7 @@ void displayCell()
                 a[i][j][k].paintCube();
                 a[i][j][k].setTransparancyNothing();
             }
-
-
+    
     glFlush();
     glutSwapBuffers();
 }

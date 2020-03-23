@@ -22,7 +22,7 @@ void choose_first_side(double &r_rotate_x, double &r_rotate_y)
     for (int j = 0; j < 5; j++)
         for (int k = 0; k < 5; k++)
         {
-            a[4][j][k].setColor(1, 0, 0);
+            a[4][j][k].setColor(0.2, 0, 0);
             a[4][j][k].setTransparency(0.5);
         }
 
@@ -41,7 +41,7 @@ void choose_second_side(double &r_rotate_x, double &r_rotate_y)
     for (int j = 0; j < 5; j++)
         for (int k = 0; k < 5; k++)
         {
-            a[j][4][k].setColor(0, 1, 0);
+            a[j][4][k].setColor(0, 0.2, 0);
             a[j][4][k].setTransparency(0.5);
         }
     r_rotate_x = -90;
@@ -59,7 +59,7 @@ void choose_third_side(double &r_rotate_x, double &r_rotate_y)
     for (int j = 0; j < 5; j++)
         for (int k = 0; k < 5; k++)
         {
-            a[k][j][4].setColor(0, 0, 1);
+            a[k][j][4].setColor(0, 0, 0.2);
             a[k][j][4].setTransparency(0.5);
         }
     r_rotate_x = -180;
