@@ -4,6 +4,7 @@
 
 #ifndef INC_3DSEEBUTTLE_CUBE_H
 #define INC_3DSEEBUTTLE_CUBE_H
+const int LengthBigCube = 5;
 
 class Cube
 {
@@ -12,44 +13,67 @@ private:
     double length;  //длина стороны
     int forHit;  //для ударов и выбора кубика
 
-    double red;
-    double blue;
-    double green;
+
+    double red = 0.5;
+    double blue = 0.5;
+    double green = 0.8;
 
     double x;
     double y;
     double z;
 
 public:
+    int forTransparancy;
     Cube()
     {
         transparency = 0;
         length = 0;
         forHit = 0;
+        forTransparancy = 0;
 
-        red = 1;
-        blue = 1;
-        green = 1;
+        red = 0.5;
+        blue = 0.5;
+        green = 0.5;
 
         x = 0;
         y = 0;
         z = 0;
     }
 
-    Cube(double length, double x, double y, double z, double red, double blue, double green, double transparency)
+    Cube(double length, double x, double y, double z, double transparency)
     {
         this->length = length;
         this->transparency = transparency;
         forHit = 0;
-
-        this->red = red;
-        this->blue = blue;
-        this->green = green;
+        forTransparancy = 0;
 
         this->x = x;
         this->y = y;
         this->z = z;
+    }
 
+    void setColor(double Red, double Green, double Blue)
+    {
+        this->red = Red;
+        this->blue = Blue;
+        this->green = Green;
+    }
+
+    void setTransparency(double transparancy){
+        this->transparency = transparancy;
+        forTransparancy = 1;
+    }
+
+    void setTransparancyNothing(){
+        if (forTransparancy == 0)
+        {
+            transparency = 0.11;
+            setColor(0.5, 0.8, 0.5);
+        }
+    }
+
+    void paintCube()
+    {
         glBegin(GL_POLYGON);  //начинаем рисовать грань
         glColor4f(red, green, blue, transparency);
         glVertex3f(x - length / 2, y - length / 2, z - length / 2);  //здесь и далее сначала цвет
@@ -268,13 +292,6 @@ public:
         glVertex3f(x - length / 2, y + length / 2, z + length / 2);
         glEnd();
 
-    }
-
-    void setColor(double red, double blue, double green)
-    {
-        this->red = red;
-        this->blue = blue;
-        this->green = green;
     }
 
     void setIsHitten(int hit)

@@ -10,10 +10,12 @@ int main(int argc, char* argv[]) {
     glutInitWindowSize(1200, 800);  //это размеры окна
     glutCreateWindow("Awesome Cube");  //это название создающегося окна
     glEnable(GL_DEPTH_TEST);  //тест глубины или что-то такое
+
     glutDisplayFunc(displayCell);  //вызвываем функцию, которая рисует кубы
-    glutReshapeFunc(changeSize);
     glutKeyboardFunc(Keyboard);
-    glutSpecialFunc(specialKeys);  //вызываем функцию для поворотов кубиков
+    glutSpecialFunc(specialKeys);
+    glutReshapeFunc(changeSize);
+      //вызываем функцию для поворотов кубиков
 
 
     glutMainLoop();  //а это бесконечный цикл

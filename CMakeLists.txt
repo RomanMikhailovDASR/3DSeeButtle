@@ -9,7 +9,7 @@ find_package(GLUT REQUIRED)
 
 include_directories( ${OPENGL_INCLUDE_DIRS}  ${GLUT_INCLUDE_DIRS} )
 
-target_link_libraries(3DSeeButtle ${OPENGL_LIBRARIES} ${GLUT_LIBRARY} )
+target_link_libraries(3DSeeButtle ${OPENGL_LIBRARIES} ${GLUT_LIBRARY})
 
 find_package(SFML 2.5 COMPONENTS graphics audio REQUIRED)
 
