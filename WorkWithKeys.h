@@ -10,7 +10,7 @@
 //введем координаты кубиков, которые подкрашиваются первыми при выборе фронтального вида
 int i_first_side = 4, j_first_side = 0, k_first_side = 0;
 int i_second_side = 4, j_second_side = 4, k_second_side = 4;
-int i_third_side = 0, j_third_side = 4, k_third_side = 4;
+int i_third_side = 4, j_third_side = 0, k_third_side = 4;
 int y1 = j_first_side, z1 = k_first_side;
 int x2 = i_second_side, z2 = k_second_side;
 int x3 = i_third_side, y3 = j_third_side;
@@ -33,7 +33,7 @@ void Keyboard(unsigned char key, int x, int y)
         } else if (thirdSide)
         {
             choose_third_side(r_rotate_x, r_rotate_y);
-            a[0][4][4].setColor(0, 0, 1);
+            a[4][0][4].setColor(0, 0, 1);
         }
         forEnter = 2;
         movement = false;
@@ -53,7 +53,7 @@ void Keyboard(unsigned char key, int x, int y)
         if (firstSide) {
             for (int i = 0; i < LengthBigCube; i++)
                 a[i][y1][z1].setColor(1, 1, 0);
-                a[0][y1][z1].setTransparency(1);
+            a[0][y1][z1].setTransparency(1);
             r_rotate_x = 325;
             r_rotate_y = 135;
         }
@@ -61,7 +61,7 @@ void Keyboard(unsigned char key, int x, int y)
         else if (secondSide) {
             for (int j = 0; j < LengthBigCube; j++)
                 a[x2][j][z2].setColor(1, 1, 0);
-                a[x2][0][z2].setTransparency(1);
+            a[x2][0][z2].setTransparency(1);
             r_rotate_x = 325;
             r_rotate_y = 135;
         }
@@ -69,41 +69,54 @@ void Keyboard(unsigned char key, int x, int y)
         else if (thirdSide) {
             for (int k = 0; k < LengthBigCube; k++)
                 a[x3][y3][k].setColor(1, 1, 0);
-                a[x3][y3][0].setTransparency(1);
+            a[x3][y3][0].setTransparency(1);
             r_rotate_x = 325;
             r_rotate_y = 135;
         }
     }
 
-    if (key == 27)
-    {
-        movement = true;
-        forEnter--;
-        if (forEnter < 0)
-            forEnter = 0;
-        default_position(r_rotate_x, r_rotate_y);
-        firstSide = false;
-        secondSide = false;
-        thirdSide = false;
-    }
+    if (key == 'F' || key == 'f')
+        {//FIRE!!! (типа пыжь пыжь и все покраснело)
+            if (firstSide) {
+                for(int i = 0; i < LengthBigCube; i++) {
+                    a[i][y1][z1].setColor(0.5, 0.5, 0.8);
+                    a[i][y1][z1].setTransparency(0.1);
+                }
+                a[p1][y1][z1].setColor(1, 0, 0);
+                a[p1][y1][z1].setTransparency(0.3);
+                a[p1][y1][z1].setIsHitten(1);
+            }
+            else if (secondSide) {
+                for(int j = 0; j < LengthBigCube; j++) {
+                    a[x2][j][z2].setColor(0.5, 0.5, 0.8);
+                    a[x2][j][z2].setTransparency(0.1);
+                }
+                a[x2][p2][z2].setColor(1, 0, 0);
+                a[x2][p2][z2].setTransparency(0.3);
+                a[x2][p2][z2].setIsHitten(1);
+            }
+            else if (thirdSide) {
+                for(int k = 0; k < LengthBigCube; k++) {
+                    a[x3][y3][k].setColor(0.5, 0.5, 0.8);
+                    a[x3][y3][k].setTransparency(0.1);
+                }
+                a[x3][y3][p3].setColor(1, 0, 0);
+                a[x3][y3][p3].setTransparency(0.3);
+                a[x3][y3][p3].setIsHitten(1);
+            }
+        }
 
-    if (key == 'f') {//FIRE!!! (типа пыжь пыжь и все покраснело)
-        if(firstSide) {
-            a[p1][y1][z1].setColor(1, 0, 0);
-            a[p1][y1][z1].setTransparency(0.3);
-            a[p1][y1][z1].setIsHitten(1);
-        }
-        else if (secondSide) {
-            a[x2][p2][z2].setColor(1, 0, 0);
-            a[x2][p2][z2].setTransparency(0.3);
-            a[x2][p2][z2].setIsHitten(1);
-        }
-        else if (thirdSide) {
-            a[x3][y3][p3].setColor(1, 0, 0);
-            a[x3][y3][p3].setTransparency(0.3);
-            a[x3][y3][p3].setIsHitten(1);
-        }
-    }
+            if (key == 27)
+            {
+                movement = true;
+                forEnter--;
+                if (forEnter < 0)
+                    forEnter = 0;
+                default_position(r_rotate_x, r_rotate_y);
+                firstSide = false;
+                secondSide = false;
+                thirdSide = false;
+            }
 
     glutPostRedisplay(); //а это просто обязательная функция
 }
@@ -304,37 +317,37 @@ void specialKeys(int key, int x, int y)
 {
     if (key == GLUT_KEY_RIGHT) {
         if (movement == true)
-        rotate_y += 5;
+            rotate_y += 5;
         else
-        ChooseColumn(4);
+            ChooseColumn(4);
     }//если нажата клавиша "вправо", то поворачиваем
 
     else if (key == GLUT_KEY_LEFT)  {
         if (movement == true)
-        rotate_y -= 5;
+            rotate_y -= 5;
         else
-        ChooseColumn(1);
+            ChooseColumn(1);
     }//аналогично для левой клавиши
 
     else if (key == GLUT_KEY_UP) {
         if (movement == true)
-        rotate_x += 5;
+            rotate_x += 5;
         else
-        ChooseColumn(2);
+            ChooseColumn(2);
     } //это уже повороты  вверх и вниз
 
     else if (key == GLUT_KEY_DOWN) {
         if(movement == true)
-        rotate_x -= 5;
+            rotate_x -= 5;
         else
-        ChooseColumn(3);
+            ChooseColumn(3);
     }
 
     else if (key == GLUT_KEY_HOME && forEnter <= 1)
     {
         default_position(r_rotate_x, r_rotate_y);
     }
-    
+
     else if (key == GLUT_KEY_PAGE_UP && forProbel == true) {
         ChooseCube(1);
     }
@@ -367,19 +380,19 @@ void specialKeys(int key, int x, int y)
         secondSide = false;
     }
 
-     /*if (key == GLUT_KEY_RIGHT && forEnter == 2) //если нажата клавиша "вправо", то поворачиваем
-     {}
+    /*if (key == GLUT_KEY_RIGHT && forEnter == 2) //если нажата клавиша "вправо", то поворачиваем
+    {}
 
-     else if (key == GLUT_KEY_LEFT && forEnter == 2)  //аналогично для левой клавиши
-         rotate_y -= 5;
+    else if (key == GLUT_KEY_LEFT && forEnter == 2)  //аналогично для левой клавиши
+        rotate_y -= 5;
 
-     else if (key == GLUT_KEY_UP && forEnter == 2)  //это уже повороты  вверх и вниз
-         rotate_x += 5;
+    else if (key == GLUT_KEY_UP && forEnter == 2)  //это уже повороты  вверх и вниз
+        rotate_x += 5;
 
-     else if (key == GLUT_KEY_DOWN && forEnter == 2)
-         rotate_x -= 5;
+    else if (key == GLUT_KEY_DOWN && forEnter == 2)
+        rotate_x -= 5;
 
-    */
+   */
     glutPostRedisplay(); //а это просто обязательная функция
 }
 
