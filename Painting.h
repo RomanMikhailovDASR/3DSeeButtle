@@ -19,10 +19,13 @@ double rotate_x = 325; //начальный поворот куба по х
 double &r_rotate_x = rotate_x;
 double &r_rotate_y = rotate_y;
 
+bool movement = true;
+
+
 Cube a[LengthBigCube][LengthBigCube][LengthBigCube];
+Cube b[LengthBigCube][LengthBigCube][LengthBigCube];
 
 int forOnePaint = 0;
-
 
 void displayCell()
 {
@@ -41,7 +44,7 @@ void displayCell()
                  for (int k = 0; k < LengthBigCube; k++)
                  {
                          a[i][j][k] = Cube(0.2, i / 5. - 0.4, j / 5. - 0.4, k / 5. - 0.4, 0.11);
-                         a[i][j][k].setColor(0.5, 0.8, 0.5);
+                         a[i][j][k].setColor(0.5, 0.5, 0.8);
                          forOnePaint = 1;
                       }
                 }

@@ -26,8 +26,8 @@ void choose_first_side(double &r_rotate_x, double &r_rotate_y)
             a[4][j][k].setTransparency(0.5);
         }
 
-    r_rotate_x = -180;
-    r_rotate_y = -90;
+    r_rotate_x = 0;
+    r_rotate_y = 90;
 }
 
 void choose_second_side(double &r_rotate_x, double &r_rotate_y)
@@ -45,7 +45,7 @@ void choose_second_side(double &r_rotate_x, double &r_rotate_y)
             a[j][4][k].setTransparency(0.5);
         }
     r_rotate_x = -90;
-    r_rotate_y = 270;
+    r_rotate_y = 180;
 }
 
 void choose_third_side(double &r_rotate_x, double &r_rotate_y)
@@ -62,8 +62,8 @@ void choose_third_side(double &r_rotate_x, double &r_rotate_y)
             a[k][j][4].setColor(0, 0, 0.2);
             a[k][j][4].setTransparency(0.5);
         }
-    r_rotate_x = -180;
-    r_rotate_y = 0;
+    r_rotate_x = 0;
+    r_rotate_y = 180;
 }
 
 void default_position(double &r_rotate_x, double &r_rotate_y)
@@ -73,7 +73,7 @@ void default_position(double &r_rotate_x, double &r_rotate_y)
             for (int k = 0; k < LengthBigCube; k++)
             {
                 a[i][j][k].forTransparancy = 0;
-                a[i][j][k].setColor(0.5, 0.8, 0.5);
+                a[i][j][k].setColor(0.5, 0.5, 0.8);
                 a[i][j][k].setTransparency(0.11);
             }
 

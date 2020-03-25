@@ -5,7 +5,7 @@
 #ifndef INC_3DSEEBUTTLE_CUBE_H
 #define INC_3DSEEBUTTLE_CUBE_H
 const int LengthBigCube = 5;
-int forEnter = 0;
+int forEnter = 1;
 bool firstSide = 0, secondSide = 0, thirdSide = 0;
 class Cube
 {
@@ -35,7 +35,7 @@ public:
         forTransparancy = 0;
 
         red = 0.5;
-        blue = 0.5;
+        blue = 0.8;
         green = 0.5;
 
         x = 0;
@@ -74,7 +74,7 @@ public:
         if (forTransparancy == 0)
         {
             transparency = 0.11;
-            setColor(0.5, 0.8, 0.5);
+            setColor(0.5, 0.5, 0.8);
         }
     }
 
