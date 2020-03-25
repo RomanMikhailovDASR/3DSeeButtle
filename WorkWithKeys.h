@@ -75,7 +75,7 @@ void Keyboard(unsigned char key, int x, int y)
         }
     }
 
-    if (key == 'F' || key == 'f')
+    if (key == 'F' || key == 'f' || key == 'а' || key == 'А')
         {//FIRE!!! (типа пыжь пыжь и все покраснело)
             if (firstSide) {
                 for(int i = 0; i < LengthBigCube; i++) {
@@ -83,7 +83,7 @@ void Keyboard(unsigned char key, int x, int y)
                     a[i][y1][z1].setTransparency(0.1);
                 }
                 a[p1][y1][z1].setColor(1, 0, 0);
-                a[p1][y1][z1].setTransparency(0.3);
+                a[p1][y1][z1].setTransparency(0.5);
                 a[p1][y1][z1].setIsHitten(1);
             }
             else if (secondSide) {
@@ -92,7 +92,7 @@ void Keyboard(unsigned char key, int x, int y)
                     a[x2][j][z2].setTransparency(0.1);
                 }
                 a[x2][p2][z2].setColor(1, 0, 0);
-                a[x2][p2][z2].setTransparency(0.3);
+                a[x2][p2][z2].setTransparency(0.5);
                 a[x2][p2][z2].setIsHitten(1);
             }
             else if (thirdSide) {
@@ -101,7 +101,7 @@ void Keyboard(unsigned char key, int x, int y)
                     a[x3][y3][k].setTransparency(0.1);
                 }
                 a[x3][y3][p3].setColor(1, 0, 0);
-                a[x3][y3][p3].setTransparency(0.3);
+                a[x3][y3][p3].setTransparency(0.5);
                 a[x3][y3][p3].setIsHitten(1);
             }
         }
@@ -316,13 +316,13 @@ void ChooseCube(int page) {
 void specialKeys(int key, int x, int y)
 {
     if (key == GLUT_KEY_RIGHT) {
-        if (movement == true)
+        if (movement == true && rotate_y <= 175)
             rotate_y += 5;
         else
             ChooseColumn(4);
     }//если нажата клавиша "вправо", то поворачиваем
 
-    else if (key == GLUT_KEY_LEFT)  {
+    else if (key == GLUT_KEY_LEFT && rotate_y >= 95)  {
         if (movement == true)
             rotate_y -= 5;
         else
@@ -330,14 +330,14 @@ void specialKeys(int key, int x, int y)
     }//аналогично для левой клавиши
 
     else if (key == GLUT_KEY_UP) {
-        if (movement == true)
+        if (movement == true && rotate_x <= -5)
             rotate_x += 5;
         else
             ChooseColumn(2);
     } //это уже повороты  вверх и вниз
 
     else if (key == GLUT_KEY_DOWN) {
-        if(movement == true)
+        if(movement == true && rotate_x >= - 85)
             rotate_x -= 5;
         else
             ChooseColumn(3);

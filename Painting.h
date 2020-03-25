@@ -15,7 +15,7 @@
 
 
 double rotate_y = 135;  //начальный поворот куба по у
-double rotate_x = 325; //начальный поворот куба по х
+double rotate_x = -35; //начальный поворот куба по х
 double &r_rotate_x = rotate_x;
 double &r_rotate_y = rotate_y;
 
