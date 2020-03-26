@@ -316,29 +316,37 @@ void ChooseCube(int page) {
 void specialKeys(int key, int x, int y)
 {
     if (key == GLUT_KEY_RIGHT) {
-        if (movement == true && rotate_y <= 175)
-            rotate_y += 5;
+        if (movement == true) {
+            if (rotate_y <= 175)
+                rotate_y += 5;
+        }
         else
             ChooseColumn(4);
     }//если нажата клавиша "вправо", то поворачиваем
 
-    else if (key == GLUT_KEY_LEFT && rotate_y >= 95)  {
-        if (movement == true)
-            rotate_y -= 5;
+    else if (key == GLUT_KEY_LEFT) {
+        if (movement == true) {
+            if (rotate_y >= 95)
+                rotate_y -= 5;
+        }
         else
             ChooseColumn(1);
     }//аналогично для левой клавиши
 
     else if (key == GLUT_KEY_UP) {
-        if (movement == true && rotate_x <= -5)
-            rotate_x += 5;
+        if (movement == true) {
+            if (rotate_x <= -5)
+                rotate_x += 5;
+        }
         else
             ChooseColumn(2);
     } //это уже повороты  вверх и вниз
 
     else if (key == GLUT_KEY_DOWN) {
-        if(movement == true && rotate_x >= - 85)
-            rotate_x -= 5;
+        if(movement == true) {
+            if (rotate_x >= -85)
+                rotate_x -= 5;
+        }
         else
             ChooseColumn(3);
     }
