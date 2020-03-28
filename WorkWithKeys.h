@@ -24,15 +24,15 @@ void Keyboard(unsigned char key, int x, int y)
         if (firstSide)
         {
             choose_first_side(r_rotate_x, r_rotate_y);
-            a[4][0][0].setColor(1, 0, 0);
+            a[i_first_side][j_first_side][k_first_side].setColor(1, 0, 0);
         } else if (secondSide)
         {
             choose_second_side(r_rotate_x, r_rotate_y);
-            a[4][4][4].setColor(0, 1, 0);
+            a[i_second_side][j_second_side][k_second_side].setColor(0, 1, 0);
         } else if (thirdSide)
         {
             choose_third_side(r_rotate_x, r_rotate_y);
-            a[4][0][4].setColor(0, 0, 1);
+            a[i_third_side][j_third_side][k_third_side].setColor(0, 0, 1);
         }
         forEnter = 2;
         movement = false;
@@ -86,6 +86,11 @@ void Keyboard(unsigned char key, int x, int y)
             a[p1][y1][z1].setColor(1, 0, 0);
             a[p1][y1][z1].setTransparency(0.5);
             a[p1][y1][z1].setIsHitten(1);
+            for (int i = p1 - 1; i <= p1 + 1; i++)
+                for (int j = y1 - 1; j <= y1 + 1; j++)
+                    for (int k = z1 - 1; k <= z1 + 1; k++)
+                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube && k < LengthBigCube)
+                            a[i][j][k].setPaint(false);
         } else if (secondSide)
         {
             for (int j = 0; j < LengthBigCube; j++)
@@ -96,6 +101,11 @@ void Keyboard(unsigned char key, int x, int y)
             a[x2][p2][z2].setColor(1, 0, 0);
             a[x2][p2][z2].setTransparency(0.5);
             a[x2][p2][z2].setIsHitten(1);
+            for (int i = x2 - 1; i <= x2 + 1; i++)
+                for (int j = p2 - 1; j <= p2 + 1; j++)
+                    for (int k = z2 - 1; k <= z2 + 1; k++)
+                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube && k < LengthBigCube)
+                            a[i][j][k].setPaint(false);
         } else if (thirdSide)
         {
             for (int k = 0; k < LengthBigCube; k++)
@@ -106,6 +116,11 @@ void Keyboard(unsigned char key, int x, int y)
             a[x3][y3][p3].setColor(1, 0, 0);
             a[x3][y3][p3].setTransparency(0.5);
             a[x3][y3][p3].setIsHitten(1);
+            for (int i = x3 - 1; i <= x3 + 1; i++)
+                for (int j = y3 - 1; j <= y3 + 1; j++)
+                    for (int k = p3 - 1; k <= p3 + 1; k++)
+                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube && k < LengthBigCube)
+                            a[i][j][k].setPaint(false);
         }
     }
 
