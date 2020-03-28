@@ -10,14 +10,14 @@
 #include "Painting.h"
 
 
-void choose_first_side(double &r_rotate_x, double &r_rotate_y)
+void choose_first_side(double &rotateX, double &rotateY)
 {
 
-    for (int i = 0; i < LengthBigCube; i++)
-        for (int j = 0; j < LengthBigCube; j++)
-            for (int k = 0; k < LengthBigCube; k++)
+    for (auto &i : a)
+        for (auto &j : i)
+            for (auto &k : j)
             {
-                a[i][j][k].forTransparancy = 0;
+                k.forTransparancy = 0;
             }
     for (int j = 0; j < 5; j++)
         for (int k = 0; k < 5; k++)
@@ -26,110 +26,110 @@ void choose_first_side(double &r_rotate_x, double &r_rotate_y)
             a[4][j][k].setTransparency(0.5);
         }
 
-    r_rotate_x = 0;
-    r_rotate_y = 90;
+    rotateX = 0;
+    rotateY = 90;
 }
 
-void choose_second_side(double &r_rotate_x, double &r_rotate_y)
+void choose_second_side(double &rotateX, double &rotateY)
 {
-    for (int i = 0; i < LengthBigCube; i++)
-        for (int j = 0; j < LengthBigCube; j++)
-            for (int k = 0; k < LengthBigCube; k++)
+    for (auto &i : a)
+        for (auto &j : i)
+            for (auto &k : j)
             {
-                a[i][j][k].forTransparancy = 0;
+                k.forTransparancy = 0;
             }
-    for (int j = 0; j < 5; j++)
+    for (auto &j : a)
         for (int k = 0; k < 5; k++)
         {
-            a[j][4][k].setColor(0, 0.2, 0);
-            a[j][4][k].setTransparency(0.5);
+            j[4][k].setColor(0, 0.2, 0);
+            j[4][k].setTransparency(0.5);
         }
-    r_rotate_x = -90;
-    r_rotate_y = 180;
+    rotateX = -90;
+    rotateY = 180;
 }
 
-void choose_third_side(double &r_rotate_x, double &r_rotate_y)
+void choose_third_side(double &rotateX, double &rotateY)
 {
-    for (int i = 0; i < LengthBigCube; i++)
-        for (int j = 0; j < LengthBigCube; j++)
-            for (int k = 0; k < LengthBigCube; k++)
+    for (auto &i : a)
+        for (auto &j : i)
+            for (auto &k : j)
             {
-                a[i][j][k].forTransparancy = 0;
+                k.forTransparancy = 0;
             }
     for (int j = 0; j < 5; j++)
-        for (int k = 0; k < 5; k++)
+        for (auto &k : a)
         {
-            a[k][j][4].setColor(0, 0, 0.2);
-            a[k][j][4].setTransparency(0.5);
+            k[j][4].setColor(0, 0, 0.2);
+            k[j][4].setTransparency(0.5);
         }
-    r_rotate_x = 0;
-    r_rotate_y = 180;
+    rotateX = 0;
+    rotateY = 180;
 }
 
-void default_position(double &r_rotate_x, double &r_rotate_y)
+void default_position(double &rotateX, double &rotateY)
 {
-    for (int i = 0; i < LengthBigCube; i++)
-        for (int j = 0; j < LengthBigCube; j++)
-            for (int k = 0; k < LengthBigCube; k++)
+    for (auto &i : a)
+        for (auto &j : i)
+            for (auto &k : j)
             {
-                a[i][j][k].forTransparancy = 0;
-                a[i][j][k].setColor(0.5, 0.5, 0.8);
-                a[i][j][k].setTransparency(0.11);
+                k.forTransparancy = 0;
+                k.setColor(0.5, 0.5, 0.8);
+                k.setTransparency(0.11);
             }
 
-    r_rotate_x = 325;
-    r_rotate_y = 135;
+    rotateX = 325;
+    rotateY = 135;
 }
 
-void view_first_side(double &r_rotate_x, double &r_rotate_y)
+void view_first_side(double &rotateX, double &rotateY)
 {
-    for (int i = 0; i < LengthBigCube; i++)
-        for (int j = 0; j < LengthBigCube; j++)
-            for (int k = 0; k < LengthBigCube; k++)
+    for (auto &i : a)
+        for (auto &j : i)
+            for (auto &k : j)
             {
-                a[i][j][k].forTransparancy = 0;
+                k.forTransparancy = 0;
             }
     for (int j = 0; j < 5; j++)
         for (int k = 0; k < 5; k++)
         {
             a[4][j][k].setColor(1, 0, 0);
         }
-    r_rotate_x = 325;
-    r_rotate_y = 135;
+    rotateX = 325;
+    rotateY = 135;
 }
 
-void view_second_side(double &r_rotate_x, double &r_rotate_y)
+void view_second_side(double &rotateX, double &rotateY)
 {
-    for (int i = 0; i < LengthBigCube; i++)
-        for (int j = 0; j < LengthBigCube; j++)
-            for (int k = 0; k < LengthBigCube; k++)
+    for (auto &i : a)
+        for (auto &j : i)
+            for (auto &k : j)
             {
-                a[i][j][k].forTransparancy = 0;
+                k.forTransparancy = 0;
             }
-    for (int j = 0; j < 5; j++)
+    for (auto &j : a)
         for (int k = 0; k < 5; k++)
         {
-            a[j][4][k].setColor(0, 1, 0);
+            j[4][k].setColor(0, 1, 0);
         }
-    r_rotate_x = 325;
-    r_rotate_y = 135;
+    rotateX = 325;
+    rotateY = 135;
 }
 
-void view_third_side(double &r_rotate_x, double &r_rotate_y)
+void view_third_side(double &rotateX, double &rotateY)
 {
-    for (int i = 0; i < LengthBigCube; i++)
-        for (int j = 0; j < LengthBigCube; j++)
-            for (int k = 0; k < LengthBigCube; k++)
+    for (auto &i : a)
+        for (auto &j : i)
+            for (auto &k : j)
             {
-                a[i][j][k].forTransparancy = 0;
+                k.forTransparancy = 0;
             }
     for (int j = 0; j < 5; j++)
-        for (int k = 0; k < 5; k++)
+        for (auto &k : a)
         {
-            a[k][j][4].setColor(0, 0, 1);
+            k[j][4].setColor(0, 0, 1);
         }
-    r_rotate_x = 325;
-    r_rotate_y = 135;
+    rotateX = 325;
+    rotateY = 135;
 }
 
 

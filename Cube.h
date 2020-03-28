@@ -70,13 +70,7 @@ public:
 
     void setPaint(bool isPainted)
     {
-        if (isPainted)
-            this->isPaint = true;
-        else
-        {
-            this->isPaint = false;
-            //forOnePaint = 0;
-        }
+        this->isPaint = isPainted;
     }
 
     bool getPaint()

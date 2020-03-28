@@ -40,7 +40,6 @@ void displayCell()
 
     if (forOnePaint == 0)
     {
-        std::cout << "1";
         for (int i = 0; i < LengthBigCube; i++)
             for (int j = 0; j < LengthBigCube; j++)
                 for (int k = 0; k < LengthBigCube; k++)
@@ -53,14 +52,15 @@ void displayCell()
     }
 
 
-    for (int i = 0; i < LengthBigCube; i++)
-        for (int j = 0; j < LengthBigCube; j++)
-            for (int k = 0; k < LengthBigCube; k++)
-            {
-                if (a[i][j][k].getPaint())
-                a[i][j][k].paintCube();
-                a[i][j][k].setTransparancyNothing();
-            }
+    for (auto &i : a)
+        for (auto &j : i)
+            for (auto &k : j)
+                if (k.getPaint())
+                {
+
+                    k.paintCube();
+                    k.setTransparancyNothing();
+                }
 
     glFlush();
     glutSwapBuffers();
