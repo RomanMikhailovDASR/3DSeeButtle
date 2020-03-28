@@ -14,13 +14,12 @@ int i_third_side = 4, j_third_side = 0, k_third_side = 4;
 int y1 = j_first_side, z1 = k_first_side;
 int x2 = i_second_side, z2 = k_second_side;
 int x3 = i_third_side, y3 = j_third_side;
-bool forProbel = false; //защита от дурака (так себе защита, разве уж совсем дурак попадется)
 int p1 = 0, p2 = 0, p3 = 0;
 
 //функция взаимодействия с клавиатурой
 void Keyboard(unsigned char key, int x, int y)
 {
-    if (key == 13)
+    if (key == 13 && forEnter == 1)
     {
         if (firstSide)
         {
@@ -39,9 +38,8 @@ void Keyboard(unsigned char key, int x, int y)
         movement = false;
     }
 
-    if (key == 32)
+    if (key == 13 && forEnter == 3)
     {
-        forProbel = true;
         movement = true;
         for (auto &i : a)
             for (auto &j : i)
@@ -73,9 +71,10 @@ void Keyboard(unsigned char key, int x, int y)
             r_rotate_x = 325;
             r_rotate_y = 135;
         }
+        forEnter = 4;
     }
 
-    if (key == 'F' || key == 'f' || key == 'а' || key == 'А')
+    if (key == 13 && forEnter == 5)
     {//FIRE!!! (типа пыжь пыжь и все покраснело)
         if (firstSide)
         {
@@ -248,7 +247,7 @@ void ChooseColumn(int arrow)
             a[x3][y3][4].setColor(0, 0, 1);
         }
     }
-
+    forEnter = 3;
 }
 
 void ChooseCube(int page)
@@ -358,18 +357,21 @@ void specialKeys(int key, int x, int y)
     } else if (key == GLUT_KEY_HOME && forEnter <= 1)
     {
         default_position(r_rotate_x, r_rotate_y);
-    } else if (key == GLUT_KEY_PAGE_UP && forProbel)
+    } else if (key == GLUT_KEY_PAGE_UP && (forEnter == 4 || forEnter == 5))
     {
         ChooseCube(1);
-    } else if (key == GLUT_KEY_PAGE_DOWN && forProbel)
+        forEnter = 5;
+    } else if (key == GLUT_KEY_PAGE_DOWN && (forEnter == 4 || forEnter == 5))
     {
         ChooseCube(2);
+        forEnter = 5;
     }
 
 
     if (key == GLUT_KEY_F7)
     {
         view_first_side(r_rotate_x, r_rotate_y);
+        forEnter = 1;
         movement = false;
         firstSide = true;
         thirdSide = false;
