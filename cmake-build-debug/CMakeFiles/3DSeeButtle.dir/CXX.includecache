@@ -6,29 +6,29 @@
 
 #IncludeRegexTransform: 
 
-/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/ChooseSide.h
+/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/ChooseSide.h
 Cube.h
-/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/Cube.h
+/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/Cube.h
 Painting.h
-/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/Painting.h
+/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/Painting.h
 
-/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/Cube.h
+/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/Cube.h
 
-/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/Painting.h
+/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/Painting.h
 iostream
 -
 Cube.h
-/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/Cube.h
+/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/Cube.h
 
-/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/WorkWithKeys.h
+/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/WorkWithKeys.h
 ChooseSide.h
-/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/ChooseSide.h
+/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/ChooseSide.h
 
-/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/main.cpp
+/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/main.cpp
 GL/glut.h
 -
 Painting.h
-/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/Painting.h
+/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/Painting.h
 WorkWithKeys.h
-/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/WorkWithKeys.h
+/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/WorkWithKeys.h
 

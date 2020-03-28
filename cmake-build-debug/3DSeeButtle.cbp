@@ -8,28 +8,28 @@
 		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug"/>
+				<Option working_dir="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug"/>
+				<Option working_dir="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="3DSeeButtle">
-				<Option output="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug/3DSeeButtle" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug"/>
+				<Option output="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug/3DSeeButtle" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -44,15 +44,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 3DSeeButtle"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug/Makefile&quot;  VERBOSE=1 3DSeeButtle"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="3DSeeButtle/fast">
-				<Option output="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug/3DSeeButtle" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug"/>
+				<Option output="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug/3DSeeButtle" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -67,51 +67,51 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 3DSeeButtle/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug/Makefile&quot;  VERBOSE=1 3DSeeButtle/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug"/>
+				<Option working_dir="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/ChooseSide.h">
+		<Unit filename="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/ChooseSide.h">
 			<Option target="3DSeeButtle"/>
 		</Unit>
-		<Unit filename="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/Painting_second_cube.h">
+		<Unit filename="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/Painting_second_cube.h">
 			<Option target="3DSeeButtle"/>
 		</Unit>
-		<Unit filename="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/WorkWithKeys.h">
+		<Unit filename="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/WorkWithKeys.h">
 			<Option target="3DSeeButtle"/>
 		</Unit>
-		<Unit filename="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/main.cpp">
+		<Unit filename="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/main.cpp">
 			<Option target="3DSeeButtle"/>
 		</Unit>
-		<Unit filename="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/CMakeLists.txt">
+		<Unit filename="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfig.cmake">
+		<Unit filename="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfig.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
 		</Unit>
-		<Unit filename="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfigDependencies.cmake">
+		<Unit filename="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfigDependencies.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
 		</Unit>
-		<Unit filename="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfigVersion.cmake">
+		<Unit filename="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfigVersion.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
 		</Unit>
-		<Unit filename="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLSharedTargets-none.cmake">
+		<Unit filename="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLSharedTargets-none.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
 		</Unit>
-		<Unit filename="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLSharedTargets.cmake">
+		<Unit filename="/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/../../../../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLSharedTargets.cmake">
 			<Option virtualFolder="CMake Files\..\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
 		</Unit>
 	</Project>

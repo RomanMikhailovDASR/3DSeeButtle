@@ -25,7 +25,6 @@ bool movement = true;
 Cube a[LengthBigCube][LengthBigCube][LengthBigCube];
 Cube b[LengthBigCube][LengthBigCube][LengthBigCube];
 
-int forOnePaint = 0;
 
 void displayCell()
 {
@@ -36,18 +35,22 @@ void displayCell()
 
     glEnable(GL_ALPHA_TEST); //включаем прозрачность
     glEnable(GL_BLEND);  //разрешаем мешать цвета
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);  //устанавдиваем уровень прозрачности - пока до конца не разобрался
+    glBlendFunc(GL_SRC_ALPHA,
+                GL_ONE_MINUS_SRC_ALPHA);  //устанавдиваем уровень прозрачности - пока до конца не разобрался
 
-     if (forOnePaint == 0){
-         for (int i = 0; i < LengthBigCube; i++)
-             for (int j = 0; j < LengthBigCube; j++)
-                 for (int k = 0; k < LengthBigCube; k++)
-                 {
-                         a[i][j][k] = Cube(0.2, i / 5. - 0.4, j / 5. - 0.4, k / 5. - 0.4, 0.11);
-                         a[i][j][k].setColor(0.5, 0.5, 0.8);
-                         forOnePaint = 1;
-                      }
-                }
+    if (forOnePaint == 0)
+    {
+        for (int i = 0; i < LengthBigCube; i++)
+            for (int j = 0; j < LengthBigCube; j++)
+                for (int k = 0; k < LengthBigCube; k++)
+                    if (a[i][j][k].getPaint())
+                    {
+
+                        a[i][j][k] = Cube(0.2, i / 5. - 0.4, j / 5. - 0.4, k / 5. - 0.4, 0.11);
+                        a[i][j][k].setColor(0.5, 0.5, 0.8);
+                        forOnePaint = 1;
+                    }
+    }
 
     for (int i = 0; i < LengthBigCube; i++)
         for (int j = 0; j < LengthBigCube; j++)
@@ -56,7 +59,7 @@ void displayCell()
                 a[i][j][k].paintCube();
                 a[i][j][k].setTransparancyNothing();
             }
-    
+
     glFlush();
     glutSwapBuffers();
 }

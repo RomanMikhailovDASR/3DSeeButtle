@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/main.cpp" "/home/alik/Documents/Programming/Repository/Roma3DButtle/3DSeeButtle/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/main.cpp.o"
+  "/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/main.cpp" "/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

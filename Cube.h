@@ -7,13 +7,16 @@
 const int LengthBigCube = 5;
 int forEnter = 1;
 bool firstSide = 0, secondSide = 0, thirdSide = 0;
+int forOnePaint = 0;
+
 class Cube
 {
 private:
     double transparency;  //прозрачность
     double length;  //длина стороны
     int forHit;  //для ударов и выбора кубика
-      //для переключений между режимами игрыы (выбор, стрельба)
+    bool isPaint;
+    //для переключений между режимами игрыы (выбор, стрельба)
 
 
     double red = 0.5;
@@ -33,6 +36,7 @@ public:
         length = 0;
         forHit = 0;
         forTransparancy = 0;
+        isPaint = true;
 
         red = 0.5;
         blue = 0.8;
@@ -50,6 +54,7 @@ public:
         forHit = 0;
         forTransparancy = 0;
         forEnter = 0;
+        isPaint = true;
 
         this->x = x;
         this->y = y;
@@ -61,6 +66,22 @@ public:
         this->red = Red;
         this->blue = Blue;
         this->green = Green;
+    }
+
+    void setPaint(bool isPaint)
+    {
+        if (isPaint)
+            this->isPaint = true;
+        else
+        {
+            this->isPaint = false;
+            forOnePaint = 0;
+        }
+    }
+
+    bool getPaint()
+    {
+        return isPaint;
     }
 
     void setTransparency(double transparancy)
