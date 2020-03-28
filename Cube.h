@@ -4,7 +4,7 @@
 
 #ifndef INC_3DSEEBUTTLE_CUBE_H
 #define INC_3DSEEBUTTLE_CUBE_H
-const int LengthBigCube = 5;
+const int LengthBigCube = 6;
 int forEnter = 1;
 bool firstSide = false, secondSide = false, thirdSide = false;
 int forOnePaint = 0;

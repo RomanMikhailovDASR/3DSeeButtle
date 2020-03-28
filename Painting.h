@@ -46,9 +46,9 @@ void displayCell()
                     if (a[i][j][k].getPaint())
                     {
                         a[i][j][k] = Cube(1.1 / LengthBigCube,
-                                          i * 1.1 / LengthBigCube - LengthBigCube * 0.55 / LengthBigCube + 0.1,
-                                          j * 1.1 / LengthBigCube - LengthBigCube * 0.55 / LengthBigCube + 0.1,
-                                          k * 1.1 / LengthBigCube - LengthBigCube * 0.55 / LengthBigCube + 0.1, 0.11);
+                                          i * 1.1 / LengthBigCube - LengthBigCube * 0.55 / LengthBigCube + 0.55 / LengthBigCube,
+                                          j * 1.1 / LengthBigCube - LengthBigCube * 0.55 / LengthBigCube + 0.55 / LengthBigCube,
+                                          k * 1.1 / LengthBigCube - LengthBigCube * 0.55 / LengthBigCube + 0.55 / LengthBigCube, 0.11);
                         a[i][j][k].setColor(0.5, 0.5, 0.8);
                         forOnePaint = 1;
                     }
