@@ -11,11 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6b7d39ea-9236-437e-b3fb-0f0c97fb2197" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/3DSeeButtle" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/3DSeeButtle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/main.cpp.o" afterDir="false" />
-    </list>
+    <list default="true" id="6b7d39ea-9236-437e-b3fb-0f0c97fb2197" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -111,6 +107,7 @@
       <workItem from="1585011556202" duration="99000" />
       <workItem from="1585028254119" duration="45000" />
       <workItem from="1585040908549" duration="256000" />
+      <workItem from="1585367867357" duration="255000" />
     </task>
     <task id="LOCAL-00001" summary="class Cube">
       <created>1584553962199</created>
@@ -154,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1584947813876</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Рисование/не рисование кубиков">
+      <created>1585368122805</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1585368122806</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,17 +171,18 @@
     <MESSAGE value="Форматирование" />
     <MESSAGE value="Починил все, что сломал" />
     <MESSAGE value="Подчистил" />
-    <option name="LAST_COMMIT_MESSAGE" value="Подчистил" />
+    <MESSAGE value="Рисование/не рисование кубиков" />
+    <option name="LAST_COMMIT_MESSAGE" value="Рисование/не рисование кубиков" />
   </component>
   <component name="WindowStateProjectService">
     <state x="590" y="215" width="800" height="684" key="#Notifications" timestamp="1584123078953">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state x="590" y="215" width="800" height="684" key="#Notifications/70.27.1850.1053@70.27.1850.1053" timestamp="1584123078953" />
-    <state x="459" y="128" width="1062" height="857" key="CommitChangelistDialog2" timestamp="1584988703282">
+    <state x="459" y="128" width="1062" height="857" key="CommitChangelistDialog2" timestamp="1585368122152">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state x="459" y="128" width="1062" height="857" key="CommitChangelistDialog2/70.27.1850.1053@70.27.1850.1053" timestamp="1584988703282" />
+    <state x="459" y="128" width="1062" height="857" key="CommitChangelistDialog2/70.27.1850.1053@70.27.1850.1053" timestamp="1585368122152" />
     <state x="778" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1584818261980">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>

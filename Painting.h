@@ -72,7 +72,7 @@ void changeSize(int w, int h)
     glViewport(0, 0, w, h);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    float ratio = w / (float) h;
+    float ratio = (float) w / (float) h;
     if (w <= h)
         glOrtho(-1, 1, -1 / ratio, 1 / ratio, 1, -1);
     else

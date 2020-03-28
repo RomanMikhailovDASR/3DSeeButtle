@@ -6,7 +6,7 @@
 #define INC_3DSEEBUTTLE_CUBE_H
 const int LengthBigCube = 5;
 int forEnter = 1;
-bool firstSide = 0, secondSide = 0, thirdSide = 0;
+bool firstSide = false, secondSide = false, thirdSide = false;
 int forOnePaint = 0;
 
 class Cube
@@ -68,9 +68,9 @@ public:
         this->green = Green;
     }
 
-    void setPaint(bool isPaint)
+    void setPaint(bool isPainted)
     {
-        if (isPaint)
+        if (isPainted)
             this->isPaint = true;
         else
         {
