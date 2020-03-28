@@ -8,9 +8,9 @@
 #include "ChooseSide.h"
 
 //введем координаты кубиков, которые подкрашиваются первыми при выборе фронтального вида
-int i_first_side = 4, j_first_side = 0, k_first_side = 0;
-int i_second_side = 4, j_second_side = 4, k_second_side = 4;
-int i_third_side = 4, j_third_side = 0, k_third_side = 4;
+int i_first_side = LengthBigCube - 1, j_first_side = 0, k_first_side = 0;
+int i_second_side = LengthBigCube - 1, j_second_side = LengthBigCube - 1, k_second_side = LengthBigCube - 1;
+int i_third_side = LengthBigCube - 1, j_third_side = 0, k_third_side = LengthBigCube - 1;
 int y1 = j_first_side, z1 = k_first_side;
 int x2 = i_second_side, z2 = k_second_side;
 int x3 = i_third_side, y3 = j_third_side;
@@ -143,123 +143,123 @@ void ChooseColumn(int arrow)
 {
     if (firstSide)
     {
-        a[4][4][4].setTransparency(0.5);
-        a[4][4][4].setColor(0.2, 0.0, 0.0);
+        a[LengthBigCube - 1][LengthBigCube - 1][LengthBigCube - 1].setTransparency(0.5);
+        a[LengthBigCube - 1][LengthBigCube - 1][LengthBigCube - 1].setColor(0.2, 0.0, 0.0);
 
 
         if (arrow == 4)
         {//работает стрелочка вправо
-            a[4][y1][z1].setTransparency(0.5);
-            a[4][y1][z1].setColor(0.2, 0.0, 0.0);
+            a[LengthBigCube - 1][y1][z1].setTransparency(0.5);
+            a[LengthBigCube - 1][y1][z1].setColor(0.2, 0.0, 0.0);
             z1++;
-            if (z1 > 4)
+            if (z1 > LengthBigCube - 1)
                 z1 = 0;
-            a[4][y1][z1].setColor(1, 0.0, 0.0);
+            a[LengthBigCube - 1][y1][z1].setColor(1, 0.0, 0.0);
         } else if (arrow == 2)
         {//стрелочка вверх
-            a[4][y1][z1].setTransparency(0.5);
-            a[4][y1][z1].setColor(0.2, 0.0, 0.0);
+            a[LengthBigCube - 1][y1][z1].setTransparency(0.5);
+            a[LengthBigCube - 1][y1][z1].setColor(0.2, 0.0, 0.0);
             y1++;
-            if (y1 > 4)
+            if (y1 > LengthBigCube - 1)
                 y1 = 0;
-            a[4][y1][z1].setColor(1, 0.0, 0.0);
+            a[LengthBigCube - 1][y1][z1].setColor(1, 0.0, 0.0);
         } else if (arrow == 1)
         {//стрелочка влево
-            a[4][y1][z1].setTransparency(0.5);
-            a[4][y1][z1].setColor(0.2, 0.0, 0.0);
+            a[LengthBigCube - 1][y1][z1].setTransparency(0.5);
+            a[LengthBigCube - 1][y1][z1].setColor(0.2, 0.0, 0.0);
             z1--;
             if (z1 < 0)
-                z1 = 4;
-            a[4][y1][z1].setColor(1, 0.0, 0.0);
+                z1 = LengthBigCube - 1;
+            a[LengthBigCube - 1][y1][z1].setColor(1, 0.0, 0.0);
         } else if (arrow == 3)
         {
-            a[4][y1][z1].setTransparency(0.5);
-            a[4][y1][z1].setColor(0.2, 0.0, 0.0);
+            a[LengthBigCube - 1][y1][z1].setTransparency(0.5);
+            a[LengthBigCube - 1][y1][z1].setColor(0.2, 0.0, 0.0);
             y1--;
             if (y1 < 0)
-                y1 = 4;
-            a[4][y1][z1].setColor(1, 0.0, 0.0);
+                y1 = LengthBigCube - 1;
+            a[LengthBigCube - 1][y1][z1].setColor(1, 0.0, 0.0);
 
         }
     } else if (secondSide)
     {
-        a[0][4][4].setTransparency(0.5);
-        a[0][4][4].setColor(0.0, 0.2, 0.0);
+        a[0][LengthBigCube - 1][LengthBigCube - 1].setTransparency(0.5);
+        a[0][LengthBigCube - 1][LengthBigCube - 1].setColor(0.0, 0.2, 0.0);
 
 
         if (arrow == 2)
         {//работает стрелочка вправо
-            a[x2][4][z2].setTransparency(0.5);
-            a[x2][4][z2].setColor(0.0, 0.2, 0.0);
+            a[x2][LengthBigCube - 1][z2].setTransparency(0.5);
+            a[x2][LengthBigCube - 1][z2].setColor(0.0, 0.2, 0.0);
             z2--;
             if (z2 < 0)
-                z2 = 4;
-            a[x2][4][z2].setColor(0, 1, 0.0);
+                z2 = LengthBigCube - 1;
+            a[x2][LengthBigCube - 1][z2].setColor(0, 1, 0.0);
         } else if (arrow == 1)
         {//стрелочка вверх
-            a[x2][4][z2].setTransparency(0.5);
-            a[x2][4][z2].setColor(0.0, 0.2, 0.0);
+            a[x2][LengthBigCube - 1][z2].setTransparency(0.5);
+            a[x2][LengthBigCube - 1][z2].setColor(0.0, 0.2, 0.0);
             x2++;
-            if (x2 > 4)
+            if (x2 > LengthBigCube - 1)
                 x2 = 0;
-            a[x2][4][z2].setColor(0, 1, 0.0);
+            a[x2][LengthBigCube - 1][z2].setColor(0, 1, 0.0);
         } else if (arrow == 3)
         {//стрелочка влево
-            a[x2][4][z2].setTransparency(0.5);
-            a[x2][4][z2].setColor(0.0, 0.2, 0.0);
+            a[x2][LengthBigCube - 1][z2].setTransparency(0.5);
+            a[x2][LengthBigCube - 1][z2].setColor(0.0, 0.2, 0.0);
             z2++;
-            if (z2 > 4)
+            if (z2 > LengthBigCube - 1)
                 z2 = 0;
-            a[x2][4][z2].setColor(0, 1, 0.0);
+            a[x2][LengthBigCube - 1][z2].setColor(0, 1, 0.0);
         } else if (arrow == 4)
         {//стрелочка вниз
-            a[x2][4][z2].setTransparency(0.5);
-            a[x2][4][z2].setColor(0.0, 0.2, 0.0);
+            a[x2][LengthBigCube - 1][z2].setTransparency(0.5);
+            a[x2][LengthBigCube - 1][z2].setColor(0.0, 0.2, 0.0);
             x2--;
             if (x2 < 0)
-                x2 = 4;
-            a[x2][4][z2].setColor(0, 1, 0.0);
+                x2 = LengthBigCube - 1;
+            a[x2][LengthBigCube - 1][z2].setColor(0, 1, 0.0);
 
         }
 
     } else if (thirdSide)
     {
-        a[0][4][4].setTransparency(0.5);
-        a[0][4][4].setColor(0.0, 0.0, 0.2);
+        a[0][LengthBigCube - 1][LengthBigCube - 1].setTransparency(0.5);
+        a[0][LengthBigCube - 1][LengthBigCube - 1].setColor(0.0, 0.0, 0.2);
 
 
         if (arrow == 1)
         {//работает стрелочка вправо
-            a[x3][y3][4].setTransparency(0.5);
-            a[x3][y3][4].setColor(0.0, 0.0, 0.2);
+            a[x3][y3][LengthBigCube - 1].setTransparency(0.5);
+            a[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 0.2);
             x3++;
-            if (x3 > 4)
+            if (x3 > LengthBigCube - 1)
                 x3 = 0;
-            a[x3][y3][4].setColor(0, 0, 1);
+            a[x3][y3][LengthBigCube - 1].setColor(0, 0, 1);
         } else if (arrow == 3)
         {//стрелочка вверх
-            a[x3][y3][4].setTransparency(0.5);
-            a[x3][y3][4].setColor(0.0, 0.0, 0.2);
+            a[x3][y3][LengthBigCube - 1].setTransparency(0.5);
+            a[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 0.2);
             y3--;
             if (y3 < 0)
-                y3 = 4;
-            a[x3][y3][4].setColor(0, 0, 1);
+                y3 = LengthBigCube - 1;
+            a[x3][y3][LengthBigCube - 1].setColor(0, 0, 1);
         } else if (arrow == 4)
         {//стрелочка влево
-            a[x3][y3][4].setTransparency(0.5);
-            a[x3][y3][4].setColor(0.0, 0.0, 0.2);
+            a[x3][y3][LengthBigCube - 1].setTransparency(0.5);
+            a[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 0.2);
             x3--;
             if (x3 < 0)
-                x3 = 4;
-            a[x3][y3][4].setColor(0, 0, 1);
+                x3 = LengthBigCube - 1;
+            a[x3][y3][LengthBigCube - 1].setColor(0, 0, 1);
         } else if (arrow == 2)
         {//стрелочка вниз
-            a[x3][y3][4].setTransparency(0.5);
-            a[x3][y3][4].setColor(0.0, 0.0, 0.2);
+            a[x3][y3][LengthBigCube - 1].setTransparency(0.5);
+            a[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 0.2);
             y3++;
-            if (y3 > 4)
+            if (y3 > LengthBigCube - 1)
                 y3 = 0;
-            a[x3][y3][4].setColor(0, 0, 1);
+            a[x3][y3][LengthBigCube - 1].setColor(0, 0, 1);
         }
     }
     forEnter = 3;
@@ -275,7 +275,7 @@ void ChooseCube(int page)
         {
             a[p1][y1][z1].setTransparency(0.2);
             p1++;
-            if (p1 > 4)
+            if (p1 > LengthBigCube - 1)
                 p1 = 0;
             a[p1][y1][z1].setTransparency(1);
         } else if (page == 2)
@@ -283,7 +283,7 @@ void ChooseCube(int page)
             a[p1][y1][z1].setTransparency(0.2);
             p1--;
             if (p1 < 0)
-                p1 = 4;
+                p1 = LengthBigCube - 1;
             a[p1][y1][z1].setTransparency(1);
         }
     } else if (secondSide)
@@ -294,7 +294,7 @@ void ChooseCube(int page)
         {
             a[x2][p2][z2].setTransparency(0.2);
             p2++;
-            if (p2 > 4)
+            if (p2 > LengthBigCube - 1)
                 p2 = 0;
             a[x2][p2][z2].setTransparency(1);
         } else if (page == 2)
@@ -302,7 +302,7 @@ void ChooseCube(int page)
             a[x2][p2][z2].setTransparency(0.2);
             p2--;
             if (p2 < 0)
-                p2 = 4;
+                p2 = LengthBigCube - 1;
             a[x2][p2][z2].setTransparency(1);
         }
     } else if (thirdSide)
@@ -313,7 +313,7 @@ void ChooseCube(int page)
         {
             a[x3][y3][p3].setTransparency(0.2);
             p3++;
-            if (p3 > 4)
+            if (p3 > LengthBigCube - 1)
                 p3 = 0;
             a[x3][y3][p3].setTransparency(1);
         } else if (page == 2)
@@ -321,7 +321,7 @@ void ChooseCube(int page)
             a[x3][y3][p3].setTransparency(0.2);
             p3--;
             if (p3 < 0)
-                p3 = 4;
+                p3 = LengthBigCube - 1;
             a[x3][y3][p3].setTransparency(1);
         }
 
