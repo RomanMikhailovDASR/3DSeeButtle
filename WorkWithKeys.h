@@ -316,8 +316,8 @@ void ChooseCube(int page) {
 void specialKeys(int key, int x, int y)
 {
     if (key == GLUT_KEY_RIGHT) {
-        if (movement == true) {
-            if (rotate_y <= 175)
+        if (movement) {
+            //if (rotate_y <= 175)
                 rotate_y += 5;
         }
         else
@@ -325,8 +325,8 @@ void specialKeys(int key, int x, int y)
     }//если нажата клавиша "вправо", то поворачиваем
 
     else if (key == GLUT_KEY_LEFT) {
-        if (movement == true) {
-            if (rotate_y >= 95)
+        if (movement) {
+            //if (rotate_y >= 95)
                 rotate_y -= 5;
         }
         else
@@ -334,8 +334,8 @@ void specialKeys(int key, int x, int y)
     }//аналогично для левой клавиши
 
     else if (key == GLUT_KEY_UP) {
-        if (movement == true) {
-            if (rotate_x <= -5)
+        if (movement) {
+            //if (rotate_x <= -5)
                 rotate_x += 5;
         }
         else
@@ -343,8 +343,8 @@ void specialKeys(int key, int x, int y)
     } //это уже повороты  вверх и вниз
 
     else if (key == GLUT_KEY_DOWN) {
-        if(movement == true) {
-            if (rotate_x >= -85)
+        if(movement) {
+            //if (rotate_x >= -85)
                 rotate_x -= 5;
         }
         else
@@ -356,11 +356,11 @@ void specialKeys(int key, int x, int y)
         default_position(r_rotate_x, r_rotate_y);
     }
 
-    else if (key == GLUT_KEY_PAGE_UP && forProbel == true) {
+    else if (key == GLUT_KEY_PAGE_UP && forProbel) {
         ChooseCube(1);
     }
 
-    else if (key == GLUT_KEY_PAGE_DOWN && forProbel == true) {
+    else if (key == GLUT_KEY_PAGE_DOWN && forProbel) {
         ChooseCube(2);
     }
 

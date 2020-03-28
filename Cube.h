@@ -75,7 +75,7 @@ public:
         else
         {
             this->isPaint = false;
-            forOnePaint = 0;
+            //forOnePaint = 0;
         }
     }
 
