@@ -4,7 +4,7 @@
 
 #ifndef INC_3DSEEBUTTLE_CUBE_H
 #define INC_3DSEEBUTTLE_CUBE_H
-const int LengthBigCube = 6;
+const int LengthBigCube = 10;
 int forEnter = 1;
 bool firstSide = false, secondSide = false, thirdSide = false;
 int forOnePaint = 0;
@@ -14,7 +14,7 @@ class Cube
 private:
     double transparency;  //прозрачность
     double length;  //длина стороны
-    int forHit;  //для ударов и выбора кубика
+    int forHit;  //для ударов и выбора кубика  Если 1 - выбрали. Если 2 - стоит рядом с кубиком, который выбрали. Если 3 - в него выстрелили
     bool isPaint;
     //для переключений между режимами игрыы (выбор, стрельба)
 
@@ -318,6 +318,11 @@ public:
     void setIsHitten(int hit)
     {
         this->forHit = hit;
+    }
+
+    int getHit()
+    {
+        return forHit;
     }
 };
 

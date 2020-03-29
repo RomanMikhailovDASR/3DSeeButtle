@@ -76,7 +76,7 @@ void Keyboard(unsigned char key, int x, int y)
 
     if (key == 13 && forEnter == 5)
     {//FIRE!!! (типа пыжь пыжь и все покраснело)
-        if (firstSide)
+        if (firstSide && a[p1][y1][z1].getHit() != 2)
         {
             for (auto &i : a)
             {
@@ -90,8 +90,12 @@ void Keyboard(unsigned char key, int x, int y)
                 for (int j = y1 - 1; j <= y1 + 1; j++)
                     for (int k = z1 - 1; k <= z1 + 1; k++)
                         if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube && k < LengthBigCube)
+                        {
                             a[i][j][k].setPaint(false);
-        } else if (secondSide)
+                            a[i][j][k].setIsHitten(2);
+                        }
+            a[p1][y1][z1].setPaint(true);
+        } else if (secondSide && a[x2][p2][z2].getHit() != 2)
         {
             for (int j = 0; j < LengthBigCube; j++)
             {
@@ -105,8 +109,12 @@ void Keyboard(unsigned char key, int x, int y)
                 for (int j = p2 - 1; j <= p2 + 1; j++)
                     for (int k = z2 - 1; k <= z2 + 1; k++)
                         if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube && k < LengthBigCube)
+                        {
                             a[i][j][k].setPaint(false);
-        } else if (thirdSide)
+                            a[i][j][k].setIsHitten(2);
+                        }
+            a[x2][p2][z2].setPaint(true);
+        } else if (thirdSide && a[x3][y3][p3].getHit() != 2)
         {
             for (int k = 0; k < LengthBigCube; k++)
             {
@@ -120,7 +128,11 @@ void Keyboard(unsigned char key, int x, int y)
                 for (int j = y3 - 1; j <= y3 + 1; j++)
                     for (int k = p3 - 1; k <= p3 + 1; k++)
                         if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube && k < LengthBigCube)
+                        {
                             a[i][j][k].setPaint(false);
+                            a[i][j][k].setIsHitten(2);
+                        }
+            a[x3][y3][p3].setPaint(true);
         }
     }
 
