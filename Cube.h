@@ -5,7 +5,7 @@
 #ifndef INC_3DSEEBUTTLE_CUBE_H
 #define INC_3DSEEBUTTLE_CUBE_H
 const int LengthBigCube = 10;
-int forEnter = 1;
+int forEnter = -1;
 bool firstSide = false, secondSide = false, thirdSide = false;
 int forOnePaint = 0;
 
@@ -53,7 +53,6 @@ public:
         this->transparency = transparency;
         forHit = 0;
         forTransparancy = 0;
-        forEnter = 0;
         isPaint = true;
 
         this->x = x;

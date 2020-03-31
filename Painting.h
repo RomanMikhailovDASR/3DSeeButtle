@@ -24,6 +24,7 @@ bool movement = true;
 
 Cube a[LengthBigCube][LengthBigCube][LengthBigCube];
 Cube b[LengthBigCube][LengthBigCube][LengthBigCube];
+bool cubeA = true;
 
 
 void displayCell()
@@ -38,7 +39,7 @@ void displayCell()
     glBlendFunc(GL_SRC_ALPHA,
                 GL_ONE_MINUS_SRC_ALPHA);  //устанавдиваем уровень прозрачности - пока до конца не разобрался
 
-    if (forOnePaint == 0)
+    if (forOnePaint == 0 && forEnter == 0)
     {
         for (int i = 0; i < LengthBigCube; i++)
             for (int j = 0; j < LengthBigCube; j++)
@@ -54,6 +55,27 @@ void displayCell()
                     }
     }
 
+    if (forOnePaint == 0 && forEnter == -1)
+    {
+        for (int i = 0; i < LengthBigCube; i++)
+            for (int j = 0; j < LengthBigCube; j++)
+                for (int k = 0; k < LengthBigCube; k++)
+                    if (a[i][j][k].getPaint())
+                    {
+                        a[i][j][k] = Cube(1.1 / (LengthBigCube * 2),
+                                          i * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) + 0.95,
+                                          j * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) + 0.5,
+                                          k * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2), 0.11);
+                        a[i][j][k].setColor(1, 0, 0);
+                        b[i][j][k] = Cube(1.1 / (LengthBigCube * 2),
+                                          i * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) - 0.25,
+                                          j * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) + 0.28,
+                                          k * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) + 0.785, 0.11);
+                        b[i][j][k].setColor(1, 1, 1);
+                        forOnePaint = 1;
+                    }
+    }
+
 
     for (auto &i : a)
         for (auto &j : i)
@@ -62,7 +84,17 @@ void displayCell()
                 {
 
                     k.paintCube();
+                    if(forEnter != -1)
                     k.setTransparancyNothing();
+                }
+    if (forEnter == -1)
+    for (auto &i : b)
+        for (auto &j : i)
+            for (auto &k : j)
+                if (k.getPaint())
+                {
+
+                    k.paintCube();
                 }
 
     glFlush();

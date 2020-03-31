@@ -19,6 +19,11 @@ int p1 = 0, p2 = 0, p3 = 0;
 //функция взаимодействия с клавиатурой
 void Keyboard(unsigned char key, int x, int y)
 {
+    if (key == 13 && forEnter == -1)
+    {
+        forEnter = 0;
+        forOnePaint = 0;
+    }
     if (key == 13 && forEnter == 1)
     {
         if (firstSide)
@@ -345,7 +350,32 @@ void specialKeys(int key, int x, int y)
 {
     if (key == GLUT_KEY_RIGHT)
     {
-        if (movement)
+        if (forEnter == -1)
+        {
+            if (cubeA)
+            {
+                cubeA = false;
+                for (auto &i : a)
+                    for (auto &j : i)
+                        for (auto &k : j)
+                            k.setColor(1, 1, 1);
+                for (auto &i : b)
+                    for (auto &j : i)
+                        for (auto &k : j)
+                            k.setColor(1, 0, 0);
+            } else
+            {
+                cubeA = true;
+                for (auto &i : b)
+                    for (auto &j : i)
+                        for (auto &k : j)
+                            k.setColor(1, 1, 1);
+                for (auto &i : a)
+                    for (auto &j : i)
+                        for (auto &k : j)
+                            k.setColor(1, 0, 0);
+            }
+        } else if (movement && forEnter != -1)
         {
             //if (rotate_y <= 175)
             rotate_y += 5;
@@ -355,7 +385,32 @@ void specialKeys(int key, int x, int y)
 
     else if (key == GLUT_KEY_LEFT)
     {
-        if (movement)
+        if (forEnter == -1)
+        {
+            if (cubeA)
+            {
+                cubeA = false;
+                for (auto &i : a)
+                    for (auto &j : i)
+                        for (auto &k : j)
+                            k.setColor(1, 1, 1);
+                for (auto &i : b)
+                    for (auto &j : i)
+                        for (auto &k : j)
+                            k.setColor(1, 0, 0);
+            } else
+            {
+                cubeA = true;
+                for (auto &i : b)
+                    for (auto &j : i)
+                        for (auto &k : j)
+                            k.setColor(1, 1, 1);
+                for (auto &i : a)
+                    for (auto &j : i)
+                        for (auto &k : j)
+                            k.setColor(1, 0, 0);
+            }
+        } else if (movement && forEnter != -1)
         {
             //if (rotate_y >= 95)
             rotate_y -= 5;
@@ -365,7 +420,10 @@ void specialKeys(int key, int x, int y)
 
     else if (key == GLUT_KEY_UP)
     {
-        if (movement)
+        if (forEnter == -1)
+        {
+
+        } else if (movement && forEnter != -1)
         {
             //if (rotate_x <= -5)
             rotate_x += 5;
@@ -375,7 +433,10 @@ void specialKeys(int key, int x, int y)
 
     else if (key == GLUT_KEY_DOWN)
     {
-        if (movement)
+        if (forEnter == -1)
+        {
+
+        } else if (movement && forEnter != -1)
         {
             //if (rotate_x >= -85)
             rotate_x -= 5;
@@ -395,7 +456,7 @@ void specialKeys(int key, int x, int y)
     }
 
 
-    if (key == GLUT_KEY_F7)
+    if (key == GLUT_KEY_F7 && (forEnter == 0 || forEnter == 1))
     {
         view_first_side(r_rotate_x, r_rotate_y);
         forEnter = 1;
@@ -403,14 +464,14 @@ void specialKeys(int key, int x, int y)
         firstSide = true;
         thirdSide = false;
         secondSide = false;
-    } else if (key == GLUT_KEY_F8)
+    } else if (key == GLUT_KEY_F8 && (forEnter == 0 || forEnter == 1))
     {
         view_second_side(r_rotate_x, r_rotate_y);
         forEnter = 1;
         secondSide = true;
         firstSide = false;
         thirdSide = false;
-    } else if (key == GLUT_KEY_F9)
+    } else if (key == GLUT_KEY_F9 && (forEnter == 0 || forEnter == 1))
     {
         view_third_side(r_rotate_x, r_rotate_y);
         forEnter = 1;
