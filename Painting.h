@@ -25,7 +25,12 @@ bool cubeA = true;
 
 void displayCell()
 {
+    if (cubeA)
+        glClearColor(0.2, 0.2, 0.6, 0.f);  //меняем цвет фона
+    else
+        glClearColor(0.2, 0.6, 0.2, 0.f);  //цвет фона
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //очищаем экран, чтобы картинки "не размножались"
+
     glLoadIdentity();
     glRotatef(rotate_x, 1.0, 0.0, 0.0);  //функция, поворачивающая кубики по х
     glRotatef(rotate_y, 0.0, 1.0, 0.0);  //а это для у
