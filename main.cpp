@@ -14,10 +14,8 @@ int main(int argc, char *argv[])
 
     glutDisplayFunc(displayCell);  //вызвываем функцию, которая рисует кубы
     glutKeyboardFunc(Keyboard);
-    glutSpecialFunc(specialKeys);
+    glutSpecialFunc(specialKeys);  //вызываем функцию для поворотов кубиков
     glutReshapeFunc(changeSize);
-    //вызываем функцию для поворотов кубиков
-
 
     glutMainLoop();  //а это бесконечный цикл
     return 0;

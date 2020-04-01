@@ -4,6 +4,7 @@
 
 #ifndef INC_3DSEEBUTTLE_CUBE_H
 #define INC_3DSEEBUTTLE_CUBE_H
+
 const int LengthBigCube = 10;
 int forEnter = -1;
 bool firstSide = false, secondSide = false, thirdSide = false;
@@ -17,7 +18,6 @@ private:
     int forHit;  //для ударов и выбора кубика  Если 1 - выбрали. Если 2 - стоит рядом с кубиком, который выбрали. Если 3 - в него выстрелили
     bool isPaint;
     //для переключений между режимами игрыы (выбор, стрельба)
-
 
     double red = 0.5;
     double blue = 0.5;

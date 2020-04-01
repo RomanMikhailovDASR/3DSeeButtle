@@ -9,10 +9,8 @@
 #ifndef INC_3DSEEBUTTLE_PAINTING_H
 #define INC_3DSEEBUTTLE_PAINTING_H
 
-
 #include <iostream>
 #include "Cube.h"
-
 
 double rotate_y = 135;  //начальный поворот куба по у
 double rotate_x = -35; //начальный поворот куба по х
@@ -21,11 +19,9 @@ double &r_rotate_y = rotate_y;
 
 bool movement = true;
 
-
 Cube a[LengthBigCube][LengthBigCube][LengthBigCube];
 Cube b[LengthBigCube][LengthBigCube][LengthBigCube];
 bool cubeA = true;
-
 
 void displayCell()
 {
@@ -47,9 +43,12 @@ void displayCell()
                     if (a[i][j][k].getPaint())
                     {
                         a[i][j][k] = Cube(1.1 / LengthBigCube,
-                                          i * 1.1 / LengthBigCube - LengthBigCube * 0.55 / LengthBigCube + 0.55 / LengthBigCube,
-                                          j * 1.1 / LengthBigCube - LengthBigCube * 0.55 / LengthBigCube + 0.55 / LengthBigCube,
-                                          k * 1.1 / LengthBigCube - LengthBigCube * 0.55 / LengthBigCube + 0.55 / LengthBigCube, 0.11);
+                                          i * 1.1 / LengthBigCube - LengthBigCube * 0.55 / LengthBigCube +
+                                          0.55 / LengthBigCube,
+                                          j * 1.1 / LengthBigCube - LengthBigCube * 0.55 / LengthBigCube +
+                                          0.55 / LengthBigCube,
+                                          k * 1.1 / LengthBigCube - LengthBigCube * 0.55 / LengthBigCube +
+                                          0.55 / LengthBigCube, 0.11);
                         a[i][j][k].setColor(0.5, 0.5, 0.8);
                         forOnePaint = 1;
                     }
@@ -70,7 +69,8 @@ void displayCell()
                         b[i][j][k] = Cube(1.1 / (LengthBigCube * 2),
                                           i * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) - 0.25,
                                           j * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) + 0.28,
-                                          k * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) + 0.785, 0.11);
+                                          k * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) + 0.785,
+                                          0.11);
                         b[i][j][k].setColor(1, 1, 1);
                         forOnePaint = 1;
                     }
@@ -84,23 +84,23 @@ void displayCell()
                 {
 
                     k.paintCube();
-                    if(forEnter != -1)
-                    k.setTransparancyNothing();
+                    if (forEnter != -1)
+                        k.setTransparancyNothing();
                 }
-    if (forEnter == -1)
-    for (auto &i : b)
-        for (auto &j : i)
-            for (auto &k : j)
-                if (k.getPaint())
-                {
 
-                    k.paintCube();
-                }
+    if (forEnter == -1)
+        for (auto &i : b)
+            for (auto &j : i)
+                for (auto &k : j)
+                    if (k.getPaint())
+                    {
+
+                        k.paintCube();
+                    }
 
     glFlush();
     glutSwapBuffers();
 }
-
 
 void changeSize(int w, int h)
 {

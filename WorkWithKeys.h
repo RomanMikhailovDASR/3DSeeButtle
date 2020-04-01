@@ -24,6 +24,7 @@ void Keyboard(unsigned char key, int x, int y)
         forEnter = 0;
         forOnePaint = 0;
     }
+
     if (key == 13 && forEnter == 1)
     {
         if (firstSide)
