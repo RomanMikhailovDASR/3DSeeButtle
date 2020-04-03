@@ -11,7 +11,7 @@
 int i_first_side = LengthBigCube - 1, j_first_side = 0, k_first_side = 0;
 int i_second_side = LengthBigCube - 1, j_second_side = LengthBigCube - 1, k_second_side = LengthBigCube - 1;
 int i_third_side = LengthBigCube - 1, j_third_side = 0, k_third_side = LengthBigCube - 1;
-int y1 = j_first_side, z1 = k_first_side;
+int yf = j_first_side, z1 = k_first_side;
 int x2 = i_second_side, z2 = k_second_side;
 int x3 = i_third_side, y3 = j_third_side;
 int p1 = 0, p2 = 0, p3 = 0;
@@ -58,8 +58,8 @@ void Keyboard(unsigned char key, int x, int y)
         if (firstSide)
         {
             for (auto &i : a)
-                i[y1][z1].setColor(1, 1, 0);
-            a[0][y1][z1].setTransparency(1);
+                i[yf][z1].setColor(1, 1, 0);
+            a[0][yf][z1].setTransparency(1);
             r_rotate_x = 325;
             r_rotate_y = 135;
         } else if (secondSide)
@@ -82,25 +82,25 @@ void Keyboard(unsigned char key, int x, int y)
 
     if (key == 13 && forEnter == 5)
     {//FIRE!!! (типа пыжь пыжь и все покраснело)
-        if (firstSide && a[p1][y1][z1].getHit() != 2)
+        if (firstSide && a[p1][yf][z1].getHit() != 2)
         {
             for (auto &i : a)
             {
-                i[y1][z1].setColor(0.5, 0.5, 0.8);
-                i[y1][z1].setTransparency(0.1);
+                i[yf][z1].setColor(0.5, 0.5, 0.8);
+                i[yf][z1].setTransparency(0.1);
             }
-            a[p1][y1][z1].setColor(1, 0, 0);
-            a[p1][y1][z1].setTransparency(0.5);
-            a[p1][y1][z1].setIsHitten(1);
+            a[p1][yf][z1].setColor(1, 0, 0);
+            a[p1][yf][z1].setTransparency(0.5);
+            a[p1][yf][z1].setIsHitten(1);
             for (int i = p1 - 1; i <= p1 + 1; i++)
-                for (int j = y1 - 1; j <= y1 + 1; j++)
+                for (int j = yf - 1; j <= yf + 1; j++)
                     for (int k = z1 - 1; k <= z1 + 1; k++)
                         if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube && k < LengthBigCube)
                         {
                             a[i][j][k].setPaint(false);
                             a[i][j][k].setIsHitten(2);
                         }
-            a[p1][y1][z1].setPaint(true);
+            a[p1][yf][z1].setPaint(true);
         } else if (secondSide && a[x2][p2][z2].getHit() != 2)
         {
             for (int j = 0; j < LengthBigCube; j++)
@@ -167,36 +167,36 @@ void ChooseColumn(int arrow)
 
         if (arrow == 4)
         {//работает стрелочка вправо
-            a[LengthBigCube - 1][y1][z1].setTransparency(0.5);
-            a[LengthBigCube - 1][y1][z1].setColor(0.2, 0.0, 0.0);
+            a[LengthBigCube - 1][yf][z1].setTransparency(0.5);
+            a[LengthBigCube - 1][yf][z1].setColor(0.2, 0.0, 0.0);
             z1++;
             if (z1 > LengthBigCube - 1)
                 z1 = 0;
-            a[LengthBigCube - 1][y1][z1].setColor(1, 0.0, 0.0);
+            a[LengthBigCube - 1][yf][z1].setColor(1, 0.0, 0.0);
         } else if (arrow == 2)
         {//стрелочка вверх
-            a[LengthBigCube - 1][y1][z1].setTransparency(0.5);
-            a[LengthBigCube - 1][y1][z1].setColor(0.2, 0.0, 0.0);
-            y1++;
-            if (y1 > LengthBigCube - 1)
-                y1 = 0;
-            a[LengthBigCube - 1][y1][z1].setColor(1, 0.0, 0.0);
+            a[LengthBigCube - 1][yf][z1].setTransparency(0.5);
+            a[LengthBigCube - 1][yf][z1].setColor(0.2, 0.0, 0.0);
+            yf++;
+            if (yf > LengthBigCube - 1)
+                yf = 0;
+            a[LengthBigCube - 1][yf][z1].setColor(1, 0.0, 0.0);
         } else if (arrow == 1)
         {//стрелочка влево
-            a[LengthBigCube - 1][y1][z1].setTransparency(0.5);
-            a[LengthBigCube - 1][y1][z1].setColor(0.2, 0.0, 0.0);
+            a[LengthBigCube - 1][yf][z1].setTransparency(0.5);
+            a[LengthBigCube - 1][yf][z1].setColor(0.2, 0.0, 0.0);
             z1--;
             if (z1 < 0)
                 z1 = LengthBigCube - 1;
-            a[LengthBigCube - 1][y1][z1].setColor(1, 0.0, 0.0);
+            a[LengthBigCube - 1][yf][z1].setColor(1, 0.0, 0.0);
         } else if (arrow == 3)
         {
-            a[LengthBigCube - 1][y1][z1].setTransparency(0.5);
-            a[LengthBigCube - 1][y1][z1].setColor(0.2, 0.0, 0.0);
-            y1--;
-            if (y1 < 0)
-                y1 = LengthBigCube - 1;
-            a[LengthBigCube - 1][y1][z1].setColor(1, 0.0, 0.0);
+            a[LengthBigCube - 1][yf][z1].setTransparency(0.5);
+            a[LengthBigCube - 1][yf][z1].setColor(0.2, 0.0, 0.0);
+            yf--;
+            if (yf < 0)
+                yf = LengthBigCube - 1;
+            a[LengthBigCube - 1][yf][z1].setColor(1, 0.0, 0.0);
 
         }
     } else if (secondSide)
@@ -287,22 +287,22 @@ void ChooseCube(int page)
 {
     if (firstSide)
     {
-        a[p1][y1][z1].setTransparency(1);
+        a[p1][yf][z1].setTransparency(1);
 
         if (page == 1)
         {
-            a[p1][y1][z1].setTransparency(0.2);
+            a[p1][yf][z1].setTransparency(0.2);
             p1++;
             if (p1 > LengthBigCube - 1)
                 p1 = 0;
-            a[p1][y1][z1].setTransparency(1);
+            a[p1][yf][z1].setTransparency(1);
         } else if (page == 2)
         {
-            a[p1][y1][z1].setTransparency(0.2);
+            a[p1][yf][z1].setTransparency(0.2);
             p1--;
             if (p1 < 0)
                 p1 = LengthBigCube - 1;
-            a[p1][y1][z1].setTransparency(1);
+            a[p1][yf][z1].setTransparency(1);
         }
     } else if (secondSide)
     {
@@ -376,6 +376,7 @@ void specialKeys(int key, int x, int y)
                         for (auto &k : j)
                             k.setColor(1, 0, 0);
             }
+            forOnePaint = 0;
         } else if (movement && forEnter != -1)
         {
             //if (rotate_y <= 175)
@@ -411,6 +412,7 @@ void specialKeys(int key, int x, int y)
                         for (auto &k : j)
                             k.setColor(1, 0, 0);
             }
+            forOnePaint = 0;
         } else if (movement && forEnter != -1)
         {
             //if (rotate_y >= 95)

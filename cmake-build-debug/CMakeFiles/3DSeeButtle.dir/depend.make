@@ -4,6 +4,7 @@
 CMakeFiles/3DSeeButtle.dir/main.cpp.o: ../ChooseSide.h
 CMakeFiles/3DSeeButtle.dir/main.cpp.o: ../Cube.h
 CMakeFiles/3DSeeButtle.dir/main.cpp.o: ../Painting.h
+CMakeFiles/3DSeeButtle.dir/main.cpp.o: ../PaintingCubes.h
 CMakeFiles/3DSeeButtle.dir/main.cpp.o: ../WorkWithKeys.h
 CMakeFiles/3DSeeButtle.dir/main.cpp.o: ../main.cpp
 
