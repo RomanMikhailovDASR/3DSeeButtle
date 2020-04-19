@@ -123,16 +123,18 @@ void displayCell()
 
     for (auto &i : a)
         for (auto &j : i)
-            for (auto &k : j)
-                if (k.getPaint())
-                {
-                    if (forEnter == -1 && !cubeA)
-                    {
+            for (auto &k : j) {
+                if (k.getHit() == 1) {
+                    k.setColor(0,1,0); // выбранные корабли закрашиваем зеленым
+                }
+                if (k.getPaint()) {
+                    if (forEnter == -1 && !cubeA) {
                         k.paintForRotate(rotate_y);
                     } else k.paintCube();
-                    if (forEnter != -1)
+                    if (forEnter != -1 && k.getHit() != 1)
                         k.setTransparancyNothing();
                 }
+            }
 
     if (forEnter == -1)
         for (auto &i : b)

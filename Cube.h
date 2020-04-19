@@ -7,7 +7,7 @@
 
 #include <cmath>
 
-const int LengthBigCube = 6;
+const int LengthBigCube = 5;
 int forEnter = -1;
 bool firstSide = false, secondSide = false, thirdSide = false;
 int forOnePaint = 0;
@@ -19,7 +19,7 @@ private:
     double length;  //длина стороны
     int forHit;  //для ударов и выбора кубика  Если 1 - выбрали. Если 2 - стоит рядом с кубиком, который выбрали. Если 3 - в него выстрелили
     bool isPaint;
-    //для переключений между режимами игрыы (выбор, стрельба)
+    //для переключений между режимами игры (выбор, стрельба)
 
     double red = 0.5;
     double blue = 0.5;

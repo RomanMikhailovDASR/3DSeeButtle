@@ -23,12 +23,19 @@ void choose_first_side(double &rotateX, double &rotateY)
     for (int j = 0; j < LengthBigCube; j++)
         for (int k = 0; k < LengthBigCube; k++)
         {
+            if(a[LengthBigCube - 1][j][k].getHit() == 1)
+            {
+                a[LengthBigCube - 1][j][k].setColor(0,1,0);
+            }
+
             a[LengthBigCube - 1][j][k].setColor(0.2, 0, 0);
             a[LengthBigCube - 1][j][k].setTransparency(0.5);
         }
 
-    rotateX = 0;
-    rotateY = 90;
+    //rotateX = 0;
+    //rotateY = 90;
+    rotateX = 325;
+    rotateY = 135;
 }
 
 void choose_second_side(double &rotateX, double &rotateY)
@@ -43,12 +50,19 @@ void choose_second_side(double &rotateX, double &rotateY)
     for (auto &j : a)
         for (int k = 0; k < LengthBigCube; k++)
         {
+            if(j[LengthBigCube - 1][k].getHit() == 1)
+            {
+                j[LengthBigCube - 1][k].setColor(0,1,0);
+            }
+
             j[LengthBigCube - 1][k].setColor(0, 0.2, 0);
             j[LengthBigCube - 1][k].setTransparency(0.5);
         }
 
-    rotateX = -90;
-    rotateY = 180;
+    //rotateX = -90;
+    //rotateY = 180;
+    rotateX = 325;
+    rotateY = 135;
 }
 
 void choose_third_side(double &rotateX, double &rotateY)
@@ -67,8 +81,10 @@ void choose_third_side(double &rotateX, double &rotateY)
             k[j][LengthBigCube - 1].setTransparency(0.5);
         }
 
-    rotateX = 0;
-    rotateY = 180;
+    //rotateX = 0;
+    //rotateY = 180;
+    rotateX = 325;
+    rotateY = 135;
 }
 
 void default_position(double &rotateX, double &rotateY)
