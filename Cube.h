@@ -80,6 +80,10 @@ public:
         return isPaint;
     }
 
+    void getColor()
+    {
+        std::cout << red << " " << green << " " << blue << std::endl;
+    }
     void setTransparency(double transparancy)
     {
         this->transparency = transparancy;
@@ -95,9 +99,9 @@ public:
         }
     }
 
-    void paintForRotate(double angle);
+    void paintForRotate(double angle) const;
 
-    void paintCube();
+    void paintCube() const;
 
     void setIsHitten(int hit)
     {
@@ -108,6 +112,8 @@ public:
     {
         return forHit;
     }
+
+    Cube(Cube *pCube);
 };
 
 #endif //INC_3DSEEBUTTLE_CUBE_H

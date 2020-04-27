@@ -10,6 +10,7 @@
 #define INC_3DSEEBUTTLE_PAINTING_H
 
 #include <iostream>
+#include <random>
 #include "Cube.h"
 #include "PaintingCubes.h"
 
@@ -19,12 +20,14 @@ double &r_rotate_x = rotate_x;
 double &r_rotate_y = rotate_y;
 
 bool movement = true;
+bool isPlayer1 = true;
+bool forCubeA = true;
 
 Cube a[LengthBigCube][LengthBigCube][LengthBigCube];
-Cube b[LengthBigCube][LengthBigCube][LengthBigCube];
-bool cubeA = true;
+Cube Player1[LengthBigCube][LengthBigCube][LengthBigCube];
+Cube Player2[LengthBigCube][LengthBigCube][LengthBigCube];
 
-void Rotate(int value)
+/*void Rotate(int value)
 {
     if (forEnter != -1)
         return;
@@ -36,13 +39,12 @@ void Rotate(int value)
     glutPostRedisplay();
     glutTimerFunc(2, Rotate, 1);
 }
-
+*/
 void displayCell()
 {
-    if (cubeA)
+    if (forEnter == -1)
         glClearColor(0.07, 0.07, 0.25, 0.f);  //меняем цвет фона
-    else
-        glClearColor(0.1, 0.45, 0.1, 0.f);  //цвет фона
+
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //очищаем экран, чтобы картинки "не размножались"
 
     glLoadIdentity();
@@ -54,28 +56,47 @@ void displayCell()
     glBlendFunc(GL_SRC_ALPHA,
                 GL_ONE_MINUS_SRC_ALPHA);  //устанавливаем уровень прозрачности - пока до конца не разобрался
 
-    if (forEnter == -1)
-        rotate_y++;
-
     if (forOnePaint == 0 && forEnter == 0)
     {
         for (int i = 0; i < LengthBigCube; i++)
             for (int j = 0; j < LengthBigCube; j++)
                 for (int k = 0; k < LengthBigCube; k++)
-                    if (a[i][j][k].getPaint())
-                    {
-                        a[i][j][k] = Cube(1.1 / (LengthBigCube),
-                                          i * 1.1 / LengthBigCube - LengthBigCube * 0.55 / LengthBigCube +
-                                          0.55 / LengthBigCube,
-                                          j * 1.1 / LengthBigCube - LengthBigCube * 0.55 / LengthBigCube +
-                                          0.55 / LengthBigCube,
-                                          k * 1.1 / LengthBigCube - LengthBigCube * 0.55 / LengthBigCube +
-                                          0.55 / LengthBigCube, 0.11);
+                {
+                    Player1[i][j][k] = Cube(1.1 / (LengthBigCube),
+                                            i * 1.1 / LengthBigCube - LengthBigCube * 0.55 / LengthBigCube +
+                                            0.55 / LengthBigCube,
+                                            j * 1.1 / LengthBigCube - LengthBigCube * 0.55 / LengthBigCube +
+                                            0.55 / LengthBigCube,
+                                            k * 1.1 / LengthBigCube - LengthBigCube * 0.55 / LengthBigCube +
+                                            0.55 / LengthBigCube, 0.11);
 
-                        a[i][j][k].setColor(0.5, 0.5, 0.8);
-                        forOnePaint = 1;
-                    }
+                    Player1[i][j][k].setColor(0.5, 0.5, 0.8);
+                    Player2[i][j][k] = Cube(1.1 / (LengthBigCube),
+                                            i * 1.1 / LengthBigCube - LengthBigCube * 0.55 / LengthBigCube +
+                                            0.55 / LengthBigCube,
+                                            j * 1.1 / LengthBigCube - LengthBigCube * 0.55 / LengthBigCube +
+                                            0.55 / LengthBigCube,
+                                            k * 1.1 / LengthBigCube - LengthBigCube * 0.55 / LengthBigCube +
+                                            0.55 / LengthBigCube, 0.11);
+
+                    Player2[i][j][k].setColor(0.5, 0.5, 0.8);
+                    forOnePaint = 1;
+                    forCubeA = true;
+                }
     }
+    if (forCubeA)
+    {
+        for (int i = 0; i < LengthBigCube; i++)
+            for (int j = 0; j < LengthBigCube; j++)
+                for (int k = 0; k < LengthBigCube; k++)
+                {
+                    if (isPlayer1)
+                        a[i][j][k] = &Player1[i][j][k];
+                    else a[i][j][k] = &Player2[i][j][k];
+                    forCubeA = false;
+                }
+    }
+
 
     if (forOnePaint == 0 && forEnter == -1)
     {
@@ -83,69 +104,58 @@ void displayCell()
             for (int j = 0; j < LengthBigCube; j++)
                 for (int k = 0; k < LengthBigCube; k++)
                 {
-                    if (cubeA)
-                    {
-                        a[i][j][k] = Cube(1.1 / (LengthBigCube * 2),
-                                          i * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) +
-                                          0.55 * LengthBigCube / (LengthBigCube * 2),
-                                          j * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) +
-                                          0.55 * LengthBigCube / (LengthBigCube * 2),
-                                          k * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) +
-                                          0.55 * LengthBigCube / (LengthBigCube * 2), 0.11);
+                    Player1[i][j][k] = Cube(1.1 / (LengthBigCube * 2),
+                                            i * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) + 0.95,
+                                            j * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) + 0.5,
+                                            k * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2), 0.11);
 
-                        b[i][j][k] = Cube(1.1 / (LengthBigCube * 2),
-                                          i * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) - 0.25,
-                                          j * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) + 0.28,
-                                          k * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) + 0.785,
-                                          0.11);
-                        a[i][j][k].setColor(1, 0, 0);
-                    } else if (!cubeA)
-                    {
-                        b[i][j][k] = Cube(1.1 / (LengthBigCube * 2),
-                                          i * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) +
-                                          0.55 * LengthBigCube / (LengthBigCube * 2),
-                                          j * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) +
-                                          0.55 * LengthBigCube / (LengthBigCube * 2),
-                                          k * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) +
-                                          0.55 * LengthBigCube / (LengthBigCube * 2), 0.11);
-
-                        a[i][j][k] = Cube(1.1 / (LengthBigCube * 2),
-                                          i * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) + 0.25,
-                                          j * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) - 0.28,
-                                          k * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) - 0.785,
-                                          0.11);
-                        b[i][j][k].setColor(1, 0, 0);
-                    }
+                    Player2[i][j][k] = Cube(1.1 / (LengthBigCube * 2),
+                                            i * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) - 0.25,
+                                            j * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) + 0.28,
+                                            k * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) + 0.785,
+                                            0.11);
+                    Player1[i][j][k].setColor(1, 0, 0);
+                    Player2[i][j][k].setColor(1, 1, 1);
                     forOnePaint = 1;
                 }
     }
 
-
     for (auto &i : a)
         for (auto &j : i)
-            for (auto &k : j) {
-                if (k.getHit() == 1) {
-                    k.setColor(0,1,0); // выбранные корабли закрашиваем зеленым
+            for (auto &k : j)
+            {
+                if (k.getHit() == 1)
+                {
+                    k.setColor(0, 1, 0); // выбранные корабли закрашиваем зеленым
                 }
-                if (k.getPaint()) {
-                    if (forEnter == -1 && !cubeA) {
-                        k.paintForRotate(rotate_y);
-                    } else k.paintCube();
+                if (k.getPaint())
+                {
+                    k.paintCube();
                     if (forEnter != -1 && k.getHit() != 1)
                         k.setTransparancyNothing();
                 }
+
             }
 
     if (forEnter == -1)
-        for (auto &i : b)
+        for (auto &i : Player2)
             for (auto &j : i)
                 for (auto &k : j)
                 {
-                    if (cubeA)
+                    if (isPlayer1)
                         k.paintForRotate(rotate_y);
                     else k.paintCube();
                 }
 
+    if (forEnter == -1)
+        for (auto &i : Player1)
+            for (auto &j : i)
+                for (auto &k : j)
+                {
+                    if (!isPlayer1)
+                        k.paintForRotate(rotate_y);
+                    else k.paintCube();
+                }
     glFlush();
     glutSwapBuffers();
 }

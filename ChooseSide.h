@@ -32,8 +32,6 @@ void choose_first_side(double &rotateX, double &rotateY)
             a[LengthBigCube - 1][j][k].setTransparency(0.5);
         }
 
-    //rotateX = 0;
-    //rotateY = 90;
     rotateX = 325;
     rotateY = 135;
 }
@@ -81,8 +79,6 @@ void choose_third_side(double &rotateX, double &rotateY)
             k[j][LengthBigCube - 1].setTransparency(0.5);
         }
 
-    //rotateX = 0;
-    //rotateY = 180;
     rotateX = 325;
     rotateY = 135;
 }

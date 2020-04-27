@@ -6,37 +6,39 @@
 
 #IncludeRegexTransform: 
 
-/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/ChooseSide.h
+/home/alik/Documents/Programming/Repository/3DSeeButtle/ChooseSide.h
 Cube.h
-/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/Cube.h
+/home/alik/Documents/Programming/Repository/3DSeeButtle/Cube.h
 Painting.h
-/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/Painting.h
+/home/alik/Documents/Programming/Repository/3DSeeButtle/Painting.h
 
-/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/Cube.h
+/home/alik/Documents/Programming/Repository/3DSeeButtle/Cube.h
 cmath
 -
 
-/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/Painting.h
+/home/alik/Documents/Programming/Repository/3DSeeButtle/Painting.h
 iostream
 -
+random
+-
 Cube.h
-/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/Cube.h
+/home/alik/Documents/Programming/Repository/3DSeeButtle/Cube.h
 PaintingCubes.h
-/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/PaintingCubes.h
+/home/alik/Documents/Programming/Repository/3DSeeButtle/PaintingCubes.h
 
-/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/PaintingCubes.h
+/home/alik/Documents/Programming/Repository/3DSeeButtle/PaintingCubes.h
 Cube.h
-/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/Cube.h
+/home/alik/Documents/Programming/Repository/3DSeeButtle/Cube.h
 
-/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/WorkWithKeys.h
+/home/alik/Documents/Programming/Repository/3DSeeButtle/WorkWithKeys.h
 ChooseSide.h
-/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/ChooseSide.h
+/home/alik/Documents/Programming/Repository/3DSeeButtle/ChooseSide.h
 
-/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/main.cpp
+/home/alik/Documents/Programming/Repository/3DSeeButtle/main.cpp
 GL/glut.h
 -
 Painting.h
-/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/Painting.h
+/home/alik/Documents/Programming/Repository/3DSeeButtle/Painting.h
 WorkWithKeys.h
-/home/alik/Documents/Programming/Repository/Roma3DButtle/3DButtleNew/WorkWithKeys.h
+/home/alik/Documents/Programming/Repository/3DSeeButtle/WorkWithKeys.h
 
