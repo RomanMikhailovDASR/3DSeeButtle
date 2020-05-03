@@ -144,6 +144,8 @@ void Keyboard(unsigned char key, int x, int y)
                                     else Player2[i][j][k].setIsHitten(2);
                                 }
                             }
+                p1 = 0; yf = 0; z1 = 0;
+
 
             } else if (secondSide)
             {
@@ -177,6 +179,7 @@ void Keyboard(unsigned char key, int x, int y)
                                     else Player2[i][j][k].setIsHitten(2);
                                 }
                             }
+                x2 = LengthBigCube - 1; p2 = 0; z2 = LengthBigCube - 1;
 
             } else if (thirdSide)
             {
@@ -210,6 +213,7 @@ void Keyboard(unsigned char key, int x, int y)
                                     else Player2[i][j][k].setIsHitten(2);
                                 }
                             }
+                x3 = LengthBigCube - 1; y3 = 0; p3 = 0;
             }
             forEnter = 0;
             number_of_ships--;
