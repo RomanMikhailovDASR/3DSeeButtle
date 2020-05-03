@@ -24,6 +24,15 @@ int saveLengthBigCube = 1; // переменная, необходимая дл�
 //функция взаимодействия с клавиатурой
 void Keyboard(unsigned char key, int x, int y)
 {
+    if (key == 13)
+    {
+        if (hello_screen)
+        {
+            hello_screen = false;
+            placing_ships = true;
+        }
+    }
+
     if (key == 13 && forEnter == -1)
     {
         forEnter = 0;
@@ -695,6 +704,12 @@ void ChooseCube2(int page)
 // 1 == left, 2 == up, 3 == down, 4 == right
 void specialKeys(int key, int x, int y)
 {
+    if (key == GLUT_KEY_F1)
+    {
+        help = (!help);
+        //movement = (!movement);
+    }
+
     if (key == GLUT_KEY_RIGHT)
     {
         if (forEnter == -1)

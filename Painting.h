@@ -13,15 +13,20 @@
 #include <random>
 #include "Cube.h"
 #include "PaintingCubes.h"
+#include <math.h>
 
 double rotate_y = 135;  //начальный поворот куба по у
-double rotate_x = -35; //начальный поворот куба по х
+double rotate_x = 0; //начальный поворот куба по х
 double &r_rotate_x = rotate_x;
 double &r_rotate_y = rotate_y;
 
 bool movement = true;
 bool isPlayer1 = true;
 bool forCubeA = true;
+
+bool help = false;          // Help доступна всегда нажатием F1. Но информация для каждого случая своя:
+bool hello_screen = true;   // Help во время выбора стороны
+bool placing_ships = false; // Help во время расстановки кораблей
 
 Cube a[LengthBigCube][LengthBigCube][LengthBigCube];
 Cube Player1[LengthBigCube][LengthBigCube][LengthBigCube];
@@ -40,6 +45,33 @@ Cube Player2[LengthBigCube][LengthBigCube][LengthBigCube];
     glutTimerFunc(2, Rotate, 1);
 }
 */
+
+void renderBitmapString(    // Помещает строку в указанном месте с указанным шритом и содержимым
+        float x,
+        float y,
+        void *font,
+        char *string) {
+
+    char *c;
+    if (cos(rotate_y) == 0) {
+        if (cos(rotate_x) == 0) {
+            glRasterPos3f(y, 0, -x);
+        } else {
+            glRasterPos3f(0,y / cos(rotate_x / 57.3),-x);
+        }
+    } else {
+        if (cos(rotate_x) == 0) {
+            glRasterPos3f(x / cos(rotate_y / 57.3),0,y);
+        } else {
+            glRasterPos3f(x / cos(rotate_y * 3.14/180),y / cos(rotate_x * 3.14/180),0);
+        }
+    };
+
+    for (c=string; *c != '\0'; c++) {
+        glutBitmapCharacter(font, *c);
+    }
+}
+
 void displayCell()
 {
     if (forEnter == -1)
@@ -55,6 +87,28 @@ void displayCell()
     glEnable(GL_BLEND);  //разрешаем мешать цвета
     glBlendFunc(GL_SRC_ALPHA,
                 GL_ONE_MINUS_SRC_ALPHA);  //устанавливаем уровень прозрачности - пока до конца не разобрался
+
+    if (hello_screen)
+    {
+        glColor3d(1,1,1);
+        renderBitmapString(-0.5,0,GLUT_BITMAP_TIMES_ROMAN_24,"Press F1 for help");
+    }
+
+    if (help)
+    {
+        glColor3d(1,1,1);
+        if (hello_screen) {
+            renderBitmapString(-0.9, 0.5, GLUT_BITMAP_TIMES_ROMAN_24, "Press Right/Left to switch between sides");
+            renderBitmapString(0, 0.4, GLUT_BITMAP_TIMES_ROMAN_24, "Press Enter to choose");
+        } else {
+            if (placing_ships) {
+                renderBitmapString(0.5,0, GLUT_BITMAP_TIMES_ROMAN_24, "Press Arrows to rotate the cube");
+                renderBitmapString(0.5,0.5, GLUT_BITMAP_TIMES_ROMAN_24, "Press F7/F8/F9 to choose face");
+            } else {
+                renderBitmapString(0,0, GLUT_BITMAP_TIMES_ROMAN_24, "Not ready yet");
+            }
+        }
+    }
 
     if (forOnePaint == 0 && (forEnter == 0))
     {
