@@ -34,6 +34,15 @@ private:
 public:
     int forTransparancy;
 
+    void changeCube(double length, double x, double y, double z, double transparency)
+    {
+        this->length = length;
+        this->x = x;
+        this->y = y;
+        this->z = z;
+        this->transparency = transparency;
+    }
+
     Cube()
     {
         transparency = 0;

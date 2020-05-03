@@ -50,6 +50,7 @@ void Keyboard(unsigned char key, int x, int y)
 
     if (key == 13 && forEnter == 3)
     {
+        std::cout << "3 Alik" << std::endl;
         movement = true;
         for (auto &i : a)
             for (auto &j : i)
@@ -89,6 +90,7 @@ void Keyboard(unsigned char key, int x, int y)
 
     if (key == 13 && forEnter == 5 && forTwoPlayers < 2)
     {//FIRE!!! (типа пыжь пыжь и все покраснело)
+        std::cout << "5 Alik" << std::endl;
         correct = true;
         if (firstSide)
             for (int i1 = p1; i1 < p1 + ship; i1++)
@@ -275,7 +277,7 @@ void Keyboard(unsigned char key, int x, int y)
     }
     if (key == 13 && forEnter == 5 && forTwoPlayers == 2)
     {//FIRE!!! (типа пыжь пыжь и все покраснело)
-        std::cout << " 1 Alik" << std::endl;
+        std::cout << " 1000000 Alik" << std::endl;
         if (isPlayer1)
         {
             if (firstSide && Player1[p1][yf][z1].getHit() != 2)
@@ -628,6 +630,68 @@ void ChooseColumn(int arrow)
     forEnter = 3;
 }
 
+void ChooseCube2(int page)
+{
+    if (firstSide)
+    {
+        a[p1][yf][z1].setTransparency(1);
+
+        if (page == 1)
+        {
+            a[p1][yf][z1].setTransparency(0.2);
+            p1++;
+            if (p1 > LengthBigCube - 1)
+                p1 = 0;
+            a[p1][yf][z1].setTransparency(1);
+        } else if (page == 2)
+        {
+            a[p1][yf][z1].setTransparency(0.2);
+            p1--;
+            if (p1 < 0)
+                p1 = LengthBigCube - 1;
+            a[p1][yf][z1].setTransparency(1);
+        }
+    } else if (secondSide)
+    {
+        a[x2][p2][z2].setTransparency(1);
+
+        if (page == 1)
+        {
+            a[x2][p2][z2].setTransparency(0.2);
+            p2++;
+            if (p2 > LengthBigCube - 1)
+                p2 = 0;
+            a[x2][p2][z2].setTransparency(1);
+        } else if (page == 2)
+        {
+            a[x2][p2][z2].setTransparency(0.2);
+            p2--;
+            if (p2 < 0)
+                p2 = LengthBigCube - 1;
+            a[x2][p2][z2].setTransparency(1);
+        }
+    } else if (thirdSide)
+    {
+        a[x3][y3][p3].setTransparency(1);
+
+        if (page == 1)
+        {
+            a[x3][y3][p3].setTransparency(0.2);
+            p3++;
+            if (p3 > LengthBigCube - 1)
+                p3 = 0;
+            a[x3][y3][p3].setTransparency(1);
+        } else if (page == 2)
+        {
+            a[x3][y3][p3].setTransparency(0.2);
+            p3--;
+            if (p3 < 0)
+                p3 = LengthBigCube - 1;
+            a[x3][y3][p3].setTransparency(1);
+        }
+
+    }
+}
 // 1 == left, 2 == up, 3 == down, 4 == right
 void specialKeys(int key, int x, int y)
 {
@@ -728,11 +792,15 @@ void specialKeys(int key, int x, int y)
         default_position(r_rotate_x, r_rotate_y);
     } else if (key == GLUT_KEY_PAGE_UP && (forEnter == 4 || forEnter == 5))
     {
-        ChooseCube(1);
+        if(forTwoPlayers < 2)
+            ChooseCube(1);
+        else ChooseCube2(1);
         forEnter = 5;
     } else if (key == GLUT_KEY_PAGE_DOWN && (forEnter == 4 || forEnter == 5))
     {
-        ChooseCube(2);
+        if(forTwoPlayers < 2)
+            ChooseCube(2);
+        else ChooseCube2(2);
         forEnter = 5;
     }
 

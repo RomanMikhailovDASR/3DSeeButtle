@@ -56,7 +56,7 @@ void displayCell()
     glBlendFunc(GL_SRC_ALPHA,
                 GL_ONE_MINUS_SRC_ALPHA);  //устанавливаем уровень прозрачности - пока до конца не разобрался
 
-    if (forOnePaint == 0 && forEnter == 0)
+    if (forOnePaint == 0 && (forEnter == 0))
     {
         for (int i = 0; i < LengthBigCube; i++)
             for (int j = 0; j < LengthBigCube; j++)
@@ -98,24 +98,33 @@ void displayCell()
     }
 
 
-    if (forOnePaint == 0 && forEnter == -1 || forTwoPlayers == 2)
+    if (forOnePaint == 0 && (forEnter == -1 || forTwoPlayers == 2))
     {
         for (int i = 0; i < LengthBigCube; i++)
             for (int j = 0; j < LengthBigCube; j++)
                 for (int k = 0; k < LengthBigCube; k++)
                 {
-                    Player1[i][j][k] = Cube(1.1 / (LengthBigCube * 1.4),
-                                            i * 1.1 / (LengthBigCube * 1.4) - 0.55 + 0.55 / (LengthBigCube * 1.4) + 0.95,
-                                            j * 1.1 / (LengthBigCube * 1.4) - 0.55 + 0.55 / (LengthBigCube * 1.4) + 0.5,
-                                            k * 1.1 / (LengthBigCube * 1.4) - 0.55 + 0.55 / (LengthBigCube * 1.4), 0.11);
+                    Player1[i][j][k].changeCube(1.1 / (LengthBigCube * 1.4),
+                                                i * 1.1 / (LengthBigCube * 1.4) - 0.55 + 0.55 / (LengthBigCube * 1.4) +
+                                                0.95,
+                                                j * 1.1 / (LengthBigCube * 1.4) - 0.55 + 0.55 / (LengthBigCube * 1.4) +
+                                                0.5,
+                                                k * 1.1 / (LengthBigCube * 1.4) - 0.55 + 0.55 / (LengthBigCube * 1.4),
+                                                0.11);
 
-                    Player2[i][j][k] = Cube(1.1 / (LengthBigCube * 1.4),
-                                            i * 1.1 / (LengthBigCube * 1.4) - 0.55 + 0.55 / (LengthBigCube * 1.4) - 0.25,
-                                            j * 1.1 / (LengthBigCube * 1.4) - 0.55 + 0.55 / (LengthBigCube * 1.4) + 0.28,
-                                            k * 1.1 / (LengthBigCube * 1.4) - 0.55 + 0.55 / (LengthBigCube * 1.4) + 0.785,
-                                            0.11);
-                    Player1[i][j][k].setColor(1, 0, 0);
-                    Player2[i][j][k].setColor(1, 1, 1);
+                    Player2[i][j][k].changeCube(1.1 / (LengthBigCube * 1.4),
+                                                i * 1.1 / (LengthBigCube * 1.4) - 0.55 + 0.55 / (LengthBigCube * 1.4) -
+                                                0.25,
+                                                j * 1.1 / (LengthBigCube * 1.4) - 0.55 + 0.55 / (LengthBigCube * 1.4) +
+                                                0.28,
+                                                k * 1.1 / (LengthBigCube * 1.4) - 0.55 + 0.55 / (LengthBigCube * 1.4) +
+                                                0.785,
+                                                0.11);
+                    if (!forTwoPlayers)
+                    {
+                        Player1[i][j][k].setColor(1, 0, 0);
+                        Player2[i][j][k].setColor(1, 1, 1);
+                    }
                     forOnePaint = 1;
                 }
     }
@@ -138,13 +147,21 @@ void displayCell()
                 }
 
 
-
-
     if (forEnter == -1 || forTwoPlayers == 2)
         for (auto &i : Player2)
             for (auto &j : i)
                 for (auto &k : j)
                 {
+                    if (k.getHit() == 3)
+                    {
+                        k.setColor(0, 0, 1);
+                        k.setTransparency(1);
+                    }
+                    if (k.getHit() == 4)
+                    {
+                        k.setColor(1, 0, 0);
+                        k.setTransparency(1);
+                    }
                     k.paintCube();
                 }
 
@@ -153,7 +170,17 @@ void displayCell()
             for (auto &j : i)
                 for (auto &k : j)
                 {
-                     k.paintCube();
+                    if (k.getHit() == 3)
+                    {
+                        k.setColor(0, 0, 1);
+                        k.setTransparency(1);
+                    }
+                    if (k.getHit() == 4)
+                    {
+                        k.setColor(1, 0, 0);
+                        k.setTransparency(1);
+                    }
+                    k.paintCube();
                 }
     glFlush();
     glutSwapBuffers();
