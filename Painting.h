@@ -98,63 +98,62 @@ void displayCell()
     }
 
 
-    if (forOnePaint == 0 && forEnter == -1)
+    if (forOnePaint == 0 && forEnter == -1 || forTwoPlayers == 2)
     {
         for (int i = 0; i < LengthBigCube; i++)
             for (int j = 0; j < LengthBigCube; j++)
                 for (int k = 0; k < LengthBigCube; k++)
                 {
-                    Player1[i][j][k] = Cube(1.1 / (LengthBigCube * 2),
-                                            i * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) + 0.95,
-                                            j * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) + 0.5,
-                                            k * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2), 0.11);
+                    Player1[i][j][k] = Cube(1.1 / (LengthBigCube * 1.4),
+                                            i * 1.1 / (LengthBigCube * 1.4) - 0.55 + 0.55 / (LengthBigCube * 1.4) + 0.95,
+                                            j * 1.1 / (LengthBigCube * 1.4) - 0.55 + 0.55 / (LengthBigCube * 1.4) + 0.5,
+                                            k * 1.1 / (LengthBigCube * 1.4) - 0.55 + 0.55 / (LengthBigCube * 1.4), 0.11);
 
-                    Player2[i][j][k] = Cube(1.1 / (LengthBigCube * 2),
-                                            i * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) - 0.25,
-                                            j * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) + 0.28,
-                                            k * 1.1 / (LengthBigCube * 2) - 0.55 + 0.55 / (LengthBigCube * 2) + 0.785,
+                    Player2[i][j][k] = Cube(1.1 / (LengthBigCube * 1.4),
+                                            i * 1.1 / (LengthBigCube * 1.4) - 0.55 + 0.55 / (LengthBigCube * 1.4) - 0.25,
+                                            j * 1.1 / (LengthBigCube * 1.4) - 0.55 + 0.55 / (LengthBigCube * 1.4) + 0.28,
+                                            k * 1.1 / (LengthBigCube * 1.4) - 0.55 + 0.55 / (LengthBigCube * 1.4) + 0.785,
                                             0.11);
                     Player1[i][j][k].setColor(1, 0, 0);
                     Player2[i][j][k].setColor(1, 1, 1);
                     forOnePaint = 1;
                 }
     }
-
-    for (auto &i : a)
-        for (auto &j : i)
-            for (auto &k : j)
-            {
-                if (k.getHit() == 1)
+    if (forTwoPlayers < 2)
+        for (auto &i : a)
+            for (auto &j : i)
+                for (auto &k : j)
                 {
-                    k.setColor(0, 1, 0); // выбранные корабли закрашиваем зеленым
-                }
-                if (k.getPaint())
-                {
-                    k.paintCube();
-                    if (forEnter != -1 && k.getHit() != 1)
-                        k.setTransparancyNothing();
+                    if (k.getHit() == 1)
+                    {
+                        k.setColor(0, 1, 0); // выбранные корабли закрашиваем зеленым
+                    }
+                    if (k.getPaint())
+                    {
+                        k.paintCube();
+                        if (forEnter != -1 && k.getHit() != 1)
+                            k.setTransparancyNothing();
+                    }
+
                 }
 
-            }
 
-    if (forEnter == -1)
+
+
+    if (forEnter == -1 || forTwoPlayers == 2)
         for (auto &i : Player2)
             for (auto &j : i)
                 for (auto &k : j)
                 {
-                    if (isPlayer1)
-                        k.paintForRotate(rotate_y);
-                    else k.paintCube();
+                    k.paintCube();
                 }
 
-    if (forEnter == -1)
+    if (forEnter == -1 || forTwoPlayers == 2)
         for (auto &i : Player1)
             for (auto &j : i)
                 for (auto &k : j)
                 {
-                    if (!isPlayer1)
-                        k.paintForRotate(rotate_y);
-                    else k.paintCube();
+                     k.paintCube();
                 }
     glFlush();
     glutSwapBuffers();

@@ -23,9 +23,9 @@ void choose_first_side(double &rotateX, double &rotateY)
     for (int j = 0; j < LengthBigCube; j++)
         for (int k = 0; k < LengthBigCube; k++)
         {
-            if(a[LengthBigCube - 1][j][k].getHit() == 1)
+            if (a[LengthBigCube - 1][j][k].getHit() == 1)
             {
-                a[LengthBigCube - 1][j][k].setColor(0,1,0);
+                a[LengthBigCube - 1][j][k].setColor(0, 1, 0);
             }
 
             a[LengthBigCube - 1][j][k].setColor(0.2, 0, 0);
@@ -48,9 +48,9 @@ void choose_second_side(double &rotateX, double &rotateY)
     for (auto &j : a)
         for (int k = 0; k < LengthBigCube; k++)
         {
-            if(j[LengthBigCube - 1][k].getHit() == 1)
+            if (j[LengthBigCube - 1][k].getHit() == 1)
             {
-                j[LengthBigCube - 1][k].setColor(0,1,0);
+                j[LengthBigCube - 1][k].setColor(0, 1, 0);
             }
 
             j[LengthBigCube - 1][k].setColor(0, 0.2, 0);

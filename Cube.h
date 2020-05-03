@@ -7,6 +7,8 @@
 
 #include <cmath>
 
+int forTwoPlayers = 0;
+
 const int LengthBigCube = 5;
 int forEnter = -1;
 bool firstSide = false, secondSide = false, thirdSide = false;
@@ -84,6 +86,7 @@ public:
     {
         std::cout << red << " " << green << " " << blue << std::endl;
     }
+
     void setTransparency(double transparancy)
     {
         this->transparency = transparancy;
