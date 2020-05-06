@@ -13,27 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6b7d39ea-9236-437e-b3fb-0f0c97fb2197" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChooseSide.h" beforeDir="false" afterPath="$PROJECT_DIR$/ChooseSide.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Painting.h" beforeDir="false" afterPath="$PROJECT_DIR$/Painting.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WorkWithKeys.h" beforeDir="false" afterPath="$PROJECT_DIR$/WorkWithKeys.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/3DSeeButtle" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/3DSeeButtle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/3DSeeButtle.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/3DSeeButtle.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.16.5/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.16.5/CMakeSystem.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,13 +40,12 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
-        <option value="alik &lt;putin.al@phystech.edu&gt;" />
         <option value="alik_put &lt;56935749+alex2211-put@users.noreply.github.com&gt;" />
+        <option value="alik &lt;putin.al@phystech.edu&gt;" />
         <option value="Alik &lt;putin_al@mail.ru&gt;" />
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="ProjectId" id="1Z5IrfZRrxSAmVXWZCdwmXhoo2I" />
   <component name="ProjectViewState">
@@ -174,7 +152,7 @@
       <workItem from="1588702490912" duration="8590000" />
       <workItem from="1588763899771" duration="550000" />
       <workItem from="1588765785493" duration="5696000" />
-      <workItem from="1588781748230" duration="629000" />
+      <workItem from="1588781748230" duration="942000" />
     </task>
     <task id="LOCAL-00001" summary="class Cube">
       <created>1584553962199</created>
@@ -323,7 +301,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588712254006</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Добавил текст, понажимайте F1 во время игры)&#10;изменили цвета">
+      <created>1588782434586</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1588782434586</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,43 +345,44 @@
     <MESSAGE value="Форматирование" />
     <MESSAGE value="цвет фона" />
     <MESSAGE value="Добавил текст, понажимайте F1 во время игры)&#10;Но он пока крутится вместе с пространством..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавил текст, понажимайте F1 во время игры)&#10;Но он пока крутится вместе с пространством..." />
+    <MESSAGE value="Добавил текст, понажимайте F1 во время игры)&#10;изменили цвета" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил текст, понажимайте F1 во время игры)&#10;изменили цвета" />
   </component>
   <component name="WindowStateProjectService">
     <state x="590" y="215" width="800" height="684" key="#Notifications" timestamp="1584123078953">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state x="590" y="215" width="800" height="684" key="#Notifications/70.27.1850.1053@70.27.1850.1053" timestamp="1584123078953" />
-    <state x="287" y="98" width="912" height="604" key="CommitChangelistDialog2" timestamp="1588712252899">
-      <screen x="0" y="27" width="1366" height="741" />
+    <state x="459" y="128" width="912" height="604" key="CommitChangelistDialog2" timestamp="1588782434242">
+      <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state x="287" y="98" width="912" height="604" key="CommitChangelistDialog2/0.27.1366.741@0.27.1366.741" timestamp="1588712252899" />
-    <state x="459" y="128" width="1062" height="857" key="CommitChangelistDialog2/70.27.1850.1053@70.27.1850.1053" timestamp="1585730490854" />
+    <state x="459" y="128" width="1062" height="857" key="CommitChangelistDialog2/70.27.1850.1053@70.27.1850.1053" timestamp="1588782434242" />
     <state x="523" y="227" width="374" height="346" key="FileChooserDialogImpl" timestamp="1588530777165">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="523" y="227" width="374" height="346" key="FileChooserDialogImpl/0.27.1366.741@0.27.1366.741" timestamp="1588530777165" />
     <state x="778" y="311" width="424" height="491" key="FileChooserDialogImpl/70.27.1850.1053@70.27.1850.1053" timestamp="1584818261980" />
-    <state width="1804" height="117" key="GridCell.Tab.0.bottom" timestamp="1588773162032">
+    <state width="1804" height="117" key="GridCell.Tab.0.bottom" timestamp="1588782852275">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state width="1320" height="172" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1588712260440" />
-    <state width="1804" height="117" key="GridCell.Tab.0.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1588773162032" />
-    <state width="1804" height="117" key="GridCell.Tab.0.center" timestamp="1588773162032">
+    <state width="1804" height="117" key="GridCell.Tab.0.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1588782852275" />
+    <state width="1804" height="117" key="GridCell.Tab.0.center" timestamp="1588782852274">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state width="1320" height="172" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1588712260440" />
-    <state width="1804" height="117" key="GridCell.Tab.0.center/70.27.1850.1053@70.27.1850.1053" timestamp="1588773162032" />
-    <state width="1804" height="117" key="GridCell.Tab.0.left" timestamp="1588773162032">
+    <state width="1804" height="117" key="GridCell.Tab.0.center/70.27.1850.1053@70.27.1850.1053" timestamp="1588782852274" />
+    <state width="1804" height="117" key="GridCell.Tab.0.left" timestamp="1588782852273">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state width="1320" height="172" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1588712260439" />
-    <state width="1804" height="117" key="GridCell.Tab.0.left/70.27.1850.1053@70.27.1850.1053" timestamp="1588773162032" />
-    <state width="1804" height="117" key="GridCell.Tab.0.right" timestamp="1588773162032">
+    <state width="1804" height="117" key="GridCell.Tab.0.left/70.27.1850.1053@70.27.1850.1053" timestamp="1588782852273" />
+    <state width="1804" height="117" key="GridCell.Tab.0.right" timestamp="1588782852274">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state width="1320" height="172" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1588712260440" />
-    <state width="1804" height="117" key="GridCell.Tab.0.right/70.27.1850.1053@70.27.1850.1053" timestamp="1588773162032" />
+    <state width="1804" height="117" key="GridCell.Tab.0.right/70.27.1850.1053@70.27.1850.1053" timestamp="1588782852274" />
     <state width="1804" height="340" key="GridCell.Tab.1.bottom" timestamp="1585828550967">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
@@ -429,11 +415,11 @@
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state x="658" y="381" key="com.intellij.ide.util.TipDialog/70.27.1850.1053@70.27.1850.1053" timestamp="1585828422544" />
-    <state x="546" y="360" width="458" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588712234208">
-      <screen x="0" y="27" width="1366" height="741" />
+    <state x="809" y="500" width="458" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588782411652">
+      <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state x="546" y="360" width="458" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.1366.741@0.27.1366.741" timestamp="1588712234208" />
-    <state x="809" y="500" width="464" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/70.27.1850.1053@70.27.1850.1053" timestamp="1587980614960" />
+    <state x="809" y="500" width="464" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/70.27.1850.1053@70.27.1850.1053" timestamp="1588782411652" />
     <state x="878" y="339" width="216" height="443" key="refactoring.ChangeSignatureDialog" timestamp="1587782335965">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
