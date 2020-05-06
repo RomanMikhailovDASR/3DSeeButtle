@@ -28,7 +28,7 @@ void choose_first_side(double &rotateX, double &rotateY)
                 a[LengthBigCube - 1][j][k].setColor(0, 1, 0);
             }
 
-            a[LengthBigCube - 1][j][k].setColor(0.2, 0, 0);
+            a[LengthBigCube - 1][j][k].setColor(0, 0, 0.275);
             a[LengthBigCube - 1][j][k].setTransparency(0.5);
         }
 
@@ -53,7 +53,7 @@ void choose_second_side(double &rotateX, double &rotateY)
                 j[LengthBigCube - 1][k].setColor(0, 1, 0);
             }
 
-            j[LengthBigCube - 1][k].setColor(0, 0.2, 0);
+            j[LengthBigCube - 1][k].setColor(0, 0, 0.275);
             j[LengthBigCube - 1][k].setTransparency(0.5);
         }
 
@@ -75,7 +75,7 @@ void choose_third_side(double &rotateX, double &rotateY)
     for (int j = 0; j < LengthBigCube; j++)
         for (auto &k : a)
         {
-            k[j][LengthBigCube - 1].setColor(0, 0, 0.2);
+            k[j][LengthBigCube - 1].setColor(0, 0, 0.275);
             k[j][LengthBigCube - 1].setTransparency(0.5);
         }
 
@@ -110,7 +110,7 @@ void view_first_side(double &rotateX, double &rotateY)
     for (int j = 0; j < LengthBigCube; j++)
         for (int k = 0; k < LengthBigCube; k++)
         {
-            a[LengthBigCube - 1][j][k].setColor(1, 0, 0);
+            a[LengthBigCube - 1][j][k].setColor(0, 0, 1);
         }
 
     rotateX = 325;
@@ -129,7 +129,7 @@ void view_second_side(double &rotateX, double &rotateY)
     for (auto &j : a)
         for (int k = 0; k < LengthBigCube; k++)
         {
-            j[LengthBigCube - 1][k].setColor(0, 1, 0);
+            j[LengthBigCube - 1][k].setColor(0, 0, 1);
         }
 
     rotateX = 325;

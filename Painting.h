@@ -13,10 +13,9 @@
 #include <random>
 #include "Cube.h"
 #include "PaintingCubes.h"
-#include <math.h>
 
 double rotate_y = 135;  //начальный поворот куба по у
-double rotate_x = 0; //начальный поворот куба по х
+double rotate_x = -35; //начальный поворот куба по х
 double &r_rotate_x = rotate_x;
 double &r_rotate_y = rotate_y;
 
@@ -50,24 +49,32 @@ void renderBitmapString(    // Помещает строку в указанно
         float x,
         float y,
         void *font,
-        char *string) {
+        char *string)
+{
 
     char *c;
-    if (cos(rotate_y) == 0) {
-        if (cos(rotate_x) == 0) {
+    if (cos(rotate_y) == 0)
+    {
+        if (cos(rotate_x) == 0)
+        {
             glRasterPos3f(y, 0, -x);
-        } else {
-            glRasterPos3f(0,y / cos(rotate_x / 57.3),-x);
+        } else
+        {
+            glRasterPos3f(0, y / cos(rotate_x / 57.3), -x);
         }
-    } else {
-        if (cos(rotate_x) == 0) {
-            glRasterPos3f(x / cos(rotate_y / 57.3),0,y);
-        } else {
-            glRasterPos3f(x / cos(rotate_y * 3.14/180),y / cos(rotate_x * 3.14/180),0);
+    } else
+    {
+        if (cos(rotate_x) == 0)
+        {
+            glRasterPos3f(x / cos(rotate_y / 57.3), 0, y);
+        } else
+        {
+            glRasterPos3f(x / cos(rotate_y * 3.14 / 180), y / cos(rotate_x * 3.14 / 180), 0);
         }
     };
 
-    for (c=string; *c != '\0'; c++) {
+    for (c = string; *c != '\0'; c++)
+    {
         glutBitmapCharacter(font, *c);
     }
 }
@@ -75,8 +82,8 @@ void renderBitmapString(    // Помещает строку в указанно
 void displayCell()
 {
     if (forEnter == -1)
-        glClearColor(0.07, 0.07, 0.25, 0.f);  //меняем цвет фона
-
+        glClearColor(19/255., 19/255., 80/255., 0.f);  //меняем цвет фона
+    //glClearColor(0.07, 0.07, 0.25, 0.f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //очищаем экран, чтобы картинки "не размножались"
 
     glLoadIdentity();
@@ -90,27 +97,31 @@ void displayCell()
 
     if (hello_screen)
     {
-        glColor3d(1,1,1);
-        renderBitmapString(-0.5,0,GLUT_BITMAP_TIMES_ROMAN_24,"Press F1 for help");
+        glColor3d(1, 1, 1);
+        renderBitmapString(-0.5, 0, GLUT_BITMAP_TIMES_ROMAN_24, "Press F1 for help");
     }
 
     if (help)
     {
-        glColor3d(1,1,1);
-        if (hello_screen) {
+        glColor3d(1, 1, 1);
+        if (hello_screen)
+        {
             renderBitmapString(-0.9, 0.5, GLUT_BITMAP_TIMES_ROMAN_24, "Press Right/Left to switch between sides");
             renderBitmapString(0, 0.4, GLUT_BITMAP_TIMES_ROMAN_24, "Press Enter to choose");
-        } else {
-            if (placing_ships) {
-                renderBitmapString(0.5,0, GLUT_BITMAP_TIMES_ROMAN_24, "Press Arrows to rotate the cube");
-                renderBitmapString(0.5,0.5, GLUT_BITMAP_TIMES_ROMAN_24, "Press F7/F8/F9 to choose face");
-            } else {
-                renderBitmapString(0,0, GLUT_BITMAP_TIMES_ROMAN_24, "Not ready yet");
+        } else
+        {
+            if (placing_ships)
+            {
+                renderBitmapString(0.5, 0, GLUT_BITMAP_TIMES_ROMAN_24, "Press Arrows to rotate the cube");
+                renderBitmapString(0.5, 0.5, GLUT_BITMAP_TIMES_ROMAN_24, "Press F7/F8/F9 to choose face");
+            } else
+            {
+                renderBitmapString(0, 0, GLUT_BITMAP_TIMES_ROMAN_24, "Not ready yet");
             }
         }
     }
 
-    if (forOnePaint == 0 && (forEnter == 0))
+    if (forOnePaint == 0 && (forEnter == 0) && forTwoPlayers != 2)
     {
         for (int i = 0; i < LengthBigCube; i++)
             for (int j = 0; j < LengthBigCube; j++)
@@ -124,7 +135,7 @@ void displayCell()
                                             k * 1.1 / LengthBigCube - LengthBigCube * 0.55 / LengthBigCube +
                                             0.55 / LengthBigCube, 0.11);
 
-                    Player1[i][j][k].setColor(0.5, 0.5, 0.8);
+                    Player1[i][j][k].setColor(135/256., 206/256., 250/256.);
                     Player2[i][j][k] = Cube(1.1 / (LengthBigCube),
                                             i * 1.1 / LengthBigCube - LengthBigCube * 0.55 / LengthBigCube +
                                             0.55 / LengthBigCube,
@@ -133,7 +144,7 @@ void displayCell()
                                             k * 1.1 / LengthBigCube - LengthBigCube * 0.55 / LengthBigCube +
                                             0.55 / LengthBigCube, 0.11);
 
-                    Player2[i][j][k].setColor(0.5, 0.5, 0.8);
+                    Player2[i][j][k].setColor(10/256., 254/256., 189/256.);
                     forOnePaint = 1;
                     forCubeA = true;
                 }
@@ -152,7 +163,7 @@ void displayCell()
     }
 
 
-    if (forOnePaint == 0 && (forEnter == -1 || forTwoPlayers == 2))
+    if (forOnePaint == 0 && (forEnter == -1 || forTwoPlayers == 2 && forEnter == 0))
     {
         for (int i = 0; i < LengthBigCube; i++)
             for (int j = 0; j < LengthBigCube; j++)
@@ -176,8 +187,12 @@ void displayCell()
                                                 0.11);
                     if (!forTwoPlayers)
                     {
-                        Player1[i][j][k].setColor(1, 0, 0);
-                        Player2[i][j][k].setColor(1, 1, 1);
+                        Player1[i][j][k].setColor(135/256., 206/256., 250/256.);
+                        Player2[i][j][k].setColor(10/256., 254/256., 189/256.);
+                    } else if(forTwoPlayers == 2)
+                    {
+                        Player1[i][j][k].setColor(135/256., 206/256., 250/256.);
+                        Player2[i][j][k].setColor(10/256., 254/256., 189/256.);
                     }
                     forOnePaint = 1;
                 }

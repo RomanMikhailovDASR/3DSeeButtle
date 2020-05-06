@@ -43,15 +43,18 @@ void Keyboard(unsigned char key, int x, int y)
         if (firstSide)
         {
             choose_first_side(r_rotate_x, r_rotate_y);
-            a[i_first_side][j_first_side][k_first_side].setColor(1, 0, 0);
+            a[i_first_side][j_first_side][k_first_side].setColor(1, 1, 0);
+            a[i_first_side][j_first_side][k_first_side].setTransparency(0.5);
         } else if (secondSide)
         {
             choose_second_side(r_rotate_x, r_rotate_y);
-            a[i_second_side][j_second_side][k_second_side].setColor(0, 1, 0);
+            a[i_second_side][j_second_side][k_second_side].setColor(1, 1, 0);
+            a[i_second_side][j_second_side][k_second_side].setTransparency(0.5);
         } else if (thirdSide)
         {
             choose_third_side(r_rotate_x, r_rotate_y);
-            a[i_third_side][j_third_side][k_third_side].setColor(0, 0, 1);
+            a[i_third_side][j_third_side][k_third_side].setColor(1, 1, 0);
+            a[i_third_side][j_third_side][k_third_side].setTransparency(0.5);
         }
         forEnter = 2;
         movement = false;
@@ -59,7 +62,6 @@ void Keyboard(unsigned char key, int x, int y)
 
     if (key == 13 && forEnter == 3)
     {
-        std::cout << "3 Alik" << std::endl;
         movement = true;
         for (auto &i : a)
             for (auto &j : i)
@@ -74,7 +76,8 @@ void Keyboard(unsigned char key, int x, int y)
             for (auto &i : a)
                 i[yf][z1].setColor(1, 1, 0);
             for (int i = 0; i < ship; i++)
-                a[i][yf][z1].setTransparency(1);
+            {   a[i][yf][z1].setTransparency(1);
+            }
             r_rotate_x = 325;
             r_rotate_y = 135;
         } else if (secondSide)
@@ -99,7 +102,6 @@ void Keyboard(unsigned char key, int x, int y)
 
     if (key == 13 && forEnter == 5 && forTwoPlayers < 2)
     {//FIRE!!! (типа пыжь пыжь и все покраснело)
-        std::cout << "5 Alik" << std::endl;
         correct = true;
         if (firstSide)
             for (int i1 = p1; i1 < p1 + ship; i1++)
@@ -263,7 +265,12 @@ void Keyboard(unsigned char key, int x, int y)
                 saveLengthBigCube = 1;
                 forTwoPlayers++;
                 if(forTwoPlayers == 2)
+                {
                     forOnePaint = 0;
+                    forEnter = 0;
+                    movement = false;
+                }
+
                 //DAVID FUNCTION SHOULD BE HERE !!!!!!!!
             }
         } else
@@ -286,7 +293,6 @@ void Keyboard(unsigned char key, int x, int y)
     }
     if (key == 13 && forEnter == 5 && forTwoPlayers == 2)
     {//FIRE!!! (типа пыжь пыжь и все покраснело)
-        std::cout << " 1000000 Alik" << std::endl;
         if (isPlayer1)
         {
             if (firstSide && Player1[p1][yf][z1].getHit() != 2)
@@ -517,123 +523,124 @@ void ChooseColumn(int arrow)
 {
     if (firstSide)// && forEnter >= 2)
     {
-        a[LengthBigCube - 1][LengthBigCube - 1][LengthBigCube - 1].setTransparency(0.5);
-        a[LengthBigCube - 1][LengthBigCube - 1][LengthBigCube - 1].setColor(0.2, 0.0, 0.0);
-
 
         if (arrow == 4)
         {//работает стрелочка вправо
             a[LengthBigCube - 1][yf][z1].setTransparency(0.5);
-            a[LengthBigCube - 1][yf][z1].setColor(0.2, 0.0, 0.0);
+            a[LengthBigCube - 1][yf][z1].setColor(0, 0, 0.275);
             z1++;
             if (z1 > LengthBigCube - 1)
                 z1 = 0;
-            a[LengthBigCube - 1][yf][z1].setColor(1, 0.0, 0.0);
+            a[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
+            a[LengthBigCube - 1][yf][z1].setTransparency(0.5);
         } else if (arrow == 2)
         {//стрелочка вверх
             a[LengthBigCube - 1][yf][z1].setTransparency(0.5);
-            a[LengthBigCube - 1][yf][z1].setColor(0.2, 0.0, 0.0);
+            a[LengthBigCube - 1][yf][z1].setColor(0, 0, 0.275);
             yf++;
             if (yf > LengthBigCube - 1)
                 yf = 0;
-            a[LengthBigCube - 1][yf][z1].setColor(1, 0.0, 0.0);
+            a[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
+            a[LengthBigCube - 1][yf][z1].setTransparency(0.5);
         } else if (arrow == 1)
         {//стрелочка влево
             a[LengthBigCube - 1][yf][z1].setTransparency(0.5);
-            a[LengthBigCube - 1][yf][z1].setColor(0.2, 0.0, 0.0);
+            a[LengthBigCube - 1][yf][z1].setColor(0, 0, 0.275);
             z1--;
             if (z1 < 0)
                 z1 = LengthBigCube - 1;
-            a[LengthBigCube - 1][yf][z1].setColor(1, 0.0, 0.0);
+            a[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
+            a[LengthBigCube - 1][yf][z1].setTransparency(0.5);
         } else if (arrow == 3)
         {
             a[LengthBigCube - 1][yf][z1].setTransparency(0.5);
-            a[LengthBigCube - 1][yf][z1].setColor(0.2, 0.0, 0.0);
+            a[LengthBigCube - 1][yf][z1].setColor(0, 0, 0.275);
             yf--;
             if (yf < 0)
                 yf = LengthBigCube - 1;
-            a[LengthBigCube - 1][yf][z1].setColor(1, 0.0, 0.0);
-
+            a[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
+            a[LengthBigCube - 1][yf][z1].setTransparency(0.5);
         }
     } else if (secondSide)// && forEnter >= 2)
     {
-        a[0][LengthBigCube - 1][LengthBigCube - 1].setTransparency(0.5);
-        a[0][LengthBigCube - 1][LengthBigCube - 1].setColor(0.0, 0.2, 0.0);
-
 
         if (arrow == 2)
         {//работает стрелочка вправо
             a[x2][LengthBigCube - 1][z2].setTransparency(0.5);
-            a[x2][LengthBigCube - 1][z2].setColor(0.0, 0.2, 0.0);
+            a[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 0.275);
             z2--;
             if (z2 < 0)
                 z2 = LengthBigCube - 1;
-            a[x2][LengthBigCube - 1][z2].setColor(0, 1, 0.0);
+            a[x2][LengthBigCube - 1][z2].setColor(1, 1, 0.0);
+            a[x2][LengthBigCube - 1][z2].setTransparency(0.5);
         } else if (arrow == 1)
         {//стрелочка вверх
             a[x2][LengthBigCube - 1][z2].setTransparency(0.5);
-            a[x2][LengthBigCube - 1][z2].setColor(0.0, 0.2, 0.0);
+            a[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 0.275);
             x2++;
             if (x2 > LengthBigCube - 1)
                 x2 = 0;
-            a[x2][LengthBigCube - 1][z2].setColor(0, 1, 0.0);
+            a[x2][LengthBigCube - 1][z2].setColor(1, 1, 0.0);
+            a[x2][LengthBigCube - 1][z2].setTransparency(0.5);
         } else if (arrow == 3)
         {//стрелочка влево
             a[x2][LengthBigCube - 1][z2].setTransparency(0.5);
-            a[x2][LengthBigCube - 1][z2].setColor(0.0, 0.2, 0.0);
+            a[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 0.275);
             z2++;
             if (z2 > LengthBigCube - 1)
                 z2 = 0;
-            a[x2][LengthBigCube - 1][z2].setColor(0, 1, 0.0);
+            a[x2][LengthBigCube - 1][z2].setColor(1, 1, 0.0);
+            a[x2][LengthBigCube - 1][z2].setTransparency(0.5);
         } else if (arrow == 4)
         {//стрелочка вниз
             a[x2][LengthBigCube - 1][z2].setTransparency(0.5);
-            a[x2][LengthBigCube - 1][z2].setColor(0.0, 0.2, 0.0);
+            a[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 0.275);
             x2--;
             if (x2 < 0)
                 x2 = LengthBigCube - 1;
-            a[x2][LengthBigCube - 1][z2].setColor(0, 1, 0.0);
-
+            a[x2][LengthBigCube - 1][z2].setColor(1, 1, 0.0);
+            a[x2][LengthBigCube - 1][z2].setTransparency(0.5);
         }
 
     } else if (thirdSide)// && forEnter >= 2)
     {
-        a[0][LengthBigCube - 1][LengthBigCube - 1].setTransparency(0.5);
-        a[0][LengthBigCube - 1][LengthBigCube - 1].setColor(0.0, 0.0, 0.2);
-
 
         if (arrow == 1)
         {//работает стрелочка вправо
             a[x3][y3][LengthBigCube - 1].setTransparency(0.5);
-            a[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 0.2);
+            a[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 0.275);
             x3++;
             if (x3 > LengthBigCube - 1)
                 x3 = 0;
-            a[x3][y3][LengthBigCube - 1].setColor(0, 0, 1);
+            a[x3][y3][LengthBigCube - 1].setColor(1, 1, 0);
+            a[x3][y3][LengthBigCube - 1].setTransparency(0.5);
         } else if (arrow == 3)
         {//стрелочка вверх
             a[x3][y3][LengthBigCube - 1].setTransparency(0.5);
-            a[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 0.2);
+            a[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 0.275);
             y3--;
             if (y3 < 0)
                 y3 = LengthBigCube - 1;
-            a[x3][y3][LengthBigCube - 1].setColor(0, 0, 1);
+            a[x3][y3][LengthBigCube - 1].setColor(1, 1, 0);
+            a[x3][y3][LengthBigCube - 1].setTransparency(0.5);
         } else if (arrow == 4)
         {//стрелочка влево
             a[x3][y3][LengthBigCube - 1].setTransparency(0.5);
-            a[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 0.2);
+            a[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 0.275);
             x3--;
             if (x3 < 0)
                 x3 = LengthBigCube - 1;
-            a[x3][y3][LengthBigCube - 1].setColor(0, 0, 1);
+            a[x3][y3][LengthBigCube - 1].setColor(1, 1, 0);
+            a[x3][y3][LengthBigCube - 1].setTransparency(0.5);
         } else if (arrow == 2)
         {//стрелочка вниз
             a[x3][y3][LengthBigCube - 1].setTransparency(0.5);
-            a[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 0.2);
+            a[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 0.275);
             y3++;
             if (y3 > LengthBigCube - 1)
                 y3 = 0;
-            a[x3][y3][LengthBigCube - 1].setColor(0, 0, 1);
+            a[x3][y3][LengthBigCube - 1].setColor(1, 1, 0);
+            a[x3][y3][LengthBigCube - 1].setTransparency(0.5);
         }
     }
     forEnter = 3;

@@ -11,7 +11,30 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6b7d39ea-9236-437e-b3fb-0f0c97fb2197" name="Default Changelist" comment="" />
+    <list default="true" id="6b7d39ea-9236-437e-b3fb-0f0c97fb2197" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChooseSide.h" beforeDir="false" afterPath="$PROJECT_DIR$/ChooseSide.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Painting.h" beforeDir="false" afterPath="$PROJECT_DIR$/Painting.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkWithKeys.h" beforeDir="false" afterPath="$PROJECT_DIR$/WorkWithKeys.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/3DSeeButtle" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/3DSeeButtle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/3DSeeButtle.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/3DSeeButtle.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.16.5/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.16.5/CMakeSystem.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -149,6 +172,9 @@
       <workItem from="1588535305530" duration="2674000" />
       <workItem from="1588621001390" duration="5512000" />
       <workItem from="1588702490912" duration="8590000" />
+      <workItem from="1588763899771" duration="550000" />
+      <workItem from="1588765785493" duration="5696000" />
+      <workItem from="1588781748230" duration="629000" />
     </task>
     <task id="LOCAL-00001" summary="class Cube">
       <created>1584553962199</created>
@@ -351,26 +377,26 @@
     </state>
     <state x="523" y="227" width="374" height="346" key="FileChooserDialogImpl/0.27.1366.741@0.27.1366.741" timestamp="1588530777165" />
     <state x="778" y="311" width="424" height="491" key="FileChooserDialogImpl/70.27.1850.1053@70.27.1850.1053" timestamp="1584818261980" />
-    <state width="1320" height="172" key="GridCell.Tab.0.bottom" timestamp="1588712260440">
-      <screen x="0" y="27" width="1366" height="741" />
+    <state width="1804" height="117" key="GridCell.Tab.0.bottom" timestamp="1588773162032">
+      <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state width="1320" height="172" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1588712260440" />
-    <state width="1804" height="117" key="GridCell.Tab.0.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1587985518358" />
-    <state width="1320" height="172" key="GridCell.Tab.0.center" timestamp="1588712260440">
-      <screen x="0" y="27" width="1366" height="741" />
+    <state width="1804" height="117" key="GridCell.Tab.0.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1588773162032" />
+    <state width="1804" height="117" key="GridCell.Tab.0.center" timestamp="1588773162032">
+      <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state width="1320" height="172" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1588712260440" />
-    <state width="1804" height="117" key="GridCell.Tab.0.center/70.27.1850.1053@70.27.1850.1053" timestamp="1587985518358" />
-    <state width="1320" height="172" key="GridCell.Tab.0.left" timestamp="1588712260439">
-      <screen x="0" y="27" width="1366" height="741" />
+    <state width="1804" height="117" key="GridCell.Tab.0.center/70.27.1850.1053@70.27.1850.1053" timestamp="1588773162032" />
+    <state width="1804" height="117" key="GridCell.Tab.0.left" timestamp="1588773162032">
+      <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state width="1320" height="172" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1588712260439" />
-    <state width="1804" height="117" key="GridCell.Tab.0.left/70.27.1850.1053@70.27.1850.1053" timestamp="1587985518357" />
-    <state width="1320" height="172" key="GridCell.Tab.0.right" timestamp="1588712260440">
-      <screen x="0" y="27" width="1366" height="741" />
+    <state width="1804" height="117" key="GridCell.Tab.0.left/70.27.1850.1053@70.27.1850.1053" timestamp="1588773162032" />
+    <state width="1804" height="117" key="GridCell.Tab.0.right" timestamp="1588773162032">
+      <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state width="1320" height="172" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1588712260440" />
-    <state width="1804" height="117" key="GridCell.Tab.0.right/70.27.1850.1053@70.27.1850.1053" timestamp="1587985518358" />
+    <state width="1804" height="117" key="GridCell.Tab.0.right/70.27.1850.1053@70.27.1850.1053" timestamp="1588773162032" />
     <state width="1804" height="340" key="GridCell.Tab.1.bottom" timestamp="1585828550967">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
