@@ -43,11 +43,17 @@ void Keyboard(unsigned char key, int x, int y)
         if (firstSide)
         {
             choose_first_side(r_rotate_x, r_rotate_y);
-            a[i_first_side][j_first_side][k_first_side].setColor(1, 1, 0);
+            if(a[i_first_side][j_first_side][k_first_side].getHit() == 0)
+                a[i_first_side][j_first_side][k_first_side].setColor(1, 1, 0);
+            else {
+                a[i_first_side][j_first_side][k_first_side].setColor(255 / 255., 105 / 255., 60 / 255.);
+                forRed = true;
+            }
+            a[i_first_side][j_first_side][k_first_side].setPaint(true);
             a[i_first_side][j_first_side][k_first_side].setTransparency(0.5);
-            for(int i = 0; i < LengthBigCube - 1; i++)
+            for (int i = 0; i < LengthBigCube - 1; i++)
             {
-                if(a[i][yf][z1].getHit() == 0)
+                if (a[i][yf][z1].getHit() == 0)
                     a[i][yf][z1].setColor(1, 1, 0);
                 else
                 {
@@ -60,11 +66,17 @@ void Keyboard(unsigned char key, int x, int y)
         } else if (secondSide)
         {
             choose_second_side(r_rotate_x, r_rotate_y);
-            a[i_second_side][j_second_side][k_second_side].setColor(1, 1, 0);
+            if(a[i_second_side][j_second_side][k_second_side].getHit() == 0)
+                a[i_second_side][j_second_side][k_second_side].setColor(1, 1, 0);
+            else {
+                a[i_second_side][j_second_side][k_second_side].setColor(255 / 255., 105 / 255., 60 / 255.);
+                forRed = true;
+            }
+            a[i_second_side][j_second_side][k_second_side].setPaint(true);
             a[i_second_side][j_second_side][k_second_side].setTransparency(0.5);
-            for(int i = 0; i < LengthBigCube - 1; i++)
+            for (int i = 0; i < LengthBigCube - 1; i++)
             {
-                if(a[x2][i][z2].getHit() == 0)
+                if (a[x2][i][z2].getHit() == 0)
                     a[x2][i][z2].setColor(1, 1, 0);
                 else
                 {
@@ -77,12 +89,26 @@ void Keyboard(unsigned char key, int x, int y)
         } else if (thirdSide)
         {
             choose_third_side(r_rotate_x, r_rotate_y);
-            a[i_third_side][j_third_side][k_third_side].setColor(1, 1, 0);
-            a[i_third_side][j_third_side][k_third_side].setTransparency(0.5);
-            for(int i = 0; i < LengthBigCube - 1; i++)
+            if(a[i_third_side][j_third_side][k_third_side].getHit() == 0)
+                a[i_third_side][j_third_side][k_third_side].setColor(1, 1, 0);
+            else
             {
+                a[i_third_side][j_third_side][k_third_side].setColor(255 / 255., 105 / 255., 60 / 255.);
+                forRed = true;
+            }
+            a[i_third_side][j_third_side][k_third_side].setPaint(true);
+            a[i_third_side][j_third_side][k_third_side].setTransparency(0.5);
+            for (int i = 0; i < LengthBigCube - 1; i++)
+            {
+                if (a[x3][y3][i].getHit() == 0)
+                    a[x3][y3][i].setColor(1, 1, 0);
+                else
+                {
+                    a[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
+                    a[x3][y3][i].setPaint(true);
+                    forRed = true;
+                }
                 a[x3][y3][i].setTransparency(0.3);
-                a[x3][y3][i].setColor(1, 1, 0);
             }
         }
         forEnter = 2;
@@ -91,6 +117,7 @@ void Keyboard(unsigned char key, int x, int y)
 
     if (key == 13 && forEnter == 3)
     {
+        forRed = false;
         movement = true;
         for (auto &i : a)
             for (auto &j : i)
@@ -105,7 +132,8 @@ void Keyboard(unsigned char key, int x, int y)
             for (auto &i : a)
                 i[yf][z1].setColor(1, 1, 0);
             for (int i = 0; i < ship; i++)
-            {   a[i][yf][z1].setTransparency(1);
+            {
+                a[i][yf][z1].setTransparency(0.7);
             }
             r_rotate_x = 325;
             r_rotate_y = 135;
@@ -114,7 +142,7 @@ void Keyboard(unsigned char key, int x, int y)
             for (int j = 0; j < LengthBigCube; j++)
                 a[x2][j][z2].setColor(1, 1, 0);
             for (int j = 0; j < ship; j++)
-                a[x2][j][z2].setTransparency(1);
+                a[x2][j][z2].setTransparency(0.7);
             r_rotate_x = 325;
             r_rotate_y = 135;
         } else if (thirdSide)
@@ -122,7 +150,7 @@ void Keyboard(unsigned char key, int x, int y)
             for (int k = 0; k < LengthBigCube; k++)
                 a[x3][y3][k].setColor(1, 1, 0);
             for (int k = 0; k < ship; k++)
-                a[x3][y3][k].setTransparency(1);
+                a[x3][y3][k].setTransparency(0.7);
             r_rotate_x = 325;
             r_rotate_y = 135;
         }
@@ -293,7 +321,7 @@ void Keyboard(unsigned char key, int x, int y)
                 correct = true; // переменная, отвечающая за честность расстановки
                 saveLengthBigCube = 1;
                 forTwoPlayers++;
-                if(forTwoPlayers == 2)
+                if (forTwoPlayers == 2)
                 {
                     forOnePaint = 0;
                     forEnter = 0;
@@ -478,7 +506,7 @@ void ChooseCube(int page)
     {
         if (p1 > 0)
             for (int i = p1; i <= ship; i++)
-                a[i][yf][z1].setTransparency(1);
+                a[i][yf][z1].setTransparency(0.7);
 
         if (page == 1 && p1 < LengthBigCube - ship)
         {
@@ -486,13 +514,13 @@ void ChooseCube(int page)
                 a[i][yf][z1].setTransparency(0.2);
             p1++;
             for (int i = p1; i < p1 + ship; i++)
-                a[i][yf][z1].setTransparency(1);
+                a[i][yf][z1].setTransparency(0.7);
 
         } else if (page == 2 && p1 > 0)
         {
             p1--;
             for (int i = p1 + ship - 1; i > p1 - 1; i--)
-                a[i][yf][z1].setTransparency(1);
+                a[i][yf][z1].setTransparency(0.7);
 
             for (int i = LengthBigCube - 1; i > p1 + ship - 1; i--)
                 a[i][yf][z1].setTransparency(0.2);
@@ -502,7 +530,7 @@ void ChooseCube(int page)
     {
         if (p2 > 0)
             for (int j = p2; j <= ship; j++)
-                a[x2][j][z2].setTransparency(1);
+                a[x2][j][z2].setTransparency(0.7);
 
         if (page == 1 && p2 < LengthBigCube - ship)
         {
@@ -510,13 +538,13 @@ void ChooseCube(int page)
                 a[x2][j][z2].setTransparency(0.2);
             p2++;
             for (int j = p2; j < p2 + ship; j++)
-                a[x2][j][z2].setTransparency(1);
+                a[x2][j][z2].setTransparency(0.7);
 
         } else if (page == 2 && p2 > 0)
         {
             p2--;
             for (int j = p2 + ship - 1; j > p2 - 1; j--)
-                a[x2][j][z2].setTransparency(1);
+                a[x2][j][z2].setTransparency(0.7);
 
             for (int j = LengthBigCube - 1; j > p2 + ship - 1; j--)
                 a[x2][j][z2].setTransparency(0.2);
@@ -526,7 +554,7 @@ void ChooseCube(int page)
     {
         if (p3 > 0)
             for (int k = p3; k <= ship; k++)
-                a[x3][y3][k].setTransparency(1);
+                a[x3][y3][k].setTransparency(0.7);
 
         if (page == 1 && p3 < LengthBigCube - ship)
         {
@@ -534,13 +562,13 @@ void ChooseCube(int page)
                 a[x3][y3][k].setTransparency(0.2);
             p3++;
             for (int k = p3; k < p3 + ship; k++)
-                a[x3][y3][k].setTransparency(1);
+                a[x3][y3][k].setTransparency(0.7);
 
         } else if (page == 2 && p3 > 0)
         {
             p3--;
             for (int k = p3 + ship - 1; k > p3 - 1; k--)
-                a[x3][y3][k].setTransparency(1);
+                a[x3][y3][k].setTransparency(0.7);
 
             for (int k = LengthBigCube - 1; k > p3 + ship - 1; k--)
                 a[x3][y3][k].setTransparency(0.2);
@@ -558,142 +586,156 @@ void ChooseColumn(int arrow)
             a[LengthBigCube - 1][yf][z1].setTransparency(0.11);
             a[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
             forRed = false;
-            if(a[LengthBigCube - 1][yf][z1].getHit() == 2)
+            if (a[LengthBigCube - 1][yf][z1].getHit() == 2)
                 a[LengthBigCube - 1][yf][z1].setPaint(false);
-            for(int i = 0; i < LengthBigCube - 1; i++)
+            if (a[LengthBigCube - 1][yf][z1].getHit() == 1)
+                a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
+            for (int i = 0; i < LengthBigCube - 1; i++)
             {
                 a[i][yf][z1].setColor(0.5, 0.5, 0.8);
                 a[i][yf][z1].setTransparency(0.11);
-                if(a[i][yf][z1].getHit() == 2)
+                if (a[i][yf][z1].getHit() == 2)
                     a[i][yf][z1].setPaint(false);
             }
             z1++;
             if (z1 > LengthBigCube - 1)
                 z1 = 0;
-            for(int i = 0; i < LengthBigCube - 1; i++)
+            for (int i = 0; i < LengthBigCube - 1; i++)
             {
-                if(a[i][yf][z1].getHit() == 0)
+                if (a[i][yf][z1].getHit() == 0)
                     a[i][yf][z1].setColor(1, 1, 0);
-                else {
-                    a[i][yf][z1].setColor(255/255., 105/255., 60/255.);
+                else
+                {
+                    a[i][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
                     a[i][yf][z1].setPaint(true);
-                    forRed = true;
+                    if (a[i][yf][z1].getHit() == 1)
+                        forRed = true;
                 }
                 a[i][yf][z1].setTransparency(0.3);
             }
-            if(a[LengthBigCube - 1][yf][z1].getHit() != 0)
+            if (a[LengthBigCube - 1][yf][z1].getHit() != 0)
             {
-                a[LengthBigCube - 1][yf][z1].setColor(255/255., 105/255., 60/255.);
+                a[LengthBigCube - 1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
                 a[LengthBigCube - 1][yf][z1].setPaint(true);
-            }
-            else a[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
+                forRed = true;
+            } else a[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
             a[LengthBigCube - 1][yf][z1].setTransparency(0.7);
         } else if (arrow == 2)
         {//стрелочка вверх
             a[LengthBigCube - 1][yf][z1].setTransparency(0.11);
             a[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
+            if (a[LengthBigCube - 1][yf][z1].getHit() == 1)
+                a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
             forRed = false;
-            if(a[LengthBigCube - 1][yf][z1].getHit() == 2)
+            if (a[LengthBigCube - 1][yf][z1].getHit() == 2)
                 a[LengthBigCube - 1][yf][z1].setPaint(false);
-            for(int i = 0; i < LengthBigCube - 1; i++)
+            for (int i = 0; i < LengthBigCube - 1; i++)
             {
                 a[i][yf][z1].setColor(0.5, 0.5, 0.8);
                 a[i][yf][z1].setTransparency(0.11);
-                if(a[i][yf][z1].getHit() == 2)
+                if (a[i][yf][z1].getHit() == 2)
                     a[i][yf][z1].setPaint(false);
             }
             yf++;
             if (yf > LengthBigCube - 1)
                 yf = 0;
-            for(int i = 0; i < LengthBigCube - 1; i++)
+            for (int i = 0; i < LengthBigCube - 1; i++)
             {
-                if(a[i][yf][z1].getHit() == 0)
+                if (a[i][yf][z1].getHit() == 0)
                     a[i][yf][z1].setColor(1, 1, 0);
-                else {
-                    forRed = true;
-                    a[i][yf][z1].setColor(255/255., 105/255., 60/255.);
+                else
+                {
+                    a[i][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
                     a[i][yf][z1].setPaint(true);
+                    if (a[i][yf][z1].getHit() == 1)
+                        forRed = true;
                 }
                 a[i][yf][z1].setTransparency(0.3);
             }
-            if(a[LengthBigCube - 1][yf][z1].getHit() != 0)
+            if (a[LengthBigCube - 1][yf][z1].getHit() != 0)
             {
-                a[LengthBigCube - 1][yf][z1].setColor(255/255., 105/255., 60/255.);
-                forRed = true;
+                a[LengthBigCube - 1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
                 a[LengthBigCube - 1][yf][z1].setPaint(true);
-            }
-            else a[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
+                forRed = true;
+            } else a[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
             a[LengthBigCube - 1][yf][z1].setTransparency(0.7);
         } else if (arrow == 1)
         {//стрелочка влево
             a[LengthBigCube - 1][yf][z1].setTransparency(0.11);
             a[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
+            if (a[LengthBigCube - 1][yf][z1].getHit() == 1)
+                a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
             forRed = false;
-            if(a[LengthBigCube - 1][yf][z1].getHit() == 2)
+            if (a[LengthBigCube - 1][yf][z1].getHit() == 2)
                 a[LengthBigCube - 1][yf][z1].setPaint(false);
-            for(int i = 0; i < LengthBigCube - 1; i++)
+            for (int i = 0; i < LengthBigCube - 1; i++)
             {
                 a[i][yf][z1].setColor(0.5, 0.5, 0.8);
                 a[i][yf][z1].setTransparency(0.11);
-                if(a[i][yf][z1].getHit() == 2)
+                if (a[i][yf][z1].getHit() == 2)
                     a[i][yf][z1].setPaint(false);
             }
             z1--;
             if (z1 < 0)
                 z1 = LengthBigCube - 1;
-            for(int i = 0; i < LengthBigCube - 1; i++)
+            for (int i = 0; i < LengthBigCube - 1; i++)
             {
                 a[i][yf][z1].setTransparency(0.3);
-                if(a[i][yf][z1].getHit() == 0)
+                if (a[i][yf][z1].getHit() == 0)
                     a[i][yf][z1].setColor(1, 1, 0);
-                else {
-                    forRed = true;
-                    a[i][yf][z1].setColor(255/255., 105/255., 60/255.);
+                else
+                {
+                    a[i][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
                     a[i][yf][z1].setPaint(true);
+                    if (a[i][yf][z1].getHit() == 1)
+                        forRed = true;
                 }
             }
-            if(a[LengthBigCube - 1][yf][z1].getHit() != 0)
+            if (a[LengthBigCube - 1][yf][z1].getHit() != 0)
             {
-                a[LengthBigCube - 1][yf][z1].setColor(255/255., 105/255., 60/255.);
-                forRed = true;
+                a[LengthBigCube - 1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
                 a[LengthBigCube - 1][yf][z1].setPaint(true);
-            }
-            else a[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
+                forRed = true;
+            } else a[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
             a[LengthBigCube - 1][yf][z1].setTransparency(0.7);
         } else if (arrow == 3)
         {
             a[LengthBigCube - 1][yf][z1].setTransparency(0.11);
             a[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
+            if (a[LengthBigCube - 1][yf][z1].getHit() == 1)
+                a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
             forRed = false;
-            if(a[LengthBigCube - 1][yf][z1].getHit() == 2)
+            if (a[LengthBigCube - 1][yf][z1].getHit() == 2)
                 a[LengthBigCube - 1][yf][z1].setPaint(false);
-            for(int i = 0; i < LengthBigCube - 1; i++)
+            for (int i = 0; i < LengthBigCube - 1; i++)
             {
                 a[i][yf][z1].setTransparency(0.11);
                 a[i][yf][z1].setColor(0.5, 0.5, 0.8);
-                if(a[i][yf][z1].getHit() == 2)
+                if (a[i][yf][z1].getHit() == 2)
                     a[i][yf][z1].setPaint(false);
             }
             yf--;
             if (yf < 0)
                 yf = LengthBigCube - 1;
-            for(int i = 0; i < LengthBigCube - 1; i++)
+            for (int i = 0; i < LengthBigCube - 1; i++)
             {
                 a[i][yf][z1].setTransparency(0.3);
-                if(a[i][yf][z1].getHit() == 0)
+                if (a[i][yf][z1].getHit() == 0)
                     a[i][yf][z1].setColor(1, 1, 0);
-                else {
-                    forRed = true;
-                    a[i][yf][z1].setColor(255/255., 105/255., 60/255.);
+                else
+                {
+                    a[i][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
                     a[i][yf][z1].setPaint(true);
+                    if (a[i][yf][z1].getHit() == 1)
+                        forRed = true;
                 }
             }
-            if(a[LengthBigCube - 1][yf][z1].getHit() != 0)
+            if (a[LengthBigCube - 1][yf][z1].getHit() != 0)
             {
-                a[LengthBigCube - 1][yf][z1].setColor(255/255., 105/255., 60/255.);
+                a[LengthBigCube - 1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
                 a[LengthBigCube - 1][yf][z1].setPaint(true);
-            }
-            else a[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
+                forRed = true;
+            } else a[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
             a[LengthBigCube - 1][yf][z1].setTransparency(0.7);
         }
     } else if (secondSide)// && forEnter >= 2)
@@ -703,141 +745,157 @@ void ChooseColumn(int arrow)
         {//работает стрелочка вправо
             a[x2][LengthBigCube - 1][z2].setTransparency(0.11);
             a[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 1);
-            if(a[x2][LengthBigCube - 1][z2].getHit() == 2)
-                a[x2][LengthBigCube - 1][z2].setPaint(false);
+            if (a[x2][LengthBigCube - 1][z2].getHit() == 1)
+                a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
             forRed = false;
+            if (a[x2][LengthBigCube - 1][z2].getHit() == 2)
+                a[x2][LengthBigCube - 1][z2].setPaint(false);
 
-            for(int i = 0; i < LengthBigCube - 1; i++)
+            for (int i = 0; i < LengthBigCube - 1; i++)
             {
                 a[x2][i][z2].setTransparency(0.11);
                 a[x2][i][z2].setColor(0.5, 0.5, 0.8);
-                if(a[x2][i][z2].getHit() == 2)
+                if (a[x2][i][z2].getHit() == 2)
                     a[x2][i][z2].setPaint(false);
             }
             z2--;
             if (z2 < 0)
                 z2 = LengthBigCube - 1;
-            for(int i = 0; i < LengthBigCube - 1; i++)
+            for (int i = 0; i < LengthBigCube - 1; i++)
             {
                 a[x2][i][z2].setTransparency(0.3);
-                if(a[x2][i][z2].getHit() == 0)
+                if (a[x2][i][z2].getHit() == 0)
                     a[x2][i][z2].setColor(1, 1, 0);
                 else
                 {
-                    forRed = true;
-                    a[x2][i][z2].setColor(255/255., 105/255., 60/255.);
+                    a[x2][i][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
                     a[x2][i][z2].setPaint(true);
+                    if (a[x2][i][z2].getHit() == 1)
+                        forRed = true;
                 }
             }
-            if(a[x2][LengthBigCube - 1][z2].getHit() != 0)
+            if (a[x2][LengthBigCube - 1][z2].getHit() != 0)
             {
-                a[x2][LengthBigCube - 1][z2].setColor(255/255., 105/255., 60/255.);
+                a[x2][LengthBigCube - 1][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
                 a[x2][LengthBigCube - 1][z2].setPaint(true);
+                forRed = true;
             } else a[x2][LengthBigCube - 1][z2].setColor(1, 1, 0.0);
             a[x2][LengthBigCube - 1][z2].setTransparency(0.7);
         } else if (arrow == 1)
         {//стрелочка вверх
             a[x2][LengthBigCube - 1][z2].setTransparency(0.11);
             a[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 1);
+            if (a[x2][LengthBigCube - 1][z2].getHit() == 1)
+                a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
             forRed = false;
-            if(a[x2][LengthBigCube - 1][z2].getHit() == 2)
+            if (a[x2][LengthBigCube - 1][z2].getHit() == 2)
                 a[x2][LengthBigCube - 1][z2].setPaint(false);
-            for(int i = 0; i < LengthBigCube - 1; i++)
+            for (int i = 0; i < LengthBigCube - 1; i++)
             {
                 a[x2][i][z2].setTransparency(0.11);
                 a[x2][i][z2].setColor(0.5, 0.5, 0.8);
-                if(a[x2][i][z2].getHit() == 2)
+                if (a[x2][i][z2].getHit() == 2)
                     a[x2][i][z2].setPaint(false);
             }
             x2++;
             if (x2 > LengthBigCube - 1)
                 x2 = 0;
-            for(int i = 0; i < LengthBigCube - 1; i++)
+            for (int i = 0; i < LengthBigCube - 1; i++)
             {
                 a[x2][i][z2].setTransparency(0.3);
-                if(a[x2][i][z2].getHit() == 0)
+                if (a[x2][i][z2].getHit() == 0)
                     a[x2][i][z2].setColor(1, 1, 0);
                 else
                 {
-                    forRed = true;
-                    a[x2][i][z2].setColor(255/255., 105/255., 60/255.);
+                    a[x2][i][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
                     a[x2][i][z2].setPaint(true);
+                    if (a[x2][i][z2].getHit() == 1)
+                        forRed = true;
                 }
             }
-            if(a[x2][LengthBigCube - 1][z2].getHit() != 0)
+            if (a[x2][LengthBigCube - 1][z2].getHit() != 0)
             {
-                a[x2][LengthBigCube - 1][z2].setColor(255/255., 105/255., 60/255.);
+                a[x2][LengthBigCube - 1][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
                 a[x2][LengthBigCube - 1][z2].setPaint(true);
+                forRed = true;
             } else a[x2][LengthBigCube - 1][z2].setColor(1, 1, 0.0);
             a[x2][LengthBigCube - 1][z2].setTransparency(0.7);
         } else if (arrow == 3)
         {//стрелочка влево
             a[x2][LengthBigCube - 1][z2].setTransparency(0.11);
             a[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 1);
+            if (a[x2][LengthBigCube - 1][z2].getHit() == 1)
+                a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
             forRed = false;
-            if(a[x2][LengthBigCube - 1][z2].getHit() == 2)
+            if (a[x2][LengthBigCube - 1][z2].getHit() == 2)
                 a[x2][LengthBigCube - 1][z2].setPaint(false);
-            for(int i = 0; i < LengthBigCube - 1; i++)
+            for (int i = 0; i < LengthBigCube - 1; i++)
             {
                 a[x2][i][z2].setTransparency(0.11);
                 a[x2][i][z2].setColor(0.5, 0.5, 0.8);
-                if(a[x2][i][z2].getHit() == 2)
+                if (a[x2][i][z2].getHit() == 2)
                     a[x2][i][z2].setPaint(false);
             }
             z2++;
             if (z2 > LengthBigCube - 1)
                 z2 = 0;
-            for(int i = 0; i < LengthBigCube - 1; i++)
+            for (int i = 0; i < LengthBigCube - 1; i++)
             {
                 a[x2][i][z2].setTransparency(0.3);
-                if(a[x2][i][z2].getHit() == 0)
+                if (a[x2][i][z2].getHit() == 0)
                     a[x2][i][z2].setColor(1, 1, 0);
                 else
                 {
-                    forRed = true;
-                    a[x2][i][z2].setColor(255/255., 105/255., 60/255.);
+                    a[x2][i][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
                     a[x2][i][z2].setPaint(true);
+                    if (a[x2][i][z2].getHit() == 1)
+                        forRed = true;
                 }
             }
-            if(a[x2][LengthBigCube - 1][z2].getHit() != 0)
+            if (a[x2][LengthBigCube - 1][z2].getHit() != 0)
             {
-                a[x2][LengthBigCube - 1][z2].setColor(255/255., 105/255., 60/255.);
+                a[x2][LengthBigCube - 1][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
                 a[x2][LengthBigCube - 1][z2].setPaint(true);
+                forRed = true;
             } else a[x2][LengthBigCube - 1][z2].setColor(1, 1, 0.0);
             a[x2][LengthBigCube - 1][z2].setTransparency(0.7);
         } else if (arrow == 4)
         {//стрелочка вниз
             a[x2][LengthBigCube - 1][z2].setTransparency(0.11);
             a[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 1);
+            if (a[x2][LengthBigCube - 1][z2].getHit() == 1)
+                a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
             forRed = false;
-            if(a[x2][LengthBigCube - 1][z2].getHit() == 2)
+            if (a[x2][LengthBigCube - 1][z2].getHit() == 2)
                 a[x2][LengthBigCube - 1][z2].setPaint(false);
-            for(int i = 0; i < LengthBigCube - 1; i++)
+            for (int i = 0; i < LengthBigCube - 1; i++)
             {
                 a[x2][i][z2].setTransparency(0.11);
                 a[x2][i][z2].setColor(0.5, 0.5, 0.8);
-                if(a[x2][i][z2].getHit() == 2)
+                if (a[x2][i][z2].getHit() == 2)
                     a[x2][i][z2].setPaint(false);
             }
             x2--;
             if (x2 < 0)
                 x2 = LengthBigCube - 1;
-            for(int i = 0; i < LengthBigCube - 1; i++)
+            for (int i = 0; i < LengthBigCube - 1; i++)
             {
                 a[x2][i][z2].setTransparency(0.3);
-                if(a[x2][i][z2].getHit() == 0)
+                if (a[x2][i][z2].getHit() == 0)
                     a[x2][i][z2].setColor(1, 1, 0);
                 else
                 {
-                    forRed = true;
-                    a[x2][i][z2].setColor(255/255., 105/255., 60/255.);
+                    a[x2][i][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
                     a[x2][i][z2].setPaint(true);
+                    if (a[x2][i][z2].getHit() == 1)
+                        forRed = true;
                 }
             }
-            if(a[x2][LengthBigCube - 1][z2].getHit() != 0)
+            if (a[x2][LengthBigCube - 1][z2].getHit() != 0)
             {
-                a[x2][LengthBigCube - 1][z2].setColor(255/255., 105/255., 60/255.);
+                a[x2][LengthBigCube - 1][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
                 a[x2][LengthBigCube - 1][z2].setPaint(true);
+                forRed = true;
             } else a[x2][LengthBigCube - 1][z2].setColor(1, 1, 0.0);
             a[x2][LengthBigCube - 1][z2].setTransparency(0.7);
         }
@@ -849,140 +907,156 @@ void ChooseColumn(int arrow)
         {//работает стрелочка вправо
             a[x3][y3][LengthBigCube - 1].setTransparency(0.11);
             a[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 1);
-            if(a[x3][y3][LengthBigCube - 1].getHit() == 2)
+            if (a[x3][y3][LengthBigCube - 1].getHit() == 2)
                 a[x3][y3][LengthBigCube - 1].setPaint(false);
+            if (a[x3][y3][LengthBigCube - 1].getHit() == 1)
+                a[x3][y3][LengthBigCube - 1].setColor(0, 1, 0);
             forRed = false;
-            for(int i = 0; i < LengthBigCube - 1; i++)
+            for (int i = 0; i < LengthBigCube - 1; i++)
             {
                 a[x3][y3][i].setTransparency(0.11);
                 a[x3][y3][i].setColor(0.5, 0.5, 0.8);
-                if(a[x3][y3][i].getHit() == 2)
+                if (a[x3][y3][i].getHit() == 2)
                     a[x3][y3][i].setPaint(false);
             }
             x3++;
             if (x3 > LengthBigCube - 1)
                 x3 = 0;
-            for(int i = 0; i < LengthBigCube - 1; i++)
+            for (int i = 0; i < LengthBigCube - 1; i++)
             {
                 a[x3][y3][i].setTransparency(0.3);
-                if(a[x3][y3][i].getHit() == 0)
+                if (a[x3][y3][i].getHit() == 0)
                     a[x3][y3][i].setColor(1, 1, 0);
                 else
                 {
-                    forRed = true;
-                    a[x3][y3][i].setColor(255/255., 105/255., 60/255.);
+                    a[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
                     a[x3][y3][i].setPaint(true);
+                    if (a[x3][y3][i].getHit() == 1)
+                        forRed = true;
                 }
             }
-            if(a[x3][y3][LengthBigCube - 1].getHit() != 0)
+            if (a[x3][y3][LengthBigCube - 1].getHit() != 0)
             {
-                a[x3][y3][LengthBigCube - 1].setColor(255/255., 105/255., 60/255.);
+                a[x3][y3][LengthBigCube - 1].setColor(255 / 255., 105 / 255., 60 / 255.);
                 a[x3][y3][LengthBigCube - 1].setPaint(true);
+                forRed = true;
             } else a[x3][y3][LengthBigCube - 1].setColor(1, 1, 0.0);
             a[x3][y3][LengthBigCube - 1].setTransparency(0.7);
         } else if (arrow == 3)
         {//стрелочка вверх
             a[x3][y3][LengthBigCube - 1].setTransparency(0.11);
             a[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 1);
-            if(a[x3][y3][LengthBigCube - 1].getHit() == 2)
+            if (a[x3][y3][LengthBigCube - 1].getHit() == 2)
                 a[x3][y3][LengthBigCube - 1].setPaint(false);
+            if (a[x3][y3][LengthBigCube - 1].getHit() == 1)
+                a[x3][y3][LengthBigCube - 1].setColor(0, 1, 0);
             forRed = false;
-            for(int i = 0; i < LengthBigCube - 1; i++)
+            for (int i = 0; i < LengthBigCube - 1; i++)
             {
                 a[x3][y3][i].setTransparency(0.11);
                 a[x3][y3][i].setColor(0.5, 0.5, 0.8);
-                if(a[x3][y3][i].getHit() == 2)
+                if (a[x3][y3][i].getHit() == 2)
                     a[x3][y3][i].setPaint(false);
             }
             y3--;
             if (y3 < 0)
                 y3 = LengthBigCube - 1;
-            for(int i = 0; i < LengthBigCube - 1; i++)
+            for (int i = 0; i < LengthBigCube - 1; i++)
             {
                 a[x3][y3][i].setTransparency(0.3);
-                if(a[x3][y3][i].getHit() == 0)
+                if (a[x3][y3][i].getHit() == 0)
                     a[x3][y3][i].setColor(1, 1, 0);
                 else
                 {
-                    forRed = true;
-                    a[x3][y3][i].setColor(255/255., 105/255., 60/255.);
+                    a[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
                     a[x3][y3][i].setPaint(true);
+                    if (a[x3][y3][i].getHit() == 1)
+                        forRed = true;
                 }
             }
-            if(a[x3][y3][LengthBigCube - 1].getHit() != 0)
+            if (a[x3][y3][LengthBigCube - 1].getHit() != 0)
             {
-                a[x3][y3][LengthBigCube - 1].setColor(255/255., 105/255., 60/255.);
+                a[x3][y3][LengthBigCube - 1].setColor(255 / 255., 105 / 255., 60 / 255.);
                 a[x3][y3][LengthBigCube - 1].setPaint(true);
+                forRed = true;
             } else a[x3][y3][LengthBigCube - 1].setColor(1, 1, 0.0);
             a[x3][y3][LengthBigCube - 1].setTransparency(0.7);
         } else if (arrow == 4)
         {//стрелочка влево
             a[x3][y3][LengthBigCube - 1].setTransparency(0.11);
             a[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 1);
-            if(a[x3][y3][LengthBigCube - 1].getHit() == 2)
+            if (a[x3][y3][LengthBigCube - 1].getHit() == 2)
                 a[x3][y3][LengthBigCube - 1].setPaint(false);
+            if (a[x3][y3][LengthBigCube - 1].getHit() == 1)
+                a[x3][y3][LengthBigCube - 1].setColor(0, 1, 0);
             forRed = false;
-            for(int i = 0; i < LengthBigCube - 1; i++)
+            for (int i = 0; i < LengthBigCube - 1; i++)
             {
                 a[x3][y3][i].setTransparency(0.11);
                 a[x3][y3][i].setColor(0.5, 0.5, 0.8);
-                if(a[x3][y3][i].getHit() == 2)
+                if (a[x3][y3][i].getHit() == 2)
                     a[x3][y3][i].setPaint(false);
             }
             x3--;
             if (x3 < 0)
                 x3 = LengthBigCube - 1;
-            for(int i = 0; i < LengthBigCube - 1; i++)
+            for (int i = 0; i < LengthBigCube - 1; i++)
             {
                 a[x3][y3][i].setTransparency(0.3);
-                if(a[x3][y3][i].getHit() == 0)
+                if (a[x3][y3][i].getHit() == 0)
                     a[x3][y3][i].setColor(1, 1, 0);
                 else
                 {
-                    forRed = true;
-                    a[x3][y3][i].setColor(255/255., 105/255., 60/255.);
+                    a[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
                     a[x3][y3][i].setPaint(true);
+                    if (a[x3][y3][i].getHit() == 1)
+                        forRed = true;
                 }
             }
-            if(a[x3][y3][LengthBigCube - 1].getHit() != 0)
+            if (a[x3][y3][LengthBigCube - 1].getHit() != 0)
             {
-                a[x3][y3][LengthBigCube - 1].setColor(255/255., 105/255., 60/255.);
+                a[x3][y3][LengthBigCube - 1].setColor(255 / 255., 105 / 255., 60 / 255.);
                 a[x3][y3][LengthBigCube - 1].setPaint(true);
+                forRed = true;
             } else a[x3][y3][LengthBigCube - 1].setColor(1, 1, 0.0);
             a[x3][y3][LengthBigCube - 1].setTransparency(0.7);
         } else if (arrow == 2)
         {//стрелочка вниз
             a[x3][y3][LengthBigCube - 1].setTransparency(0.11);
             a[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 1);
-            if(a[x3][y3][LengthBigCube - 1].getHit() == 2)
+            if (a[x3][y3][LengthBigCube - 1].getHit() == 2)
                 a[x3][y3][LengthBigCube - 1].setPaint(false);
+            if (a[x3][y3][LengthBigCube - 1].getHit() == 1)
+                a[x3][y3][LengthBigCube - 1].setColor(0, 1, 0);
             forRed = false;
-            for(int i = 0; i < LengthBigCube - 1; i++)
+            for (int i = 0; i < LengthBigCube - 1; i++)
             {
                 a[x3][y3][i].setTransparency(0.11);
                 a[x3][y3][i].setColor(0.5, 0.5, 0.8);
-                if(a[x3][y3][i].getHit() == 2)
+                if (a[x3][y3][i].getHit() == 2)
                     a[x3][y3][i].setPaint(false);
             }
             y3++;
             if (y3 > LengthBigCube - 1)
                 y3 = 0;
-            for(int i = 0; i < LengthBigCube - 1; i++)
+            for (int i = 0; i < LengthBigCube - 1; i++)
             {
                 a[x3][y3][i].setTransparency(0.3);
-                if(a[x3][y3][i].getHit() == 0)
+                if (a[x3][y3][i].getHit() == 0)
                     a[x3][y3][i].setColor(1, 1, 0);
                 else
                 {
-                    forRed = true;
-                    a[x3][y3][i].setColor(255/255., 105/255., 60/255.);
+                    a[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
                     a[x3][y3][i].setPaint(true);
+                    if (a[x3][y3][i].getHit() == 1)
+                        forRed = true;
                 }
             }
-            if(a[x3][y3][LengthBigCube - 1].getHit() != 0)
+            if (a[x3][y3][LengthBigCube - 1].getHit() != 0)
             {
-                a[x3][y3][LengthBigCube - 1].setColor(255/255., 105/255., 60/255.);
+                a[x3][y3][LengthBigCube - 1].setColor(255 / 255., 105 / 255., 60 / 255.);
                 a[x3][y3][LengthBigCube - 1].setPaint(true);
+                forRed = true;
             } else a[x3][y3][LengthBigCube - 1].setColor(1, 1, 0.0);
             a[x3][y3][LengthBigCube - 1].setTransparency(0.7);
         }
@@ -1052,6 +1126,7 @@ void ChooseCube2(int page)
 
     }
 }
+
 // 1 == left, 2 == up, 3 == down, 4 == right
 void specialKeys(int key, int x, int y)
 {
@@ -1071,7 +1146,7 @@ void specialKeys(int key, int x, int y)
                 for (auto &i : Player1)
                     for (auto &j : i)
                         for (auto &k : j)
-                            k.setColor(135/256., 206/256., 250/256.);
+                            k.setColor(135 / 256., 206 / 256., 250 / 256.);
                 for (auto &i : Player2)
                     for (auto &j : i)
                         for (auto &k : j)
@@ -1082,7 +1157,7 @@ void specialKeys(int key, int x, int y)
                 for (auto &i : Player2)
                     for (auto &j : i)
                         for (auto &k : j)
-                            k.setColor(10/256., 254/256., 189/256.);
+                            k.setColor(10 / 256., 254 / 256., 189 / 256.);
                 for (auto &i : Player1)
                     for (auto &j : i)
                         for (auto &k : j)
@@ -1105,7 +1180,7 @@ void specialKeys(int key, int x, int y)
                 for (auto &i : Player1)
                     for (auto &j : i)
                         for (auto &k : j)
-                            k.setColor(135/256., 206/256., 250/256.);
+                            k.setColor(135 / 256., 206 / 256., 250 / 256.);
                 for (auto &i : Player2)
                     for (auto &j : i)
                         for (auto &k : j)
@@ -1116,7 +1191,7 @@ void specialKeys(int key, int x, int y)
                 for (auto &i : Player2)
                     for (auto &j : i)
                         for (auto &k : j)
-                            k.setColor(10/256., 254/256., 189/256.);
+                            k.setColor(10 / 256., 254 / 256., 189 / 256.);
                 for (auto &i : Player1)
                     for (auto &j : i)
                         for (auto &k : j)
@@ -1158,13 +1233,13 @@ void specialKeys(int key, int x, int y)
         default_position(r_rotate_x, r_rotate_y);
     } else if (key == GLUT_KEY_PAGE_UP && (forEnter == 4 || forEnter == 5))
     {
-        if(forTwoPlayers < 2)
+        if (forTwoPlayers < 2)
             ChooseCube(1);
         else ChooseCube2(1);
         forEnter = 5;
     } else if (key == GLUT_KEY_PAGE_DOWN && (forEnter == 4 || forEnter == 5))
     {
-        if(forTwoPlayers < 2)
+        if (forTwoPlayers < 2)
             ChooseCube(2);
         else ChooseCube2(2);
         forEnter = 5;
