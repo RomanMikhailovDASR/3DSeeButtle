@@ -16,10 +16,11 @@ int x2 = i_second_side, z2 = k_second_side;
 int x3 = i_third_side, y3 = j_third_side;
 int p1 = 0, p2 = 0, p3 = 0;
 
-int ship = LengthBigCube - 2; // счетчик для расстновки кораблей
+int ship = LengthBigCube - 2; // счетчик для расстановки кораблей
 int number_of_ships = 1; // счетчик числа кораблей с определенным кол-вом палуб (самый большой корабль всегда один)
 bool correct = true; // переменная, отвечающая за честность расстановки
 int saveLengthBigCube = 1; // переменная, необходимая для цикла расстановки кораблей
+bool statistics = false;
 
 //функция взаимодействия с клавиатурой
 void Keyboard(unsigned char key, int x, int y)
@@ -1134,6 +1135,11 @@ void specialKeys(int key, int x, int y)
     {
         help = (!help);
         //movement = (!movement);
+    }
+
+    if (key == GLUT_KEY_F2)
+    {
+        statistics = (!statistics);
     }
 
     if (key == GLUT_KEY_RIGHT)
