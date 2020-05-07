@@ -30,6 +30,7 @@ void choose_first_side(double &rotateX, double &rotateY)
 
             a[LengthBigCube - 1][j][k].setColor(0, 0, 1);
             a[LengthBigCube - 1][j][k].setTransparency(0.11);
+
         }
 
     rotateX = 325;

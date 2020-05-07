@@ -8,6 +8,7 @@
 #include <cmath>
 
 int forTwoPlayers = 0;
+bool forRed = false;
 
 const int LengthBigCube = 5;
 int forEnter = -1;

@@ -11,8 +11,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6b7d39ea-9236-437e-b3fb-0f0c97fb2197" name="Default Changelist" comment="">
+    <list default="true" id="6b7d39ea-9236-437e-b3fb-0f0c97fb2197" name="Default Changelist" comment="Небольшой баг с кубиками вначале - красный и свой цвет">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChooseSide.h" beforeDir="false" afterPath="$PROJECT_DIR$/ChooseSide.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cube.h" beforeDir="false" afterPath="$PROJECT_DIR$/Cube.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Painting.h" beforeDir="false" afterPath="$PROJECT_DIR$/Painting.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WorkWithKeys.h" beforeDir="false" afterPath="$PROJECT_DIR$/WorkWithKeys.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/3DSeeButtle" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/3DSeeButtle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/main.cpp.o" afterDir="false" />
@@ -155,7 +158,8 @@
       <workItem from="1588702490912" duration="8590000" />
       <workItem from="1588763899771" duration="550000" />
       <workItem from="1588765785493" duration="5696000" />
-      <workItem from="1588781748230" duration="3334000" />
+      <workItem from="1588781748230" duration="3745000" />
+      <workItem from="1588851453887" duration="6108000" />
     </task>
     <task id="LOCAL-00001" summary="class Cube">
       <created>1584553962199</created>
@@ -325,7 +329,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588817216883</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Небольшой баг с кубиками вначале - красный и свой цвет">
+      <created>1588842753787</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1588842753787</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,43 +375,44 @@
     <MESSAGE value="Добавил текст, понажимайте F1 во время игры)&#10;Но он пока крутится вместе с пространством..." />
     <MESSAGE value="Добавил текст, понажимайте F1 во время игры)&#10;изменили цвета" />
     <MESSAGE value="Bags fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bags fixed" />
+    <MESSAGE value="Небольшой баг с кубиками вначале - красный и свой цвет" />
+    <option name="LAST_COMMIT_MESSAGE" value="Небольшой баг с кубиками вначале - красный и свой цвет" />
   </component>
   <component name="WindowStateProjectService">
     <state x="590" y="215" width="800" height="684" key="#Notifications" timestamp="1584123078953">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state x="590" y="215" width="800" height="684" key="#Notifications/70.27.1850.1053@70.27.1850.1053" timestamp="1584123078953" />
-    <state x="459" y="128" width="912" height="604" key="CommitChangelistDialog2" timestamp="1588817216668">
+    <state x="163" y="128" width="1728" height="857" key="CommitChangelistDialog2" timestamp="1588842838190">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state x="287" y="98" width="912" height="604" key="CommitChangelistDialog2/0.27.1366.741@0.27.1366.741" timestamp="1588712252899" />
-    <state x="459" y="128" width="1062" height="857" key="CommitChangelistDialog2/70.27.1850.1053@70.27.1850.1053" timestamp="1588817216668" />
+    <state x="163" y="128" width="1728" height="857" key="CommitChangelistDialog2/70.27.1850.1053@70.27.1850.1053" timestamp="1588842838190" />
     <state x="523" y="227" width="374" height="346" key="FileChooserDialogImpl" timestamp="1588530777165">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="523" y="227" width="374" height="346" key="FileChooserDialogImpl/0.27.1366.741@0.27.1366.741" timestamp="1588530777165" />
     <state x="778" y="311" width="424" height="491" key="FileChooserDialogImpl/70.27.1850.1053@70.27.1850.1053" timestamp="1584818261980" />
-    <state width="1804" height="117" key="GridCell.Tab.0.bottom" timestamp="1588842718311">
+    <state width="1804" height="117" key="GridCell.Tab.0.bottom" timestamp="1588859561557">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state width="1320" height="172" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1588712260440" />
-    <state width="1804" height="117" key="GridCell.Tab.0.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1588842718311" />
-    <state width="1804" height="117" key="GridCell.Tab.0.center" timestamp="1588842718311">
+    <state width="1804" height="117" key="GridCell.Tab.0.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1588859561557" />
+    <state width="1804" height="117" key="GridCell.Tab.0.center" timestamp="1588859561555">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state width="1320" height="172" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1588712260440" />
-    <state width="1804" height="117" key="GridCell.Tab.0.center/70.27.1850.1053@70.27.1850.1053" timestamp="1588842718311" />
-    <state width="1804" height="117" key="GridCell.Tab.0.left" timestamp="1588842718310">
+    <state width="1804" height="117" key="GridCell.Tab.0.center/70.27.1850.1053@70.27.1850.1053" timestamp="1588859561555" />
+    <state width="1804" height="117" key="GridCell.Tab.0.left" timestamp="1588859561555">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state width="1320" height="172" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1588712260439" />
-    <state width="1804" height="117" key="GridCell.Tab.0.left/70.27.1850.1053@70.27.1850.1053" timestamp="1588842718310" />
-    <state width="1804" height="117" key="GridCell.Tab.0.right" timestamp="1588842718311">
+    <state width="1804" height="117" key="GridCell.Tab.0.left/70.27.1850.1053@70.27.1850.1053" timestamp="1588859561555" />
+    <state width="1804" height="117" key="GridCell.Tab.0.right" timestamp="1588859561556">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state width="1320" height="172" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1588712260440" />
-    <state width="1804" height="117" key="GridCell.Tab.0.right/70.27.1850.1053@70.27.1850.1053" timestamp="1588842718311" />
+    <state width="1804" height="117" key="GridCell.Tab.0.right/70.27.1850.1053@70.27.1850.1053" timestamp="1588859561556" />
     <state width="1804" height="340" key="GridCell.Tab.1.bottom" timestamp="1585828550967">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
@@ -442,10 +454,10 @@
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state x="878" y="339" width="216" height="443" key="refactoring.ChangeSignatureDialog/70.27.1850.1053@70.27.1850.1053" timestamp="1587782335965" />
-    <state x="659" y="252" key="run.anything.popup" timestamp="1584914422793">
+    <state x="659" y="252" key="run.anything.popup" timestamp="1588842776397">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state x="659" y="252" key="run.anything.popup/70.27.1850.1053@70.27.1850.1053" timestamp="1584914422793" />
+    <state x="659" y="252" key="run.anything.popup/70.27.1850.1053@70.27.1850.1053" timestamp="1588842776397" />
     <state x="439" y="190" width="672" height="478" key="search.everywhere.popup" timestamp="1588622160738">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
