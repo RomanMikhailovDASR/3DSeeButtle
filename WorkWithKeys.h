@@ -526,8 +526,8 @@ void ChooseColumn(int arrow)
 
         if (arrow == 4)
         {//работает стрелочка вправо
-            a[LengthBigCube - 1][yf][z1].setTransparency(0.5);
-            a[LengthBigCube - 1][yf][z1].setColor(0, 0, 0.275);
+            a[LengthBigCube - 1][yf][z1].setTransparency(0.11);
+            a[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
             z1++;
             if (z1 > LengthBigCube - 1)
                 z1 = 0;
@@ -535,8 +535,8 @@ void ChooseColumn(int arrow)
             a[LengthBigCube - 1][yf][z1].setTransparency(0.5);
         } else if (arrow == 2)
         {//стрелочка вверх
-            a[LengthBigCube - 1][yf][z1].setTransparency(0.5);
-            a[LengthBigCube - 1][yf][z1].setColor(0, 0, 0.275);
+            a[LengthBigCube - 1][yf][z1].setTransparency(0.11);
+            a[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
             yf++;
             if (yf > LengthBigCube - 1)
                 yf = 0;
@@ -544,8 +544,8 @@ void ChooseColumn(int arrow)
             a[LengthBigCube - 1][yf][z1].setTransparency(0.5);
         } else if (arrow == 1)
         {//стрелочка влево
-            a[LengthBigCube - 1][yf][z1].setTransparency(0.5);
-            a[LengthBigCube - 1][yf][z1].setColor(0, 0, 0.275);
+            a[LengthBigCube - 1][yf][z1].setTransparency(0.11);
+            a[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
             z1--;
             if (z1 < 0)
                 z1 = LengthBigCube - 1;
@@ -553,8 +553,8 @@ void ChooseColumn(int arrow)
             a[LengthBigCube - 1][yf][z1].setTransparency(0.5);
         } else if (arrow == 3)
         {
-            a[LengthBigCube - 1][yf][z1].setTransparency(0.5);
-            a[LengthBigCube - 1][yf][z1].setColor(0, 0, 0.275);
+            a[LengthBigCube - 1][yf][z1].setTransparency(0.11);
+            a[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
             yf--;
             if (yf < 0)
                 yf = LengthBigCube - 1;
@@ -566,8 +566,8 @@ void ChooseColumn(int arrow)
 
         if (arrow == 2)
         {//работает стрелочка вправо
-            a[x2][LengthBigCube - 1][z2].setTransparency(0.5);
-            a[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 0.275);
+            a[x2][LengthBigCube - 1][z2].setTransparency(0.11);
+            a[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 1);
             z2--;
             if (z2 < 0)
                 z2 = LengthBigCube - 1;
@@ -575,8 +575,8 @@ void ChooseColumn(int arrow)
             a[x2][LengthBigCube - 1][z2].setTransparency(0.5);
         } else if (arrow == 1)
         {//стрелочка вверх
-            a[x2][LengthBigCube - 1][z2].setTransparency(0.5);
-            a[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 0.275);
+            a[x2][LengthBigCube - 1][z2].setTransparency(0.11);
+            a[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 1);
             x2++;
             if (x2 > LengthBigCube - 1)
                 x2 = 0;
@@ -584,8 +584,8 @@ void ChooseColumn(int arrow)
             a[x2][LengthBigCube - 1][z2].setTransparency(0.5);
         } else if (arrow == 3)
         {//стрелочка влево
-            a[x2][LengthBigCube - 1][z2].setTransparency(0.5);
-            a[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 0.275);
+            a[x2][LengthBigCube - 1][z2].setTransparency(0.11);
+            a[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 1);
             z2++;
             if (z2 > LengthBigCube - 1)
                 z2 = 0;
@@ -593,8 +593,8 @@ void ChooseColumn(int arrow)
             a[x2][LengthBigCube - 1][z2].setTransparency(0.5);
         } else if (arrow == 4)
         {//стрелочка вниз
-            a[x2][LengthBigCube - 1][z2].setTransparency(0.5);
-            a[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 0.275);
+            a[x2][LengthBigCube - 1][z2].setTransparency(0.11);
+            a[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 1);
             x2--;
             if (x2 < 0)
                 x2 = LengthBigCube - 1;
@@ -607,8 +607,8 @@ void ChooseColumn(int arrow)
 
         if (arrow == 1)
         {//работает стрелочка вправо
-            a[x3][y3][LengthBigCube - 1].setTransparency(0.5);
-            a[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 0.275);
+            a[x3][y3][LengthBigCube - 1].setTransparency(0.11);
+            a[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 1);
             x3++;
             if (x3 > LengthBigCube - 1)
                 x3 = 0;
@@ -616,8 +616,8 @@ void ChooseColumn(int arrow)
             a[x3][y3][LengthBigCube - 1].setTransparency(0.5);
         } else if (arrow == 3)
         {//стрелочка вверх
-            a[x3][y3][LengthBigCube - 1].setTransparency(0.5);
-            a[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 0.275);
+            a[x3][y3][LengthBigCube - 1].setTransparency(0.11);
+            a[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 1);
             y3--;
             if (y3 < 0)
                 y3 = LengthBigCube - 1;
@@ -625,8 +625,8 @@ void ChooseColumn(int arrow)
             a[x3][y3][LengthBigCube - 1].setTransparency(0.5);
         } else if (arrow == 4)
         {//стрелочка влево
-            a[x3][y3][LengthBigCube - 1].setTransparency(0.5);
-            a[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 0.275);
+            a[x3][y3][LengthBigCube - 1].setTransparency(0.11);
+            a[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 1);
             x3--;
             if (x3 < 0)
                 x3 = LengthBigCube - 1;
@@ -634,8 +634,8 @@ void ChooseColumn(int arrow)
             a[x3][y3][LengthBigCube - 1].setTransparency(0.5);
         } else if (arrow == 2)
         {//стрелочка вниз
-            a[x3][y3][LengthBigCube - 1].setTransparency(0.5);
-            a[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 0.275);
+            a[x3][y3][LengthBigCube - 1].setTransparency(0.11);
+            a[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 1);
             y3++;
             if (y3 > LengthBigCube - 1)
                 y3 = 0;
