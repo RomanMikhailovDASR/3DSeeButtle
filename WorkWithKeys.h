@@ -727,7 +727,7 @@ void specialKeys(int key, int x, int y)
                 for (auto &i : Player1)
                     for (auto &j : i)
                         for (auto &k : j)
-                            k.setColor(1, 1, 1);
+                            k.setColor(135/256., 206/256., 250/256.);
                 for (auto &i : Player2)
                     for (auto &j : i)
                         for (auto &k : j)
@@ -738,7 +738,7 @@ void specialKeys(int key, int x, int y)
                 for (auto &i : Player2)
                     for (auto &j : i)
                         for (auto &k : j)
-                            k.setColor(1, 1, 1);
+                            k.setColor(10/256., 254/256., 189/256.);
                 for (auto &i : Player1)
                     for (auto &j : i)
                         for (auto &k : j)
@@ -761,7 +761,7 @@ void specialKeys(int key, int x, int y)
                 for (auto &i : Player1)
                     for (auto &j : i)
                         for (auto &k : j)
-                            k.setColor(1, 1, 1);
+                            k.setColor(135/256., 206/256., 250/256.);
                 for (auto &i : Player2)
                     for (auto &j : i)
                         for (auto &k : j)
@@ -772,7 +772,7 @@ void specialKeys(int key, int x, int y)
                 for (auto &i : Player2)
                     for (auto &j : i)
                         for (auto &k : j)
-                            k.setColor(1, 1, 1);
+                            k.setColor(10/256., 254/256., 189/256.);
                 for (auto &i : Player1)
                     for (auto &j : i)
                         for (auto &k : j)
