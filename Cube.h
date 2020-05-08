@@ -8,9 +8,8 @@
 #include <cmath>
 
 int forTwoPlayers = 0;
-bool forRed = false;
 
-const int LengthBigCube = 5;
+const int LengthBigCube = 3;
 int forEnter = -1;
 bool firstSide = false, secondSide = false, thirdSide = false;
 int forOnePaint = 0;

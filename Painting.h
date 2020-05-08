@@ -111,7 +111,7 @@ void displayCell()
             glRotatef(rotate_y, 0.0, 1.0, 0.0);  //а это для у
     }
 
-    if (forOnePaint == 0 && (forEnter == 0))
+    if (forOnePaint == 0 && (forEnter == 0 && forTwoPlayers != 2))
     {
         for (int i = 0; i < LengthBigCube; i++)
             for (int j = 0; j < LengthBigCube; j++)
@@ -139,7 +139,7 @@ void displayCell()
                     forCubeA = true;
                 }
     }
-    if (forCubeA)
+    if (forCubeA && forTwoPlayers < 2)
     {
         for (int i = 0; i < LengthBigCube; i++)
             for (int j = 0; j < LengthBigCube; j++)
@@ -151,7 +151,6 @@ void displayCell()
                     forCubeA = false;
                 }
     }
-
 
     if (forOnePaint == 0 && (forEnter == -1 || forTwoPlayers == 2))
     {
@@ -175,9 +174,9 @@ void displayCell()
                                                 k * 1.1 / (LengthBigCube * 1.4) - 0.55 + 0.55 / (LengthBigCube * 1.4) +
                                                 0.785,
                                                 0.11);
-                    if (!forTwoPlayers)
+                    if (forTwoPlayers == 2 || forTwoPlayers == 0)
                     {
-                        Player1[i][j][k].setColor(1, 0, 0);
+                        Player1[i][j][k].setColor(135 / 256., 206 / 256., 250 / 256.);
                         Player2[i][j][k].setColor(10 / 256., 254 / 256., 189 / 256.);
                     }
                     forOnePaint = 1;

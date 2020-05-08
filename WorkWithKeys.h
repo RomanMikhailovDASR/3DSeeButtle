@@ -118,7 +118,6 @@ void Keyboard(unsigned char key, int x, int y)
 
     if (key == 13 && forEnter == 3)
     {
-        forRed = false;
         movement = true;
         for (auto &i : a)
             for (auto &j : i)
@@ -322,8 +321,11 @@ void Keyboard(unsigned char key, int x, int y)
                 correct = true; // переменная, отвечающая за честность расстановки
                 saveLengthBigCube = 1;
                 forTwoPlayers++;
+                //std::cout << "123    ";
                 if (forTwoPlayers == 2)
                 {
+                    //forCubeA = false;
+                    //std::cout << "Alik    ";
                     forOnePaint = 0;
                     forEnter = 0;
                     movement = false;
