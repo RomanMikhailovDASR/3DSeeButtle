@@ -125,7 +125,7 @@ void displayCell()
                                             k * 1.1 / LengthBigCube - LengthBigCube * 0.55 / LengthBigCube +
                                             0.55 / LengthBigCube, 0.11);
 
-                    Player1[i][j][k].setColor(0.5, 0.5, 0.8);
+                    Player1[i][j][k].setColor(135 / 256., 206 / 256., 250 / 256.);
                     Player2[i][j][k] = Cube(1.1 / (LengthBigCube),
                                             i * 1.1 / LengthBigCube - LengthBigCube * 0.55 / LengthBigCube +
                                             0.55 / LengthBigCube,
@@ -134,7 +134,7 @@ void displayCell()
                                             k * 1.1 / LengthBigCube - LengthBigCube * 0.55 / LengthBigCube +
                                             0.55 / LengthBigCube, 0.11);
 
-                    Player2[i][j][k].setColor(0.5, 0.5, 0.8);
+                    Player2[i][j][k].setColor(10 / 256., 254 / 256., 189 / 256.);
                     forOnePaint = 1;
                     forCubeA = true;
                 }
@@ -178,7 +178,7 @@ void displayCell()
                     if (!forTwoPlayers)
                     {
                         Player1[i][j][k].setColor(1, 0, 0);
-                        Player2[i][j][k].setColor(1, 1, 1);
+                        Player2[i][j][k].setColor(10 / 256., 254 / 256., 189 / 256.);
                     }
                     forOnePaint = 1;
                 }
