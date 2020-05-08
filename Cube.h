@@ -23,6 +23,7 @@ private:
     int forHit;  //для ударов и выбора кубика  Если 1 - выбрали. Если 2 - стоит рядом с кубиком, который выбрали. Если 3 - в него выстрелили
     bool isPaint;
     //для переключений между режимами игры (выбор, стрельба)
+    bool isRed;
 
     double red = 0.5;
     double blue = 0.5;
@@ -51,6 +52,7 @@ public:
         forHit = 0;
         forTransparancy = 0;
         isPaint = true;
+        isRed = false;
 
         red = 0.5;
         blue = 0.8;
@@ -68,6 +70,7 @@ public:
         forHit = 0;
         forTransparancy = 0;
         isPaint = true;
+        isRed = false;
 
         this->x = x;
         this->y = y;
@@ -82,17 +85,27 @@ public:
         this->green = Green;
     }
 
+    void setRed(bool isRed)
+    {
+        this->isRed = isRed;
+    }
+
+    bool getRed() const
+    {
+        return isRed;
+    }
+
     void setPaint(bool isPainted)
     {
         this->isPaint = isPainted;
     }
 
-    bool getPaint()
+    bool getPaint() const
     {
         return isPaint;
     }
 
-    void getColor()
+    void getColor() const
     {
         std::cout << red << " " << green << " " << blue << std::endl;
     }

@@ -5,41 +5,41 @@
 		<Option title="3DSeeButtle"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/david/Рабочий стол/3DSeeButtle/cmake-build-debug"/>
+				<Option working_dir="/home/alik/Documents/Programming/Repository/3DSeeButtle/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/david/Рабочий\ стол/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/david/Рабочий\ стол/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/david/Рабочий\ стол/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/david/Рабочий\ стол/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/david/Рабочий стол/3DSeeButtle/cmake-build-debug"/>
+				<Option working_dir="/home/alik/Documents/Programming/Repository/3DSeeButtle/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/david/Рабочий\ стол/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/david/Рабочий\ стол/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/david/Рабочий\ стол/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/david/Рабочий\ стол/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/david/Рабочий стол/3DSeeButtle/cmake-build-debug"/>
+				<Option working_dir="/home/alik/Documents/Programming/Repository/3DSeeButtle/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/david/Рабочий\ стол/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/david/Рабочий\ стол/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/david/Рабочий\ стол/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/david/Рабочий\ стол/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="3DSeeButtle">
-				<Option output="/home/david/Рабочий стол/3DSeeButtle/cmake-build-debug/3DSeeButtle" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/david/Рабочий стол/3DSeeButtle/cmake-build-debug"/>
+				<Option output="/home/alik/Documents/Programming/Repository/3DSeeButtle/cmake-build-debug/3DSeeButtle" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/alik/Documents/Programming/Repository/3DSeeButtle/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -54,15 +54,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/david/Рабочий\ стол/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 3DSeeButtle"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/david/Рабочий\ стол/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/david/Рабочий\ стол/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/david/Рабочий\ стол/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 3DSeeButtle"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="3DSeeButtle/fast">
-				<Option output="/home/david/Рабочий стол/3DSeeButtle/cmake-build-debug/3DSeeButtle" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/david/Рабочий стол/3DSeeButtle/cmake-build-debug"/>
+				<Option output="/home/alik/Documents/Programming/Repository/3DSeeButtle/cmake-build-debug/3DSeeButtle" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/alik/Documents/Programming/Repository/3DSeeButtle/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -77,42 +77,42 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/david/Рабочий\ стол/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 3DSeeButtle/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/david/Рабочий\ стол/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/david/Рабочий\ стол/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/david/Рабочий\ стол/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 3DSeeButtle/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alik/Documents/Programming/Repository/3DSeeButtle/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/david/Рабочий стол/3DSeeButtle/ChooseSide.h">
+		<Unit filename="/home/alik/Documents/Programming/Repository/3DSeeButtle/ChooseSide.h">
 			<Option target="3DSeeButtle"/>
 		</Unit>
-		<Unit filename="/home/david/Рабочий стол/3DSeeButtle/Painting_second_cube.h">
+		<Unit filename="/home/alik/Documents/Programming/Repository/3DSeeButtle/Painting_second_cube.h">
 			<Option target="3DSeeButtle"/>
 		</Unit>
-		<Unit filename="/home/david/Рабочий стол/3DSeeButtle/WorkWithKeys.h">
+		<Unit filename="/home/alik/Documents/Programming/Repository/3DSeeButtle/WorkWithKeys.h">
 			<Option target="3DSeeButtle"/>
 		</Unit>
-		<Unit filename="/home/david/Рабочий стол/3DSeeButtle/main.cpp">
+		<Unit filename="/home/alik/Documents/Programming/Repository/3DSeeButtle/main.cpp">
 			<Option target="3DSeeButtle"/>
 		</Unit>
-		<Unit filename="/home/david/Рабочий стол/3DSeeButtle/CMakeLists.txt">
+		<Unit filename="/home/alik/Documents/Programming/Repository/3DSeeButtle/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/home/david/Рабочий стол/3DSeeButtle/../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfig.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
+		<Unit filename="/home/alik/Documents/Programming/Repository/3DSeeButtle/../../../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
 		</Unit>
-		<Unit filename="/home/david/Рабочий стол/3DSeeButtle/../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfigDependencies.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
+		<Unit filename="/home/alik/Documents/Programming/Repository/3DSeeButtle/../../../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfigDependencies.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
 		</Unit>
-		<Unit filename="/home/david/Рабочий стол/3DSeeButtle/../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfigVersion.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
+		<Unit filename="/home/alik/Documents/Programming/Repository/3DSeeButtle/../../../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
 		</Unit>
-		<Unit filename="/home/david/Рабочий стол/3DSeeButtle/../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLSharedTargets-none.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
+		<Unit filename="/home/alik/Documents/Programming/Repository/3DSeeButtle/../../../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLSharedTargets-none.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
 		</Unit>
-		<Unit filename="/home/david/Рабочий стол/3DSeeButtle/../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLSharedTargets.cmake">
-			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
+		<Unit filename="/home/alik/Documents/Programming/Repository/3DSeeButtle/../../../../../../usr/lib/x86_64-linux-gnu/cmake/SFML/SFMLSharedTargets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\SFML\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

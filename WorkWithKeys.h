@@ -48,7 +48,7 @@ void Keyboard(unsigned char key, int x, int y)
                 a[i_first_side][j_first_side][k_first_side].setColor(1, 1, 0);
             else {
                 a[i_first_side][j_first_side][k_first_side].setColor(255 / 255., 105 / 255., 60 / 255.);
-                forRed = true;
+                a[i_first_side][j_first_side][k_first_side].setRed(true);
             }
             a[i_first_side][j_first_side][k_first_side].setPaint(true);
             a[i_first_side][j_first_side][k_first_side].setTransparency(0.5);
@@ -60,7 +60,7 @@ void Keyboard(unsigned char key, int x, int y)
                 {
                     a[i][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
                     a[i][yf][z1].setPaint(true);
-                    forRed = true;
+                    a[i][yf][z1].setRed(true);
                 }
                 a[i][yf][z1].setTransparency(0.3);
             }
@@ -71,7 +71,7 @@ void Keyboard(unsigned char key, int x, int y)
                 a[i_second_side][j_second_side][k_second_side].setColor(1, 1, 0);
             else {
                 a[i_second_side][j_second_side][k_second_side].setColor(255 / 255., 105 / 255., 60 / 255.);
-                forRed = true;
+                a[i_second_side][j_second_side][k_second_side].setRed(true);
             }
             a[i_second_side][j_second_side][k_second_side].setPaint(true);
             a[i_second_side][j_second_side][k_second_side].setTransparency(0.5);
@@ -83,7 +83,7 @@ void Keyboard(unsigned char key, int x, int y)
                 {
                     a[x2][i][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
                     a[x2][i][z2].setPaint(true);
-                    forRed = true;
+                    a[x2][i][z2].setRed(true);
                 }
                 a[x2][i][z2].setTransparency(0.3);
             }
@@ -95,7 +95,7 @@ void Keyboard(unsigned char key, int x, int y)
             else
             {
                 a[i_third_side][j_third_side][k_third_side].setColor(255 / 255., 105 / 255., 60 / 255.);
-                forRed = true;
+                a[i_third_side][j_third_side][k_third_side].setRed(true);
             }
             a[i_third_side][j_third_side][k_third_side].setPaint(true);
             a[i_third_side][j_third_side][k_third_side].setTransparency(0.5);
@@ -107,7 +107,7 @@ void Keyboard(unsigned char key, int x, int y)
                 {
                     a[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
                     a[x3][y3][i].setPaint(true);
-                    forRed = true;
+                    a[x3][y3][i].setRed(true);
                 }
                 a[x3][y3][i].setTransparency(0.3);
             }
@@ -586,7 +586,6 @@ void ChooseColumn(int arrow)
         {//работает стрелочка вправо
             a[LengthBigCube - 1][yf][z1].setTransparency(0.11);
             a[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
-            forRed = false;
             if (a[LengthBigCube - 1][yf][z1].getHit() == 2)
                 a[LengthBigCube - 1][yf][z1].setPaint(false);
             if (a[LengthBigCube - 1][yf][z1].getHit() == 1)
@@ -597,6 +596,7 @@ void ChooseColumn(int arrow)
                 a[i][yf][z1].setTransparency(0.11);
                 if (a[i][yf][z1].getHit() == 2)
                     a[i][yf][z1].setPaint(false);
+                a[i][yf][z1].setRed(false);
             }
             z1++;
             if (z1 > LengthBigCube - 1)
@@ -610,7 +610,7 @@ void ChooseColumn(int arrow)
                     a[i][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
                     a[i][yf][z1].setPaint(true);
                     if (a[i][yf][z1].getHit() == 1)
-                        forRed = true;
+                        a[i][yf][z1].setRed(true);
                 }
                 a[i][yf][z1].setTransparency(0.3);
             }
@@ -618,7 +618,7 @@ void ChooseColumn(int arrow)
             {
                 a[LengthBigCube - 1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
                 a[LengthBigCube - 1][yf][z1].setPaint(true);
-                forRed = true;
+                a[LengthBigCube - 1][yf][z1].setRed(true);
             } else a[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
             a[LengthBigCube - 1][yf][z1].setTransparency(0.7);
         } else if (arrow == 2)
@@ -627,7 +627,6 @@ void ChooseColumn(int arrow)
             a[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
             if (a[LengthBigCube - 1][yf][z1].getHit() == 1)
                 a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
-            forRed = false;
             if (a[LengthBigCube - 1][yf][z1].getHit() == 2)
                 a[LengthBigCube - 1][yf][z1].setPaint(false);
             for (int i = 0; i < LengthBigCube - 1; i++)
@@ -636,6 +635,7 @@ void ChooseColumn(int arrow)
                 a[i][yf][z1].setTransparency(0.11);
                 if (a[i][yf][z1].getHit() == 2)
                     a[i][yf][z1].setPaint(false);
+                a[i][yf][z1].setRed(false);
             }
             yf++;
             if (yf > LengthBigCube - 1)
@@ -649,7 +649,7 @@ void ChooseColumn(int arrow)
                     a[i][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
                     a[i][yf][z1].setPaint(true);
                     if (a[i][yf][z1].getHit() == 1)
-                        forRed = true;
+                        a[i][yf][z1].setRed(true);
                 }
                 a[i][yf][z1].setTransparency(0.3);
             }
@@ -657,7 +657,7 @@ void ChooseColumn(int arrow)
             {
                 a[LengthBigCube - 1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
                 a[LengthBigCube - 1][yf][z1].setPaint(true);
-                forRed = true;
+                a[LengthBigCube - 1][yf][z1].setRed(true);
             } else a[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
             a[LengthBigCube - 1][yf][z1].setTransparency(0.7);
         } else if (arrow == 1)
@@ -666,7 +666,6 @@ void ChooseColumn(int arrow)
             a[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
             if (a[LengthBigCube - 1][yf][z1].getHit() == 1)
                 a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
-            forRed = false;
             if (a[LengthBigCube - 1][yf][z1].getHit() == 2)
                 a[LengthBigCube - 1][yf][z1].setPaint(false);
             for (int i = 0; i < LengthBigCube - 1; i++)
@@ -675,6 +674,7 @@ void ChooseColumn(int arrow)
                 a[i][yf][z1].setTransparency(0.11);
                 if (a[i][yf][z1].getHit() == 2)
                     a[i][yf][z1].setPaint(false);
+                a[i][yf][z1].setRed(false);
             }
             z1--;
             if (z1 < 0)
@@ -689,14 +689,14 @@ void ChooseColumn(int arrow)
                     a[i][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
                     a[i][yf][z1].setPaint(true);
                     if (a[i][yf][z1].getHit() == 1)
-                        forRed = true;
+                        a[i][yf][z1].setRed(true);
                 }
             }
             if (a[LengthBigCube - 1][yf][z1].getHit() != 0)
             {
                 a[LengthBigCube - 1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
                 a[LengthBigCube - 1][yf][z1].setPaint(true);
-                forRed = true;
+                a[LengthBigCube - 1][yf][z1].setRed(true);
             } else a[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
             a[LengthBigCube - 1][yf][z1].setTransparency(0.7);
         } else if (arrow == 3)
@@ -705,7 +705,6 @@ void ChooseColumn(int arrow)
             a[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
             if (a[LengthBigCube - 1][yf][z1].getHit() == 1)
                 a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
-            forRed = false;
             if (a[LengthBigCube - 1][yf][z1].getHit() == 2)
                 a[LengthBigCube - 1][yf][z1].setPaint(false);
             for (int i = 0; i < LengthBigCube - 1; i++)
@@ -714,6 +713,7 @@ void ChooseColumn(int arrow)
                 a[i][yf][z1].setColor(0.5, 0.5, 0.8);
                 if (a[i][yf][z1].getHit() == 2)
                     a[i][yf][z1].setPaint(false);
+                a[i][yf][z1].setRed(false);
             }
             yf--;
             if (yf < 0)
@@ -727,15 +727,16 @@ void ChooseColumn(int arrow)
                 {
                     a[i][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
                     a[i][yf][z1].setPaint(true);
+
                     if (a[i][yf][z1].getHit() == 1)
-                        forRed = true;
+                        a[i][yf][z1].setRed(true);
                 }
             }
             if (a[LengthBigCube - 1][yf][z1].getHit() != 0)
             {
                 a[LengthBigCube - 1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
                 a[LengthBigCube - 1][yf][z1].setPaint(true);
-                forRed = true;
+                a[LengthBigCube - 1][yf][z1].setRed(true);
             } else a[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
             a[LengthBigCube - 1][yf][z1].setTransparency(0.7);
         }
@@ -748,7 +749,6 @@ void ChooseColumn(int arrow)
             a[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 1);
             if (a[x2][LengthBigCube - 1][z2].getHit() == 1)
                 a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
-            forRed = false;
             if (a[x2][LengthBigCube - 1][z2].getHit() == 2)
                 a[x2][LengthBigCube - 1][z2].setPaint(false);
 
@@ -758,6 +758,7 @@ void ChooseColumn(int arrow)
                 a[x2][i][z2].setColor(0.5, 0.5, 0.8);
                 if (a[x2][i][z2].getHit() == 2)
                     a[x2][i][z2].setPaint(false);
+                a[x2][i][z2].setRed(false);
             }
             z2--;
             if (z2 < 0)
@@ -772,14 +773,14 @@ void ChooseColumn(int arrow)
                     a[x2][i][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
                     a[x2][i][z2].setPaint(true);
                     if (a[x2][i][z2].getHit() == 1)
-                        forRed = true;
+                        a[x2][i][z2].setRed(true);
                 }
             }
             if (a[x2][LengthBigCube - 1][z2].getHit() != 0)
             {
                 a[x2][LengthBigCube - 1][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
                 a[x2][LengthBigCube - 1][z2].setPaint(true);
-                forRed = true;
+                a[x2][LengthBigCube - 1][z2].setRed(true);
             } else a[x2][LengthBigCube - 1][z2].setColor(1, 1, 0.0);
             a[x2][LengthBigCube - 1][z2].setTransparency(0.7);
         } else if (arrow == 1)
@@ -788,7 +789,6 @@ void ChooseColumn(int arrow)
             a[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 1);
             if (a[x2][LengthBigCube - 1][z2].getHit() == 1)
                 a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
-            forRed = false;
             if (a[x2][LengthBigCube - 1][z2].getHit() == 2)
                 a[x2][LengthBigCube - 1][z2].setPaint(false);
             for (int i = 0; i < LengthBigCube - 1; i++)
@@ -797,6 +797,7 @@ void ChooseColumn(int arrow)
                 a[x2][i][z2].setColor(0.5, 0.5, 0.8);
                 if (a[x2][i][z2].getHit() == 2)
                     a[x2][i][z2].setPaint(false);
+                a[x2][i][z2].setRed(false);
             }
             x2++;
             if (x2 > LengthBigCube - 1)
@@ -811,14 +812,14 @@ void ChooseColumn(int arrow)
                     a[x2][i][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
                     a[x2][i][z2].setPaint(true);
                     if (a[x2][i][z2].getHit() == 1)
-                        forRed = true;
+                        a[x2][i][z2].setRed(true);
                 }
             }
             if (a[x2][LengthBigCube - 1][z2].getHit() != 0)
             {
                 a[x2][LengthBigCube - 1][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
                 a[x2][LengthBigCube - 1][z2].setPaint(true);
-                forRed = true;
+                a[x2][LengthBigCube - 1][z2].setRed(true);
             } else a[x2][LengthBigCube - 1][z2].setColor(1, 1, 0.0);
             a[x2][LengthBigCube - 1][z2].setTransparency(0.7);
         } else if (arrow == 3)
@@ -827,7 +828,6 @@ void ChooseColumn(int arrow)
             a[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 1);
             if (a[x2][LengthBigCube - 1][z2].getHit() == 1)
                 a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
-            forRed = false;
             if (a[x2][LengthBigCube - 1][z2].getHit() == 2)
                 a[x2][LengthBigCube - 1][z2].setPaint(false);
             for (int i = 0; i < LengthBigCube - 1; i++)
@@ -836,6 +836,7 @@ void ChooseColumn(int arrow)
                 a[x2][i][z2].setColor(0.5, 0.5, 0.8);
                 if (a[x2][i][z2].getHit() == 2)
                     a[x2][i][z2].setPaint(false);
+                a[x2][i][z2].setRed(false);
             }
             z2++;
             if (z2 > LengthBigCube - 1)
@@ -850,14 +851,14 @@ void ChooseColumn(int arrow)
                     a[x2][i][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
                     a[x2][i][z2].setPaint(true);
                     if (a[x2][i][z2].getHit() == 1)
-                        forRed = true;
+                        a[x2][i][z2].setRed(true);
                 }
             }
             if (a[x2][LengthBigCube - 1][z2].getHit() != 0)
             {
                 a[x2][LengthBigCube - 1][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
                 a[x2][LengthBigCube - 1][z2].setPaint(true);
-                forRed = true;
+                a[x2][LengthBigCube - 1][z2].setRed(true);
             } else a[x2][LengthBigCube - 1][z2].setColor(1, 1, 0.0);
             a[x2][LengthBigCube - 1][z2].setTransparency(0.7);
         } else if (arrow == 4)
@@ -866,7 +867,6 @@ void ChooseColumn(int arrow)
             a[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 1);
             if (a[x2][LengthBigCube - 1][z2].getHit() == 1)
                 a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
-            forRed = false;
             if (a[x2][LengthBigCube - 1][z2].getHit() == 2)
                 a[x2][LengthBigCube - 1][z2].setPaint(false);
             for (int i = 0; i < LengthBigCube - 1; i++)
@@ -875,6 +875,7 @@ void ChooseColumn(int arrow)
                 a[x2][i][z2].setColor(0.5, 0.5, 0.8);
                 if (a[x2][i][z2].getHit() == 2)
                     a[x2][i][z2].setPaint(false);
+                a[x2][i][z2].setRed(false);
             }
             x2--;
             if (x2 < 0)
@@ -889,14 +890,14 @@ void ChooseColumn(int arrow)
                     a[x2][i][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
                     a[x2][i][z2].setPaint(true);
                     if (a[x2][i][z2].getHit() == 1)
-                        forRed = true;
+                        a[x2][i][z2].setRed(true);
                 }
             }
             if (a[x2][LengthBigCube - 1][z2].getHit() != 0)
             {
                 a[x2][LengthBigCube - 1][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
                 a[x2][LengthBigCube - 1][z2].setPaint(true);
-                forRed = true;
+                a[x2][LengthBigCube - 1][z2].setRed(true);
             } else a[x2][LengthBigCube - 1][z2].setColor(1, 1, 0.0);
             a[x2][LengthBigCube - 1][z2].setTransparency(0.7);
         }
@@ -912,13 +913,13 @@ void ChooseColumn(int arrow)
                 a[x3][y3][LengthBigCube - 1].setPaint(false);
             if (a[x3][y3][LengthBigCube - 1].getHit() == 1)
                 a[x3][y3][LengthBigCube - 1].setColor(0, 1, 0);
-            forRed = false;
             for (int i = 0; i < LengthBigCube - 1; i++)
             {
                 a[x3][y3][i].setTransparency(0.11);
                 a[x3][y3][i].setColor(0.5, 0.5, 0.8);
                 if (a[x3][y3][i].getHit() == 2)
                     a[x3][y3][i].setPaint(false);
+                a[x3][y3][i].setRed(false);
             }
             x3++;
             if (x3 > LengthBigCube - 1)
@@ -933,14 +934,14 @@ void ChooseColumn(int arrow)
                     a[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
                     a[x3][y3][i].setPaint(true);
                     if (a[x3][y3][i].getHit() == 1)
-                        forRed = true;
+                        a[x3][y3][i].setRed(true);
                 }
             }
             if (a[x3][y3][LengthBigCube - 1].getHit() != 0)
             {
                 a[x3][y3][LengthBigCube - 1].setColor(255 / 255., 105 / 255., 60 / 255.);
                 a[x3][y3][LengthBigCube - 1].setPaint(true);
-                forRed = true;
+                a[x3][y3][LengthBigCube - 1].setRed(true);
             } else a[x3][y3][LengthBigCube - 1].setColor(1, 1, 0.0);
             a[x3][y3][LengthBigCube - 1].setTransparency(0.7);
         } else if (arrow == 3)
@@ -951,13 +952,13 @@ void ChooseColumn(int arrow)
                 a[x3][y3][LengthBigCube - 1].setPaint(false);
             if (a[x3][y3][LengthBigCube - 1].getHit() == 1)
                 a[x3][y3][LengthBigCube - 1].setColor(0, 1, 0);
-            forRed = false;
             for (int i = 0; i < LengthBigCube - 1; i++)
             {
                 a[x3][y3][i].setTransparency(0.11);
                 a[x3][y3][i].setColor(0.5, 0.5, 0.8);
                 if (a[x3][y3][i].getHit() == 2)
                     a[x3][y3][i].setPaint(false);
+                a[x3][y3][i].setRed(false);
             }
             y3--;
             if (y3 < 0)
@@ -972,14 +973,14 @@ void ChooseColumn(int arrow)
                     a[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
                     a[x3][y3][i].setPaint(true);
                     if (a[x3][y3][i].getHit() == 1)
-                        forRed = true;
+                        a[x3][y3][i].setRed(true);
                 }
             }
             if (a[x3][y3][LengthBigCube - 1].getHit() != 0)
             {
                 a[x3][y3][LengthBigCube - 1].setColor(255 / 255., 105 / 255., 60 / 255.);
                 a[x3][y3][LengthBigCube - 1].setPaint(true);
-                forRed = true;
+                a[x3][y3][LengthBigCube - 1].setRed(true);
             } else a[x3][y3][LengthBigCube - 1].setColor(1, 1, 0.0);
             a[x3][y3][LengthBigCube - 1].setTransparency(0.7);
         } else if (arrow == 4)
@@ -990,13 +991,13 @@ void ChooseColumn(int arrow)
                 a[x3][y3][LengthBigCube - 1].setPaint(false);
             if (a[x3][y3][LengthBigCube - 1].getHit() == 1)
                 a[x3][y3][LengthBigCube - 1].setColor(0, 1, 0);
-            forRed = false;
             for (int i = 0; i < LengthBigCube - 1; i++)
             {
                 a[x3][y3][i].setTransparency(0.11);
                 a[x3][y3][i].setColor(0.5, 0.5, 0.8);
                 if (a[x3][y3][i].getHit() == 2)
                     a[x3][y3][i].setPaint(false);
+                a[x3][y3][i].setRed(false);
             }
             x3--;
             if (x3 < 0)
@@ -1011,14 +1012,14 @@ void ChooseColumn(int arrow)
                     a[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
                     a[x3][y3][i].setPaint(true);
                     if (a[x3][y3][i].getHit() == 1)
-                        forRed = true;
+                        a[x3][y3][i].setRed(true);
                 }
             }
             if (a[x3][y3][LengthBigCube - 1].getHit() != 0)
             {
                 a[x3][y3][LengthBigCube - 1].setColor(255 / 255., 105 / 255., 60 / 255.);
                 a[x3][y3][LengthBigCube - 1].setPaint(true);
-                forRed = true;
+                a[x3][y3][LengthBigCube - 1].setRed(true);
             } else a[x3][y3][LengthBigCube - 1].setColor(1, 1, 0.0);
             a[x3][y3][LengthBigCube - 1].setTransparency(0.7);
         } else if (arrow == 2)
@@ -1029,13 +1030,13 @@ void ChooseColumn(int arrow)
                 a[x3][y3][LengthBigCube - 1].setPaint(false);
             if (a[x3][y3][LengthBigCube - 1].getHit() == 1)
                 a[x3][y3][LengthBigCube - 1].setColor(0, 1, 0);
-            forRed = false;
             for (int i = 0; i < LengthBigCube - 1; i++)
             {
                 a[x3][y3][i].setTransparency(0.11);
                 a[x3][y3][i].setColor(0.5, 0.5, 0.8);
                 if (a[x3][y3][i].getHit() == 2)
                     a[x3][y3][i].setPaint(false);
+                a[x3][y3][i].setRed(false);
             }
             y3++;
             if (y3 > LengthBigCube - 1)
@@ -1050,14 +1051,14 @@ void ChooseColumn(int arrow)
                     a[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
                     a[x3][y3][i].setPaint(true);
                     if (a[x3][y3][i].getHit() == 1)
-                        forRed = true;
+                        a[x3][y3][i].setRed(true);
                 }
             }
             if (a[x3][y3][LengthBigCube - 1].getHit() != 0)
             {
                 a[x3][y3][LengthBigCube - 1].setColor(255 / 255., 105 / 255., 60 / 255.);
                 a[x3][y3][LengthBigCube - 1].setPaint(true);
-                forRed = true;
+                a[x3][y3][LengthBigCube - 1].setRed(true);
             } else a[x3][y3][LengthBigCube - 1].setColor(1, 1, 0.0);
             a[x3][y3][LengthBigCube - 1].setTransparency(0.7);
         }

@@ -188,13 +188,16 @@ void displayCell()
             for (auto &j : i)
                 for (auto &k : j)
                 {
-                    if (k.getHit() == 1)
+                    if(forEnter > 3 && k.getHit() == 2)
+                        k.setPaint(false);
+                    if (k.getHit() == 1 && !k.getRed())
                     {
                         k.setColor(0, 1, 0); // выбранные корабли закрашиваем зеленым
                     }
-                    if (k.getPaint())
+
+                    if (k.getPaint() && !help)
                     {
-                        k.paintCube();
+                            k.paintCube();
                         if (forEnter != -1 && k.getHit() != 1)
                             k.setTransparancyNothing();
                     }
