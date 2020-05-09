@@ -75,7 +75,7 @@ void displayCell()
     if (hello_screen)
     {
         glColor3d(1,1,1);
-        renderBitmapString(0,0,GLUT_BITMAP_TIMES_ROMAN_24,"Press F1 for help");
+        renderBitmapString(0.22,0.9,GLUT_BITMAP_TIMES_ROMAN_24,"Press F1 for help");
     }
 
     if (help)
@@ -219,7 +219,11 @@ void displayCell()
                         k.setColor(1, 0, 0);
                         k.setTransparency(1);
                     }
-                    k.paintCube();
+		    if(k.getPaint())
+		    {
+			k.paintCube();
+			k.setTransparancyNothing();
+		    }
                 }
 
     if (forEnter == -1 || forTwoPlayers == 2)
@@ -237,7 +241,11 @@ void displayCell()
                         k.setColor(1, 0, 0);
                         k.setTransparency(1);
                     }
-                    k.paintCube();
+		    if(k.getPaint())
+                    {
+			k.paintCube();
+                        k.setTransparancyNothing();
+                    }
                 }
     glFlush();
     glutSwapBuffers();
