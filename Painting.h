@@ -225,12 +225,12 @@ void displayCell()
                         if (k.getHit() == 1)
                             k.setColor(0, 1, 0);
                     }
-                    if (k.getHit() == 3)
+                    if (k.getHit() == 3 && !k.getRed())
                     {
                         k.setColor(0, 0, 1);
-                        k.setTransparency(0.35);
+                        k.setTransparency(0.15);
                     }
-                    if (k.getHit() == 4)
+                    if (k.getHit() == 4 && !k.getRed())
                     {
                         k.setColor(1, 0, 0);
                         k.setTransparency(0.35);
@@ -252,12 +252,12 @@ void displayCell()
                         if (k.getHit() == 1)
                             k.setColor(0, 1, 0);
                     }
-                    if (k.getHit() == 3)
+                    if (k.getHit() == 3 && !k.getRed())
                     {
                         k.setColor(0, 0, 1);
-                        k.setTransparency(0.2);
+                        k.setTransparency(0.15);
                     }
-                    if (k.getHit() == 4)
+                    if (k.getHit() == 4 && !k.getRed())
                     {
                         k.setColor(1, 0, 0);
                         k.setTransparency(0.4);

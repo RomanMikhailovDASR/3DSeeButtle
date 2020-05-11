@@ -52,24 +52,45 @@ void Keyboard(unsigned char key, int x, int y)
                 if (isPlayer1)
                 {
                     choose_first_side_Player1(r_rotate_x, r_rotate_y);
-                    Player1[i_first_side][j_first_side][k_first_side].setColor(1, 1, 0);
-                    Player1[i_first_side][j_first_side][k_first_side].setTransparency(0.5);
-                    for (int i = 0; i < LengthBigCube - 1; i++)
+                    for (int i = 0; i <= LengthBigCube - 1; i++)
                     {
-                        Player1[i][yf][z1].setColor(1, 1, 0);
+                        if (Player1[i][yf][z1].getHit() <= 2)
+                            Player1[i][yf][z1].setColor(1, 1, 0);
+                        else
+                        {
+                            Player1[i][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            Player1[i][yf][z1].setRed(true);
+                            Player1[i][yf][z1].setTransparency(1);
+                        }
                         Player1[i][yf][z1].setTransparency(0.3);
                     }
+                    Player1[i_first_side][j_first_side][k_first_side].setTransparency(0.5);
+                    if (Player1[i_first_side][j_first_side][k_first_side].getHit() == 3)
+                        Player1[i_first_side][j_first_side][k_first_side].setColor(255 / 255., 105 / 255., 60 / 255.);
+                    else if (Player1[i_first_side][j_first_side][k_first_side].getHit() == 4)
+                        Player1[i_first_side][j_first_side][k_first_side].setColor(1, 0, 0);
+                    else Player1[i_first_side][j_first_side][k_first_side].setColor(1, 1, 0);
                 } else
                 {
                     choose_first_side_Player2(r_rotate_x, r_rotate_y);
-                    Player2[i_first_side][j_first_side][k_first_side].setColor(1, 1, 0);
-                    Player2[i_first_side][j_first_side][k_first_side].setTransparency(0.5);
-                    for (int i = 0; i < LengthBigCube - 1; i++)
+                    for (int i = 0; i <= LengthBigCube - 1; i++)
                     {
-                        Player2[i][yf][z1].setColor(1, 1, 0);
+                        if (Player2[i][yf][z1].getHit() <= 2)
+                            Player2[i][yf][z1].setColor(1, 1, 0);
+                        else
+                        {
+                            Player2[i][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            Player2[i][yf][z1].setRed(true);
+                            Player2[i][yf][z1].setTransparency(1);
+                        }
                         Player2[i][yf][z1].setTransparency(0.3);
                     }
-
+                    Player2[i_first_side][j_first_side][k_first_side].setTransparency(0.5);
+                    if (Player2[i_first_side][j_first_side][k_first_side].getHit() == 3)
+                        Player2[i_first_side][j_first_side][k_first_side].setColor(255 / 255., 105 / 255., 60 / 255.);
+                    else if (Player2[i_first_side][j_first_side][k_first_side].getHit() == 4)
+                        Player2[i_first_side][j_first_side][k_first_side].setColor(1, 0, 0);
+                    else Player2[i_first_side][j_first_side][k_first_side].setColor(1, 1, 0);
                 }
             } else
             {
@@ -103,24 +124,47 @@ void Keyboard(unsigned char key, int x, int y)
                 if (isPlayer1)
                 {
                     choose_second_side_Player1(r_rotate_x, r_rotate_y);
-                    Player1[i_second_side][j_second_side][k_second_side].setColor(1, 1, 0);
-                    Player1[i_second_side][j_second_side][k_second_side].setTransparency(0.5);
-                    for (int i = 0; i < LengthBigCube - 1; i++)
+                    for (int i = 0; i <= LengthBigCube - 1; i++)
                     {
-                        Player1[x2][i][z2].setColor(1, 1, 0);
+                        if (Player1[x2][i][z2].getHit() <= 2)
+                            Player1[x2][i][z2].setColor(1, 1, 0);
+                        else
+                        {
+                            Player1[x2][i][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            Player1[x2][i][z2].setRed(true);
+                            Player1[x2][i][z2].setTransparency(1);
+                        }
                         Player1[x2][i][z2].setTransparency(0.3);
                     }
+                    Player1[i_second_side][j_second_side][k_second_side].setTransparency(0.5);
+                    if (Player1[i_second_side][j_second_side][k_second_side].getHit() == 3)
+                        Player1[i_second_side][j_second_side][k_second_side].setColor(255 / 255., 105 / 255.,
+                                                                                      60 / 255.);
+                    else if (Player1[i_second_side][j_second_side][k_second_side].getHit() == 4)
+                        Player1[i_second_side][j_second_side][k_second_side].setColor(1, 0, 0);
+                    else Player1[i_second_side][j_second_side][k_second_side].setColor(1, 1, 0);
                 } else
                 {
                     choose_second_side_Player2(r_rotate_x, r_rotate_y);
-                    Player2[i_second_side][j_second_side][k_second_side].setColor(1, 1, 0);
-                    Player2[i_second_side][j_second_side][k_second_side].setTransparency(0.5);
-                    for (int i = 0; i < LengthBigCube - 1; i++)
+                    for (int i = 0; i <= LengthBigCube - 1; i++)
                     {
-                        Player2[x2][i][z2].setColor(1, 1, 0);
+                        if (Player2[x2][i][z2].getHit() <= 2)
+                            Player2[x2][i][z2].setColor(1, 1, 0);
+                        else
+                        {
+                            Player2[x2][i][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            Player2[x2][i][z2].setRed(true);
+                            Player2[x2][i][z2].setTransparency(1);
+                        }
                         Player2[x2][i][z2].setTransparency(0.3);
                     }
-
+                    Player2[i_second_side][j_second_side][k_second_side].setTransparency(0.5);
+                    if (Player2[i_second_side][j_second_side][k_second_side].getHit() == 3)
+                        Player2[i_second_side][j_second_side][k_second_side].setColor(255 / 255., 105 / 255.,
+                                                                                      60 / 255.);
+                    else if (Player2[i_second_side][j_second_side][k_second_side].getHit() == 4)
+                        Player2[i_second_side][j_second_side][k_second_side].setColor(1, 0, 0);
+                    else Player2[i_second_side][j_second_side][k_second_side].setColor(1, 1, 0);
                 }
             } else
             {
@@ -154,24 +198,45 @@ void Keyboard(unsigned char key, int x, int y)
                 if (isPlayer1)
                 {
                     choose_third_side_Player1(r_rotate_x, r_rotate_y);
-                    Player1[i_third_side][j_third_side][k_third_side].setColor(1, 1, 0);
-                    Player1[i_third_side][j_third_side][k_third_side].setTransparency(0.5);
-                    for (int i = 0; i < LengthBigCube - 1; i++)
+                    for (int i = 0; i <= LengthBigCube - 1; i++)
                     {
-                        Player1[x3][y3][i].setColor(1, 1, 0);
-                        Player1[x3][y3][i].setTransparency(0.3);
+                        if (Player1[x3][y3][i].getHit() <= 2)
+                            Player1[x3][y3][i].setColor(1, 1, 0);
+                        else
+                        {
+                            Player1[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            Player1[x3][y3][i].setRed(true);
+                            Player1[x3][y3][i].setTransparency(1);
+                        }
+                        Player1[x2][y3][i].setTransparency(0.3);
                     }
+                    Player1[i_third_side][j_third_side][k_third_side].setTransparency(0.5);
+                    if (Player1[i_third_side][j_third_side][k_third_side].getHit() == 3)
+                        Player1[i_third_side][j_third_side][k_third_side].setColor(255 / 255., 105 / 255., 60 / 255.);
+                    else if (Player1[i_third_side][j_third_side][k_third_side].getHit() == 4)
+                        Player1[i_third_side][j_third_side][k_third_side].setColor(1, 0, 0);
+                    else Player1[i_third_side][j_third_side][k_third_side].setColor(1, 1, 0);
                 } else
                 {
                     choose_third_side_Player2(r_rotate_x, r_rotate_y);
-                    Player2[i_third_side][j_third_side][k_third_side].setColor(1, 1, 0);
-                    Player2[i_third_side][j_third_side][k_third_side].setTransparency(0.5);
-                    for (int i = 0; i < LengthBigCube - 1; i++)
+                    for (int i = 0; i <= LengthBigCube - 1; i++)
                     {
-                        Player2[x3][y3][i].setColor(1, 1, 0);
-                        Player2[x3][y3][i].setTransparency(0.3);
+                        if (Player2[x3][y3][i].getHit() <= 2)
+                            Player2[x3][y3][i].setColor(1, 1, 0);
+                        else
+                        {
+                            Player2[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            Player2[x3][y3][i].setRed(true);
+                            Player2[x3][y3][i].setTransparency(1);
+                        }
+                        Player2[x2][y3][i].setTransparency(0.3);
                     }
-
+                    Player2[i_third_side][j_third_side][k_third_side].setTransparency(0.5);
+                    if (Player2[i_third_side][j_third_side][k_third_side].getHit() == 3)
+                        Player2[i_third_side][j_third_side][k_third_side].setColor(255 / 255., 105 / 255., 60 / 255.);
+                    else if (Player2[i_third_side][j_third_side][k_third_side].getHit() == 4)
+                        Player2[i_third_side][j_third_side][k_third_side].setColor(1, 0, 0);
+                    else Player2[i_third_side][j_third_side][k_third_side].setColor(1, 1, 0);
                 }
             } else
             {
@@ -213,10 +278,11 @@ void Keyboard(unsigned char key, int x, int y)
                 for (auto &i : Player1)
                     for (auto &j : i)
                         for (auto &k : j)
-                        {
-                            k.setColor(0.5, 0.5, 0.8);
-                            k.setTransparency(0.1);
-                        }
+                            if (k.getHit() <= 2)
+                            {
+                                k.setColor(0.5, 0.5, 0.8);
+                                k.setTransparency(0.1);
+                            }
 
                 if (firstSide)
                 {
@@ -244,10 +310,11 @@ void Keyboard(unsigned char key, int x, int y)
                 for (auto &i : Player2)
                     for (auto &j : i)
                         for (auto &k : j)
-                        {
-                            k.setColor(0.5, 0.5, 0.8);
-                            k.setTransparency(0.1);
-                        }
+                            if (k.getHit() <= 2)
+                            {
+                                k.setColor(0.5, 0.5, 0.8);
+                                k.setTransparency(0.1);
+                            }
 
                 if (firstSide)
                 {
@@ -447,7 +514,7 @@ void Keyboard(unsigned char key, int x, int y)
             }
             forEnter = 0;
             number_of_ships--;
-            if(isPlayer1)
+            if (isPlayer1)
                 shipsLifeFirst++;
             else shipsLifeSecond++;
             if (number_of_ships == 0)
@@ -583,57 +650,54 @@ void Keyboard(unsigned char key, int x, int y)
                                             if (Player1[i][j][k].getHit() != 4)
                                                 Player1[i][j][k].setIsHitten(3);
                         }
-                    } else
-                        if (p1 + 1 < LengthBigCube && Player1[p1 + 1][yf][z1].getHit() == 4)
+                    } else if (p1 + 1 < LengthBigCube && Player1[p1 + 1][yf][z1].getHit() == 4)
+                    {
                         {
+                            int length = 1;
+                            int _x = p1;
+                            while (_x < LengthBigCube && Player1[_x][yf][z1].getHit() == 4)
                             {
-                                int length = 1;
-                                int _x = p1;
-                                while (_x < LengthBigCube && Player1[_x][yf][z1].getHit() == 4)
-                                {
-                                    _x++;
-                                    length++;
-                                }
-                                _x--;
-                                while (_x >= 0 && Player1[_x][yf][z1].getHit() == 4)
-                                {
-                                    _x--;
-                                }
-
-                                for (int i = _x + length - 1; i <= _x - length + 1; i++)
-                                    for (int j = yf - 1; j <= yf + 1; j++)
-                                        for (int k = z1 - 1; k <= z1 + 1; k++)
-                                            if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
-                                                k < LengthBigCube)
-                                                if (Player1[i][j][k].getHit() != 4)
-                                                    Player1[i][j][k].setIsHitten(3);
-                            }
-                    } else
-                        if (yf - 1 >= 0 && Player1[p1][yf - 1][z1].getHit() == 4)
-                        {
-                            {
-                                int length = 1;
-                                int _x = yf;
-                                while (_x >= 0 && Player1[p1][_x][z1].getHit() == 4)
-                                {
-                                    _x--;
-                                }
                                 _x++;
-                                while (_x < LengthBigCube && Player1[p1][_x][z1].getHit() == 4)
-                                {
-                                    _x++;
-                                    length++;
-                                }
-                                for (int i = p1 - 1; i <= p1 + 1; i++)
-                                    for (int j = _x - length - 1; j <= _x; j++)
-                                        for (int k = z1 - 1; k <= z1 + 1; k++)
-                                            if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
-                                                k < LengthBigCube)
-                                                if (Player1[i][j][k].getHit() != 4)
-                                                    Player1[i][j][k].setIsHitten(3);
+                                length++;
                             }
-                    } else
-                    if (yf + 1 < LengthBigCube && Player1[p1][yf + 1][z1].getHit() == 4)
+                            _x--;
+                            while (_x >= 0 && Player1[_x][yf][z1].getHit() == 4)
+                            {
+                                _x--;
+                            }
+
+                            for (int i = _x; i <= _x + length + 1; i++)
+                                for (int j = yf - 1; j <= yf + 1; j++)
+                                    for (int k = z1 - 1; k <= z1 + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player1[i][j][k].getHit() != 4)
+                                                Player1[i][j][k].setIsHitten(3);
+                        }
+                    } else if (yf - 1 >= 0 && Player1[p1][yf - 1][z1].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = yf;
+                            while (_x >= 0 && Player1[p1][_x][z1].getHit() == 4)
+                            {
+                                _x--;
+                            }
+                            _x++;
+                            while (_x < LengthBigCube && Player1[p1][_x][z1].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            for (int i = p1 - 1; i <= p1 + 1; i++)
+                                for (int j = _x - length - 1; j <= _x; j++)
+                                    for (int k = z1 - 1; k <= z1 + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player1[i][j][k].getHit() != 4)
+                                                Player1[i][j][k].setIsHitten(3);
+                        }
+                    } else if (yf + 1 < LengthBigCube && Player1[p1][yf + 1][z1].getHit() == 4)
                     {
                         {
                             int length = 1;
@@ -657,8 +721,7 @@ void Keyboard(unsigned char key, int x, int y)
                                             if (Player1[i][j][k].getHit() != 4)
                                                 Player1[i][j][k].setIsHitten(3);
                         }
-                    } else
-                    if (z1 - 1 >= 0 && Player1[p1][yf][z1 - 1].getHit() == 4)
+                    } else if (z1 - 1 >= 0 && Player1[p1][yf][z1 - 1].getHit() == 4)
                     {
                         {
                             int length = 1;
@@ -681,8 +744,7 @@ void Keyboard(unsigned char key, int x, int y)
                                             if (Player1[i][j][k].getHit() != 4)
                                                 Player1[i][j][k].setIsHitten(3);
                         }
-                    } else
-                    if (z1 + 1 < LengthBigCube && Player1[p1][yf][z1 + 1].getHit() == 4)
+                    } else if (z1 + 1 < LengthBigCube && Player1[p1][yf][z1 + 1].getHit() == 4)
                     {
                         {
                             int length = 1;
@@ -706,8 +768,7 @@ void Keyboard(unsigned char key, int x, int y)
                                             if (Player1[i][j][k].getHit() != 4)
                                                 Player1[i][j][k].setIsHitten(3);
                         }
-                    }
-                    else
+                    } else
                     {
                         for (int i = p1 - 1; i <= p1 + 1; i++)
                             for (int j = yf - 1; j <= yf + 1; j++)
@@ -721,7 +782,7 @@ void Keyboard(unsigned char key, int x, int y)
                                         }
                     }
                 }
-                if(shipsLifeFirst == 0)
+                if (shipsLifeFirst == 0)
                     end1 = true;
             } else if (secondSide && (Player1[x2][p2][z2].getHit() == 0 || Player1[x2][p2][z2].getHit() == 2))
             {
@@ -809,7 +870,7 @@ void Keyboard(unsigned char key, int x, int y)
                                 _x--;
                             }
 
-                            for (int i = _x + length - 1; i <= _x - length + 1; i++)
+                            for (int i = _x; i <= _x + length + 1; i++)
                                 for (int j = p2 - 1; j <= p2 + 1; j++)
                                     for (int k = z2 - 1; k <= z2 + 1; k++)
                                         if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
@@ -1012,7 +1073,7 @@ void Keyboard(unsigned char key, int x, int y)
                                 _x--;
                             }
 
-                            for (int i = _x + length - 1; i <= _x - length + 1; i++)
+                            for (int i = _x; i <= _x + length + 1; i++)
                                 for (int j = y3 - 1; j <= y3 + 1; j++)
                                     for (int k = p3 - 1; k <= p3 + 1; k++)
                                         if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
@@ -1221,7 +1282,7 @@ void Keyboard(unsigned char key, int x, int y)
                                 _x--;
                             }
 
-                            for (int i = _x + length - 1; i <= _x - length + 1; i++)
+                            for (int i = _x; i <= _x + length + 1; i++)
                                 for (int j = yf - 1; j <= yf + 1; j++)
                                     for (int k = z1 - 1; k <= z1 + 1; k++)
                                         if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
@@ -1339,7 +1400,7 @@ void Keyboard(unsigned char key, int x, int y)
                 }
                 if (shipsLifeSecond == 0)
                     end2 = true;
-            }else if (secondSide && (Player2[x2][p2][z2].getHit() == 0 || Player2[x2][p2][z2].getHit() == 2))
+            } else if (secondSide && (Player2[x2][p2][z2].getHit() == 0 || Player2[x2][p2][z2].getHit() == 2))
             {
                 for (int j = 0; j < LengthBigCube; j++)
                 {
@@ -1425,7 +1486,7 @@ void Keyboard(unsigned char key, int x, int y)
                                 _x--;
                             }
 
-                            for (int i = _x + length - 1; i <= _x - length + 1; i++)
+                            for (int i = _x; i <= _x + length + 1; i++)
                                 for (int j = p2 - 1; j <= p2 + 1; j++)
                                     for (int k = z2 - 1; k <= z2 + 1; k++)
                                         if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
@@ -1543,7 +1604,7 @@ void Keyboard(unsigned char key, int x, int y)
                 }
                 if (shipsLifeSecond == 0)
                     end2 = true;
-            }else if (thirdSide && (Player2[x3][y3][p3].getHit() == 0 || Player2[x3][y3][p3].getHit() == 2))
+            } else if (thirdSide && (Player2[x3][y3][p3].getHit() == 0 || Player2[x3][y3][p3].getHit() == 2))
             {
                 for (int k = 0; k < LengthBigCube; k++)
                 {
@@ -1629,7 +1690,7 @@ void Keyboard(unsigned char key, int x, int y)
                                 _x--;
                             }
 
-                            for (int i = _x + length - 1; i <= _x - length + 1; i++)
+                            for (int i = _x; i <= _x + length + 1; i++)
                                 for (int j = y3 - 1; j <= y3 + 1; j++)
                                     for (int k = p3 - 1; k <= p3 + 1; k++)
                                         if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
@@ -1867,80 +1928,120 @@ void ChooseColumn(int arrow)
                 {
                     Player1[LengthBigCube - 1][yf][z1].setTransparency(0.11);
                     Player1[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
-                    /*if (a[LengthBigCube - 1][yf][z1].getHit() == 2)
-                        a[LengthBigCube - 1][yf][z1].setPaint(false);
-                    if (a[LengthBigCube - 1][yf][z1].getHit() == 1)
-                        a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);*/
+                    if (Player1[LengthBigCube - 1][yf][z1].getHit() == 3)
+                    {
+                        Player1[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
+                        Player1[LengthBigCube - 1][yf][z1].setTransparency(0.35);
+                    }
+                    if (Player1[LengthBigCube - 1][yf][z1].getHit() == 4)
+                    {
+                        Player1[LengthBigCube - 1][yf][z1].setColor(1, 0, 0);
+                        Player1[LengthBigCube - 1][yf][z1].setTransparency(0.35);
+                    }
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player1[i][yf][z1].setColor(0.5, 0.5, 0.8);
-                        Player1[i][yf][z1].setTransparency(0.11);
-                        /*if (a[i][yf][z1].getHit() == 2)
-                            a[i][yf][z1].setPaint(false);
-                        a[i][yf][z1].setRed(false);*/
+                        if (Player1[i][yf][z1].getHit() == 3)
+                        {
+                            Player1[i][yf][z1].setColor(0, 0, 1);
+                            Player1[i][yf][z1].setTransparency(0.35);
+                        } else if (Player1[i][yf][z1].getHit() == 4)
+                        {
+                            Player1[i][yf][z1].setColor(1, 0, 0);
+                            Player1[i][yf][z1].setTransparency(0.35);
+                        } else
+                        {
+                            Player1[i][yf][z1].setColor(0.5, 0.5, 0.8);
+                            Player1[i][yf][z1].setTransparency(0.11);
+                        }
+                        Player1[i][yf][z1].setRed(false);
                     }
                     z1++;
                     if (z1 > LengthBigCube - 1)
                         z1 = 0;
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        //if (a[i][yf][z1].getHit() == 0)
-                        Player1[i][yf][z1].setColor(1, 1, 0);
-                        // else
-                        //    {
-                        //a[i][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
-                        // a[i][yf][z1].setPaint(true);
-                        // if (a[i][yf][z1].getHit() == 1)
-                        //     a[i][yf][z1].setRed(true);
-                        //   }
-                        Player1[i][yf][z1].setTransparency(0.3);
+                        if (Player1[i][yf][z1].getHit() <= 2)
+                        {
+                            Player1[i][yf][z1].setColor(1, 1, 0);
+                            Player1[i][yf][z1].setTransparency(0.35);
+                        } else
+                        {
+                            Player1[i][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            if (Player1[i][yf][z1].getHit() == 3)
+                                Player1[i][yf][z1].setRed(true);
+                            Player1[i][yf][z1].setTransparency(1);
+                        }
+
                     }
-                    /*if (a[LengthBigCube - 1][yf][z1].getHit() != 0)
+                    if (Player1[LengthBigCube - 1][yf][z1].getHit() >= 3)
                     {
-                        a[LengthBigCube - 1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
-                        a[LengthBigCube - 1][yf][z1].setPaint(true);
-                        a[LengthBigCube - 1][yf][z1].setRed(true);
-                    } else*/ Player1[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
-                    Player1[LengthBigCube - 1][yf][z1].setTransparency(0.7);
+                        Player1[LengthBigCube - 1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                        Player1[LengthBigCube - 1][yf][z1].setTransparency(1);
+                        Player1[LengthBigCube - 1][yf][z1].setRed(true);
+                    } else
+                    {
+                        Player1[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
+                        Player1[LengthBigCube - 1][yf][z1].setTransparency(0.7);
+                    }
                 } else
                 {
                     Player2[LengthBigCube - 1][yf][z1].setTransparency(0.11);
                     Player2[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
-                    /*if (a[LengthBigCube - 1][yf][z1].getHit() == 2)
-                        a[LengthBigCube - 1][yf][z1].setPaint(false);
-                    if (a[LengthBigCube - 1][yf][z1].getHit() == 1)
-                        a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);*/
+                    if (Player2[LengthBigCube - 1][yf][z1].getHit() == 3)
+                    {
+                        Player2[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
+                        Player2[LengthBigCube - 1][yf][z1].setTransparency(0.35);
+                    }
+                    if (Player2[LengthBigCube - 1][yf][z1].getHit() == 4)
+                    {
+                        Player2[LengthBigCube - 1][yf][z1].setColor(1, 0, 0);
+                        Player2[LengthBigCube - 1][yf][z1].setTransparency(0.35);
+                    }
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player2[i][yf][z1].setColor(0.5, 0.5, 0.8);
-                        Player2[i][yf][z1].setTransparency(0.11);
-                        /*if (a[i][yf][z1].getHit() == 2)
-                            a[i][yf][z1].setPaint(false);
-                        a[i][yf][z1].setRed(false);*/
+                        if (Player2[i][yf][z1].getHit() == 3)
+                        {
+                            Player2[i][yf][z1].setColor(0, 0, 1);
+                            Player2[i][yf][z1].setTransparency(0.35);
+                        } else if (Player2[i][yf][z1].getHit() == 4)
+                        {
+                            Player2[i][yf][z1].setColor(1, 0, 0);
+                            Player2[i][yf][z1].setTransparency(0.35);
+                        } else
+                        {
+                            Player2[i][yf][z1].setColor(0.5, 0.5, 0.8);
+                            Player2[i][yf][z1].setTransparency(0.11);
+                        }
+                        Player2[i][yf][z1].setRed(false);
                     }
                     z1++;
                     if (z1 > LengthBigCube - 1)
                         z1 = 0;
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        //if (a[i][yf][z1].getHit() == 0)
-                        Player2[i][yf][z1].setColor(1, 1, 0);
-                        // else
-                        //    {
-                        //a[i][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
-                        // a[i][yf][z1].setPaint(true);
-                        // if (a[i][yf][z1].getHit() == 1)
-                        //     a[i][yf][z1].setRed(true);
-                        //   }
-                        Player2[i][yf][z1].setTransparency(0.3);
+                        if (Player2[i][yf][z1].getHit() <= 2)
+                        {
+                            Player2[i][yf][z1].setColor(1, 1, 0);
+                            Player2[i][yf][z1].setTransparency(0.35);
+                        } else
+                        {
+                            Player2[i][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            if (Player2[i][yf][z1].getHit() == 3)
+                                Player2[i][yf][z1].setRed(true);
+                            Player2[i][yf][z1].setTransparency(1);
+                        }
+
                     }
-                    /*if (a[LengthBigCube - 1][yf][z1].getHit() != 0)
+                    if (Player2[LengthBigCube - 1][yf][z1].getHit() >= 3)
                     {
-                        a[LengthBigCube - 1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
-                        a[LengthBigCube - 1][yf][z1].setPaint(true);
-                        a[LengthBigCube - 1][yf][z1].setRed(true);
-                    } else*/ Player2[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
-                    Player2[LengthBigCube - 1][yf][z1].setTransparency(0.7);
+                        Player2[LengthBigCube - 1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                        Player2[LengthBigCube - 1][yf][z1].setTransparency(1);
+                        Player2[LengthBigCube - 1][yf][z1].setRed(true);
+                    } else
+                    {
+                        Player2[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
+                        Player2[LengthBigCube - 1][yf][z1].setTransparency(0.7);
+                    }
                 }
             } else
             {
@@ -1988,82 +2089,123 @@ void ChooseColumn(int arrow)
             {
                 if (isPlayer1)
                 {
+
                     Player1[LengthBigCube - 1][yf][z1].setTransparency(0.11);
                     Player1[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
-                    /*if (a[LengthBigCube - 1][yf][z1].getHit() == 1)
-                        a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
-                    if (a[LengthBigCube - 1][yf][z1].getHit() == 2)
-                        a[LengthBigCube - 1][yf][z1].setPaint(false);*/
+                    if (Player1[LengthBigCube - 1][yf][z1].getHit() == 3)
+                    {
+                        Player1[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
+                        Player1[LengthBigCube - 1][yf][z1].setTransparency(0.35);
+                    }
+                    if (Player1[LengthBigCube - 1][yf][z1].getHit() == 4)
+                    {
+                        Player1[LengthBigCube - 1][yf][z1].setColor(1, 0, 0);
+                        Player1[LengthBigCube - 1][yf][z1].setTransparency(0.35);
+                    }
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player1[i][yf][z1].setColor(0.5, 0.5, 0.8);
-                        Player1[i][yf][z1].setTransparency(0.11);
-                        /* if (a[i][yf][z1].getHit() == 2)
-                             a[i][yf][z1].setPaint(false);
-                         a[i][yf][z1].setRed(false);*/
+                        if (Player1[i][yf][z1].getHit() == 3)
+                        {
+                            Player1[i][yf][z1].setColor(0, 0, 1);
+                            Player1[i][yf][z1].setTransparency(0.35);
+                        } else if (Player1[i][yf][z1].getHit() == 4)
+                        {
+                            Player1[i][yf][z1].setColor(1, 0, 0);
+                            Player1[i][yf][z1].setTransparency(0.35);
+                        } else
+                        {
+                            Player1[i][yf][z1].setColor(0.5, 0.5, 0.8);
+                            Player1[i][yf][z1].setTransparency(0.11);
+                        }
+                        Player1[i][yf][z1].setRed(false);
                     }
                     yf++;
                     if (yf > LengthBigCube - 1)
                         yf = 0;
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        //if (a[i][yf][z1].getHit() == 0)
-                        Player1[i][yf][z1].setColor(1, 1, 0);
-                        // else
-                        //{
-                        //    a[i][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
-                        //    a[i][yf][z1].setPaint(true);
-                        //    if (a[i][yf][z1].getHit() == 1)
-                        //        a[i][yf][z1].setRed(true);
-                        // }
-                        Player1[i][yf][z1].setTransparency(0.3);
+                        if (Player1[i][yf][z1].getHit() <= 2)
+                        {
+                            Player1[i][yf][z1].setColor(1, 1, 0);
+                            Player1[i][yf][z1].setTransparency(0.35);
+                        } else
+                        {
+                            Player1[i][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            if (Player1[i][yf][z1].getHit() == 3)
+                                Player1[i][yf][z1].setRed(true);
+                            Player1[i][yf][z1].setTransparency(1);
+                        }
+
                     }
-                    /* if (a[LengthBigCube - 1][yf][z1].getHit() != 0)
-                     {
-                         a[LengthBigCube - 1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
-                         a[LengthBigCube - 1][yf][z1].setPaint(true);
-                         a[LengthBigCube - 1][yf][z1].setRed(true);
-                     } else*/ Player1[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
-                    Player1[LengthBigCube - 1][yf][z1].setTransparency(0.7);
+                    if (Player1[LengthBigCube - 1][yf][z1].getHit() >= 3)
+                    {
+                        Player1[LengthBigCube - 1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                        Player1[LengthBigCube - 1][yf][z1].setTransparency(1);
+                        Player1[LengthBigCube - 1][yf][z1].setRed(true);
+                    } else
+                    {
+                        Player1[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
+                        Player1[LengthBigCube - 1][yf][z1].setTransparency(0.7);
+                    }
                 } else
                 {
                     Player2[LengthBigCube - 1][yf][z1].setTransparency(0.11);
                     Player2[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
-                    /*if (a[LengthBigCube - 1][yf][z1].getHit() == 1)
-                        a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
-                    if (a[LengthBigCube - 1][yf][z1].getHit() == 2)
-                        a[LengthBigCube - 1][yf][z1].setPaint(false);*/
+                    if (Player2[LengthBigCube - 1][yf][z1].getHit() == 3)
+                    {
+                        Player2[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
+                        Player2[LengthBigCube - 1][yf][z1].setTransparency(0.35);
+                    }
+                    if (Player2[LengthBigCube - 1][yf][z1].getHit() == 4)
+                    {
+                        Player2[LengthBigCube - 1][yf][z1].setColor(1, 0, 0);
+                        Player2[LengthBigCube - 1][yf][z1].setTransparency(0.35);
+                    }
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player2[i][yf][z1].setColor(0.5, 0.5, 0.8);
-                        Player2[i][yf][z1].setTransparency(0.11);
-                        /* if (a[i][yf][z1].getHit() == 2)
-                             a[i][yf][z1].setPaint(false);
-                         a[i][yf][z1].setRed(false);*/
+                        if (Player2[i][yf][z1].getHit() == 3)
+                        {
+                            Player2[i][yf][z1].setColor(0, 0, 1);
+                            Player2[i][yf][z1].setTransparency(0.35);
+                        } else if (Player2[i][yf][z1].getHit() == 4)
+                        {
+                            Player2[i][yf][z1].setColor(1, 0, 0);
+                            Player2[i][yf][z1].setTransparency(0.35);
+                        } else
+                        {
+                            Player2[i][yf][z1].setColor(0.5, 0.5, 0.8);
+                            Player2[i][yf][z1].setTransparency(0.11);
+                        }
+                        Player2[i][yf][z1].setRed(false);
                     }
                     yf++;
                     if (yf > LengthBigCube - 1)
                         yf = 0;
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        //if (a[i][yf][z1].getHit() == 0)
-                        Player2[i][yf][z1].setColor(1, 1, 0);
-                        // else
-                        //{
-                        //    a[i][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
-                        //    a[i][yf][z1].setPaint(true);
-                        //    if (a[i][yf][z1].getHit() == 1)
-                        //        a[i][yf][z1].setRed(true);
-                        // }
-                        Player2[i][yf][z1].setTransparency(0.3);
+                        if (Player2[i][yf][z1].getHit() <= 2)
+                        {
+                            Player2[i][yf][z1].setColor(1, 1, 0);
+                            Player2[i][yf][z1].setTransparency(0.35);
+                        } else
+                        {
+                            Player2[i][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            if (Player2[i][yf][z1].getHit() == 3)
+                                Player2[i][yf][z1].setRed(true);
+                            Player2[i][yf][z1].setTransparency(1);
+                        }
+
                     }
-                    /* if (a[LengthBigCube - 1][yf][z1].getHit() != 0)
-                     {
-                         a[LengthBigCube - 1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
-                         a[LengthBigCube - 1][yf][z1].setPaint(true);
-                         a[LengthBigCube - 1][yf][z1].setRed(true);
-                     } else*/ Player2[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
-                    Player2[LengthBigCube - 1][yf][z1].setTransparency(0.7);
+                    if (Player2[LengthBigCube - 1][yf][z1].getHit() >= 3)
+                    {
+                        Player2[LengthBigCube - 1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                        Player2[LengthBigCube - 1][yf][z1].setTransparency(1);
+                        Player2[LengthBigCube - 1][yf][z1].setRed(true);
+                    } else
+                    {
+                        Player2[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
+                        Player2[LengthBigCube - 1][yf][z1].setTransparency(0.7);
+                    }
                 }
             } else
             {
@@ -2113,80 +2255,120 @@ void ChooseColumn(int arrow)
                 {
                     Player1[LengthBigCube - 1][yf][z1].setTransparency(0.11);
                     Player1[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
-                    /*if (a[LengthBigCube - 1][yf][z1].getHit() == 1)
-                        a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
-                    if (a[LengthBigCube - 1][yf][z1].getHit() == 2)
-                        a[LengthBigCube - 1][yf][z1].setPaint(false);*/
+                    if (Player1[LengthBigCube - 1][yf][z1].getHit() == 3)
+                    {
+                        Player1[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
+                        Player1[LengthBigCube - 1][yf][z1].setTransparency(0.35);
+                    }
+                    if (Player1[LengthBigCube - 1][yf][z1].getHit() == 4)
+                    {
+                        Player1[LengthBigCube - 1][yf][z1].setColor(1, 0, 0);
+                        Player1[LengthBigCube - 1][yf][z1].setTransparency(0.35);
+                    }
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player1[i][yf][z1].setColor(0.5, 0.5, 0.8);
-                        Player1[i][yf][z1].setTransparency(0.11);
-                        /*if (a[i][yf][z1].getHit() == 2)
-                            a[i][yf][z1].setPaint(false);
-                        a[i][yf][z1].setRed(false);*/
+                        if (Player1[i][yf][z1].getHit() == 3)
+                        {
+                            Player1[i][yf][z1].setColor(0, 0, 1);
+                            Player1[i][yf][z1].setTransparency(0.35);
+                        } else if (Player1[i][yf][z1].getHit() == 4)
+                        {
+                            Player1[i][yf][z1].setColor(1, 0, 0);
+                            Player1[i][yf][z1].setTransparency(0.35);
+                        } else
+                        {
+                            Player1[i][yf][z1].setColor(0.5, 0.5, 0.8);
+                            Player1[i][yf][z1].setTransparency(0.11);
+                        }
+                        Player1[i][yf][z1].setRed(false);
                     }
                     z1--;
                     if (z1 < 0)
                         z1 = LengthBigCube - 1;
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player1[i][yf][z1].setTransparency(0.3);
-                        //if (a[i][yf][z1].getHit() == 0)
-                        Player1[i][yf][z1].setColor(1, 1, 0);
-                        /*else
+                        if (Player1[i][yf][z1].getHit() <= 2)
                         {
-                            a[i][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
-                            a[i][yf][z1].setPaint(true);
-                            if (a[i][yf][z1].getHit() == 1)
-                                a[i][yf][z1].setRed(true);
-                        }*/
+                            Player1[i][yf][z1].setColor(1, 1, 0);
+                            Player1[i][yf][z1].setTransparency(0.35);
+                        } else
+                        {
+                            Player1[i][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            if (Player1[i][yf][z1].getHit() == 3)
+                                Player1[i][yf][z1].setRed(true);
+                            Player1[i][yf][z1].setTransparency(1);
+                        }
+
                     }
-                    /*if (a[LengthBigCube - 1][yf][z1].getHit() != 0)
+                    if (Player1[LengthBigCube - 1][yf][z1].getHit() >= 3)
                     {
-                        a[LengthBigCube - 1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
-                        a[LengthBigCube - 1][yf][z1].setPaint(true);
-                        a[LengthBigCube - 1][yf][z1].setRed(true);
-                    } else*/ Player1[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
-                    Player1[LengthBigCube - 1][yf][z1].setTransparency(0.7);
+                        Player1[LengthBigCube - 1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                        Player1[LengthBigCube - 1][yf][z1].setTransparency(1);
+                        Player1[LengthBigCube - 1][yf][z1].setRed(true);
+                    } else
+                    {
+                        Player1[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
+                        Player1[LengthBigCube - 1][yf][z1].setTransparency(0.7);
+                    }
                 } else
                 {
                     Player2[LengthBigCube - 1][yf][z1].setTransparency(0.11);
                     Player2[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
-                    /*if (a[LengthBigCube - 1][yf][z1].getHit() == 1)
-                        a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
-                    if (a[LengthBigCube - 1][yf][z1].getHit() == 2)
-                        a[LengthBigCube - 1][yf][z1].setPaint(false);*/
+                    if (Player2[LengthBigCube - 1][yf][z1].getHit() == 3)
+                    {
+                        Player2[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
+                        Player2[LengthBigCube - 1][yf][z1].setTransparency(0.35);
+                    }
+                    if (Player2[LengthBigCube - 1][yf][z1].getHit() == 4)
+                    {
+                        Player2[LengthBigCube - 1][yf][z1].setColor(1, 0, 0);
+                        Player2[LengthBigCube - 1][yf][z1].setTransparency(0.35);
+                    }
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player2[i][yf][z1].setColor(0.5, 0.5, 0.8);
-                        Player2[i][yf][z1].setTransparency(0.11);
-                        /*if (a[i][yf][z1].getHit() == 2)
-                            a[i][yf][z1].setPaint(false);
-                        a[i][yf][z1].setRed(false);*/
+                        if (Player2[i][yf][z1].getHit() == 3)
+                        {
+                            Player2[i][yf][z1].setColor(0, 0, 1);
+                            Player2[i][yf][z1].setTransparency(0.35);
+                        } else if (Player2[i][yf][z1].getHit() == 4)
+                        {
+                            Player2[i][yf][z1].setColor(1, 0, 0);
+                            Player2[i][yf][z1].setTransparency(0.35);
+                        } else
+                        {
+                            Player2[i][yf][z1].setColor(0.5, 0.5, 0.8);
+                            Player2[i][yf][z1].setTransparency(0.11);
+                        }
+                        Player2[i][yf][z1].setRed(false);
                     }
                     z1--;
                     if (z1 < 0)
                         z1 = LengthBigCube - 1;
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player2[i][yf][z1].setTransparency(0.3);
-                        //if (a[i][yf][z1].getHit() == 0)
-                        Player2[i][yf][z1].setColor(1, 1, 0);
-                        /*else
+                        if (Player2[i][yf][z1].getHit() <= 2)
                         {
-                            a[i][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
-                            a[i][yf][z1].setPaint(true);
-                            if (a[i][yf][z1].getHit() == 1)
-                                a[i][yf][z1].setRed(true);
-                        }*/
+                            Player2[i][yf][z1].setColor(1, 1, 0);
+                            Player2[i][yf][z1].setTransparency(0.35);
+                        } else
+                        {
+                            Player2[i][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            if (Player2[i][yf][z1].getHit() == 3)
+                                Player2[i][yf][z1].setRed(true);
+                            Player2[i][yf][z1].setTransparency(1);
+                        }
+
                     }
-                    /*if (a[LengthBigCube - 1][yf][z1].getHit() != 0)
+                    if (Player2[LengthBigCube - 1][yf][z1].getHit() >= 3)
                     {
-                        a[LengthBigCube - 1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
-                        a[LengthBigCube - 1][yf][z1].setPaint(true);
-                        a[LengthBigCube - 1][yf][z1].setRed(true);
-                    } else*/ Player2[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
-                    Player2[LengthBigCube - 1][yf][z1].setTransparency(0.7);
+                        Player2[LengthBigCube - 1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                        Player2[LengthBigCube - 1][yf][z1].setTransparency(1);
+                        Player2[LengthBigCube - 1][yf][z1].setRed(true);
+                    } else
+                    {
+                        Player2[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
+                        Player2[LengthBigCube - 1][yf][z1].setTransparency(0.7);
+                    }
                 }
             } else
             {
@@ -2236,82 +2418,120 @@ void ChooseColumn(int arrow)
                 {
                     Player1[LengthBigCube - 1][yf][z1].setTransparency(0.11);
                     Player1[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
-                    /*if (a[LengthBigCube - 1][yf][z1].getHit() == 1)
-                        a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
-                    if (a[LengthBigCube - 1][yf][z1].getHit() == 2)
-                        a[LengthBigCube - 1][yf][z1].setPaint(false);*/
+                    if (Player1[LengthBigCube - 1][yf][z1].getHit() == 3)
+                    {
+                        Player1[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
+                        Player1[LengthBigCube - 1][yf][z1].setTransparency(0.35);
+                    }
+                    if (Player1[LengthBigCube - 1][yf][z1].getHit() == 4)
+                    {
+                        Player1[LengthBigCube - 1][yf][z1].setColor(1, 0, 0);
+                        Player1[LengthBigCube - 1][yf][z1].setTransparency(0.35);
+                    }
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player1[i][yf][z1].setTransparency(0.11);
-                        Player1[i][yf][z1].setColor(0.5, 0.5, 0.8);
-                        /*if (a[i][yf][z1].getHit() == 2)
-                            a[i][yf][z1].setPaint(false);
-                        a[i][yf][z1].setRed(false);*/
+                        if (Player1[i][yf][z1].getHit() == 3)
+                        {
+                            Player1[i][yf][z1].setColor(0, 0, 1);
+                            Player1[i][yf][z1].setTransparency(0.35);
+                        } else if (Player1[i][yf][z1].getHit() == 4)
+                        {
+                            Player1[i][yf][z1].setColor(1, 0, 0);
+                            Player1[i][yf][z1].setTransparency(0.35);
+                        } else
+                        {
+                            Player1[i][yf][z1].setColor(0.5, 0.5, 0.8);
+                            Player1[i][yf][z1].setTransparency(0.11);
+                        }
+                        Player1[i][yf][z1].setRed(false);
                     }
                     yf--;
                     if (yf < 0)
                         yf = LengthBigCube - 1;
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player1[i][yf][z1].setTransparency(0.3);
-                        //if (a[i][yf][z1].getHit() == 0)
-                        Player1[i][yf][z1].setColor(1, 1, 0);
-                        /* else
-                         {
-                             a[i][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
-                             a[i][yf][z1].setPaint(true);
+                        if (Player1[i][yf][z1].getHit() <= 2)
+                        {
+                            Player1[i][yf][z1].setColor(1, 1, 0);
+                            Player1[i][yf][z1].setTransparency(0.35);
+                        } else
+                        {
+                            Player1[i][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            if (Player1[i][yf][z1].getHit() == 3)
+                                Player1[i][yf][z1].setRed(true);
+                            Player1[i][yf][z1].setTransparency(1);
+                        }
 
-                             if (a[i][yf][z1].getHit() == 1)
-                                 a[i][yf][z1].setRed(true);
-                         }*/
                     }
-                    /*if (a[LengthBigCube - 1][yf][z1].getHit() != 0)
+                    if (Player1[LengthBigCube - 1][yf][z1].getHit() >= 3)
                     {
-                        a[LengthBigCube - 1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
-                        a[LengthBigCube - 1][yf][z1].setPaint(true);
-                        a[LengthBigCube - 1][yf][z1].setRed(true);
-                    } else*/ Player1[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
-                    Player1[LengthBigCube - 1][yf][z1].setTransparency(0.7);
+                        Player1[LengthBigCube - 1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                        Player1[LengthBigCube - 1][yf][z1].setTransparency(1);
+                        Player1[LengthBigCube - 1][yf][z1].setRed(true);
+                    } else
+                    {
+                        Player1[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
+                        Player1[LengthBigCube - 1][yf][z1].setTransparency(0.7);
+                    }
                 } else
                 {
                     Player2[LengthBigCube - 1][yf][z1].setTransparency(0.11);
                     Player2[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
-                    /*if (a[LengthBigCube - 1][yf][z1].getHit() == 1)
-                        a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
-                    if (a[LengthBigCube - 1][yf][z1].getHit() == 2)
-                        a[LengthBigCube - 1][yf][z1].setPaint(false);*/
+                    if (Player2[LengthBigCube - 1][yf][z1].getHit() == 3)
+                    {
+                        Player2[LengthBigCube - 1][yf][z1].setColor(0, 0, 1);
+                        Player2[LengthBigCube - 1][yf][z1].setTransparency(0.35);
+                    }
+                    if (Player2[LengthBigCube - 1][yf][z1].getHit() == 4)
+                    {
+                        Player2[LengthBigCube - 1][yf][z1].setColor(1, 0, 0);
+                        Player2[LengthBigCube - 1][yf][z1].setTransparency(0.35);
+                    }
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player2[i][yf][z1].setTransparency(0.11);
-                        Player2[i][yf][z1].setColor(0.5, 0.5, 0.8);
-                        /*if (a[i][yf][z1].getHit() == 2)
-                            a[i][yf][z1].setPaint(false);
-                        a[i][yf][z1].setRed(false);*/
+                        if (Player2[i][yf][z1].getHit() == 3)
+                        {
+                            Player2[i][yf][z1].setColor(0, 0, 1);
+                            Player2[i][yf][z1].setTransparency(0.35);
+                        } else if (Player2[i][yf][z1].getHit() == 4)
+                        {
+                            Player2[i][yf][z1].setColor(1, 0, 0);
+                            Player2[i][yf][z1].setTransparency(0.35);
+                        } else
+                        {
+                            Player2[i][yf][z1].setColor(0.5, 0.5, 0.8);
+                            Player2[i][yf][z1].setTransparency(0.11);
+                        }
+                        Player2[i][yf][z1].setRed(false);
                     }
                     yf--;
                     if (yf < 0)
                         yf = LengthBigCube - 1;
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player2[i][yf][z1].setTransparency(0.3);
-                        //if (a[i][yf][z1].getHit() == 0)
-                        Player2[i][yf][z1].setColor(1, 1, 0);
-                        /* else
-                         {
-                             a[i][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
-                             a[i][yf][z1].setPaint(true);
+                        if (Player2[i][yf][z1].getHit() <= 2)
+                        {
+                            Player2[i][yf][z1].setColor(1, 1, 0);
+                            Player2[i][yf][z1].setTransparency(0.35);
+                        } else
+                        {
+                            Player2[i][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            if (Player2[i][yf][z1].getHit() == 3)
+                                Player2[i][yf][z1].setRed(true);
+                            Player2[i][yf][z1].setTransparency(1);
+                        }
 
-                             if (a[i][yf][z1].getHit() == 1)
-                                 a[i][yf][z1].setRed(true);
-                         }*/
                     }
-                    /*if (a[LengthBigCube - 1][yf][z1].getHit() != 0)
+                    if (Player2[LengthBigCube - 1][yf][z1].getHit() >= 3)
                     {
-                        a[LengthBigCube - 1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
-                        a[LengthBigCube - 1][yf][z1].setPaint(true);
-                        a[LengthBigCube - 1][yf][z1].setRed(true);
-                    } else*/ Player2[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
-                    Player2[LengthBigCube - 1][yf][z1].setTransparency(0.7);
+                        Player2[LengthBigCube - 1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                        Player2[LengthBigCube - 1][yf][z1].setTransparency(1);
+                        Player2[LengthBigCube - 1][yf][z1].setRed(true);
+                    } else
+                    {
+                        Player2[LengthBigCube - 1][yf][z1].setColor(1, 1, 0);
+                        Player2[LengthBigCube - 1][yf][z1].setTransparency(0.7);
+                    }
                 }
             } else
             {
@@ -2365,83 +2585,122 @@ void ChooseColumn(int arrow)
                 if (isPlayer1)
                 {
                     Player1[x2][LengthBigCube - 1][z2].setTransparency(0.11);
-                    Player1[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 1);
-                    /*if (a[x2][LengthBigCube - 1][z2].getHit() == 1)
-                        a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
-                    if (a[x2][LengthBigCube - 1][z2].getHit() == 2)
-                        a[x2][LengthBigCube - 1][z2].setPaint(false);
-*/
+                    Player1[x2][LengthBigCube - 1][z2].setColor(0, 0, 1);
+                    if (Player1[x2][LengthBigCube - 1][z2].getHit() == 3)
+                    {
+                        Player1[x2][LengthBigCube - 1][z2].setColor(0, 0, 1);
+                        Player1[x2][LengthBigCube - 1][z2].setTransparency(0.35);
+                    }
+                    if (Player1[x2][LengthBigCube - 1][z2].getHit() == 4)
+                    {
+                        Player1[x2][LengthBigCube - 1][z2].setColor(1, 0, 0);
+                        Player1[x2][LengthBigCube - 1][z2].setTransparency(0.35);
+                    }
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player1[x2][i][z2].setTransparency(0.11);
-                        Player1[x2][i][z2].setColor(0.5, 0.5, 0.8);
-                        /*if (a[x2][i][z2].getHit() == 2)
-                            a[x2][i][z2].setPaint(false);
-                        a[x2][i][z2].setRed(false);*/
+                        if (Player1[x2][i][z2].getHit() == 3)
+                        {
+                            Player1[x2][i][z2].setColor(0, 0, 1);
+                            Player1[x2][i][z2].setTransparency(0.35);
+                        } else if (Player1[x2][i][z2].getHit() == 4)
+                        {
+                            Player1[x2][i][z2].setColor(1, 0, 0);
+                            Player1[x2][i][z2].setTransparency(0.35);
+                        } else
+                        {
+                            Player1[x2][i][z2].setColor(0.5, 0.5, 0.8);
+                            Player1[x2][i][z2].setTransparency(0.11);
+                        }
+                        Player1[x2][i][z2].setRed(false);
                     }
                     z2--;
                     if (z2 < 0)
                         z2 = LengthBigCube - 1;
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player1[x2][i][z2].setTransparency(0.3);
-                        // if (a[x2][i][z2].getHit() == 0)
-                        Player1[x2][i][z2].setColor(1, 1, 0);
-                        /*else
+                        if (Player1[x2][i][z2].getHit() <= 2)
                         {
-                            a[x2][i][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
-                            a[x2][i][z2].setPaint(true);
-                            if (a[x2][i][z2].getHit() == 1)
-                                a[x2][i][z2].setRed(true);
-                        }*/
+                            Player1[x2][i][z2].setColor(1, 1, 0);
+                            Player1[x2][i][z2].setTransparency(0.35);
+                        } else
+                        {
+                            Player1[x2][i][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            if (Player1[x2][i][z2].getHit() == 3)
+                                Player1[x2][i][z2].setRed(true);
+                            Player1[x2][i][z2].setTransparency(1);
+                        }
+
                     }
-                    /*if (a[x2][LengthBigCube - 1][z2].getHit() != 0)
+                    if (Player1[x2][LengthBigCube - 1][z2].getHit() >= 3)
                     {
-                        a[x2][LengthBigCube - 1][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
-                        a[x2][LengthBigCube - 1][z2].setPaint(true);
-                        a[x2][LengthBigCube - 1][z2].setRed(true);
-                    } else */ Player1[x2][LengthBigCube - 1][z2].setColor(1, 1, 0.0);
-                    Player1[x2][LengthBigCube - 1][z2].setTransparency(0.7);
+                        Player1[x2][LengthBigCube - 1][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
+                        Player1[x2][LengthBigCube - 1][z2].setTransparency(1);
+                        Player1[x2][LengthBigCube - 1][z2].setRed(true);
+                    } else
+                    {
+                        Player1[x2][LengthBigCube - 1][z2].setColor(1, 1, 0);
+                        Player1[x2][LengthBigCube - 1][z2].setTransparency(0.7);
+                    }
+
                 } else
                 {
                     Player2[x2][LengthBigCube - 1][z2].setTransparency(0.11);
-                    Player2[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 1);
-                    /*if (a[x2][LengthBigCube - 1][z2].getHit() == 1)
-                        a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
-                    if (a[x2][LengthBigCube - 1][z2].getHit() == 2)
-                        a[x2][LengthBigCube - 1][z2].setPaint(false);
-*/
+                    Player2[x2][LengthBigCube - 1][z2].setColor(0, 0, 1);
+                    if (Player2[x2][LengthBigCube - 1][z2].getHit() == 3)
+                    {
+                        Player2[x2][LengthBigCube - 1][z2].setColor(0, 0, 1);
+                        Player2[x2][LengthBigCube - 1][z2].setTransparency(0.35);
+                    }
+                    if (Player2[x2][LengthBigCube - 1][z2].getHit() == 4)
+                    {
+                        Player2[x2][LengthBigCube - 1][z2].setColor(1, 0, 0);
+                        Player2[x2][LengthBigCube - 1][z2].setTransparency(0.35);
+                    }
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player2[x2][i][z2].setTransparency(0.11);
-                        Player2[x2][i][z2].setColor(0.5, 0.5, 0.8);
-                        /*if (a[x2][i][z2].getHit() == 2)
-                            a[x2][i][z2].setPaint(false);
-                        a[x2][i][z2].setRed(false);*/
+                        if (Player2[x2][i][z2].getHit() == 3)
+                        {
+                            Player2[x2][i][z2].setColor(0, 0, 1);
+                            Player2[x2][i][z2].setTransparency(0.35);
+                        } else if (Player2[x2][i][z2].getHit() == 4)
+                        {
+                            Player2[x2][i][z2].setColor(1, 0, 0);
+                            Player2[x2][i][z2].setTransparency(0.35);
+                        } else
+                        {
+                            Player2[x2][i][z2].setColor(0.5, 0.5, 0.8);
+                            Player2[x2][i][z2].setTransparency(0.11);
+                        }
+                        Player2[x2][i][z2].setRed(false);
                     }
                     z2--;
                     if (z2 < 0)
                         z2 = LengthBigCube - 1;
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player2[x2][i][z2].setTransparency(0.3);
-                        // if (a[x2][i][z2].getHit() == 0)
-                        Player2[x2][i][z2].setColor(1, 1, 0);
-                        /*else
+                        if (Player2[x2][i][z2].getHit() <= 2)
                         {
-                            a[x2][i][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
-                            a[x2][i][z2].setPaint(true);
-                            if (a[x2][i][z2].getHit() == 1)
-                                a[x2][i][z2].setRed(true);
-                        }*/
+                            Player2[x2][i][z2].setColor(1, 1, 0);
+                            Player2[x2][i][z2].setTransparency(0.35);
+                        } else
+                        {
+                            Player2[x2][i][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            if (Player2[x2][i][z2].getHit() == 3)
+                                Player2[x2][i][z2].setRed(true);
+                            Player2[x2][i][z2].setTransparency(1);
+                        }
+
                     }
-                    /*if (a[x2][LengthBigCube - 1][z2].getHit() != 0)
+                    if (Player2[x2][LengthBigCube - 1][z2].getHit() >= 3)
                     {
-                        a[x2][LengthBigCube - 1][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
-                        a[x2][LengthBigCube - 1][z2].setPaint(true);
-                        a[x2][LengthBigCube - 1][z2].setRed(true);
-                    } else */ Player2[x2][LengthBigCube - 1][z2].setColor(1, 1, 0.0);
-                    Player2[x2][LengthBigCube - 1][z2].setTransparency(0.7);
+                        Player2[x2][LengthBigCube - 1][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
+                        Player2[x2][LengthBigCube - 1][z2].setTransparency(1);
+                        Player2[x2][LengthBigCube - 1][z2].setRed(true);
+                    } else
+                    {
+                        Player2[x2][LengthBigCube - 1][z2].setColor(1, 1, 0);
+                        Player2[x2][LengthBigCube - 1][z2].setTransparency(0.7);
+                    }
                 }
             } else
             {
@@ -2491,83 +2750,122 @@ void ChooseColumn(int arrow)
                 if (isPlayer1)
                 {
                     Player1[x2][LengthBigCube - 1][z2].setTransparency(0.11);
-                    Player1[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 1);
-                    /*if (a[x2][LengthBigCube - 1][z2].getHit() == 1)
-                        a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
-                    if (a[x2][LengthBigCube - 1][z2].getHit() == 2)
-                        a[x2][LengthBigCube - 1][z2].setPaint(false);
-*/
+                    Player1[x2][LengthBigCube - 1][z2].setColor(0, 0, 1);
+                    if (Player1[x2][LengthBigCube - 1][z2].getHit() == 3)
+                    {
+                        Player1[x2][LengthBigCube - 1][z2].setColor(0, 0, 1);
+                        Player1[x2][LengthBigCube - 1][z2].setTransparency(0.35);
+                    }
+                    if (Player1[x2][LengthBigCube - 1][z2].getHit() == 4)
+                    {
+                        Player1[x2][LengthBigCube - 1][z2].setColor(1, 0, 0);
+                        Player1[x2][LengthBigCube - 1][z2].setTransparency(0.35);
+                    }
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player1[x2][i][z2].setTransparency(0.11);
-                        Player1[x2][i][z2].setColor(0.5, 0.5, 0.8);
-                        /*if (a[x2][i][z2].getHit() == 2)
-                            a[x2][i][z2].setPaint(false);
-                        a[x2][i][z2].setRed(false);*/
+                        if (Player1[x2][i][z2].getHit() == 3)
+                        {
+                            Player1[x2][i][z2].setColor(0, 0, 1);
+                            Player1[x2][i][z2].setTransparency(0.35);
+                        } else if (Player1[x2][i][z2].getHit() == 4)
+                        {
+                            Player1[x2][i][z2].setColor(1, 0, 0);
+                            Player1[x2][i][z2].setTransparency(0.35);
+                        } else
+                        {
+                            Player1[x2][i][z2].setColor(0.5, 0.5, 0.8);
+                            Player1[x2][i][z2].setTransparency(0.11);
+                        }
+                        Player1[x2][i][z2].setRed(false);
                     }
                     x2++;
                     if (x2 > LengthBigCube - 1)
                         x2 = 0;
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player1[x2][i][z2].setTransparency(0.3);
-                        // if (a[x2][i][z2].getHit() == 0)
-                        Player1[x2][i][z2].setColor(1, 1, 0);
-                        /*else
+                        if (Player1[x2][i][z2].getHit() <= 2)
                         {
-                            a[x2][i][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
-                            a[x2][i][z2].setPaint(true);
-                            if (a[x2][i][z2].getHit() == 1)
-                                a[x2][i][z2].setRed(true);
-                        }*/
+                            Player1[x2][i][z2].setColor(1, 1, 0);
+                            Player1[x2][i][z2].setTransparency(0.35);
+                        } else
+                        {
+                            Player1[x2][i][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            if (Player1[x2][i][z2].getHit() == 3)
+                                Player1[x2][i][z2].setRed(true);
+                            Player1[x2][i][z2].setTransparency(1);
+                        }
+
                     }
-                    /*if (a[x2][LengthBigCube - 1][z2].getHit() != 0)
+                    if (Player1[x2][LengthBigCube - 1][z2].getHit() >= 3)
                     {
-                        a[x2][LengthBigCube - 1][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
-                        a[x2][LengthBigCube - 1][z2].setPaint(true);
-                        a[x2][LengthBigCube - 1][z2].setRed(true);
-                    } else */ Player1[x2][LengthBigCube - 1][z2].setColor(1, 1, 0.0);
-                    Player1[x2][LengthBigCube - 1][z2].setTransparency(0.7);
+                        Player1[x2][LengthBigCube - 1][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
+                        Player1[x2][LengthBigCube - 1][z2].setTransparency(1);
+                        Player1[x2][LengthBigCube - 1][z2].setRed(true);
+                    } else
+                    {
+                        Player1[x2][LengthBigCube - 1][z2].setColor(1, 1, 0);
+                        Player1[x2][LengthBigCube - 1][z2].setTransparency(0.7);
+                    }
+
                 } else
                 {
                     Player2[x2][LengthBigCube - 1][z2].setTransparency(0.11);
-                    Player2[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 1);
-                    /*if (a[x2][LengthBigCube - 1][z2].getHit() == 1)
-                        a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
-                    if (a[x2][LengthBigCube - 1][z2].getHit() == 2)
-                        a[x2][LengthBigCube - 1][z2].setPaint(false);
-*/
+                    Player2[x2][LengthBigCube - 1][z2].setColor(0, 0, 1);
+                    if (Player2[x2][LengthBigCube - 1][z2].getHit() == 3)
+                    {
+                        Player2[x2][LengthBigCube - 1][z2].setColor(0, 0, 1);
+                        Player2[x2][LengthBigCube - 1][z2].setTransparency(0.35);
+                    }
+                    if (Player2[x2][LengthBigCube - 1][z2].getHit() == 4)
+                    {
+                        Player2[x2][LengthBigCube - 1][z2].setColor(1, 0, 0);
+                        Player2[x2][LengthBigCube - 1][z2].setTransparency(0.35);
+                    }
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player2[x2][i][z2].setTransparency(0.11);
-                        Player2[x2][i][z2].setColor(0.5, 0.5, 0.8);
-                        /*if (a[x2][i][z2].getHit() == 2)
-                            a[x2][i][z2].setPaint(false);
-                        a[x2][i][z2].setRed(false);*/
+                        if (Player2[x2][i][z2].getHit() == 3)
+                        {
+                            Player2[x2][i][z2].setColor(0, 0, 1);
+                            Player2[x2][i][z2].setTransparency(0.35);
+                        } else if (Player2[x2][i][z2].getHit() == 4)
+                        {
+                            Player2[x2][i][z2].setColor(1, 0, 0);
+                            Player2[x2][i][z2].setTransparency(0.35);
+                        } else
+                        {
+                            Player2[x2][i][z2].setColor(0.5, 0.5, 0.8);
+                            Player2[x2][i][z2].setTransparency(0.11);
+                        }
+                        Player2[x2][i][z2].setRed(false);
                     }
                     x2++;
                     if (x2 > LengthBigCube - 1)
                         x2 = 0;
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player2[x2][i][z2].setTransparency(0.3);
-                        // if (a[x2][i][z2].getHit() == 0)
-                        Player2[x2][i][z2].setColor(1, 1, 0);
-                        /*else
+                        if (Player2[x2][i][z2].getHit() <= 2)
                         {
-                            a[x2][i][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
-                            a[x2][i][z2].setPaint(true);
-                            if (a[x2][i][z2].getHit() == 1)
-                                a[x2][i][z2].setRed(true);
-                        }*/
+                            Player2[x2][i][z2].setColor(1, 1, 0);
+                            Player2[x2][i][z2].setTransparency(0.35);
+                        } else
+                        {
+                            Player2[x2][i][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            if (Player2[x2][i][z2].getHit() == 3)
+                                Player2[x2][i][z2].setRed(true);
+                            Player2[x2][i][z2].setTransparency(1);
+                        }
+
                     }
-                    /*if (a[x2][LengthBigCube - 1][z2].getHit() != 0)
+                    if (Player2[x2][LengthBigCube - 1][z2].getHit() >= 3)
                     {
-                        a[x2][LengthBigCube - 1][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
-                        a[x2][LengthBigCube - 1][z2].setPaint(true);
-                        a[x2][LengthBigCube - 1][z2].setRed(true);
-                    } else */ Player2[x2][LengthBigCube - 1][z2].setColor(1, 1, 0.0);
-                    Player2[x2][LengthBigCube - 1][z2].setTransparency(0.7);
+                        Player2[x2][LengthBigCube - 1][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
+                        Player2[x2][LengthBigCube - 1][z2].setTransparency(1);
+                        Player2[x2][LengthBigCube - 1][z2].setRed(true);
+                    } else
+                    {
+                        Player2[x2][LengthBigCube - 1][z2].setColor(1, 1, 0);
+                        Player2[x2][LengthBigCube - 1][z2].setTransparency(0.7);
+                    }
                 }
             } else
             {
@@ -2616,83 +2914,122 @@ void ChooseColumn(int arrow)
                 if (isPlayer1)
                 {
                     Player1[x2][LengthBigCube - 1][z2].setTransparency(0.11);
-                    Player1[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 1);
-                    /*if (a[x2][LengthBigCube - 1][z2].getHit() == 1)
-                        a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
-                    if (a[x2][LengthBigCube - 1][z2].getHit() == 2)
-                        a[x2][LengthBigCube - 1][z2].setPaint(false);
-*/
+                    Player1[x2][LengthBigCube - 1][z2].setColor(0, 0, 1);
+                    if (Player1[x2][LengthBigCube - 1][z2].getHit() == 3)
+                    {
+                        Player1[x2][LengthBigCube - 1][z2].setColor(0, 0, 1);
+                        Player1[x2][LengthBigCube - 1][z2].setTransparency(0.35);
+                    }
+                    if (Player1[x2][LengthBigCube - 1][z2].getHit() == 4)
+                    {
+                        Player1[x2][LengthBigCube - 1][z2].setColor(1, 0, 0);
+                        Player1[x2][LengthBigCube - 1][z2].setTransparency(0.35);
+                    }
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player1[x2][i][z2].setTransparency(0.11);
-                        Player1[x2][i][z2].setColor(0.5, 0.5, 0.8);
-                        /*if (a[x2][i][z2].getHit() == 2)
-                            a[x2][i][z2].setPaint(false);
-                        a[x2][i][z2].setRed(false);*/
+                        if (Player1[x2][i][z2].getHit() == 3)
+                        {
+                            Player1[x2][i][z2].setColor(0, 0, 1);
+                            Player1[x2][i][z2].setTransparency(0.35);
+                        } else if (Player1[x2][i][z2].getHit() == 4)
+                        {
+                            Player1[x2][i][z2].setColor(1, 0, 0);
+                            Player1[x2][i][z2].setTransparency(0.35);
+                        } else
+                        {
+                            Player1[x2][i][z2].setColor(0.5, 0.5, 0.8);
+                            Player1[x2][i][z2].setTransparency(0.11);
+                        }
+                        Player1[x2][i][z2].setRed(false);
                     }
                     z2++;
                     if (z2 > LengthBigCube - 1)
                         z2 = 0;
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player1[x2][i][z2].setTransparency(0.3);
-                        // if (a[x2][i][z2].getHit() == 0)
-                        Player1[x2][i][z2].setColor(1, 1, 0);
-                        /*else
+                        if (Player1[x2][i][z2].getHit() <= 2)
                         {
-                            a[x2][i][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
-                            a[x2][i][z2].setPaint(true);
-                            if (a[x2][i][z2].getHit() == 1)
-                                a[x2][i][z2].setRed(true);
-                        }*/
+                            Player1[x2][i][z2].setColor(1, 1, 0);
+                            Player1[x2][i][z2].setTransparency(0.35);
+                        } else
+                        {
+                            Player1[x2][i][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            if (Player1[x2][i][z2].getHit() == 3)
+                                Player1[x2][i][z2].setRed(true);
+                            Player1[x2][i][z2].setTransparency(1);
+                        }
+
                     }
-                    /*if (a[x2][LengthBigCube - 1][z2].getHit() != 0)
+                    if (Player1[x2][LengthBigCube - 1][z2].getHit() >= 3)
                     {
-                        a[x2][LengthBigCube - 1][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
-                        a[x2][LengthBigCube - 1][z2].setPaint(true);
-                        a[x2][LengthBigCube - 1][z2].setRed(true);
-                    } else */ Player1[x2][LengthBigCube - 1][z2].setColor(1, 1, 0.0);
-                    Player1[x2][LengthBigCube - 1][z2].setTransparency(0.7);
+                        Player1[x2][LengthBigCube - 1][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
+                        Player1[x2][LengthBigCube - 1][z2].setTransparency(1);
+                        Player1[x2][LengthBigCube - 1][z2].setRed(true);
+                    } else
+                    {
+                        Player1[x2][LengthBigCube - 1][z2].setColor(1, 1, 0);
+                        Player1[x2][LengthBigCube - 1][z2].setTransparency(0.7);
+                    }
+
                 } else
                 {
                     Player2[x2][LengthBigCube - 1][z2].setTransparency(0.11);
-                    Player2[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 1);
-                    /*if (a[x2][LengthBigCube - 1][z2].getHit() == 1)
-                        a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
-                    if (a[x2][LengthBigCube - 1][z2].getHit() == 2)
-                        a[x2][LengthBigCube - 1][z2].setPaint(false);
-*/
+                    Player2[x2][LengthBigCube - 1][z2].setColor(0, 0, 1);
+                    if (Player2[x2][LengthBigCube - 1][z2].getHit() == 3)
+                    {
+                        Player2[x2][LengthBigCube - 1][z2].setColor(0, 0, 1);
+                        Player2[x2][LengthBigCube - 1][z2].setTransparency(0.35);
+                    }
+                    if (Player2[x2][LengthBigCube - 1][z2].getHit() == 4)
+                    {
+                        Player2[x2][LengthBigCube - 1][z2].setColor(1, 0, 0);
+                        Player2[x2][LengthBigCube - 1][z2].setTransparency(0.35);
+                    }
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player2[x2][i][z2].setTransparency(0.11);
-                        Player2[x2][i][z2].setColor(0.5, 0.5, 0.8);
-                        /*if (a[x2][i][z2].getHit() == 2)
-                            a[x2][i][z2].setPaint(false);
-                        a[x2][i][z2].setRed(false);*/
+                        if (Player2[x2][i][z2].getHit() == 3)
+                        {
+                            Player2[x2][i][z2].setColor(0, 0, 1);
+                            Player2[x2][i][z2].setTransparency(0.35);
+                        } else if (Player2[x2][i][z2].getHit() == 4)
+                        {
+                            Player2[x2][i][z2].setColor(1, 0, 0);
+                            Player2[x2][i][z2].setTransparency(0.35);
+                        } else
+                        {
+                            Player2[x2][i][z2].setColor(0.5, 0.5, 0.8);
+                            Player2[x2][i][z2].setTransparency(0.11);
+                        }
+                        Player2[x2][i][z2].setRed(false);
                     }
                     z2++;
                     if (z2 > LengthBigCube - 1)
                         z2 = 0;
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player2[x2][i][z2].setTransparency(0.3);
-                        // if (a[x2][i][z2].getHit() == 0)
-                        Player2[x2][i][z2].setColor(1, 1, 0);
-                        /*else
+                        if (Player2[x2][i][z2].getHit() <= 2)
                         {
-                            a[x2][i][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
-                            a[x2][i][z2].setPaint(true);
-                            if (a[x2][i][z2].getHit() == 1)
-                                a[x2][i][z2].setRed(true);
-                        }*/
+                            Player2[x2][i][z2].setColor(1, 1, 0);
+                            Player2[x2][i][z2].setTransparency(0.35);
+                        } else
+                        {
+                            Player2[x2][i][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            if (Player2[x2][i][z2].getHit() == 3)
+                                Player2[x2][i][z2].setRed(true);
+                            Player2[x2][i][z2].setTransparency(1);
+                        }
+
                     }
-                    /*if (a[x2][LengthBigCube - 1][z2].getHit() != 0)
+                    if (Player2[x2][LengthBigCube - 1][z2].getHit() >= 3)
                     {
-                        a[x2][LengthBigCube - 1][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
-                        a[x2][LengthBigCube - 1][z2].setPaint(true);
-                        a[x2][LengthBigCube - 1][z2].setRed(true);
-                    } else */ Player2[x2][LengthBigCube - 1][z2].setColor(1, 1, 0.0);
-                    Player2[x2][LengthBigCube - 1][z2].setTransparency(0.7);
+                        Player2[x2][LengthBigCube - 1][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
+                        Player2[x2][LengthBigCube - 1][z2].setTransparency(1);
+                        Player2[x2][LengthBigCube - 1][z2].setRed(true);
+                    } else
+                    {
+                        Player2[x2][LengthBigCube - 1][z2].setColor(1, 1, 0);
+                        Player2[x2][LengthBigCube - 1][z2].setTransparency(0.7);
+                    }
                 }
             } else
             {
@@ -2740,84 +3077,124 @@ void ChooseColumn(int arrow)
             {
                 if (isPlayer1)
                 {
+
                     Player1[x2][LengthBigCube - 1][z2].setTransparency(0.11);
-                    Player1[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 1);
-                    /*if (a[x2][LengthBigCube - 1][z2].getHit() == 1)
-                        a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
-                    if (a[x2][LengthBigCube - 1][z2].getHit() == 2)
-                        a[x2][LengthBigCube - 1][z2].setPaint(false);
-*/
+                    Player1[x2][LengthBigCube - 1][z2].setColor(0, 0, 1);
+                    if (Player1[x2][LengthBigCube - 1][z2].getHit() == 3)
+                    {
+                        Player1[x2][LengthBigCube - 1][z2].setColor(0, 0, 1);
+                        Player1[x2][LengthBigCube - 1][z2].setTransparency(0.35);
+                    }
+                    if (Player1[x2][LengthBigCube - 1][z2].getHit() == 4)
+                    {
+                        Player1[x2][LengthBigCube - 1][z2].setColor(1, 0, 0);
+                        Player1[x2][LengthBigCube - 1][z2].setTransparency(0.35);
+                    }
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player1[x2][i][z2].setTransparency(0.11);
-                        Player1[x2][i][z2].setColor(0.5, 0.5, 0.8);
-                        /*if (a[x2][i][z2].getHit() == 2)
-                            a[x2][i][z2].setPaint(false);
-                        a[x2][i][z2].setRed(false);*/
+                        if (Player1[x2][i][z2].getHit() == 3)
+                        {
+                            Player1[x2][i][z2].setColor(0, 0, 1);
+                            Player1[x2][i][z2].setTransparency(0.35);
+                        } else if (Player1[x2][i][z2].getHit() == 4)
+                        {
+                            Player1[x2][i][z2].setColor(1, 0, 0);
+                            Player1[x2][i][z2].setTransparency(0.35);
+                        } else
+                        {
+                            Player1[x2][i][z2].setColor(0.5, 0.5, 0.8);
+                            Player1[x2][i][z2].setTransparency(0.11);
+                        }
+                        Player1[x2][i][z2].setRed(false);
                     }
                     x2--;
                     if (x2 < 0)
                         x2 = LengthBigCube - 1;
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player1[x2][i][z2].setTransparency(0.3);
-                        // if (a[x2][i][z2].getHit() == 0)
-                        Player1[x2][i][z2].setColor(1, 1, 0);
-                        /*else
+                        if (Player1[x2][i][z2].getHit() <= 2)
                         {
-                            a[x2][i][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
-                            a[x2][i][z2].setPaint(true);
-                            if (a[x2][i][z2].getHit() == 1)
-                                a[x2][i][z2].setRed(true);
-                        }*/
+                            Player1[x2][i][z2].setColor(1, 1, 0);
+                            Player1[x2][i][z2].setTransparency(0.35);
+                        } else
+                        {
+                            Player1[x2][i][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            if (Player1[x2][i][z2].getHit() == 3)
+                                Player1[x2][i][z2].setRed(true);
+                            Player1[x2][i][z2].setTransparency(1);
+                        }
+
                     }
-                    /*if (a[x2][LengthBigCube - 1][z2].getHit() != 0)
+                    if (Player1[x2][LengthBigCube - 1][z2].getHit() >= 3)
                     {
-                        a[x2][LengthBigCube - 1][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
-                        a[x2][LengthBigCube - 1][z2].setPaint(true);
-                        a[x2][LengthBigCube - 1][z2].setRed(true);
-                    } else */ Player1[x2][LengthBigCube - 1][z2].setColor(1, 1, 0.0);
-                    Player1[x2][LengthBigCube - 1][z2].setTransparency(0.7);
+                        Player1[x2][LengthBigCube - 1][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
+                        Player1[x2][LengthBigCube - 1][z2].setTransparency(1);
+                        Player1[x2][LengthBigCube - 1][z2].setRed(true);
+                    } else
+                    {
+                        Player1[x2][LengthBigCube - 1][z2].setColor(1, 1, 0);
+                        Player1[x2][LengthBigCube - 1][z2].setTransparency(0.7);
+                    }
+
                 } else
                 {
                     Player2[x2][LengthBigCube - 1][z2].setTransparency(0.11);
-                    Player2[x2][LengthBigCube - 1][z2].setColor(0.0, 0, 1);
-                    /*if (a[x2][LengthBigCube - 1][z2].getHit() == 1)
-                        a[LengthBigCube - 1][yf][z1].setColor(0, 1, 0);
-                    if (a[x2][LengthBigCube - 1][z2].getHit() == 2)
-                        a[x2][LengthBigCube - 1][z2].setPaint(false);
-*/
+                    Player2[x2][LengthBigCube - 1][z2].setColor(0, 0, 1);
+                    if (Player2[x2][LengthBigCube - 1][z2].getHit() == 3)
+                    {
+                        Player2[x2][LengthBigCube - 1][z2].setColor(0, 0, 1);
+                        Player2[x2][LengthBigCube - 1][z2].setTransparency(0.35);
+                    }
+                    if (Player2[x2][LengthBigCube - 1][z2].getHit() == 4)
+                    {
+                        Player2[x2][LengthBigCube - 1][z2].setColor(1, 0, 0);
+                        Player2[x2][LengthBigCube - 1][z2].setTransparency(0.35);
+                    }
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player2[x2][i][z2].setTransparency(0.11);
-                        Player2[x2][i][z2].setColor(0.5, 0.5, 0.8);
-                        /*if (a[x2][i][z2].getHit() == 2)
-                            a[x2][i][z2].setPaint(false);
-                        a[x2][i][z2].setRed(false);*/
+                        if (Player2[x2][i][z2].getHit() == 3)
+                        {
+                            Player2[x2][i][z2].setColor(0, 0, 1);
+                            Player2[x2][i][z2].setTransparency(0.35);
+                        } else if (Player2[x2][i][z2].getHit() == 4)
+                        {
+                            Player2[x2][i][z2].setColor(1, 0, 0);
+                            Player2[x2][i][z2].setTransparency(0.35);
+                        } else
+                        {
+                            Player2[x2][i][z2].setColor(0.5, 0.5, 0.8);
+                            Player2[x2][i][z2].setTransparency(0.11);
+                        }
+                        Player2[x2][i][z2].setRed(false);
                     }
                     x2--;
                     if (x2 < 0)
                         x2 = LengthBigCube - 1;
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player2[x2][i][z2].setTransparency(0.3);
-                        // if (a[x2][i][z2].getHit() == 0)
-                        Player2[x2][i][z2].setColor(1, 1, 0);
-                        /*else
+                        if (Player2[x2][i][z2].getHit() <= 2)
                         {
-                            a[x2][i][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
-                            a[x2][i][z2].setPaint(true);
-                            if (a[x2][i][z2].getHit() == 1)
-                                a[x2][i][z2].setRed(true);
-                        }*/
+                            Player2[x2][i][z2].setColor(1, 1, 0);
+                            Player2[x2][i][z2].setTransparency(0.35);
+                        } else
+                        {
+                            Player2[x2][i][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            if (Player2[x2][i][z2].getHit() == 3)
+                                Player2[x2][i][z2].setRed(true);
+                            Player2[x2][i][z2].setTransparency(1);
+                        }
+
                     }
-                    /*if (a[x2][LengthBigCube - 1][z2].getHit() != 0)
+                    if (Player2[x2][LengthBigCube - 1][z2].getHit() >= 3)
                     {
-                        a[x2][LengthBigCube - 1][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
-                        a[x2][LengthBigCube - 1][z2].setPaint(true);
-                        a[x2][LengthBigCube - 1][z2].setRed(true);
-                    } else */ Player2[x2][LengthBigCube - 1][z2].setColor(1, 1, 0.0);
-                    Player2[x2][LengthBigCube - 1][z2].setTransparency(0.7);
+                        Player2[x2][LengthBigCube - 1][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
+                        Player2[x2][LengthBigCube - 1][z2].setTransparency(1);
+                        Player2[x2][LengthBigCube - 1][z2].setRed(true);
+                    } else
+                    {
+                        Player2[x2][LengthBigCube - 1][z2].setColor(1, 1, 0);
+                        Player2[x2][LengthBigCube - 1][z2].setTransparency(0.7);
+                    }
                 }
             } else
             {
@@ -2858,6 +3235,7 @@ void ChooseColumn(int arrow)
                     a[x2][LengthBigCube - 1][z2].setRed(true);
                 } else a[x2][LengthBigCube - 1][z2].setColor(1, 1, 0.0);
                 a[x2][LengthBigCube - 1][z2].setTransparency(0.7);
+
             }
         }
 
@@ -2871,81 +3249,122 @@ void ChooseColumn(int arrow)
                 if (isPlayer1)
                 {
                     Player1[x3][y3][LengthBigCube - 1].setTransparency(0.11);
-                    Player1[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 1);
-                    /*if (a[x3][y3][LengthBigCube - 1].getHit() == 2)
-                        a[x3][y3][LengthBigCube - 1].setPaint(false);
-                    if (a[x3][y3][LengthBigCube - 1].getHit() == 1)
-                        a[x3][y3][LengthBigCube - 1].setColor(0, 1, 0);*/
+                    Player1[x3][y3][LengthBigCube - 1].setColor(0, 0, 1);
+                    if (Player1[x3][y3][LengthBigCube - 1].getHit() == 3)
+                    {
+                        Player1[x3][y3][LengthBigCube - 1].setColor(0, 0, 1);
+                        Player1[x3][y3][LengthBigCube - 1].setTransparency(0.35);
+                    }
+                    if (Player1[x3][y3][LengthBigCube - 1].getHit() == 4)
+                    {
+                        Player1[x3][y3][LengthBigCube - 1].setColor(1, 0, 0);
+                        Player1[x3][y3][LengthBigCube - 1].setTransparency(0.35);
+                    }
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player1[x3][y3][i].setTransparency(0.11);
-                        Player1[x3][y3][i].setColor(0.5, 0.5, 0.8);
-                        /* if (a[x3][y3][i].getHit() == 2)
-                             a[x3][y3][i].setPaint(false);
-                         a[x3][y3][i].setRed(false);*/
+                        if (Player1[x3][y3][i].getHit() == 3)
+                        {
+                            Player1[x3][y3][i].setColor(0, 0, 1);
+                            Player1[x3][y3][i].setTransparency(0.35);
+                        } else if (Player1[x3][y3][i].getHit() == 4)
+                        {
+                            Player1[x3][y3][i].setColor(1, 0, 0);
+                            Player1[x3][y3][i].setTransparency(0.35);
+                        } else
+                        {
+                            Player1[x3][y3][i].setColor(0.5, 0.5, 0.8);
+                            Player1[x3][y3][i].setTransparency(0.11);
+                        }
+                        Player1[x3][y3][i].setRed(false);
                     }
                     x3++;
                     if (x3 > LengthBigCube - 1)
                         x3 = 0;
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player1[x3][y3][i].setTransparency(0.3);
-                        //if (a[x3][y3][i].getHit() == 0)
-                        Player1[x3][y3][i].setColor(1, 1, 0);
-                        /*else
+                        if (Player1[x3][y3][i].getHit() <= 2)
                         {
-                            a[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
-                            a[x3][y3][i].setPaint(true);
-                            if (a[x3][y3][i].getHit() == 1)
-                                a[x3][y3][i].setRed(true);
-                        }*/
+                            Player1[x3][y3][i].setColor(1, 1, 0);
+                            Player1[x3][y3][i].setTransparency(0.35);
+                        } else
+                        {
+                            Player1[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            if (Player1[x3][y3][i].getHit() == 3)
+                                Player1[x3][y3][i].setRed(true);
+                            Player1[x3][y3][i].setTransparency(1);
+                        }
+
                     }
-                    /*if (a[x3][y3][LengthBigCube - 1].getHit() != 0)
+                    if (Player1[x3][y3][LengthBigCube - 1].getHit() >= 3)
                     {
-                        a[x3][y3][LengthBigCube - 1].setColor(255 / 255., 105 / 255., 60 / 255.);
-                        a[x3][y3][LengthBigCube - 1].setPaint(true);
-                        a[x3][y3][LengthBigCube - 1].setRed(true);
-                    } else*/ Player1[x3][y3][LengthBigCube - 1].setColor(1, 1, 0.0);
-                    Player1[x3][y3][LengthBigCube - 1].setTransparency(0.7);
+                        Player1[x3][y3][LengthBigCube - 1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                        Player1[x3][y3][LengthBigCube - 1].setTransparency(1);
+                        Player1[x3][y3][LengthBigCube - 1].setRed(true);
+                    } else
+                    {
+                        Player1[x3][y3][LengthBigCube - 1].setColor(1, 1, 0);
+                        Player1[x3][y3][LengthBigCube - 1].setTransparency(0.7);
+                    }
+
                 } else
                 {
                     Player2[x3][y3][LengthBigCube - 1].setTransparency(0.11);
-                    Player2[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 1);
-                    /*if (a[x3][y3][LengthBigCube - 1].getHit() == 2)
-                        a[x3][y3][LengthBigCube - 1].setPaint(false);
-                    if (a[x3][y3][LengthBigCube - 1].getHit() == 1)
-                        a[x3][y3][LengthBigCube - 1].setColor(0, 1, 0);*/
+                    Player2[x3][y3][LengthBigCube - 1].setColor(0, 0, 1);
+                    if (Player2[x3][y3][LengthBigCube - 1].getHit() == 3)
+                    {
+                        Player2[x3][y3][LengthBigCube - 1].setColor(0, 0, 1);
+                        Player2[x3][y3][LengthBigCube - 1].setTransparency(0.35);
+                    }
+                    if (Player2[x3][y3][LengthBigCube - 1].getHit() == 4)
+                    {
+                        Player2[x3][y3][LengthBigCube - 1].setColor(1, 0, 0);
+                        Player2[x3][y3][LengthBigCube - 1].setTransparency(0.35);
+                    }
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player2[x3][y3][i].setTransparency(0.11);
-                        Player2[x3][y3][i].setColor(0.5, 0.5, 0.8);
-                        /* if (a[x3][y3][i].getHit() == 2)
-                             a[x3][y3][i].setPaint(false);
-                         a[x3][y3][i].setRed(false);*/
+                        if (Player2[x3][y3][i].getHit() == 3)
+                        {
+                            Player2[x3][y3][i].setColor(0, 0, 1);
+                            Player2[x3][y3][i].setTransparency(0.35);
+                        } else if (Player2[x3][y3][i].getHit() == 4)
+                        {
+                            Player2[x3][y3][i].setColor(1, 0, 0);
+                            Player2[x3][y3][i].setTransparency(0.35);
+                        } else
+                        {
+                            Player2[x3][y3][i].setColor(0.5, 0.5, 0.8);
+                            Player2[x3][y3][i].setTransparency(0.11);
+                        }
+                        Player2[x3][y3][i].setRed(false);
                     }
                     x3++;
                     if (x3 > LengthBigCube - 1)
                         x3 = 0;
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player2[x3][y3][i].setTransparency(0.3);
-                        //if (a[x3][y3][i].getHit() == 0)
-                        Player2[x3][y3][i].setColor(1, 1, 0);
-                        /*else
+                        if (Player2[x3][y3][i].getHit() <= 2)
                         {
-                            a[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
-                            a[x3][y3][i].setPaint(true);
-                            if (a[x3][y3][i].getHit() == 1)
-                                a[x3][y3][i].setRed(true);
-                        }*/
+                            Player2[x3][y3][i].setColor(1, 1, 0);
+                            Player2[x3][y3][i].setTransparency(0.35);
+                        } else
+                        {
+                            Player2[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            if (Player2[x3][y3][i].getHit() == 3)
+                                Player2[x3][y3][i].setRed(true);
+                            Player2[x3][y3][i].setTransparency(1);
+                        }
+
                     }
-                    /*if (a[x3][y3][LengthBigCube - 1].getHit() != 0)
+                    if (Player2[x3][y3][LengthBigCube - 1].getHit() >= 3)
                     {
-                        a[x3][y3][LengthBigCube - 1].setColor(255 / 255., 105 / 255., 60 / 255.);
-                        a[x3][y3][LengthBigCube - 1].setPaint(true);
-                        a[x3][y3][LengthBigCube - 1].setRed(true);
-                    } else*/ Player2[x3][y3][LengthBigCube - 1].setColor(1, 1, 0.0);
-                    Player2[x3][y3][LengthBigCube - 1].setTransparency(0.7);
+                        Player2[x3][y3][LengthBigCube - 1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                        Player2[x3][y3][LengthBigCube - 1].setTransparency(1);
+                        Player2[x3][y3][LengthBigCube - 1].setRed(true);
+                    } else
+                    {
+                        Player2[x3][y3][LengthBigCube - 1].setColor(1, 1, 0);
+                        Player2[x3][y3][LengthBigCube - 1].setTransparency(0.7);
+                    }
                 }
             } else
             {
@@ -2994,81 +3413,122 @@ void ChooseColumn(int arrow)
                 if (isPlayer1)
                 {
                     Player1[x3][y3][LengthBigCube - 1].setTransparency(0.11);
-                    Player1[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 1);
-                    /*if (a[x3][y3][LengthBigCube - 1].getHit() == 2)
-                        a[x3][y3][LengthBigCube - 1].setPaint(false);
-                    if (a[x3][y3][LengthBigCube - 1].getHit() == 1)
-                        a[x3][y3][LengthBigCube - 1].setColor(0, 1, 0);*/
+                    Player1[x3][y3][LengthBigCube - 1].setColor(0, 0, 1);
+                    if (Player1[x3][y3][LengthBigCube - 1].getHit() == 3)
+                    {
+                        Player1[x3][y3][LengthBigCube - 1].setColor(0, 0, 1);
+                        Player1[x3][y3][LengthBigCube - 1].setTransparency(0.35);
+                    }
+                    if (Player1[x3][y3][LengthBigCube - 1].getHit() == 4)
+                    {
+                        Player1[x3][y3][LengthBigCube - 1].setColor(1, 0, 0);
+                        Player1[x3][y3][LengthBigCube - 1].setTransparency(0.35);
+                    }
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player1[x3][y3][i].setTransparency(0.11);
-                        Player1[x3][y3][i].setColor(0.5, 0.5, 0.8);
-                        /* if (a[x3][y3][i].getHit() == 2)
-                             a[x3][y3][i].setPaint(false);
-                         a[x3][y3][i].setRed(false);*/
+                        if (Player1[x3][y3][i].getHit() == 3)
+                        {
+                            Player1[x3][y3][i].setColor(0, 0, 1);
+                            Player1[x3][y3][i].setTransparency(0.35);
+                        } else if (Player1[x3][y3][i].getHit() == 4)
+                        {
+                            Player1[x3][y3][i].setColor(1, 0, 0);
+                            Player1[x3][y3][i].setTransparency(0.35);
+                        } else
+                        {
+                            Player1[x3][y3][i].setColor(0.5, 0.5, 0.8);
+                            Player1[x3][y3][i].setTransparency(0.11);
+                        }
+                        Player1[x3][y3][i].setRed(false);
                     }
                     y3--;
                     if (y3 < 0)
                         y3 = LengthBigCube - 1;
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player1[x3][y3][i].setTransparency(0.3);
-                        //if (a[x3][y3][i].getHit() == 0)
-                        Player1[x3][y3][i].setColor(1, 1, 0);
-                        /*else
+                        if (Player1[x3][y3][i].getHit() <= 2)
                         {
-                            a[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
-                            a[x3][y3][i].setPaint(true);
-                            if (a[x3][y3][i].getHit() == 1)
-                                a[x3][y3][i].setRed(true);
-                        }*/
+                            Player1[x3][y3][i].setColor(1, 1, 0);
+                            Player1[x3][y3][i].setTransparency(0.35);
+                        } else
+                        {
+                            Player1[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            if (Player1[x3][y3][i].getHit() == 3)
+                                Player1[x3][y3][i].setRed(true);
+                            Player1[x3][y3][i].setTransparency(1);
+                        }
+
                     }
-                    /*if (a[x3][y3][LengthBigCube - 1].getHit() != 0)
+                    if (Player1[x3][y3][LengthBigCube - 1].getHit() >= 3)
                     {
-                        a[x3][y3][LengthBigCube - 1].setColor(255 / 255., 105 / 255., 60 / 255.);
-                        a[x3][y3][LengthBigCube - 1].setPaint(true);
-                        a[x3][y3][LengthBigCube - 1].setRed(true);
-                    } else*/ Player1[x3][y3][LengthBigCube - 1].setColor(1, 1, 0.0);
-                    Player1[x3][y3][LengthBigCube - 1].setTransparency(0.7);
+                        Player1[x3][y3][LengthBigCube - 1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                        Player1[x3][y3][LengthBigCube - 1].setTransparency(1);
+                        Player1[x3][y3][LengthBigCube - 1].setRed(true);
+                    } else
+                    {
+                        Player1[x3][y3][LengthBigCube - 1].setColor(1, 1, 0);
+                        Player1[x3][y3][LengthBigCube - 1].setTransparency(0.7);
+                    }
+
                 } else
                 {
                     Player2[x3][y3][LengthBigCube - 1].setTransparency(0.11);
-                    Player2[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 1);
-                    /*if (a[x3][y3][LengthBigCube - 1].getHit() == 2)
-                        a[x3][y3][LengthBigCube - 1].setPaint(false);
-                    if (a[x3][y3][LengthBigCube - 1].getHit() == 1)
-                        a[x3][y3][LengthBigCube - 1].setColor(0, 1, 0);*/
+                    Player2[x3][y3][LengthBigCube - 1].setColor(0, 0, 1);
+                    if (Player2[x3][y3][LengthBigCube - 1].getHit() == 3)
+                    {
+                        Player2[x3][y3][LengthBigCube - 1].setColor(0, 0, 1);
+                        Player2[x3][y3][LengthBigCube - 1].setTransparency(0.35);
+                    }
+                    if (Player2[x3][y3][LengthBigCube - 1].getHit() == 4)
+                    {
+                        Player2[x3][y3][LengthBigCube - 1].setColor(1, 0, 0);
+                        Player2[x3][y3][LengthBigCube - 1].setTransparency(0.35);
+                    }
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player2[x3][y3][i].setTransparency(0.11);
-                        Player2[x3][y3][i].setColor(0.5, 0.5, 0.8);
-                        /* if (a[x3][y3][i].getHit() == 2)
-                             a[x3][y3][i].setPaint(false);
-                         a[x3][y3][i].setRed(false);*/
+                        if (Player2[x3][y3][i].getHit() == 3)
+                        {
+                            Player2[x3][y3][i].setColor(0, 0, 1);
+                            Player2[x3][y3][i].setTransparency(0.35);
+                        } else if (Player2[x3][y3][i].getHit() == 4)
+                        {
+                            Player2[x3][y3][i].setColor(1, 0, 0);
+                            Player2[x3][y3][i].setTransparency(0.35);
+                        } else
+                        {
+                            Player2[x3][y3][i].setColor(0.5, 0.5, 0.8);
+                            Player2[x3][y3][i].setTransparency(0.11);
+                        }
+                        Player2[x3][y3][i].setRed(false);
                     }
                     y3--;
                     if (y3 < 0)
                         y3 = LengthBigCube - 1;
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player2[x3][y3][i].setTransparency(0.3);
-                        //if (a[x3][y3][i].getHit() == 0)
-                        Player2[x3][y3][i].setColor(1, 1, 0);
-                        /*else
+                        if (Player2[x3][y3][i].getHit() <= 2)
                         {
-                            a[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
-                            a[x3][y3][i].setPaint(true);
-                            if (a[x3][y3][i].getHit() == 1)
-                                a[x3][y3][i].setRed(true);
-                        }*/
+                            Player2[x3][y3][i].setColor(1, 1, 0);
+                            Player2[x3][y3][i].setTransparency(0.35);
+                        } else
+                        {
+                            Player2[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            if (Player2[x3][y3][i].getHit() == 3)
+                                Player2[x3][y3][i].setRed(true);
+                            Player2[x3][y3][i].setTransparency(1);
+                        }
+
                     }
-                    /*if (a[x3][y3][LengthBigCube - 1].getHit() != 0)
+                    if (Player2[x3][y3][LengthBigCube - 1].getHit() >= 3)
                     {
-                        a[x3][y3][LengthBigCube - 1].setColor(255 / 255., 105 / 255., 60 / 255.);
-                        a[x3][y3][LengthBigCube - 1].setPaint(true);
-                        a[x3][y3][LengthBigCube - 1].setRed(true);
-                    } else*/ Player2[x3][y3][LengthBigCube - 1].setColor(1, 1, 0.0);
-                    Player2[x3][y3][LengthBigCube - 1].setTransparency(0.7);
+                        Player2[x3][y3][LengthBigCube - 1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                        Player2[x3][y3][LengthBigCube - 1].setTransparency(1);
+                        Player2[x3][y3][LengthBigCube - 1].setRed(true);
+                    } else
+                    {
+                        Player2[x3][y3][LengthBigCube - 1].setColor(1, 1, 0);
+                        Player2[x3][y3][LengthBigCube - 1].setTransparency(0.7);
+                    }
                 }
             } else
             {
@@ -3117,81 +3577,122 @@ void ChooseColumn(int arrow)
                 if (isPlayer1)
                 {
                     Player1[x3][y3][LengthBigCube - 1].setTransparency(0.11);
-                    Player1[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 1);
-                    /*if (a[x3][y3][LengthBigCube - 1].getHit() == 2)
-                        a[x3][y3][LengthBigCube - 1].setPaint(false);
-                    if (a[x3][y3][LengthBigCube - 1].getHit() == 1)
-                        a[x3][y3][LengthBigCube - 1].setColor(0, 1, 0);*/
+                    Player1[x3][y3][LengthBigCube - 1].setColor(0, 0, 1);
+                    if (Player1[x3][y3][LengthBigCube - 1].getHit() == 3)
+                    {
+                        Player1[x3][y3][LengthBigCube - 1].setColor(0, 0, 1);
+                        Player1[x3][y3][LengthBigCube - 1].setTransparency(0.35);
+                    }
+                    if (Player1[x3][y3][LengthBigCube - 1].getHit() == 4)
+                    {
+                        Player1[x3][y3][LengthBigCube - 1].setColor(1, 0, 0);
+                        Player1[x3][y3][LengthBigCube - 1].setTransparency(0.35);
+                    }
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player1[x3][y3][i].setTransparency(0.11);
-                        Player1[x3][y3][i].setColor(0.5, 0.5, 0.8);
-                        /* if (a[x3][y3][i].getHit() == 2)
-                             a[x3][y3][i].setPaint(false);
-                         a[x3][y3][i].setRed(false);*/
+                        if (Player1[x3][y3][i].getHit() == 3)
+                        {
+                            Player1[x3][y3][i].setColor(0, 0, 1);
+                            Player1[x3][y3][i].setTransparency(0.35);
+                        } else if (Player1[x3][y3][i].getHit() == 4)
+                        {
+                            Player1[x3][y3][i].setColor(1, 0, 0);
+                            Player1[x3][y3][i].setTransparency(0.35);
+                        } else
+                        {
+                            Player1[x3][y3][i].setColor(0.5, 0.5, 0.8);
+                            Player1[x3][y3][i].setTransparency(0.11);
+                        }
+                        Player1[x3][y3][i].setRed(false);
                     }
                     x3--;
                     if (x3 < 0)
                         x3 = LengthBigCube - 1;
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player1[x3][y3][i].setTransparency(0.3);
-                        //if (a[x3][y3][i].getHit() == 0)
-                        Player1[x3][y3][i].setColor(1, 1, 0);
-                        /*else
+                        if (Player1[x3][y3][i].getHit() <= 2)
                         {
-                            a[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
-                            a[x3][y3][i].setPaint(true);
-                            if (a[x3][y3][i].getHit() == 1)
-                                a[x3][y3][i].setRed(true);
-                        }*/
+                            Player1[x3][y3][i].setColor(1, 1, 0);
+                            Player1[x3][y3][i].setTransparency(0.35);
+                        } else
+                        {
+                            Player1[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            if (Player1[x3][y3][i].getHit() == 3)
+                                Player1[x3][y3][i].setRed(true);
+                            Player1[x3][y3][i].setTransparency(1);
+                        }
+
                     }
-                    /*if (a[x3][y3][LengthBigCube - 1].getHit() != 0)
+                    if (Player1[x3][y3][LengthBigCube - 1].getHit() >= 3)
                     {
-                        a[x3][y3][LengthBigCube - 1].setColor(255 / 255., 105 / 255., 60 / 255.);
-                        a[x3][y3][LengthBigCube - 1].setPaint(true);
-                        a[x3][y3][LengthBigCube - 1].setRed(true);
-                    } else*/ Player1[x3][y3][LengthBigCube - 1].setColor(1, 1, 0.0);
-                    Player1[x3][y3][LengthBigCube - 1].setTransparency(0.7);
+                        Player1[x3][y3][LengthBigCube - 1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                        Player1[x3][y3][LengthBigCube - 1].setTransparency(1);
+                        Player1[x3][y3][LengthBigCube - 1].setRed(true);
+                    } else
+                    {
+                        Player1[x3][y3][LengthBigCube - 1].setColor(1, 1, 0);
+                        Player1[x3][y3][LengthBigCube - 1].setTransparency(0.7);
+                    }
+
                 } else
                 {
                     Player2[x3][y3][LengthBigCube - 1].setTransparency(0.11);
-                    Player2[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 1);
-                    /*if (a[x3][y3][LengthBigCube - 1].getHit() == 2)
-                        a[x3][y3][LengthBigCube - 1].setPaint(false);
-                    if (a[x3][y3][LengthBigCube - 1].getHit() == 1)
-                        a[x3][y3][LengthBigCube - 1].setColor(0, 1, 0);*/
+                    Player2[x3][y3][LengthBigCube - 1].setColor(0, 0, 1);
+                    if (Player2[x3][y3][LengthBigCube - 1].getHit() == 3)
+                    {
+                        Player2[x3][y3][LengthBigCube - 1].setColor(0, 0, 1);
+                        Player2[x3][y3][LengthBigCube - 1].setTransparency(0.35);
+                    }
+                    if (Player2[x3][y3][LengthBigCube - 1].getHit() == 4)
+                    {
+                        Player2[x3][y3][LengthBigCube - 1].setColor(1, 0, 0);
+                        Player2[x3][y3][LengthBigCube - 1].setTransparency(0.35);
+                    }
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player2[x3][y3][i].setTransparency(0.11);
-                        Player2[x3][y3][i].setColor(0.5, 0.5, 0.8);
-                        /* if (a[x3][y3][i].getHit() == 2)
-                             a[x3][y3][i].setPaint(false);
-                         a[x3][y3][i].setRed(false);*/
+                        if (Player2[x3][y3][i].getHit() == 3)
+                        {
+                            Player2[x3][y3][i].setColor(0, 0, 1);
+                            Player2[x3][y3][i].setTransparency(0.35);
+                        } else if (Player2[x3][y3][i].getHit() == 4)
+                        {
+                            Player2[x3][y3][i].setColor(1, 0, 0);
+                            Player2[x3][y3][i].setTransparency(0.35);
+                        } else
+                        {
+                            Player2[x3][y3][i].setColor(0.5, 0.5, 0.8);
+                            Player2[x3][y3][i].setTransparency(0.11);
+                        }
+                        Player2[x3][y3][i].setRed(false);
                     }
                     x3--;
                     if (x3 < 0)
                         x3 = LengthBigCube - 1;
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player2[x3][y3][i].setTransparency(0.3);
-                        //if (a[x3][y3][i].getHit() == 0)
-                        Player2[x3][y3][i].setColor(1, 1, 0);
-                        /*else
+                        if (Player2[x3][y3][i].getHit() <= 2)
                         {
-                            a[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
-                            a[x3][y3][i].setPaint(true);
-                            if (a[x3][y3][i].getHit() == 1)
-                                a[x3][y3][i].setRed(true);
-                        }*/
+                            Player2[x3][y3][i].setColor(1, 1, 0);
+                            Player2[x3][y3][i].setTransparency(0.35);
+                        } else
+                        {
+                            Player2[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            if (Player2[x3][y3][i].getHit() == 3)
+                                Player2[x3][y3][i].setRed(true);
+                            Player2[x3][y3][i].setTransparency(1);
+                        }
+
                     }
-                    /*if (a[x3][y3][LengthBigCube - 1].getHit() != 0)
+                    if (Player2[x3][y3][LengthBigCube - 1].getHit() >= 3)
                     {
-                        a[x3][y3][LengthBigCube - 1].setColor(255 / 255., 105 / 255., 60 / 255.);
-                        a[x3][y3][LengthBigCube - 1].setPaint(true);
-                        a[x3][y3][LengthBigCube - 1].setRed(true);
-                    } else*/ Player2[x3][y3][LengthBigCube - 1].setColor(1, 1, 0.0);
-                    Player2[x3][y3][LengthBigCube - 1].setTransparency(0.7);
+                        Player2[x3][y3][LengthBigCube - 1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                        Player2[x3][y3][LengthBigCube - 1].setTransparency(1);
+                        Player2[x3][y3][LengthBigCube - 1].setRed(true);
+                    } else
+                    {
+                        Player2[x3][y3][LengthBigCube - 1].setColor(1, 1, 0);
+                        Player2[x3][y3][LengthBigCube - 1].setTransparency(0.7);
+                    }
                 }
             } else
             {
@@ -3240,81 +3741,122 @@ void ChooseColumn(int arrow)
                 if (isPlayer1)
                 {
                     Player1[x3][y3][LengthBigCube - 1].setTransparency(0.11);
-                    Player1[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 1);
-                    /*if (a[x3][y3][LengthBigCube - 1].getHit() == 2)
-                        a[x3][y3][LengthBigCube - 1].setPaint(false);
-                    if (a[x3][y3][LengthBigCube - 1].getHit() == 1)
-                        a[x3][y3][LengthBigCube - 1].setColor(0, 1, 0);*/
+                    Player1[x3][y3][LengthBigCube - 1].setColor(0, 0, 1);
+                    if (Player1[x3][y3][LengthBigCube - 1].getHit() == 3)
+                    {
+                        Player1[x3][y3][LengthBigCube - 1].setColor(0, 0, 1);
+                        Player1[x3][y3][LengthBigCube - 1].setTransparency(0.35);
+                    }
+                    if (Player1[x3][y3][LengthBigCube - 1].getHit() == 4)
+                    {
+                        Player1[x3][y3][LengthBigCube - 1].setColor(1, 0, 0);
+                        Player1[x3][y3][LengthBigCube - 1].setTransparency(0.35);
+                    }
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player1[x3][y3][i].setTransparency(0.11);
-                        Player1[x3][y3][i].setColor(0.5, 0.5, 0.8);
-                        /* if (a[x3][y3][i].getHit() == 2)
-                             a[x3][y3][i].setPaint(false);
-                         a[x3][y3][i].setRed(false);*/
+                        if (Player1[x3][y3][i].getHit() == 3)
+                        {
+                            Player1[x3][y3][i].setColor(0, 0, 1);
+                            Player1[x3][y3][i].setTransparency(0.35);
+                        } else if (Player1[x3][y3][i].getHit() == 4)
+                        {
+                            Player1[x3][y3][i].setColor(1, 0, 0);
+                            Player1[x3][y3][i].setTransparency(0.35);
+                        } else
+                        {
+                            Player1[x3][y3][i].setColor(0.5, 0.5, 0.8);
+                            Player1[x3][y3][i].setTransparency(0.11);
+                        }
+                        Player1[x3][y3][i].setRed(false);
                     }
                     y3++;
                     if (y3 > LengthBigCube - 1)
                         y3 = 0;
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player1[x3][y3][i].setTransparency(0.3);
-                        //if (a[x3][y3][i].getHit() == 0)
-                        Player1[x3][y3][i].setColor(1, 1, 0);
-                        /*else
+                        if (Player1[x3][y3][i].getHit() <= 2)
                         {
-                            a[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
-                            a[x3][y3][i].setPaint(true);
-                            if (a[x3][y3][i].getHit() == 1)
-                                a[x3][y3][i].setRed(true);
-                        }*/
+                            Player1[x3][y3][i].setColor(1, 1, 0);
+                            Player1[x3][y3][i].setTransparency(0.35);
+                        } else
+                        {
+                            Player1[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            if (Player1[x3][y3][i].getHit() == 3)
+                                Player1[x3][y3][i].setRed(true);
+                            Player1[x3][y3][i].setTransparency(1);
+                        }
+
                     }
-                    /*if (a[x3][y3][LengthBigCube - 1].getHit() != 0)
+                    if (Player1[x3][y3][LengthBigCube - 1].getHit() >= 3)
                     {
-                        a[x3][y3][LengthBigCube - 1].setColor(255 / 255., 105 / 255., 60 / 255.);
-                        a[x3][y3][LengthBigCube - 1].setPaint(true);
-                        a[x3][y3][LengthBigCube - 1].setRed(true);
-                    } else*/ Player1[x3][y3][LengthBigCube - 1].setColor(1, 1, 0.0);
-                    Player1[x3][y3][LengthBigCube - 1].setTransparency(0.7);
+                        Player1[x3][y3][LengthBigCube - 1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                        Player1[x3][y3][LengthBigCube - 1].setTransparency(1);
+                        Player1[x3][y3][LengthBigCube - 1].setRed(true);
+                    } else
+                    {
+                        Player1[x3][y3][LengthBigCube - 1].setColor(1, 1, 0);
+                        Player1[x3][y3][LengthBigCube - 1].setTransparency(0.7);
+                    }
+
                 } else
                 {
                     Player2[x3][y3][LengthBigCube - 1].setTransparency(0.11);
-                    Player2[x3][y3][LengthBigCube - 1].setColor(0.0, 0.0, 1);
-                    /*if (a[x3][y3][LengthBigCube - 1].getHit() == 2)
-                        a[x3][y3][LengthBigCube - 1].setPaint(false);
-                    if (a[x3][y3][LengthBigCube - 1].getHit() == 1)
-                        a[x3][y3][LengthBigCube - 1].setColor(0, 1, 0);*/
+                    Player2[x3][y3][LengthBigCube - 1].setColor(0, 0, 1);
+                    if (Player2[x3][y3][LengthBigCube - 1].getHit() == 3)
+                    {
+                        Player2[x3][y3][LengthBigCube - 1].setColor(0, 0, 1);
+                        Player2[x3][y3][LengthBigCube - 1].setTransparency(0.35);
+                    }
+                    if (Player2[x3][y3][LengthBigCube - 1].getHit() == 4)
+                    {
+                        Player2[x3][y3][LengthBigCube - 1].setColor(1, 0, 0);
+                        Player2[x3][y3][LengthBigCube - 1].setTransparency(0.35);
+                    }
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player2[x3][y3][i].setTransparency(0.11);
-                        Player2[x3][y3][i].setColor(0.5, 0.5, 0.8);
-                        /* if (a[x3][y3][i].getHit() == 2)
-                             a[x3][y3][i].setPaint(false);
-                         a[x3][y3][i].setRed(false);*/
+                        if (Player2[x3][y3][i].getHit() == 3)
+                        {
+                            Player2[x3][y3][i].setColor(0, 0, 1);
+                            Player2[x3][y3][i].setTransparency(0.35);
+                        } else if (Player2[x3][y3][i].getHit() == 4)
+                        {
+                            Player2[x3][y3][i].setColor(1, 0, 0);
+                            Player2[x3][y3][i].setTransparency(0.35);
+                        } else
+                        {
+                            Player2[x3][y3][i].setColor(0.5, 0.5, 0.8);
+                            Player2[x3][y3][i].setTransparency(0.11);
+                        }
+                        Player2[x3][y3][i].setRed(false);
                     }
                     y3++;
                     if (y3 > LengthBigCube - 1)
                         y3 = 0;
                     for (int i = 0; i < LengthBigCube - 1; i++)
                     {
-                        Player2[x3][y3][i].setTransparency(0.3);
-                        //if (a[x3][y3][i].getHit() == 0)
-                        Player2[x3][y3][i].setColor(1, 1, 0);
-                        /*else
+                        if (Player2[x3][y3][i].getHit() <= 2)
                         {
-                            a[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
-                            a[x3][y3][i].setPaint(true);
-                            if (a[x3][y3][i].getHit() == 1)
-                                a[x3][y3][i].setRed(true);
-                        }*/
+                            Player2[x3][y3][i].setColor(1, 1, 0);
+                            Player2[x3][y3][i].setTransparency(0.35);
+                        } else
+                        {
+                            Player2[x3][y3][i].setColor(255 / 255., 105 / 255., 60 / 255.);
+                            if (Player2[x3][y3][i].getHit() == 3)
+                                Player2[x3][y3][i].setRed(true);
+                            Player2[x3][y3][i].setTransparency(1);
+                        }
+
                     }
-                    /*if (a[x3][y3][LengthBigCube - 1].getHit() != 0)
+                    if (Player2[x3][y3][LengthBigCube - 1].getHit() >= 3)
                     {
-                        a[x3][y3][LengthBigCube - 1].setColor(255 / 255., 105 / 255., 60 / 255.);
-                        a[x3][y3][LengthBigCube - 1].setPaint(true);
-                        a[x3][y3][LengthBigCube - 1].setRed(true);
-                    } else*/ Player2[x3][y3][LengthBigCube - 1].setColor(1, 1, 0.0);
-                    Player2[x3][y3][LengthBigCube - 1].setTransparency(0.7);
+                        Player2[x3][y3][LengthBigCube - 1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                        Player2[x3][y3][LengthBigCube - 1].setTransparency(1);
+                        Player2[x3][y3][LengthBigCube - 1].setRed(true);
+                    } else
+                    {
+                        Player2[x3][y3][LengthBigCube - 1].setColor(1, 1, 0);
+                        Player2[x3][y3][LengthBigCube - 1].setTransparency(0.7);
+                    }
                 }
             } else
             {
@@ -3363,7 +3905,7 @@ void ChooseColumn(int arrow)
 
 void ChooseCube2(int page)
 {
-    if(isPlayer1)
+    if (isPlayer1)
     {
         if (firstSide)
         {
