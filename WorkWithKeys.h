@@ -18,22 +18,41 @@ int x2 = i_second_side, z2 = k_second_side;
 int x3 = i_third_side, y3 = j_third_side;
 int p1 = 0, p2 = 0, p3 = 0;
 
-int ship = LengthBigCube - 2; // счетчик для расстановки кораблей
-int number_of_ships = 1; // счетчик числа кораблей с определенным кол-вом палуб (самый большой корабль всегда один)
 bool correct = true; // переменная, отвечающая за честность расстановки
 int saveLengthBigCube = 1; // переменная, необходимая для цикла расстановки кораблей
-bool statistics = false;
+// Не теряйте переменные number_of_ships и ship - они по-прежнему доступны здесь, но
+// теперь находятся в файле Painting
 
 //функция взаимодействия с клавиатурой
 void Keyboard(unsigned char key, int x, int y)
 {
-    if (key == 13)
-    {
-        if (hello_screen)
-        {
-            hello_screen = false;
+    if ((key == 13) && (mainmenu)) {
+        mainmenu = false;
+        if (menupuncts[0]) {
+            menupuncts[0] = false;
             placing_ships = true;
+        } else {
+            if (menupuncts[1]) {
+                rules = true;
+                menupuncts[1] = false;
+            } else {
+                if (menupuncts[2]) {
+                    authors = true;
+                    menupuncts[2] = false;
+                } else {
+                    exit(0);
+                }
+            }
         }
+    }
+
+    if (key == 27) {
+        mainmenu = true;
+        rules = false;
+        authors = false;
+        help = false;
+        hello_screen = false;
+        placing_ships = false;
     }
 
     if (key == 13 && forEnter == -1)
@@ -4022,168 +4041,161 @@ void ChooseCube2(int page)
 // 1 == left, 2 == up, 3 == down, 4 == right
 void specialKeys(int key, int x, int y)
 {
-    if (key == GLUT_KEY_F1)
-    {
-        help = (!help);
-        //movement = (!movement);
-    }
-
-    if (key == GLUT_KEY_F2)
-    {
-        statistics = (!statistics);
-    }
-
-    if (key == GLUT_KEY_RIGHT)
-    {
-        if (forEnter == -1)
-        {
-            if (isPlayer1)
-            {
-                isPlayer1 = false;
-                for (auto &i : Player1)
-                    for (auto &j : i)
-                        for (auto &k : j)
-                            k.setColor(135 / 256., 206 / 256., 250 / 256.);
-                for (auto &i : Player2)
-                    for (auto &j : i)
-                        for (auto &k : j)
-                            k.setColor(1, 0, 0);
-            } else
-            {
-                isPlayer1 = true;
-                for (auto &i : Player2)
-                    for (auto &j : i)
-                        for (auto &k : j)
-                            k.setColor(10 / 256., 254 / 256., 189 / 256.);
-                for (auto &i : Player1)
-                    for (auto &j : i)
-                        for (auto &k : j)
-                            k.setColor(1, 0, 0);
+    if (mainmenu) {
+        if (key == GLUT_KEY_DOWN) {
+            menupuncts[carrier] = false;
+            if (carrier < 3) {
+                carrier++;
+                menupuncts[carrier] = true;
+            } else {
+                carrier = 0;
+                menupuncts[carrier] = true;
             }
-        } else if (movement && forEnter != -1)
-        {
-            rotate_y += 5;
-        } else
-            ChooseColumn(4);
-    }//если нажата клавиша "вправо", то поворачиваем
-
-    else if (key == GLUT_KEY_LEFT)
-    {
-        if (forEnter == -1)
-        {
-            if (isPlayer1)
-            {
-                isPlayer1 = false;
-                for (auto &i : Player1)
-                    for (auto &j : i)
-                        for (auto &k : j)
-                            k.setColor(135 / 256., 206 / 256., 250 / 256.);
-                for (auto &i : Player2)
-                    for (auto &j : i)
-                        for (auto &k : j)
-                            k.setColor(1, 0, 0);
-            } else
-            {
-                isPlayer1 = true;
-                for (auto &i : Player2)
-                    for (auto &j : i)
-                        for (auto &k : j)
-                            k.setColor(10 / 256., 254 / 256., 189 / 256.);
-                for (auto &i : Player1)
-                    for (auto &j : i)
-                        for (auto &k : j)
-                            k.setColor(1, 0, 0);
+        }
+        if (key == GLUT_KEY_UP) {
+            menupuncts[carrier] = false;
+            if (carrier > 0) {
+                carrier--;
+                menupuncts[carrier] = true;
+            } else {
+                carrier = 3;
+                menupuncts[carrier] = true;
             }
-        } else if (movement && forEnter != -1)
-        {
-            rotate_y -= 5;
-        } else
-            ChooseColumn(1);
-    }//аналогично для левой клавиши
+        }
+    } else {
 
-    else if (key == GLUT_KEY_UP)
-    {
-        if (forEnter == -1)
-        {
+        if (key == GLUT_KEY_F1) {
+            help = (!help);
+            //movement = (!movement);
+        }
 
-        } else if (movement && forEnter != -1)
-        {
-            //if (rotate_x <= -5)
-            rotate_x += 5;
-        } else
-            ChooseColumn(2);
-    } //это уже повороты  вверх и вниз
+        if (key == GLUT_KEY_RIGHT) {
+            if (forEnter == -1) {
+                if (isPlayer1) {
+                    isPlayer1 = false;
+                    for (auto &i : Player1)
+                        for (auto &j : i)
+                            for (auto &k : j)
+                                k.setColor(135 / 256., 206 / 256., 250 / 256.);
+                    for (auto &i : Player2)
+                        for (auto &j : i)
+                            for (auto &k : j)
+                                k.setColor(1, 0, 0);
+                } else {
+                    isPlayer1 = true;
+                    for (auto &i : Player2)
+                        for (auto &j : i)
+                            for (auto &k : j)
+                                k.setColor(10 / 256., 254 / 256., 189 / 256.);
+                    for (auto &i : Player1)
+                        for (auto &j : i)
+                            for (auto &k : j)
+                                k.setColor(1, 0, 0);
+                }
+            } else if (movement && forEnter != -1) {
+                rotate_y += 5;
+            } else
+                ChooseColumn(4);
+        }//если нажата клавиша "вправо", то поворачиваем
 
-    else if (key == GLUT_KEY_DOWN)
-    {
-        if (forEnter == -1)
-        {
-            //
-        } else if (movement && forEnter != -1)
-        {
-            //if (rotate_x >= -85)
-            rotate_x -= 5;
-        } else
-            ChooseColumn(3);
-    } else if (key == GLUT_KEY_HOME && forEnter <= 1)
-    {
-        default_position(r_rotate_x, r_rotate_y);
-    } else if (key == GLUT_KEY_PAGE_UP && (forEnter == 4 || forEnter == 5))
-    {
-        if (forTwoPlayers < 2)
-            ChooseCube(1);
-        else ChooseCube2(1);
-        forEnter = 5;
-    } else if (key == GLUT_KEY_PAGE_DOWN && (forEnter == 4 || forEnter == 5))
-    {
-        if (forTwoPlayers < 2)
-            ChooseCube(2);
-        else ChooseCube2(2);
-        forEnter = 5;
-    }
+        else if (key == GLUT_KEY_LEFT) {
+            if (forEnter == -1) {
+                if (isPlayer1) {
+                    isPlayer1 = false;
+                    for (auto &i : Player1)
+                        for (auto &j : i)
+                            for (auto &k : j)
+                                k.setColor(135 / 256., 206 / 256., 250 / 256.);
+                    for (auto &i : Player2)
+                        for (auto &j : i)
+                            for (auto &k : j)
+                                k.setColor(1, 0, 0);
+                } else {
+                    isPlayer1 = true;
+                    for (auto &i : Player2)
+                        for (auto &j : i)
+                            for (auto &k : j)
+                                k.setColor(10 / 256., 254 / 256., 189 / 256.);
+                    for (auto &i : Player1)
+                        for (auto &j : i)
+                            for (auto &k : j)
+                                k.setColor(1, 0, 0);
+                }
+            } else if (movement && forEnter != -1) {
+                rotate_y -= 5;
+            } else
+                ChooseColumn(1);
+        }//аналогично для левой клавиши
+
+        else if (key == GLUT_KEY_UP) {
+            if (forEnter == -1) {
+
+            } else if (movement && forEnter != -1) {
+                //if (rotate_x <= -5)
+                rotate_x += 5;
+            } else
+                ChooseColumn(2);
+        } //это уже повороты  вверх и вниз
+
+        else if (key == GLUT_KEY_DOWN) {
+            if (forEnter == -1) {
+                //
+            } else if (movement && forEnter != -1) {
+                //if (rotate_x >= -85)
+                rotate_x -= 5;
+            } else
+                ChooseColumn(3);
+        } else if (key == GLUT_KEY_HOME && forEnter <= 1) {
+            default_position(r_rotate_x, r_rotate_y);
+        } else if (key == GLUT_KEY_PAGE_UP && (forEnter == 4 || forEnter == 5)) {
+            if (forTwoPlayers < 2)
+                ChooseCube(1);
+            else ChooseCube2(1);
+            forEnter = 5;
+        } else if (key == GLUT_KEY_PAGE_DOWN && (forEnter == 4 || forEnter == 5)) {
+            if (forTwoPlayers < 2)
+                ChooseCube(2);
+            else ChooseCube2(2);
+            forEnter = 5;
+        }
 
 
-    if (key == GLUT_KEY_F7 && (forEnter == 0 || forEnter == 1))
-    {
-        //std::cout << "123    ";
-        if (forTwoPlayers == 2)
-        {
-            if (isPlayer1)
-                view_first_side_Player1(r_rotate_x, r_rotate_y);
-            else view_first_side_Player2(r_rotate_x, r_rotate_y);
-        } else
-            view_first_side(r_rotate_x, r_rotate_y);
-        forEnter = 1;
-        //movement = false;
-        firstSide = true;
-        thirdSide = false;
-        secondSide = false;
-    } else if (key == GLUT_KEY_F8 && (forEnter == 0 || forEnter == 1))
-    {
-        if (forTwoPlayers == 2)
-        {
-            if (isPlayer1)
-                view_second_side_Player1(r_rotate_x, r_rotate_y);
-            else view_second_side_Player2(r_rotate_x, r_rotate_y);
-        } else
-            view_second_side(r_rotate_x, r_rotate_y);
-        forEnter = 1;
-        secondSide = true;
-        firstSide = false;
-        thirdSide = false;
-    } else if (key == GLUT_KEY_F9 && (forEnter == 0 || forEnter == 1))
-    {
-        if (forTwoPlayers == 2)
-        {
-            if (isPlayer1)
-                view_third_side_Player1(r_rotate_x, r_rotate_y);
-            else view_third_side_Player2(r_rotate_x, r_rotate_y);
-        } else
-            view_third_side(r_rotate_x, r_rotate_y);
-        forEnter = 1;
-        thirdSide = true;
-        firstSide = false;
-        secondSide = false;
+        if (key == GLUT_KEY_F7 && (forEnter == 0 || forEnter == 1)) {
+            //std::cout << "123    ";
+            if (forTwoPlayers == 2) {
+                if (isPlayer1)
+                    view_first_side_Player1(r_rotate_x, r_rotate_y);
+                else view_first_side_Player2(r_rotate_x, r_rotate_y);
+            } else
+                view_first_side(r_rotate_x, r_rotate_y);
+            forEnter = 1;
+            //movement = false;
+            firstSide = true;
+            thirdSide = false;
+            secondSide = false;
+        } else if (key == GLUT_KEY_F8 && (forEnter == 0 || forEnter == 1)) {
+            if (forTwoPlayers == 2) {
+                if (isPlayer1)
+                    view_second_side_Player1(r_rotate_x, r_rotate_y);
+                else view_second_side_Player2(r_rotate_x, r_rotate_y);
+            } else
+                view_second_side(r_rotate_x, r_rotate_y);
+            forEnter = 1;
+            secondSide = true;
+            firstSide = false;
+            thirdSide = false;
+        } else if (key == GLUT_KEY_F9 && (forEnter == 0 || forEnter == 1)) {
+            if (forTwoPlayers == 2) {
+                if (isPlayer1)
+                    view_third_side_Player1(r_rotate_x, r_rotate_y);
+                else view_third_side_Player2(r_rotate_x, r_rotate_y);
+            } else
+                view_third_side(r_rotate_x, r_rotate_y);
+            forEnter = 1;
+            thirdSide = true;
+            firstSide = false;
+            secondSide = false;
+        }
     }
 
     glutPostRedisplay(); //а это просто обязательная функция
