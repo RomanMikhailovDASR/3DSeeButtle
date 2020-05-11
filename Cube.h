@@ -6,10 +6,13 @@
 #define INC_3DSEEBUTTLE_CUBE_H
 
 #include <cmath>
+bool end1 = false;
+bool end2 = false;
+bool space = false;
 
 int forTwoPlayers = 0;
 
-const int LengthBigCube = 3;
+const int LengthBigCube = 4;
 int forEnter = -1;
 bool firstSide = false, secondSide = false, thirdSide = false;
 int forOnePaint = 0;
@@ -19,7 +22,7 @@ class Cube
 private:
     double transparency;  //прозрачность
     double length;  //длина стороны
-    int forHit;  //для ударов и выбора кубика  Если 1 - выбрали. Если 2 - стоит рядом с кубиком, который выбрали. Если 3 - в него выстрелили
+    int forHit;  //для ударов и выбора кубика  Если 1 - выбрали. Если 2 - стоит рядом с кубиком, который выбрали. Если 3 - в него выстрелили и промахнулись. 4 - выстрелили и попали
     bool isPaint;
     //для переключений между режимами игры (выбор, стрельба)
     bool isRed;

@@ -47,17 +47,22 @@ Cube Player2[LengthBigCube][LengthBigCube][LengthBigCube];
 }
 */
 
-void renderBitmapString(float x,float y,void *font,char *string)
+void renderBitmapString(float x, float y, void *font, char *string)
 {                        // Помещает строку в указанном месте с указанным шрифтом и содержимым
     char *c;
-    glRasterPos2f(x,y);
-    for (c=string; *c != '\0'; c++) {
+    glRasterPos2f(x, y);
+    for (c = string; *c != '\0'; c++)
+    {
         glutBitmapCharacter(font, *c);
     }
 }
 
 void displayCell()
 {
+    if (end1)
+        glClearColor(135 / 256., 206 / 256., 250 / 256., 0.f);  //меняем цвет фона
+    if (end2)
+        glClearColor(10 / 256., 254 / 256., 189 / 256., 0.f);  //меняем цвет фона
     if (forEnter == -1)
         glClearColor(0.07, 0.07, 0.25, 0.f);  //меняем цвет фона
 
@@ -74,8 +79,8 @@ void displayCell()
 
     if (hello_screen)
     {
-        glColor3d(1,1,1);
-        renderBitmapString(0.22,0.9,GLUT_BITMAP_TIMES_ROMAN_24,"Press F1 for help");
+        glColor3d(1, 1, 1);
+        renderBitmapString(0.22, 0.9, GLUT_BITMAP_TIMES_ROMAN_24, "Press F1 for help");
     }
 
     if (help)
@@ -86,29 +91,34 @@ void displayCell()
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
         //glClearColor(1,1,1,0);
-        glColor3d(1,1,1);
+        glColor3d(1, 1, 1);
 
-        if (hello_screen) {
+        if (hello_screen)
+        {
             renderBitmapString(-0.9, 0.8, GLUT_BITMAP_TIMES_ROMAN_24, "Press Right/Left to switch between sides");
             renderBitmapString(-0.9, 0.65, GLUT_BITMAP_TIMES_ROMAN_24, "Press Enter to choose");
-        } else {
-            if (placing_ships) {
-                renderBitmapString(-0.9,0.8, GLUT_BITMAP_TIMES_ROMAN_24, "Press Arrows to rotate the cube");
-                renderBitmapString(-0.9,0.65, GLUT_BITMAP_TIMES_ROMAN_24, "Press F7/F8/F9 to choose face");
-            } else {
-                renderBitmapString(0,0, GLUT_BITMAP_TIMES_ROMAN_24, "Not ready yet");
+        } else
+        {
+            if (placing_ships)
+            {
+                renderBitmapString(-0.9, 0.8, GLUT_BITMAP_TIMES_ROMAN_24, "Press Arrows to rotate the cube");
+                renderBitmapString(-0.9, 0.65, GLUT_BITMAP_TIMES_ROMAN_24, "Press F7/F8/F9 to choose face");
+            } else
+            {
+                renderBitmapString(0, 0, GLUT_BITMAP_TIMES_ROMAN_24, "Not ready yet");
             }
         }
-    } else {        // После отключения справки возвращаемся в 3D
-            glMatrixMode(GL_PROJECTION);
-            glLoadIdentity();
-            glOrtho(-1.5,1.5,-1,1,1,-1);
-            glMatrixMode(GL_MODELVIEW);
-            glLoadIdentity();
+    } else
+    {        // После отключения справки возвращаемся в 3D
+        glMatrixMode(GL_PROJECTION);
+        glLoadIdentity();
+        glOrtho(-1.5, 1.5, -1, 1, 1, -1);
+        glMatrixMode(GL_MODELVIEW);
+        glLoadIdentity();
 
-            //glClearColor(0.07, 0.07, 0.25, 0.f);  //меняем цвет фона, чтобы картинки "не размножались")
-            glRotatef(rotate_x, 1.0, 0.0, 0.0);  //функция, поворачивающая кубики по х
-            glRotatef(rotate_y, 0.0, 1.0, 0.0);  //а это для у
+        //glClearColor(0.07, 0.07, 0.25, 0.f);  //меняем цвет фона, чтобы картинки "не размножались")
+        glRotatef(rotate_x, 1.0, 0.0, 0.0);  //функция, поворачивающая кубики по х
+        glRotatef(rotate_y, 0.0, 1.0, 0.0);  //а это для у
     }
 
     if (forOnePaint == 0 && (forEnter == 0 && forTwoPlayers != 2))
@@ -160,10 +170,11 @@ void displayCell()
                 {
                     Player1[i][j][k].changeCube(1.1 / (LengthBigCube * 1.4),
                                                 i * 1.1 / (LengthBigCube * 1.4) - 0.55 + 0.55 / (LengthBigCube * 1.4) +
-                                                0.95,
+                                                0.6,
                                                 j * 1.1 / (LengthBigCube * 1.4) - 0.55 + 0.55 / (LengthBigCube * 1.4) +
-                                                0.5,
-                                                k * 1.1 / (LengthBigCube * 1.4) - 0.55 + 0.55 / (LengthBigCube * 1.4),
+                                                0.15,
+                                                k * 1.1 / (LengthBigCube * 1.4) - 0.55 + 0.55 / (LengthBigCube * 1.4) -
+                                                0.35,
                                                 0.11);
 
                     Player2[i][j][k].changeCube(1.1 / (LengthBigCube * 1.4),
@@ -187,7 +198,7 @@ void displayCell()
             for (auto &j : i)
                 for (auto &k : j)
                 {
-                    if(forEnter > 3 && k.getHit() == 2)
+                    if (forEnter > 3 && k.getHit() == 2)
                         k.setPaint(false);
                     if (k.getHit() == 1 && !k.getRed())
                     {
@@ -196,7 +207,7 @@ void displayCell()
 
                     if (k.getPaint() && !help)
                     {
-                            k.paintCube();
+                        k.paintCube();
                         if (forEnter != -1 && k.getHit() != 1)
                             k.setTransparancyNothing();
                     }
@@ -209,21 +220,26 @@ void displayCell()
             for (auto &j : i)
                 for (auto &k : j)
                 {
+                    if (space)
+                    {
+                        if (k.getHit() == 1)
+                            k.setColor(0, 1, 0);
+                    }
                     if (k.getHit() == 3)
                     {
                         k.setColor(0, 0, 1);
-                        k.setTransparency(1);
+                        k.setTransparency(0.35);
                     }
                     if (k.getHit() == 4)
                     {
                         k.setColor(1, 0, 0);
-                        k.setTransparency(1);
+                        k.setTransparency(0.35);
                     }
-		    if(k.getPaint())
-		    {
-			k.paintCube();
-			k.setTransparancyNothing();
-		    }
+                    if (k.getPaint())
+                    {
+                        k.paintCube();
+                        k.setTransparancyNothing();
+                    }
                 }
 
     if (forEnter == -1 || forTwoPlayers == 2)
@@ -231,19 +247,24 @@ void displayCell()
             for (auto &j : i)
                 for (auto &k : j)
                 {
+                    if (space)
+                    {
+                        if (k.getHit() == 1)
+                            k.setColor(0, 1, 0);
+                    }
                     if (k.getHit() == 3)
                     {
                         k.setColor(0, 0, 1);
-                        k.setTransparency(1);
+                        k.setTransparency(0.2);
                     }
                     if (k.getHit() == 4)
                     {
                         k.setColor(1, 0, 0);
-                        k.setTransparency(1);
+                        k.setTransparency(0.4);
                     }
-		    if(k.getPaint())
+                    if (k.getPaint())
                     {
-			k.paintCube();
+                        k.paintCube();
                         k.setTransparancyNothing();
                     }
                 }

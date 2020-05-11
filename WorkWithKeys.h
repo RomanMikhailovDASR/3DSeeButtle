@@ -7,6 +7,8 @@
 
 #include "ChooseSide.h"
 
+int shipsLifeFirst = 0;
+int shipsLifeSecond = 0;
 //введем координаты кубиков, которые подкрашиваются первыми при выборе фронтального вида
 int i_first_side = LengthBigCube - 1, j_first_side = 0, k_first_side = 0;
 int i_second_side = LengthBigCube - 1, j_second_side = LengthBigCube - 1, k_second_side = LengthBigCube - 1;
@@ -39,6 +41,8 @@ void Keyboard(unsigned char key, int x, int y)
         forEnter = 0;
         forOnePaint = 0;
     }
+    if (key == 32)
+        space = !space;
     if (key == 13 && forEnter == 1)
     {
         if (firstSide)
@@ -201,41 +205,109 @@ void Keyboard(unsigned char key, int x, int y)
 
     if (key == 13 && forEnter == 3)
     {
-        movement = true;
-        for (auto &i : a)
-            for (auto &j : i)
-                for (auto &k : j)
-                {
-                    k.setColor(0.5, 0.5, 0.8);
-                    k.setTransparency(0.1);
-                }
-
-        if (firstSide)
+        if (forTwoPlayers == 2)
         {
-            for (auto &i : a)
-                i[yf][z1].setColor(1, 1, 0);
-            for (int i = 0; i < ship; i++)
+            if (isPlayer1)
             {
-                a[i][yf][z1].setTransparency(0.7);
+                movement = true;
+                for (auto &i : Player1)
+                    for (auto &j : i)
+                        for (auto &k : j)
+                        {
+                            k.setColor(0.5, 0.5, 0.8);
+                            k.setTransparency(0.1);
+                        }
+
+                if (firstSide)
+                {
+                    for (auto &i : Player1)
+                        i[yf][z1].setColor(1, 1, 0);
+                    Player1[0][yf][z1].setTransparency(0.7);
+                } else if (secondSide)
+                {
+                    for (int j = 0; j < LengthBigCube; j++)
+                        Player1[x2][j][z2].setColor(1, 1, 0);
+                    Player1[x2][0][z2].setTransparency(0.7);
+                    r_rotate_x = 325;
+                    r_rotate_y = 135;
+                } else if (thirdSide)
+                {
+                    for (int k = 0; k < LengthBigCube; k++)
+                        Player1[x3][y3][k].setColor(1, 1, 0);
+                    Player1[x3][y3][0].setTransparency(0.7);
+                    r_rotate_x = 325;
+                    r_rotate_y = 135;
+                }
+            } else
+            {
+                movement = true;
+                for (auto &i : Player2)
+                    for (auto &j : i)
+                        for (auto &k : j)
+                        {
+                            k.setColor(0.5, 0.5, 0.8);
+                            k.setTransparency(0.1);
+                        }
+
+                if (firstSide)
+                {
+                    for (auto &i : Player2)
+                        i[yf][z1].setColor(1, 1, 0);
+                    Player2[0][yf][z1].setTransparency(0.7);
+                } else if (secondSide)
+                {
+                    for (int j = 0; j < LengthBigCube; j++)
+                        Player2[x2][j][z2].setColor(1, 1, 0);
+                    Player2[x2][0][z2].setTransparency(0.7);
+                    r_rotate_x = 325;
+                    r_rotate_y = 135;
+                } else if (thirdSide)
+                {
+                    for (int k = 0; k < LengthBigCube; k++)
+                        Player2[x3][y3][k].setColor(1, 1, 0);
+                    Player2[x3][y3][0].setTransparency(0.7);
+                    r_rotate_x = 325;
+                    r_rotate_y = 135;
+                }
             }
-            r_rotate_x = 325;
-            r_rotate_y = 135;
-        } else if (secondSide)
+        } else
         {
-            for (int j = 0; j < LengthBigCube; j++)
-                a[x2][j][z2].setColor(1, 1, 0);
-            for (int j = 0; j < ship; j++)
-                a[x2][j][z2].setTransparency(0.7);
-            r_rotate_x = 325;
-            r_rotate_y = 135;
-        } else if (thirdSide)
-        {
-            for (int k = 0; k < LengthBigCube; k++)
-                a[x3][y3][k].setColor(1, 1, 0);
-            for (int k = 0; k < ship; k++)
-                a[x3][y3][k].setTransparency(0.7);
-            r_rotate_x = 325;
-            r_rotate_y = 135;
+            movement = true;
+            for (auto &i : a)
+                for (auto &j : i)
+                    for (auto &k : j)
+                    {
+                        k.setColor(0.5, 0.5, 0.8);
+                        k.setTransparency(0.1);
+                    }
+
+            if (firstSide)
+            {
+                for (auto &i : a)
+                    i[yf][z1].setColor(1, 1, 0);
+                for (int i = 0; i < ship; i++)
+                {
+                    a[i][yf][z1].setTransparency(0.7);
+                }
+                r_rotate_x = 325;
+                r_rotate_y = 135;
+            } else if (secondSide)
+            {
+                for (int j = 0; j < LengthBigCube; j++)
+                    a[x2][j][z2].setColor(1, 1, 0);
+                for (int j = 0; j < ship; j++)
+                    a[x2][j][z2].setTransparency(0.7);
+                r_rotate_x = 325;
+                r_rotate_y = 135;
+            } else if (thirdSide)
+            {
+                for (int k = 0; k < LengthBigCube; k++)
+                    a[x3][y3][k].setColor(1, 1, 0);
+                for (int k = 0; k < ship; k++)
+                    a[x3][y3][k].setTransparency(0.7);
+                r_rotate_x = 325;
+                r_rotate_y = 135;
+            }
         }
         forEnter = 4;
     }
@@ -375,6 +447,9 @@ void Keyboard(unsigned char key, int x, int y)
             }
             forEnter = 0;
             number_of_ships--;
+            if(isPlayer1)
+                shipsLifeFirst++;
+            else shipsLifeSecond++;
             if (number_of_ships == 0)
             {
                 saveLengthBigCube++;
@@ -408,7 +483,7 @@ void Keyboard(unsigned char key, int x, int y)
                 {
                     forOnePaint = 0;
                     forEnter = 0;
-                    movement = false;
+                    movement = true;
                 }
 
                 //DAVID FUNCTION SHOULD BE HERE !!!!!!!!
@@ -429,141 +504,1261 @@ void Keyboard(unsigned char key, int x, int y)
         for (auto &i : a)
             for (auto &j : i)
                 for (auto &k : j)
-                    k.setTransparency(0.1);
+                    k.setTransparency(0.11);
     }
+
     if (key == 13 && forEnter == 5 && forTwoPlayers == 2)
     {//FIRE!!! (типа пыжь пыжь и все покраснело)
         if (isPlayer1)
         {
-            if (firstSide && Player1[p1][yf][z1].getHit() != 2)
+            if (firstSide && (Player1[p1][yf][z1].getHit() == 0 || Player1[p1][yf][z1].getHit() == 2))
             {
 
                 for (auto &i : Player1)
                 {
                     i[yf][z1].setColor(0.5, 0.5, 0.8);
-                    i[yf][z1].setTransparency(0.1);
+                    i[yf][z1].setTransparency(0.11);
                 }
+
+                Player1[p1][yf][z1].setColor(0, 0, 1);
+                Player1[p1][yf][z1].setTransparency(0.35);
+                Player1[p1][yf][z1].setIsHitten(3);
+                isPlayer1 = false;
+
+            } else if (firstSide && Player1[p1][yf][z1].getHit() == 1)
+            {
+                for (auto &i : Player1)
+                {
+                    i[yf][z1].setColor(0.5, 0.5, 0.8);
+                    i[yf][z1].setTransparency(0.11);
+                }
+
                 Player1[p1][yf][z1].setColor(1, 0, 0);
-                Player1[p1][yf][z1].setTransparency(0.5);
-                Player1[p1][yf][z1].setIsHitten(1);
-                for (int i = p1 - 1; i <= p1 + 1; i++)
-                    for (int j = yf - 1; j <= yf + 1; j++)
-                        for (int k = z1 - 1; k <= z1 + 1; k++)
-                            if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
-                                k < LengthBigCube)
+                Player1[p1][yf][z1].setTransparency(0.35);
+                Player1[p1][yf][z1].setIsHitten(4);
+
+                bool hit = true;
+                if (p1 - 1 >= 0)
+                    if (Player1[p1 - 1][yf][z1].getHit() == 1)
+                        hit = false;
+                if (p1 + 1 < LengthBigCube)
+                    if (Player1[p1 + 1][yf][z1].getHit() == 1)
+                        hit = false;
+                if (yf - 1 >= 0)
+                    if (Player1[p1][yf - 1][z1].getHit() == 1)
+                        hit = false;
+                if (yf + 1 < LengthBigCube)
+                    if (Player1[p1][yf + 1][z1].getHit() == 1)
+                        hit = false;
+                if (z1 - 1 >= 0)
+                    if (Player1[p1][yf][z1 - 1].getHit() == 1)
+                        hit = false;
+                if (z1 + 1 < LengthBigCube)
+                    if (Player1[p1][yf][z1 + 1].getHit() == 1)
+                        hit = false;
+
+                if (hit)
+                {
+                    shipsLifeFirst--;
+                    if (p1 - 1 >= 0 && Player1[p1 - 1][yf][z1].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = p1;
+                            while (_x >= 0 && Player1[_x][yf][z1].getHit() == 4)
                             {
-                                Player1[i][j][k].setIsHitten(3);
+                                _x--;
                             }
-                Player1[p1][yf][z1].setPaint(true);
-                Player1[p1][yf][z1].setIsHitten(1);
-            } else if (secondSide && Player1[x2][p2][z2].getHit() != 2)
+                            _x++;
+                            while (_x < LengthBigCube && Player1[_x][yf][z1].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            for (int i = _x - length - 1; i <= _x; i++)
+                                for (int j = yf - 1; j <= yf + 1; j++)
+                                    for (int k = z1 - 1; k <= z1 + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player1[i][j][k].getHit() != 4)
+                                                Player1[i][j][k].setIsHitten(3);
+                        }
+                    } else
+                        if (p1 + 1 < LengthBigCube && Player1[p1 + 1][yf][z1].getHit() == 4)
+                        {
+                            {
+                                int length = 1;
+                                int _x = p1;
+                                while (_x < LengthBigCube && Player1[_x][yf][z1].getHit() == 4)
+                                {
+                                    _x++;
+                                    length++;
+                                }
+                                _x--;
+                                while (_x >= 0 && Player1[_x][yf][z1].getHit() == 4)
+                                {
+                                    _x--;
+                                }
+
+                                for (int i = _x + length - 1; i <= _x - length + 1; i++)
+                                    for (int j = yf - 1; j <= yf + 1; j++)
+                                        for (int k = z1 - 1; k <= z1 + 1; k++)
+                                            if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                                k < LengthBigCube)
+                                                if (Player1[i][j][k].getHit() != 4)
+                                                    Player1[i][j][k].setIsHitten(3);
+                            }
+                    } else
+                        if (yf - 1 >= 0 && Player1[p1][yf - 1][z1].getHit() == 4)
+                        {
+                            {
+                                int length = 1;
+                                int _x = yf;
+                                while (_x >= 0 && Player1[p1][_x][z1].getHit() == 4)
+                                {
+                                    _x--;
+                                }
+                                _x++;
+                                while (_x < LengthBigCube && Player1[p1][_x][z1].getHit() == 4)
+                                {
+                                    _x++;
+                                    length++;
+                                }
+                                for (int i = p1 - 1; i <= p1 + 1; i++)
+                                    for (int j = _x - length - 1; j <= _x; j++)
+                                        for (int k = z1 - 1; k <= z1 + 1; k++)
+                                            if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                                k < LengthBigCube)
+                                                if (Player1[i][j][k].getHit() != 4)
+                                                    Player1[i][j][k].setIsHitten(3);
+                            }
+                    } else
+                    if (yf + 1 < LengthBigCube && Player1[p1][yf + 1][z1].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = yf;
+                            while (_x < LengthBigCube && Player1[p1][_x][z1].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            _x--;
+                            while (_x >= 0 && Player1[p1][_x][z1].getHit() == 4)
+                            {
+                                _x--;
+                            }
+
+                            for (int i = p1 - 1; i <= p1 + 1; i++)
+                                for (int j = _x; j <= _x + length + 1; j++)
+                                    for (int k = z1 - 1; k <= z1 + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player1[i][j][k].getHit() != 4)
+                                                Player1[i][j][k].setIsHitten(3);
+                        }
+                    } else
+                    if (z1 - 1 >= 0 && Player1[p1][yf][z1 - 1].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = z1;
+                            while (_x >= 0 && Player1[p1][yf][_x].getHit() == 4)
+                            {
+                                _x--;
+                            }
+                            _x++;
+                            while (_x < LengthBigCube && Player1[p1][yf][_x].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            for (int i = p1 - 1; i <= p1 + 1; i++)
+                                for (int j = yf - 1; j <= yf + 1; j++)
+                                    for (int k = _x - length - 1; k <= _x; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player1[i][j][k].getHit() != 4)
+                                                Player1[i][j][k].setIsHitten(3);
+                        }
+                    } else
+                    if (z1 + 1 < LengthBigCube && Player1[p1][yf][z1 + 1].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = z1;
+                            while (_x < LengthBigCube && Player1[p1][yf][_x].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            _x--;
+                            while (_x >= 0 && Player1[p1][yf][_x].getHit() == 4)
+                            {
+                                _x--;
+                            }
+
+                            for (int i = p1 - 1; i <= p1 + 1; i++)
+                                for (int j = yf - 1; j <= yf + 1; j++)
+                                    for (int k = _x; k <= _x + length + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player1[i][j][k].getHit() != 4)
+                                                Player1[i][j][k].setIsHitten(3);
+                        }
+                    }
+                    else
+                    {
+                        for (int i = p1 - 1; i <= p1 + 1; i++)
+                            for (int j = yf - 1; j <= yf + 1; j++)
+                                for (int k = z1 - 1; k <= z1 + 1; k++)
+                                    if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                        k < LengthBigCube)
+                                        if (Player1[i][j][k].getHit() != 4)
+                                        {
+                                            Player1[i][j][k].setIsHitten(3);
+                                            Player1[i][j][k].setColor(0, 0, 1);
+                                        }
+                    }
+                }
+                if(shipsLifeFirst == 0)
+                    end1 = true;
+            } else if (secondSide && (Player1[x2][p2][z2].getHit() == 0 || Player1[x2][p2][z2].getHit() == 2))
             {
                 for (int j = 0; j < LengthBigCube; j++)
                 {
                     Player1[x2][j][z2].setColor(0.5, 0.5, 0.8);
-                    Player1[x2][j][z2].setTransparency(0.1);
+                    Player1[x2][j][z2].setTransparency(0.11);
                 }
+                Player1[x2][p2][z2].setColor(0, 0, 1);
+                Player1[x2][p2][z2].setTransparency(0.35);
+                Player1[x2][p2][z2].setIsHitten(3);
+                isPlayer1 = false;
+
+            } else if (secondSide && Player1[x2][p2][z2].getHit() == 1)
+            {
+                for (int j = 0; j < LengthBigCube; j++)
+                {
+                    Player1[x2][j][z2].setColor(0.5, 0.5, 0.8);
+                    Player1[x2][j][z2].setTransparency(0.11);
+                }
+
                 Player1[x2][p2][z2].setColor(1, 0, 0);
-                Player1[x2][p2][z2].setTransparency(0.5);
-                Player1[x2][p2][z2].setIsHitten(1);
-                for (int i = x2 - 1; i <= x2 + 1; i++)
-                    for (int j = p2 - 1; j <= p2 + 1; j++)
-                        for (int k = z2 - 1; k <= z2 + 1; k++)
-                            if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
-                                k < LengthBigCube)
+                Player1[x2][p2][z2].setTransparency(0.35);
+                Player1[x2][p2][z2].setIsHitten(4);
+
+                bool hit = true;
+                if (x2 - 1 >= 0)
+                    if (Player1[x2 - 1][p2][z2].getHit() == 1)
+                        hit = false;
+                if (x2 + 1 < LengthBigCube)
+                    if (Player1[x2 + 1][p2][z2].getHit() == 1)
+                        hit = false;
+                if (p2 - 1 >= 0)
+                    if (Player1[x2][p2 - 1][z2].getHit() == 1)
+                        hit = false;
+                if (p2 + 1 < LengthBigCube)
+                    if (Player1[x2][p2 + 1][z2].getHit() == 1)
+                        hit = false;
+                if (z2 - 1 >= 0)
+                    if (Player1[x2][p2][z2 - 1].getHit() == 1)
+                        hit = false;
+                if (z2 + 1 < LengthBigCube)
+                    if (Player1[x2][p2][z2 + 1].getHit() == 1)
+                        hit = false;
+
+                if (hit)
+                {
+                    shipsLifeFirst--;
+                    if (x2 - 1 >= 0 && Player1[x2 - 1][p2][z2].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = x2;
+                            while (_x >= 0 && Player1[_x][p2][z2].getHit() == 4)
                             {
-                                Player1[i][j][k].setIsHitten(3);
+                                _x--;
                             }
-                Player1[x2][p2][z2].setIsHitten(1);
-            } else if (thirdSide && Player1[x3][y3][p3].getHit() != 2)
+                            _x++;
+                            while (_x < LengthBigCube && Player1[_x][p2][z2].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            for (int i = _x - length - 1; i <= _x; i++)
+                                for (int j = p2 - 1; j <= p2 + 1; j++)
+                                    for (int k = z2 - 1; k <= z2 + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player1[i][j][k].getHit() != 4)
+                                                Player1[i][j][k].setIsHitten(3);
+                        }
+                    } else if (x2 + 1 < LengthBigCube && Player1[x2 + 1][p2][z2].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = x2;
+                            while (_x < LengthBigCube && Player1[_x][p2][z2].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            _x--;
+                            while (_x >= 0 && Player1[_x][p2][z2].getHit() == 4)
+                            {
+                                _x--;
+                            }
+
+                            for (int i = _x + length - 1; i <= _x - length + 1; i++)
+                                for (int j = p2 - 1; j <= p2 + 1; j++)
+                                    for (int k = z2 - 1; k <= z2 + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player1[i][j][k].getHit() != 4)
+                                                Player1[i][j][k].setIsHitten(3);
+                        }
+                    } else if (p2 - 1 >= 0 && Player1[x2][p2 - 1][z2].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = p2;
+                            while (_x >= 0 && Player1[x2][_x][z2].getHit() == 4)
+                            {
+                                _x--;
+                            }
+                            _x++;
+                            while (_x < LengthBigCube && Player1[x2][_x][z2].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            for (int i = x2 - 1; i <= x2 + 1; i++)
+                                for (int j = _x - length - 1; j <= _x; j++)
+                                    for (int k = z2 - 1; k <= z2 + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player1[i][j][k].getHit() != 4)
+                                                Player1[i][j][k].setIsHitten(3);
+                        }
+                    } else if (p2 + 1 < LengthBigCube && Player1[x2][p2 + 1][z2].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = p2;
+                            while (_x < LengthBigCube && Player1[x2][_x][z2].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            _x--;
+                            while (_x >= 0 && Player1[x2][_x][z2].getHit() == 4)
+                            {
+                                _x--;
+                            }
+
+                            for (int i = x2 - 1; i <= x2 + 1; i++)
+                                for (int j = _x; j <= _x + length + 1; j++)
+                                    for (int k = z2 - 1; k <= z2 + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player1[i][j][k].getHit() != 4)
+                                                Player1[i][j][k].setIsHitten(3);
+                        }
+                    } else if (z2 - 1 >= 0 && Player1[x2][p2][z2 - 1].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = z2;
+                            while (_x >= 0 && Player1[x2][p2][_x].getHit() == 4)
+                            {
+                                _x--;
+                            }
+                            _x++;
+                            while (_x < LengthBigCube && Player1[x2][p2][_x].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            for (int i = x2 - 1; i <= x2 + 1; i++)
+                                for (int j = p2 - 1; j <= p2 + 1; j++)
+                                    for (int k = _x - length - 1; k <= _x; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player1[i][j][k].getHit() != 4)
+                                                Player1[i][j][k].setIsHitten(3);
+                        }
+                    } else if (z2 + 1 < LengthBigCube && Player1[x2][p2][z2 + 1].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = z2;
+                            while (_x < LengthBigCube && Player1[x2][p2][_x].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            _x--;
+                            while (_x >= 0 && Player1[x2][p2][_x].getHit() == 4)
+                            {
+                                _x--;
+                            }
+
+                            for (int i = x2 - 1; i <= x2 + 1; i++)
+                                for (int j = p2 - 1; j <= p2 + 1; j++)
+                                    for (int k = _x; k <= _x + length + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player1[i][j][k].getHit() != 4)
+                                                Player1[i][j][k].setIsHitten(3);
+                        }
+                    } else
+                    {
+                        for (int i = x2 - 1; i <= x2 + 1; i++)
+                            for (int j = p2 - 1; j <= p2 + 1; j++)
+                                for (int k = z2 - 1; k <= z2 + 1; k++)
+                                    if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                        k < LengthBigCube)
+                                        if (Player1[i][j][k].getHit() != 4)
+                                        {
+                                            Player1[i][j][k].setIsHitten(3);
+                                            Player1[i][j][k].setColor(0, 0, 1);
+                                        }
+                    }
+                }
+                if (shipsLifeFirst == 0)
+                    end1 = true;
+            } else if (thirdSide && (Player1[x3][y3][p3].getHit() == 0 || Player1[x3][y3][p3].getHit() == 2))
             {
                 for (int k = 0; k < LengthBigCube; k++)
                 {
                     Player1[x3][y3][k].setColor(0.5, 0.5, 0.8);
-                    Player1[x3][y3][k].setTransparency(0.1);
+                    Player1[x3][y3][k].setTransparency(0.11);
                 }
+                Player1[x3][y3][p3].setColor(0, 0, 1);
+                Player1[x3][y3][p3].setTransparency(0.35);
+                Player1[x3][y3][p3].setIsHitten(3);
+                isPlayer1 = false;
+            } else if (thirdSide && Player1[x3][y3][p3].getHit() == 1)
+            {
+                for (int j = 0; j < LengthBigCube; j++)
+                {
+                    Player1[x3][j][p3].setColor(0.5, 0.5, 0.8);
+                    Player1[x3][j][p3].setTransparency(0.11);
+                }
+
                 Player1[x3][y3][p3].setColor(1, 0, 0);
-                Player1[x3][y3][p3].setTransparency(0.5);
-                Player1[x3][y3][p3].setIsHitten(1);
-                for (int i = x3 - 1; i <= x3 + 1; i++)
-                    for (int j = y3 - 1; j <= y3 + 1; j++)
-                        for (int k = p3 - 1; k <= p3 + 1; k++)
-                            if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
-                                k < LengthBigCube)
+                Player1[x3][y3][p3].setTransparency(0.35);
+                Player1[x3][y3][p3].setIsHitten(4);
+
+                bool hit = true;
+                if (x3 - 1 >= 0)
+                    if (Player1[x3 - 1][y3][p3].getHit() == 1)
+                        hit = false;
+                if (x3 + 1 < LengthBigCube)
+                    if (Player1[x3 + 1][y3][p3].getHit() == 1)
+                        hit = false;
+                if (y3 - 1 >= 0)
+                    if (Player1[x3][y3 - 1][p3].getHit() == 1)
+                        hit = false;
+                if (y3 + 1 < LengthBigCube)
+                    if (Player1[x3][y3 + 1][p3].getHit() == 1)
+                        hit = false;
+                if (p3 - 1 >= 0)
+                    if (Player1[x3][y3][p3 - 1].getHit() == 1)
+                        hit = false;
+                if (p3 + 1 < LengthBigCube)
+                    if (Player1[x3][y3][p3 + 1].getHit() == 1)
+                        hit = false;
+
+                if (hit)
+                {
+                    shipsLifeFirst--;
+                    if (x3 - 1 >= 0 && Player1[x3 - 1][y3][p3].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = x3;
+                            while (_x >= 0 && Player1[_x][y3][p3].getHit() == 4)
                             {
-                                Player1[i][j][k].setIsHitten(2);
+                                _x--;
                             }
-                Player1[x3][y3][p3].setPaint(true);
-                Player1[x3][y3][p3].setIsHitten(1);
+                            _x++;
+                            while (_x < LengthBigCube && Player1[_x][y3][p3].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            for (int i = _x - length - 1; i <= _x; i++)
+                                for (int j = y3 - 1; j <= y3 + 1; j++)
+                                    for (int k = p3 - 1; k <= p3 + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player1[i][j][k].getHit() != 4)
+                                                Player1[i][j][k].setIsHitten(3);
+                        }
+                    } else if (x3 + 1 < LengthBigCube && Player1[x3 + 1][y3][p3].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = x3;
+                            while (_x < LengthBigCube && Player1[_x][y3][p3].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            _x--;
+                            while (_x >= 0 && Player1[_x][y3][p3].getHit() == 4)
+                            {
+                                _x--;
+                            }
+
+                            for (int i = _x + length - 1; i <= _x - length + 1; i++)
+                                for (int j = y3 - 1; j <= y3 + 1; j++)
+                                    for (int k = p3 - 1; k <= p3 + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player1[i][j][k].getHit() != 4)
+                                                Player1[i][j][k].setIsHitten(3);
+                        }
+                    } else if (y3 - 1 >= 0 && Player1[x3][y3 - 1][p3].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = y3;
+                            while (_x >= 0 && Player1[x3][_x][p3].getHit() == 4)
+                            {
+                                _x--;
+                            }
+                            _x++;
+                            while (_x < LengthBigCube && Player1[x3][_x][p3].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            for (int i = x3 - 1; i <= x3 + 1; i++)
+                                for (int j = _x - length - 1; j <= _x; j++)
+                                    for (int k = p3 - 1; k <= p3 + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player1[i][j][k].getHit() != 4)
+                                                Player1[i][j][k].setIsHitten(3);
+                        }
+                    } else if (y3 + 1 < LengthBigCube && Player1[x3][y3 + 1][p3].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = y3;
+                            while (_x < LengthBigCube && Player1[x3][_x][p3].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            _x--;
+                            while (_x >= 0 && Player1[x3][_x][p3].getHit() == 4)
+                            {
+                                _x--;
+                            }
+
+                            for (int i = x3 - 1; i <= x3 + 1; i++)
+                                for (int j = _x; j <= _x + length + 1; j++)
+                                    for (int k = p3 - 1; k <= p3 + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player1[i][j][k].getHit() != 4)
+                                                Player1[i][j][k].setIsHitten(3);
+                        }
+                    } else if (p3 - 1 >= 0 && Player1[x3][y3][p3 - 1].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = p3;
+                            while (_x >= 0 && Player1[x3][y3][_x].getHit() == 4)
+                            {
+                                _x--;
+                            }
+                            _x++;
+                            while (_x < LengthBigCube && Player1[x3][y3][_x].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            for (int i = x3 - 1; i <= x3 + 1; i++)
+                                for (int j = y3 - 1; j <= y3 + 1; j++)
+                                    for (int k = _x - length - 1; k <= _x; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player1[i][j][k].getHit() != 4)
+                                                Player1[i][j][k].setIsHitten(3);
+                        }
+                    } else if (p3 + 1 < LengthBigCube && Player1[x3][y3][p3 + 1].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = p3;
+                            while (_x < LengthBigCube && Player1[x3][y3][_x].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            _x--;
+                            while (_x >= 0 && Player1[x3][y3][_x].getHit() == 4)
+                            {
+                                _x--;
+                            }
+
+                            for (int i = x3 - 1; i <= x3 + 1; i++)
+                                for (int j = y3 - 1; j <= y3 + 1; j++)
+                                    for (int k = _x; k <= _x + length + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player1[i][j][k].getHit() != 4)
+                                                Player1[i][j][k].setIsHitten(3);
+                        }
+                    } else
+                    {
+                        for (int i = x3 - 1; i <= x3 + 1; i++)
+                            for (int j = y3 - 1; j <= y3 + 1; j++)
+                                for (int k = p3 - 1; k <= p3 + 1; k++)
+                                    if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                        k < LengthBigCube)
+                                        if (Player1[i][j][k].getHit() != 4)
+                                        {
+                                            Player1[i][j][k].setIsHitten(3);
+                                            Player1[i][j][k].setColor(0, 0, 1);
+                                        }
+                    }
+                }
+                if (shipsLifeFirst == 0)
+                    end1 = true;
             }
             forEnter = 0;
-            isPlayer1 = false;
         } else
         {
-            if (firstSide && Player2[p1][yf][z1].getHit() != 2)
+            if (firstSide && (Player2[p1][yf][z1].getHit() == 0 || Player2[p1][yf][z1].getHit() == 2))
             {
-
                 for (auto &i : Player2)
                 {
                     i[yf][z1].setColor(0.5, 0.5, 0.8);
-                    i[yf][z1].setTransparency(0.1);
+                    i[yf][z1].setTransparency(0.11);
                 }
+
+                Player2[p1][yf][z1].setColor(0, 0, 1);
+                Player2[p1][yf][z1].setTransparency(0.35);
+                Player2[p1][yf][z1].setIsHitten(3);
+                isPlayer1 = true;
+
+            } else if (firstSide && Player2[p1][yf][z1].getHit() == 1)
+            {
+                for (auto &i : Player2)
+                {
+                    i[yf][z1].setColor(0.5, 0.5, 0.8);
+                    i[yf][z1].setTransparency(0.11);
+                }
+
                 Player2[p1][yf][z1].setColor(1, 0, 0);
-                Player2[p1][yf][z1].setTransparency(0.5);
-                Player2[p1][yf][z1].setIsHitten(1);
-                for (int i = p1 - 1; i <= p1 + 1; i++)
-                    for (int j = yf - 1; j <= yf + 1; j++)
-                        for (int k = z1 - 1; k <= z1 + 1; k++)
-                            if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
-                                k < LengthBigCube)
+                Player2[p1][yf][z1].setTransparency(0.35);
+                Player2[p1][yf][z1].setIsHitten(4);
+
+                bool hit = true;
+                if (p1 - 1 >= 0)
+                    if (Player2[p1 - 1][yf][z1].getHit() == 1)
+                        hit = false;
+                if (p1 + 1 < LengthBigCube)
+                    if (Player2[p1 + 1][yf][z1].getHit() == 1)
+                        hit = false;
+                if (yf - 1 >= 0)
+                    if (Player2[p1][yf - 1][z1].getHit() == 1)
+                        hit = false;
+                if (yf + 1 < LengthBigCube)
+                    if (Player2[p1][yf + 1][z1].getHit() == 1)
+                        hit = false;
+                if (z1 - 1 >= 0)
+                    if (Player2[p1][yf][z1 - 1].getHit() == 1)
+                        hit = false;
+                if (z1 + 1 < LengthBigCube)
+                    if (Player2[p1][yf][z1 + 1].getHit() == 1)
+                        hit = false;
+
+                if (hit)
+                {
+                    shipsLifeSecond--;
+                    if (p1 - 1 >= 0 && Player2[p1 - 1][yf][z1].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = p1;
+                            while (_x >= 0 && Player2[_x][yf][z1].getHit() == 4)
                             {
-                                Player2[i][j][k].setIsHitten(3);
+                                _x--;
                             }
-                Player2[p1][yf][z1].setPaint(true);
-                Player2[p1][yf][z1].setIsHitten(1);
-            } else if (secondSide && Player2[x2][p2][z2].getHit() != 2)
+                            _x++;
+                            while (_x < LengthBigCube && Player2[_x][yf][z1].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            for (int i = _x - length - 1; i <= _x; i++)
+                                for (int j = yf - 1; j <= yf + 1; j++)
+                                    for (int k = z1 - 1; k <= z1 + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player2[i][j][k].getHit() != 4)
+                                                Player2[i][j][k].setIsHitten(3);
+                        }
+                    } else if (p1 + 1 < LengthBigCube && Player2[p1 + 1][yf][z1].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = p1;
+                            while (_x < LengthBigCube && Player2[_x][yf][z1].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            _x--;
+                            while (_x >= 0 && Player2[_x][yf][z1].getHit() == 4)
+                            {
+                                _x--;
+                            }
+
+                            for (int i = _x + length - 1; i <= _x - length + 1; i++)
+                                for (int j = yf - 1; j <= yf + 1; j++)
+                                    for (int k = z1 - 1; k <= z1 + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player2[i][j][k].getHit() != 4)
+                                                Player2[i][j][k].setIsHitten(3);
+                        }
+                    } else if (yf - 1 >= 0 && Player2[p1][yf - 1][z1].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = yf;
+                            while (_x >= 0 && Player2[p1][_x][z1].getHit() == 4)
+                            {
+                                _x--;
+                            }
+                            _x++;
+                            while (_x < LengthBigCube && Player2[p1][_x][z1].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            for (int i = p1 - 1; i <= p1 + 1; i++)
+                                for (int j = _x - length - 1; j <= _x; j++)
+                                    for (int k = z1 - 1; k <= z1 + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player2[i][j][k].getHit() != 4)
+                                                Player2[i][j][k].setIsHitten(3);
+                        }
+                    } else if (yf + 1 < LengthBigCube && Player2[p1][yf + 1][z1].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = yf;
+                            while (_x < LengthBigCube && Player2[p1][_x][z1].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            _x--;
+                            while (_x >= 0 && Player2[p1][_x][z1].getHit() == 4)
+                            {
+                                _x--;
+                            }
+
+                            for (int i = p1 - 1; i <= p1 + 1; i++)
+                                for (int j = _x; j <= _x + length + 1; j++)
+                                    for (int k = z1 - 1; k <= z1 + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player2[i][j][k].getHit() != 4)
+                                                Player2[i][j][k].setIsHitten(3);
+                        }
+                    } else if (z1 - 1 >= 0 && Player2[p1][yf][z1 - 1].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = z1;
+                            while (_x >= 0 && Player2[p1][yf][_x].getHit() == 4)
+                            {
+                                _x--;
+                            }
+                            _x++;
+                            while (_x < LengthBigCube && Player2[p1][yf][_x].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            for (int i = p1 - 1; i <= p1 + 1; i++)
+                                for (int j = yf - 1; j <= yf + 1; j++)
+                                    for (int k = _x - length - 1; k <= _x; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player2[i][j][k].getHit() != 4)
+                                                Player2[i][j][k].setIsHitten(3);
+                        }
+                    } else if (z1 + 1 < LengthBigCube && Player2[p1][yf][z1 + 1].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = z1;
+                            while (_x < LengthBigCube && Player2[p1][yf][_x].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            _x--;
+                            while (_x >= 0 && Player2[p1][yf][_x].getHit() == 4)
+                            {
+                                _x--;
+                            }
+
+                            for (int i = p1 - 1; i <= p1 + 1; i++)
+                                for (int j = yf - 1; j <= yf + 1; j++)
+                                    for (int k = _x; k <= _x + length + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player2[i][j][k].getHit() != 4)
+                                                Player2[i][j][k].setIsHitten(3);
+                        }
+                    } else
+                    {
+                        for (int i = p1 - 1; i <= p1 + 1; i++)
+                            for (int j = yf - 1; j <= yf + 1; j++)
+                                for (int k = z1 - 1; k <= z1 + 1; k++)
+                                    if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                        k < LengthBigCube)
+                                        if (Player2[i][j][k].getHit() != 4)
+                                        {
+                                            Player2[i][j][k].setIsHitten(3);
+                                            Player2[i][j][k].setColor(0, 0, 1);
+                                        }
+                    }
+                }
+                if (shipsLifeSecond == 0)
+                    end2 = true;
+            }else if (secondSide && (Player2[x2][p2][z2].getHit() == 0 || Player2[x2][p2][z2].getHit() == 2))
             {
                 for (int j = 0; j < LengthBigCube; j++)
                 {
                     Player2[x2][j][z2].setColor(0.5, 0.5, 0.8);
-                    Player2[x2][j][z2].setTransparency(0.1);
+                    Player2[x2][j][z2].setTransparency(0.11);
                 }
+                Player2[x2][p2][z2].setColor(0, 0, 1);
+                Player2[x2][p2][z2].setTransparency(0.35);
+                Player2[x2][p2][z2].setIsHitten(3);
+                isPlayer1 = true;
+
+            } else if (secondSide && Player2[x2][p2][z2].getHit() == 1)
+            {
+                for (int j = 0; j < LengthBigCube; j++)
+                {
+                    Player2[x2][j][z2].setColor(0.5, 0.5, 0.8);
+                    Player2[x2][j][z2].setTransparency(0.11);
+                }
+
                 Player2[x2][p2][z2].setColor(1, 0, 0);
-                Player2[x2][p2][z2].setTransparency(0.5);
-                Player2[x2][p2][z2].setIsHitten(1);
-                for (int i = x2 - 1; i <= x2 + 1; i++)
-                    for (int j = p2 - 1; j <= p2 + 1; j++)
-                        for (int k = z2 - 1; k <= z2 + 1; k++)
-                            if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
-                                k < LengthBigCube)
+                Player2[x2][p2][z2].setTransparency(0.35);
+                Player2[x2][p2][z2].setIsHitten(4);
+
+                bool hit = true;
+                if (x2 - 1 >= 0)
+                    if (Player2[x2 - 1][p2][z2].getHit() == 1)
+                        hit = false;
+                if (x2 + 1 < LengthBigCube)
+                    if (Player2[x2 + 1][p2][z2].getHit() == 1)
+                        hit = false;
+                if (p2 - 1 >= 0)
+                    if (Player2[x2][p2 - 1][z2].getHit() == 1)
+                        hit = false;
+                if (p2 + 1 < LengthBigCube)
+                    if (Player2[x2][p2 + 1][z2].getHit() == 1)
+                        hit = false;
+                if (z2 - 1 >= 0)
+                    if (Player2[x2][p2][z2 - 1].getHit() == 1)
+                        hit = false;
+                if (z2 + 1 < LengthBigCube)
+                    if (Player2[x2][p2][z2 + 1].getHit() == 1)
+                        hit = false;
+
+                if (hit)
+                {
+                    shipsLifeSecond--;
+                    if (x2 - 1 >= 0 && Player2[x2 - 1][p2][z2].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = x2;
+                            while (_x >= 0 && Player2[_x][p2][z2].getHit() == 4)
                             {
-                                Player2[i][j][k].setIsHitten(3);
+                                _x--;
                             }
-                Player2[x2][p2][z2].setIsHitten(1);
-            } else if (thirdSide && Player2[x3][y3][p3].getHit() != 2)
+                            _x++;
+                            while (_x < LengthBigCube && Player2[_x][p2][z2].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            for (int i = _x - length - 1; i <= _x; i++)
+                                for (int j = p2 - 1; j <= p2 + 1; j++)
+                                    for (int k = z2 - 1; k <= z2 + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player2[i][j][k].getHit() != 4)
+                                                Player2[i][j][k].setIsHitten(3);
+                        }
+                    } else if (x2 + 1 < LengthBigCube && Player2[x2 + 1][p2][z2].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = x2;
+                            while (_x < LengthBigCube && Player2[_x][p2][z2].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            _x--;
+                            while (_x >= 0 && Player2[_x][p2][z2].getHit() == 4)
+                            {
+                                _x--;
+                            }
+
+                            for (int i = _x + length - 1; i <= _x - length + 1; i++)
+                                for (int j = p2 - 1; j <= p2 + 1; j++)
+                                    for (int k = z2 - 1; k <= z2 + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player2[i][j][k].getHit() != 4)
+                                                Player2[i][j][k].setIsHitten(3);
+                        }
+                    } else if (p2 - 1 >= 0 && Player2[x2][p2 - 1][z2].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = p2;
+                            while (_x >= 0 && Player2[x2][_x][z2].getHit() == 4)
+                            {
+                                _x--;
+                            }
+                            _x++;
+                            while (_x < LengthBigCube && Player2[x2][_x][z2].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            for (int i = x2 - 1; i <= x2 + 1; i++)
+                                for (int j = _x - length - 1; j <= _x; j++)
+                                    for (int k = z2 - 1; k <= z2 + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player2[i][j][k].getHit() != 4)
+                                                Player2[i][j][k].setIsHitten(3);
+                        }
+                    } else if (p2 + 1 < LengthBigCube && Player2[x2][p2 + 1][z2].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = p2;
+                            while (_x < LengthBigCube && Player2[x2][_x][z2].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            _x--;
+                            while (_x >= 0 && Player2[x2][_x][z2].getHit() == 4)
+                            {
+                                _x--;
+                            }
+
+                            for (int i = x2 - 1; i <= x2 + 1; i++)
+                                for (int j = _x; j <= _x + length + 1; j++)
+                                    for (int k = z2 - 1; k <= z2 + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player2[i][j][k].getHit() != 4)
+                                                Player2[i][j][k].setIsHitten(3);
+                        }
+                    } else if (z2 - 1 >= 0 && Player2[x2][p2][z2 - 1].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = z2;
+                            while (_x >= 0 && Player2[x2][p2][_x].getHit() == 4)
+                            {
+                                _x--;
+                            }
+                            _x++;
+                            while (_x < LengthBigCube && Player2[x2][p2][_x].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            for (int i = x2 - 1; i <= x2 + 1; i++)
+                                for (int j = p2 - 1; j <= p2 + 1; j++)
+                                    for (int k = _x - length - 1; k <= _x; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player2[i][j][k].getHit() != 4)
+                                                Player2[i][j][k].setIsHitten(3);
+                        }
+                    } else if (z2 + 1 < LengthBigCube && Player2[x2][p2][z2 + 1].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = z2;
+                            while (_x < LengthBigCube && Player2[x2][p2][_x].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            _x--;
+                            while (_x >= 0 && Player2[x2][p2][_x].getHit() == 4)
+                            {
+                                _x--;
+                            }
+
+                            for (int i = x2 - 1; i <= x2 + 1; i++)
+                                for (int j = p2 - 1; j <= p2 + 1; j++)
+                                    for (int k = _x; k <= _x + length + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player2[i][j][k].getHit() != 4)
+                                                Player2[i][j][k].setIsHitten(3);
+                        }
+                    } else
+                    {
+                        for (int i = x2 - 1; i <= x2 + 1; i++)
+                            for (int j = p2 - 1; j <= p2 + 1; j++)
+                                for (int k = z2 - 1; k <= z2 + 1; k++)
+                                    if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                        k < LengthBigCube)
+                                        if (Player2[i][j][k].getHit() != 4)
+                                        {
+                                            Player2[i][j][k].setIsHitten(3);
+                                            Player2[i][j][k].setColor(0, 0, 1);
+                                        }
+                    }
+                }
+                if (shipsLifeSecond == 0)
+                    end2 = true;
+            }else if (thirdSide && (Player2[x3][y3][p3].getHit() == 0 || Player2[x3][y3][p3].getHit() == 2))
             {
                 for (int k = 0; k < LengthBigCube; k++)
                 {
                     Player2[x3][y3][k].setColor(0.5, 0.5, 0.8);
-                    Player2[x3][y3][k].setTransparency(0.1);
+                    Player2[x3][y3][k].setTransparency(0.11);
                 }
+                Player2[x3][y3][p3].setColor(0, 0, 1);
+                Player2[x3][y3][p3].setTransparency(0.35);
+                Player2[x3][y3][p3].setIsHitten(3);
+                isPlayer1 = true;
+
+            } else if (thirdSide && Player2[x3][y3][p3].getHit() == 1)
+            {
+                for (int j = 0; j < LengthBigCube; j++)
+                {
+                    Player2[x3][j][p3].setColor(0.5, 0.5, 0.8);
+                    Player2[x3][j][p3].setTransparency(0.11);
+                }
+
                 Player2[x3][y3][p3].setColor(1, 0, 0);
-                Player2[x3][y3][p3].setTransparency(0.5);
-                Player2[x3][y3][p3].setIsHitten(1);
-                for (int i = x3 - 1; i <= x3 + 1; i++)
-                    for (int j = y3 - 1; j <= y3 + 1; j++)
-                        for (int k = p3 - 1; k <= p3 + 1; k++)
-                            if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
-                                k < LengthBigCube)
+                Player2[x3][y3][p3].setTransparency(0.35);
+                Player2[x3][y3][p3].setIsHitten(4);
+
+                bool hit = true;
+                if (x3 - 1 >= 0)
+                    if (Player2[x3 - 1][y3][p3].getHit() == 1)
+                        hit = false;
+                if (x3 + 1 < LengthBigCube)
+                    if (Player2[x3 + 1][y3][p3].getHit() == 1)
+                        hit = false;
+                if (y3 - 1 >= 0)
+                    if (Player2[x3][y3 - 1][p3].getHit() == 1)
+                        hit = false;
+                if (y3 + 1 < LengthBigCube)
+                    if (Player2[x3][y3 + 1][p3].getHit() == 1)
+                        hit = false;
+                if (p3 - 1 >= 0)
+                    if (Player2[x3][y3][p3 - 1].getHit() == 1)
+                        hit = false;
+                if (p3 + 1 < LengthBigCube)
+                    if (Player2[x3][y3][p3 + 1].getHit() == 1)
+                        hit = false;
+
+                if (hit)
+                {
+                    shipsLifeSecond--;
+                    if (x3 - 1 >= 0 && Player2[x3 - 1][y3][p3].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = x3;
+                            while (_x >= 0 && Player2[_x][y3][p3].getHit() == 4)
                             {
-                                Player2[i][j][k].setIsHitten(2);
+                                _x--;
                             }
-                Player2[x3][y3][p3].setPaint(true);
-                Player2[x3][y3][p3].setIsHitten(1);
+                            _x++;
+                            while (_x < LengthBigCube && Player2[_x][y3][p3].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            for (int i = _x - length - 1; i <= _x; i++)
+                                for (int j = y3 - 1; j <= y3 + 1; j++)
+                                    for (int k = p3 - 1; k <= p3 + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player2[i][j][k].getHit() != 4)
+                                                Player2[i][j][k].setIsHitten(3);
+                        }
+                    } else if (x3 + 1 < LengthBigCube && Player2[x3 + 1][y3][p3].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = x3;
+                            while (_x < LengthBigCube && Player2[_x][y3][p3].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            _x--;
+                            while (_x >= 0 && Player2[_x][y3][p3].getHit() == 4)
+                            {
+                                _x--;
+                            }
+
+                            for (int i = _x + length - 1; i <= _x - length + 1; i++)
+                                for (int j = y3 - 1; j <= y3 + 1; j++)
+                                    for (int k = p3 - 1; k <= p3 + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player2[i][j][k].getHit() != 4)
+                                                Player2[i][j][k].setIsHitten(3);
+                        }
+                    } else if (y3 - 1 >= 0 && Player2[x3][y3 - 1][p3].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = y3;
+                            while (_x >= 0 && Player2[x3][_x][p3].getHit() == 4)
+                            {
+                                _x--;
+                            }
+                            _x++;
+                            while (_x < LengthBigCube && Player2[x3][_x][p3].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            for (int i = x3 - 1; i <= x3 + 1; i++)
+                                for (int j = _x - length - 1; j <= _x; j++)
+                                    for (int k = p3 - 1; k <= p3 + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player2[i][j][k].getHit() != 4)
+                                                Player2[i][j][k].setIsHitten(3);
+                        }
+                    } else if (y3 + 1 < LengthBigCube && Player2[x3][y3 + 1][p3].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = y3;
+                            while (_x < LengthBigCube && Player2[x3][_x][p3].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            _x--;
+                            while (_x >= 0 && Player2[x3][_x][p3].getHit() == 4)
+                            {
+                                _x--;
+                            }
+
+                            for (int i = x3 - 1; i <= x3 + 1; i++)
+                                for (int j = _x; j <= _x + length + 1; j++)
+                                    for (int k = p3 - 1; k <= p3 + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player2[i][j][k].getHit() != 4)
+                                                Player2[i][j][k].setIsHitten(3);
+                        }
+                    } else if (p3 - 1 >= 0 && Player2[x3][y3][p3 - 1].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = p3;
+                            while (_x >= 0 && Player2[x3][y3][_x].getHit() == 4)
+                            {
+                                _x--;
+                            }
+                            _x++;
+                            while (_x < LengthBigCube && Player2[x3][y3][_x].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            for (int i = x3 - 1; i <= x3 + 1; i++)
+                                for (int j = y3 - 1; j <= y3 + 1; j++)
+                                    for (int k = _x - length - 1; k <= _x; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player2[i][j][k].getHit() != 4)
+                                                Player2[i][j][k].setIsHitten(3);
+                        }
+                    } else if (p3 + 1 < LengthBigCube && Player2[x3][y3][p3 + 1].getHit() == 4)
+                    {
+                        {
+                            int length = 1;
+                            int _x = p3;
+                            while (_x < LengthBigCube && Player2[x3][y3][_x].getHit() == 4)
+                            {
+                                _x++;
+                                length++;
+                            }
+                            _x--;
+                            while (_x >= 0 && Player2[x3][y3][_x].getHit() == 4)
+                            {
+                                _x--;
+                            }
+
+                            for (int i = x3 - 1; i <= x3 + 1; i++)
+                                for (int j = y3 - 1; j <= y3 + 1; j++)
+                                    for (int k = _x; k <= _x + length + 1; k++)
+                                        if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                            k < LengthBigCube)
+                                            if (Player2[i][j][k].getHit() != 4)
+                                                Player2[i][j][k].setIsHitten(3);
+                        }
+                    } else
+                    {
+                        for (int i = x3 - 1; i <= x3 + 1; i++)
+                            for (int j = y3 - 1; j <= y3 + 1; j++)
+                                for (int k = p3 - 1; k <= p3 + 1; k++)
+                                    if (i >= 0 && j >= 0 && k >= 0 && i < LengthBigCube && j < LengthBigCube &&
+                                        k < LengthBigCube)
+                                        if (Player2[i][j][k].getHit() != 4)
+                                        {
+                                            Player2[i][j][k].setIsHitten(3);
+                                            Player2[i][j][k].setColor(0, 0, 1);
+                                        }
+                    }
+                }
+                if (shipsLifeSecond == 0)
+                    end2 = true;
             }
             forEnter = 0;
-            isPlayer1 = true;
         }
+        p1 = 0;
+        yf = 0;
+        z1 = 0;
+        x2 = LengthBigCube - 1;
+        p2 = 0;
+        z2 = LengthBigCube - 1;
+        x3 = LengthBigCube - 1;
+        y3 = 0;
+        p3 = 0;
     }
 
     if (key == 27)
@@ -2168,65 +3363,118 @@ void ChooseColumn(int arrow)
 
 void ChooseCube2(int page)
 {
-    if (firstSide)
+    if(isPlayer1)
     {
-        a[p1][yf][z1].setTransparency(1);
+        if (firstSide)
+        {
+            if (page == 1)
+            {
+                Player1[p1][yf][z1].setTransparency(0.11);
+                p1++;
+                if (p1 > LengthBigCube - 1)
+                    p1 = 0;
+                Player1[p1][yf][z1].setTransparency(0.7);
+            } else if (page == 2)
+            {
+                Player1[p1][yf][z1].setTransparency(0.11);
+                p1--;
+                if (p1 < 0)
+                    p1 = LengthBigCube - 1;
+                Player1[p1][yf][z1].setTransparency(0.7);
+            }
+        } else if (secondSide)
+        {
+            if (page == 1)
+            {
+                Player1[x2][p2][z2].setTransparency(0.11);
+                p2++;
+                if (p2 > LengthBigCube - 1)
+                    p2 = 0;
+                Player1[x2][p2][z2].setTransparency(0.7);
+            } else if (page == 2)
+            {
+                Player1[x2][p2][z2].setTransparency(0.11);
+                p2--;
+                if (p2 < 0)
+                    p2 = LengthBigCube - 1;
+                Player1[x2][p2][z2].setTransparency(0.7);
+            }
+        } else if (thirdSide)
+        {
+            if (page == 1)
+            {
+                Player1[x3][y3][p3].setTransparency(0.11);
+                p3++;
+                if (p3 > LengthBigCube - 1)
+                    p3 = 0;
+                Player1[x3][y3][p3].setTransparency(0.7);
+            } else if (page == 2)
+            {
+                Player1[x3][y3][p3].setTransparency(0.11);
+                p3--;
+                if (p3 < 0)
+                    p3 = LengthBigCube - 1;
+                Player1[x3][y3][p3].setTransparency(0.7);
+            }
 
-        if (page == 1)
-        {
-            a[p1][yf][z1].setTransparency(0.2);
-            p1++;
-            if (p1 > LengthBigCube - 1)
-                p1 = 0;
-            a[p1][yf][z1].setTransparency(1);
-        } else if (page == 2)
-        {
-            a[p1][yf][z1].setTransparency(0.2);
-            p1--;
-            if (p1 < 0)
-                p1 = LengthBigCube - 1;
-            a[p1][yf][z1].setTransparency(1);
         }
-    } else if (secondSide)
+    } else
     {
-        a[x2][p2][z2].setTransparency(1);
+        if (firstSide)
+        {
+            if (page == 1)
+            {
+                Player2[p1][yf][z1].setTransparency(0.11);
+                p1++;
+                if (p1 > LengthBigCube - 1)
+                    p1 = 0;
+                Player2[p1][yf][z1].setTransparency(0.7);
+            } else if (page == 2)
+            {
+                Player2[p1][yf][z1].setTransparency(0.11);
+                p1--;
+                if (p1 < 0)
+                    p1 = LengthBigCube - 1;
+                Player2[p1][yf][z1].setTransparency(0.7);
+            }
+        } else if (secondSide)
+        {
+            if (page == 1)
+            {
+                Player2[x2][p2][z2].setTransparency(0.11);
+                p2++;
+                if (p2 > LengthBigCube - 1)
+                    p2 = 0;
+                Player2[x2][p2][z2].setTransparency(0.7);
+            } else if (page == 2)
+            {
+                Player2[x2][p2][z2].setTransparency(0.11);
+                p2--;
+                if (p2 < 0)
+                    p2 = LengthBigCube - 1;
+                Player2[x2][p2][z2].setTransparency(0.7);
+            }
+        } else if (thirdSide)
+        {
+            if (page == 1)
+            {
+                Player2[x3][y3][p3].setTransparency(0.11);
+                p3++;
+                if (p3 > LengthBigCube - 1)
+                    p3 = 0;
+                Player2[x3][y3][p3].setTransparency(0.7);
+            } else if (page == 2)
+            {
+                Player2[x3][y3][p3].setTransparency(0.11);
+                p3--;
+                if (p3 < 0)
+                    p3 = LengthBigCube - 1;
+                Player2[x3][y3][p3].setTransparency(0.7);
+            }
 
-        if (page == 1)
-        {
-            a[x2][p2][z2].setTransparency(0.2);
-            p2++;
-            if (p2 > LengthBigCube - 1)
-                p2 = 0;
-            a[x2][p2][z2].setTransparency(1);
-        } else if (page == 2)
-        {
-            a[x2][p2][z2].setTransparency(0.2);
-            p2--;
-            if (p2 < 0)
-                p2 = LengthBigCube - 1;
-            a[x2][p2][z2].setTransparency(1);
         }
-    } else if (thirdSide)
-    {
-        a[x3][y3][p3].setTransparency(1);
-
-        if (page == 1)
-        {
-            a[x3][y3][p3].setTransparency(0.2);
-            p3++;
-            if (p3 > LengthBigCube - 1)
-                p3 = 0;
-            a[x3][y3][p3].setTransparency(1);
-        } else if (page == 2)
-        {
-            a[x3][y3][p3].setTransparency(0.2);
-            p3--;
-            if (p3 < 0)
-                p3 = LengthBigCube - 1;
-            a[x3][y3][p3].setTransparency(1);
-        }
-
     }
+
 }
 
 // 1 == left, 2 == up, 3 == down, 4 == right
@@ -2328,7 +3576,7 @@ void specialKeys(int key, int x, int y)
     {
         if (forEnter == -1)
         {
-
+            //
         } else if (movement && forEnter != -1)
         {
             //if (rotate_x >= -85)
@@ -2358,7 +3606,7 @@ void specialKeys(int key, int x, int y)
         //std::cout << "123    ";
         if (forTwoPlayers == 2)
         {
-            if (Player1)
+            if (isPlayer1)
                 view_first_side_Player1(r_rotate_x, r_rotate_y);
             else view_first_side_Player2(r_rotate_x, r_rotate_y);
         } else
@@ -2372,7 +3620,7 @@ void specialKeys(int key, int x, int y)
     {
         if (forTwoPlayers == 2)
         {
-            if (Player1)
+            if (isPlayer1)
                 view_second_side_Player1(r_rotate_x, r_rotate_y);
             else view_second_side_Player2(r_rotate_x, r_rotate_y);
         } else
@@ -2385,7 +3633,7 @@ void specialKeys(int key, int x, int y)
     {
         if (forTwoPlayers == 2)
         {
-            if (Player1)
+            if (isPlayer1)
                 view_third_side_Player1(r_rotate_x, r_rotate_y);
             else view_third_side_Player2(r_rotate_x, r_rotate_y);
         } else
