@@ -20,33 +20,40 @@ int p1 = 0, p2 = 0, p3 = 0;
 
 bool correct = true; // переменная, отвечающая за честность расстановки
 int saveLengthBigCube = 1; // переменная, необходимая для цикла расстановки кораблей
-// Не теряйте переменные number_of_ships и ship - они по-прежнему доступны здесь, но
-// теперь находятся в файле Painting
+bool statistics = false;
 
 //функция взаимодействия с клавиатурой
 void Keyboard(unsigned char key, int x, int y)
 {
-    if ((key == 13) && (mainmenu)) {
+    if ((key == 13) && (mainmenu))
+    {
         mainmenu = false;
-        if (menupuncts[0]) {
+        if (menupuncts[0])
+        {
             menupuncts[0] = false;
             placing_ships = true;
-        } else {
-            if (menupuncts[1]) {
+        } else
+        {
+            if (menupuncts[1])
+            {
                 rules = true;
                 menupuncts[1] = false;
-            } else {
-                if (menupuncts[2]) {
+            } else
+            {
+                if (menupuncts[2])
+                {
                     authors = true;
                     menupuncts[2] = false;
-                } else {
+                } else
+                {
                     exit(0);
                 }
             }
         }
     }
 
-    if (key == 27) {
+    if (key == 27)
+    {
         mainmenu = true;
         rules = false;
         authors = false;
@@ -60,8 +67,10 @@ void Keyboard(unsigned char key, int x, int y)
         forEnter = 0;
         forOnePaint = 0;
     }
+
     if (key == 32)
         space = !space;
+
     if (key == 13 && forEnter == 1)
     {
         if (firstSide)
@@ -299,26 +308,75 @@ void Keyboard(unsigned char key, int x, int y)
                         for (auto &k : j)
                             if (k.getHit() <= 2)
                             {
-                                k.setColor(0.5, 0.5, 0.8);
-                                k.setTransparency(0.1);
+                                k.setRed(false);
+                                if (k.getHit() <= 2)
+                                {
+                                    k.setColor(0.5, 0.5, 0.8);
+                                    k.setTransparency(0.1);
+                                }
+                                if (k.getHit() == 3)
+                                {
+                                    k.setColor(0, 0, 1);
+                                    k.setTransparency(0.15);
+                                }
+                                if (k.getHit() == 4)
+                                {
+                                    k.setColor(1, 0, 0);
+                                    k.setTransparency(0.35);
+                                }
                             }
 
                 if (firstSide)
                 {
                     for (auto &i : Player1)
-                        i[yf][z1].setColor(1, 1, 0);
+                    {
+                        if (i[yf][z1].getHit() == 3)
+                        {
+                            i[yf][z1].setColor(0, 0, 1);
+                            i[yf][z1].setTransparency(0.15);
+                        }
+                        else if (i[yf][z1].getHit() == 4)
+                        {
+                            i[yf][z1].setColor(1, 0, 0);
+                            i[yf][z1].setTransparency(0.35);
+                        }
+                        else
+                            i[yf][z1].setColor(1, 1, 0);
+                    }
                     Player1[0][yf][z1].setTransparency(0.7);
                 } else if (secondSide)
                 {
                     for (int j = 0; j < LengthBigCube; j++)
+                    {
+                        if(Player1[x2][j][z2].getHit() == 3)
+                        {
+                            Player1[x2][j][z2].setColor(0, 0, 1);
+                            Player1[x2][j][z2].setTransparency(0.15);
+                        } else if(Player1[x2][j][z2].getHit() == 4)
+                        {
+                            Player1[x2][j][z2].setColor(1, 0, 0);
+                            Player1[x2][j][z2].setTransparency(0.35);
+                        }
                         Player1[x2][j][z2].setColor(1, 1, 0);
+                    }
                     Player1[x2][0][z2].setTransparency(0.7);
                     r_rotate_x = 325;
                     r_rotate_y = 135;
                 } else if (thirdSide)
                 {
                     for (int k = 0; k < LengthBigCube; k++)
+                    {
+                        if(Player1[x3][y3][k].getHit() == 3)
+                        {
+                            Player1[x3][y3][k].setColor(0, 0, 1);
+                            Player1[x3][y3][k].setTransparency(0.15);
+                        } else if(Player1[x3][y3][k].getHit() == 4)
+                        {
+                            Player1[x3][y3][k].setColor(1, 0, 0);
+                            Player1[x2][y3][k].setTransparency(0.35);
+                        }
                         Player1[x3][y3][k].setColor(1, 1, 0);
+                    }
                     Player1[x3][y3][0].setTransparency(0.7);
                     r_rotate_x = 325;
                     r_rotate_y = 135;
@@ -331,26 +389,73 @@ void Keyboard(unsigned char key, int x, int y)
                         for (auto &k : j)
                             if (k.getHit() <= 2)
                             {
-                                k.setColor(0.5, 0.5, 0.8);
-                                k.setTransparency(0.1);
+                                k.setRed(false);
+                                if (k.getHit() <= 2)
+                                {
+                                    k.setColor(0.5, 0.5, 0.8);
+                                    k.setTransparency(0.1);
+                                }
+                                if (k.getHit() == 3)
+                                {
+                                    k.setColor(0, 0, 1);
+                                    k.setTransparency(0.15);
+                                }
+                                if (k.getHit() == 4)
+                                {
+                                    k.setColor(1, 0, 0);
+                                    k.setTransparency(0.35);
+                                }
                             }
 
                 if (firstSide)
                 {
                     for (auto &i : Player2)
-                        i[yf][z1].setColor(1, 1, 0);
+                    {
+                        if (i[yf][z1].getHit() == 3)
+                        {
+                            i[yf][z1].setColor(0, 0, 1);
+                            i[yf][z1].setTransparency(0.15);
+                        } else if (i[yf][z1].getHit() == 4)
+                        {
+                            i[yf][z1].setColor(1, 0, 0);
+                            i[yf][z1].setTransparency(0.35);
+                        } else
+                            i[yf][z1].setColor(1, 1, 0);
+                    }
                     Player2[0][yf][z1].setTransparency(0.7);
                 } else if (secondSide)
                 {
                     for (int j = 0; j < LengthBigCube; j++)
+                    {
+                        if(Player2[x2][j][z2].getHit() == 3)
+                        {
+                            Player2[x2][j][z2].setColor(0, 0, 1);
+                            Player2[x2][j][z2].setTransparency(0.15);
+                        } else if(Player2[x2][j][z2].getHit() == 4)
+                        {
+                            Player2[x2][j][z2].setColor(1, 0, 0);
+                            Player2[x2][j][z2].setTransparency(0.35);
+                        }
                         Player2[x2][j][z2].setColor(1, 1, 0);
+                    }
                     Player2[x2][0][z2].setTransparency(0.7);
                     r_rotate_x = 325;
                     r_rotate_y = 135;
                 } else if (thirdSide)
                 {
                     for (int k = 0; k < LengthBigCube; k++)
+                    {
+                        if(Player2[x3][y3][k].getHit() == 3)
+                        {
+                            Player2[x3][y3][k].setColor(0, 0, 1);
+                            Player2[x3][y3][k].setTransparency(0.15);
+                        } else if(Player2[x3][y3][k].getHit() == 4)
+                        {
+                            Player2[x3][y3][k].setColor(1, 0, 0);
+                            Player2[x2][y3][k].setTransparency(0.35);
+                        }
                         Player2[x3][y3][k].setColor(1, 1, 0);
+                    }
                     Player2[x3][y3][0].setTransparency(0.7);
                     r_rotate_x = 325;
                     r_rotate_y = 135;
@@ -1839,6 +1944,17 @@ void Keyboard(unsigned char key, int x, int y)
         x3 = LengthBigCube - 1;
         y3 = 0;
         p3 = 0;
+        for (auto &i : Player1)
+            for (auto &t : i)
+                for (auto &k : t)
+                {
+                    k.setRed(false);
+                }
+
+        for (auto &i : Player2)
+            for (auto &t : i)
+                for (auto &k : t)
+                    k.setRed(false);
     }
 
     if (key == 27)
@@ -3934,14 +4050,26 @@ void ChooseCube2(int page)
                 p1++;
                 if (p1 > LengthBigCube - 1)
                     p1 = 0;
-                Player1[p1][yf][z1].setTransparency(0.7);
+                if (Player1[p1][yf][z1].getHit() == 4 || Player1[p1][yf][z1].getHit() == 3)
+                {
+                    Player1[p1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                    Player1[p1][yf][z1].setTransparency(0.15);
+                }
+                if (Player1[p1][yf][z1].getHit() != 4 && Player1[p1][yf][z1].getHit() != 3)
+                    Player1[p1][yf][z1].setTransparency(0.7);
             } else if (page == 2)
             {
                 Player1[p1][yf][z1].setTransparency(0.11);
                 p1--;
                 if (p1 < 0)
                     p1 = LengthBigCube - 1;
-                Player1[p1][yf][z1].setTransparency(0.7);
+                if (Player1[p1][yf][z1].getHit() == 4 || Player1[p1][yf][z1].getHit() == 3)
+                {
+                    Player1[p1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                    Player1[p1][yf][z1].setTransparency(0.15);
+                }
+                if (Player1[p1][yf][z1].getHit() != 4 || Player1[p1][yf][z1].getHit() != 3)
+                    Player1[p1][yf][z1].setTransparency(0.7);
             }
         } else if (secondSide)
         {
@@ -3951,14 +4079,26 @@ void ChooseCube2(int page)
                 p2++;
                 if (p2 > LengthBigCube - 1)
                     p2 = 0;
-                Player1[x2][p2][z2].setTransparency(0.7);
+                if (Player1[x2][p2][z2].getHit() == 4 || Player1[x2][p2][z2].getHit() == 3)
+                {
+                    Player1[x2][p2][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
+                    Player1[x2][p2][z2].setTransparency(0.15);
+                }
+                if (Player1[x2][p2][z2].getHit() != 4 || Player1[x2][p2][z2].getHit() != 3)
+                    Player1[x2][p2][z2].setTransparency(0.7);
             } else if (page == 2)
             {
                 Player1[x2][p2][z2].setTransparency(0.11);
                 p2--;
                 if (p2 < 0)
                     p2 = LengthBigCube - 1;
-                Player1[x2][p2][z2].setTransparency(0.7);
+                if (Player1[x2][p2][z2].getHit() == 4 || Player1[x2][p2][z2].getHit() == 3)
+                {
+                    Player1[x2][p2][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
+                    Player1[x2][p2][z2].setTransparency(0.15);
+                }
+                if (Player1[x2][p2][z2].getHit() != 4 && Player1[x2][p2][z2].getHit() != 3)
+                    Player1[x2][p2][z2].setTransparency(0.7);
             }
         } else if (thirdSide)
         {
@@ -3968,16 +4108,27 @@ void ChooseCube2(int page)
                 p3++;
                 if (p3 > LengthBigCube - 1)
                     p3 = 0;
-                Player1[x3][y3][p3].setTransparency(0.7);
+                if (Player1[x3][y3][p3].getHit() == 4 || Player1[x3][y3][p3].getHit() == 3)
+                {
+                    Player1[x3][y3][p3].setColor(255 / 255., 105 / 255., 60 / 255.);
+                    Player1[x3][y3][p3].setTransparency(0.15);
+                }
+                if (Player1[x3][y3][p3].getHit() != 4 && Player1[x3][y3][p3].getHit() != 3)
+                    Player1[x3][y3][p3].setTransparency(0.7);
             } else if (page == 2)
             {
                 Player1[x3][y3][p3].setTransparency(0.11);
                 p3--;
                 if (p3 < 0)
                     p3 = LengthBigCube - 1;
-                Player1[x3][y3][p3].setTransparency(0.7);
+                if (Player1[x3][y3][p3].getHit() == 4 || Player1[x3][y3][p3].getHit() == 3)
+                {
+                    Player1[x3][y3][p3].setColor(255 / 255., 105 / 255., 60 / 255.);
+                    Player1[x3][y3][p3].setTransparency(0.15);
+                }
+                if (Player1[x3][y3][p3].getHit() != 4 && Player1[x3][y3][p3].getHit() != 3)
+                    Player1[x3][y3][p3].setTransparency(0.7);
             }
-
         }
     } else
     {
@@ -3989,14 +4140,26 @@ void ChooseCube2(int page)
                 p1++;
                 if (p1 > LengthBigCube - 1)
                     p1 = 0;
-                Player2[p1][yf][z1].setTransparency(0.7);
+                if (Player2[p1][yf][z1].getHit() == 4 || Player2[p1][yf][z1].getHit() == 3)
+                {
+                    Player2[p1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                    Player2[p1][yf][z1].setTransparency(0.15);
+                }
+                if (Player2[p1][yf][z1].getHit() != 4 && Player2[p1][yf][z1].getHit() != 3)
+                    Player2[p1][yf][z1].setTransparency(0.7);
             } else if (page == 2)
             {
                 Player2[p1][yf][z1].setTransparency(0.11);
                 p1--;
                 if (p1 < 0)
                     p1 = LengthBigCube - 1;
-                Player2[p1][yf][z1].setTransparency(0.7);
+                if (Player2[p1][yf][z1].getHit() == 4 || Player2[p1][yf][z1].getHit() == 3)
+                {
+                    Player2[p1][yf][z1].setColor(255 / 255., 105 / 255., 60 / 255.);
+                    Player2[p1][yf][z1].setTransparency(0.15);
+                }
+                if (Player2[p1][yf][z1].getHit() != 4 && Player2[p1][yf][z1].getHit() != 3)
+                    Player2[p1][yf][z1].setTransparency(0.7);
             }
         } else if (secondSide)
         {
@@ -4006,14 +4169,26 @@ void ChooseCube2(int page)
                 p2++;
                 if (p2 > LengthBigCube - 1)
                     p2 = 0;
-                Player2[x2][p2][z2].setTransparency(0.7);
+                if (Player2[x2][p2][z2].getHit() == 4 || Player2[x2][p2][z2].getHit() == 3)
+                {
+                    Player2[x2][p2][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
+                    Player2[x2][p2][z2].setTransparency(0.15);
+                }
+                if (Player2[x2][p2][z2].getHit() != 4 && Player2[x2][p2][z2].getHit() != 3)
+                    Player2[x2][p2][z2].setTransparency(0.7);
             } else if (page == 2)
             {
                 Player2[x2][p2][z2].setTransparency(0.11);
                 p2--;
                 if (p2 < 0)
                     p2 = LengthBigCube - 1;
-                Player2[x2][p2][z2].setTransparency(0.7);
+                if (Player2[x2][p2][z2].getHit() == 4 || Player2[x2][p2][z2].getHit() == 3)
+                {
+                    Player2[x2][p2][z2].setColor(255 / 255., 105 / 255., 60 / 255.);
+                    Player2[x2][p2][z2].setTransparency(0.15);
+                }
+                if (Player2[x2][p2][z2].getHit() != 4 && Player2[x2][p2][z2].getHit() != 3)
+                    Player2[x2][p2][z2].setTransparency(0.7);
             }
         } else if (thirdSide)
         {
@@ -4023,20 +4198,33 @@ void ChooseCube2(int page)
                 p3++;
                 if (p3 > LengthBigCube - 1)
                     p3 = 0;
-                Player2[x3][y3][p3].setTransparency(0.7);
+                if (Player2[x3][y3][p3].getHit() == 4 || Player2[x3][y3][p3].getHit() == 3)
+                {
+                    Player2[x3][y3][p3].setColor(255 / 255., 105 / 255., 60 / 255.);
+                    Player2[x3][y3][p3].setTransparency(0.15);
+                }
+                if (Player2[x3][y3][p3].getHit() != 4 && Player2[x3][y3][p3].getHit() != 3)
+                    Player2[x3][y3][p3].setTransparency(0.7);
             } else if (page == 2)
             {
                 Player2[x3][y3][p3].setTransparency(0.11);
                 p3--;
                 if (p3 < 0)
                     p3 = LengthBigCube - 1;
-                Player2[x3][y3][p3].setTransparency(0.7);
+                if (Player2[x3][y3][p3].getHit() == 4 || Player2[x3][y3][p3].getHit() == 3)
+                {
+                    Player2[x3][y3][p3].setColor(255 / 255., 105 / 255., 60 / 255.);
+                    Player2[x3][y3][p3].setTransparency(0.15);
+                }
+                if (Player2[x3][y3][p3].getHit() != 4 && Player2[x3][y3][p3].getHit() != 3)
+                    Player2[x3][y3][p3].setTransparency(0.7);
             }
 
         }
     }
 
 }
+
 
 // 1 == left, 2 == up, 3 == down, 4 == right
 void specialKeys(int key, int x, int y)
