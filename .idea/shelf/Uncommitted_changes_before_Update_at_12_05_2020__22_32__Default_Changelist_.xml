@@ -1,0 +1,14 @@
+<changelist name="Uncommitted_changes_before_Update_at_12_05_2020,_22_32_[Default_Changelist]" date="1589311957057" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_05_2020,_22_32_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 12.05.2020, 22:32 [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="cmake-build-debug/CMakeFiles/3DSeeButtle.dir/main.cpp.o" />
+    <option name="AFTER_PATH" value="cmake-build-debug/CMakeFiles/3DSeeButtle.dir/main.cpp.o" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_05_2020,_22_32_[Default_Changelist]/main.cpp.o" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="cmake-build-debug/3DSeeButtle" />
+    <option name="AFTER_PATH" value="cmake-build-debug/3DSeeButtle" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_05_2020,_22_32_[Default_Changelist]/3DSeeButtle" />
+  </binary>
+</changelist>

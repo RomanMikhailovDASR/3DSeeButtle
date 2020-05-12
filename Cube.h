@@ -11,8 +11,7 @@ bool end2 = false;
 bool space = false;
 
 int forTwoPlayers = 0;
-
-const int LengthBigCube = 4;
+int LengthBigCube = 4;
 int forEnter = -1;
 bool firstSide = false, secondSide = false, thirdSide = false;
 int forOnePaint = 0;

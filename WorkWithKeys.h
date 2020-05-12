@@ -20,7 +20,6 @@ int p1 = 0, p2 = 0, p3 = 0;
 
 bool correct = true; // переменная, отвечающая за честность расстановки
 int saveLengthBigCube = 1; // переменная, необходимая для цикла расстановки кораблей
-bool statistics = false;
 
 //функция взаимодействия с клавиатурой
 void Keyboard(unsigned char key, int x, int y)
@@ -32,22 +31,25 @@ void Keyboard(unsigned char key, int x, int y)
         {
             menupuncts[0] = false;
             placing_ships = true;
+            tileschange = false;
         } else
         {
             if (menupuncts[1])
             {
-                rules = true;
-                menupuncts[1] = false;
-            } else
+                mainmenu = true;
+            } else {
+            if (menupuncts[2])
             {
-                if (menupuncts[2])
-                {
+                rules = true;
+                menupuncts[2] = false;
+            } else {
+                if (menupuncts[3]) {
                     authors = true;
-                    menupuncts[2] = false;
-                } else
-                {
+                    menupuncts[3] = false;
+                } else {
                     exit(0);
                 }
+            }
             }
         }
     }
@@ -58,8 +60,8 @@ void Keyboard(unsigned char key, int x, int y)
         rules = false;
         authors = false;
         help = false;
-        hello_screen = false;
         placing_ships = false;
+        forEnter = 0;
     }
 
     if (key == 13 && forEnter == -1)
@@ -4232,7 +4234,7 @@ void specialKeys(int key, int x, int y)
     if (mainmenu) {
         if (key == GLUT_KEY_DOWN) {
             menupuncts[carrier] = false;
-            if (carrier < 3) {
+            if (carrier < 4) {
                 carrier++;
                 menupuncts[carrier] = true;
             } else {
@@ -4246,8 +4248,22 @@ void specialKeys(int key, int x, int y)
                 carrier--;
                 menupuncts[carrier] = true;
             } else {
-                carrier = 3;
+                carrier = 4;
                 menupuncts[carrier] = true;
+            }
+        }
+        if ((key == GLUT_KEY_LEFT) && (tileschange)) {
+            if (LengthBigCube > 4) {
+                --LengthBigCube;
+            } else {
+                LengthBigCube = 9;
+            }
+        }
+        if ((key == GLUT_KEY_RIGHT) && (tileschange)) {
+            if (LengthBigCube < 9) {
+                ++LengthBigCube;
+            } else {
+                LengthBigCube = 4;
             }
         }
     } else {

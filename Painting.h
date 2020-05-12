@@ -31,20 +31,21 @@ int ship = LengthBigCube - 2; // счетчик для расстановки к
 int number_of_ships = 1; // счетчик числа кораблей с определенным кол-вом палуб (самый большой корабль всегда один)
 
 bool help = false;          // Help доступна всегда нажатием F1. Но информация для каждого случая своя:
-bool hello_screen = false;   // Help во время выбора стороны
 bool placing_ships = false; // Help во время расстановки кораблей
 char text[25] = "Current ship's length = ";  // Сюда также числа будут переводиться в символы
 char text2[18] = "Such ships left: ";        // И сюда тоже
+char text3[9] = "Tiles:  ";                  // И сюда)
 
 bool mainmenu = true;           // Главное меню
-bool menupuncts[4] = {false};   // Подсвечивает жёлтым курсор в главном меню
+bool menupuncts[5] = {false};   // Подсвечивает жёлтым курсор в главном меню
 bool rules = false;             // Переходит во вкладку "Правила" в главном меню
 bool authors = false;           // Переходит во вкладку "Авторы" в главном меню
 unsigned int carrier = 0;       // Листает элементы меню
+bool tileschange = true;        // Устанавливает размер поля от 4 до 9 (только в начале игры)
 
-Cube a[LengthBigCube][LengthBigCube][LengthBigCube];
-Cube Player1[LengthBigCube][LengthBigCube][LengthBigCube];
-Cube Player2[LengthBigCube][LengthBigCube][LengthBigCube];
+Cube a[10][10][10];
+Cube Player1[10][10][10];
+Cube Player2[10][10][10];
 
 /*void Rotate(int value)
 {
@@ -78,6 +79,7 @@ void displayCell()
         glClearColor(10 / 256., 254 / 256., 189 / 256., 0.f);  //меняем цвет фона
     if (forEnter == -1)
         glClearColor(0.07, 0.07, 0.25, 0.f);  //меняем цвет фона
+    sprintf(&text3[7], "%i", LengthBigCube);    // Размер поля в главном меню
 
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //очищаем экран, чтобы картинки "не размножались"
 
@@ -94,7 +96,7 @@ void displayCell()
 
     menupuncts[carrier] = true;     // С помощью него листаем меню
     if (mainmenu)
-    {             // Начало игры. Отсюда и до 141 строки даже не копайтесь в коде)
+    {             // Начало игры. Отсюда и до 141 строки даже не копайтесь в коде
         if (menupuncts[0])
         {
             glColor3d(1, 1, 0);
@@ -102,7 +104,11 @@ void displayCell()
         {
             glColor3d(1, 1, 1);
         }
-        renderBitmapString(-0.1, 0.3, GLUT_BITMAP_TIMES_ROMAN_24, "Start game");
+        if (tileschange) {
+            renderBitmapString(-0.05, 0.3, GLUT_BITMAP_TIMES_ROMAN_24, "Start game");
+        } else {
+            renderBitmapString(-0.08, 0.3, GLUT_BITMAP_TIMES_ROMAN_24, "Resume game");
+        }
         if (menupuncts[1])
         {
             glColor3d(1, 1, 0);
@@ -110,7 +116,19 @@ void displayCell()
         {
             glColor3d(1, 1, 1);
         }
-        renderBitmapString(-0.1, 0.1, GLUT_BITMAP_TIMES_ROMAN_24, "Rules");
+        if (tileschange) {
+            glBegin(GL_POLYGON);
+            glVertex2d(0.12, 0.15);
+            glVertex2d(0.12, 0.09);
+            glVertex2d(0.17, 0.12);
+            glEnd();
+            glBegin(GL_POLYGON);
+            glVertex2d(-0.08, 0.15);
+            glVertex2d(-0.08, 0.09);
+            glVertex2d(-0.13, 0.12);
+            glEnd();
+        }
+        renderBitmapString(-0.03, 0.1, GLUT_BITMAP_TIMES_ROMAN_24, text3);
         if (menupuncts[2])
         {
             glColor3d(1, 1, 0);
@@ -118,7 +136,7 @@ void displayCell()
         {
             glColor3d(1, 1, 1);
         }
-        renderBitmapString(-0.1, -0.1, GLUT_BITMAP_TIMES_ROMAN_24, "Credits");
+        renderBitmapString(-0.02, -0.1, GLUT_BITMAP_TIMES_ROMAN_24, "Rules");
         if (menupuncts[3])
         {
             glColor3d(1, 1, 0);
@@ -126,7 +144,15 @@ void displayCell()
         {
             glColor3d(1, 1, 1);
         }
-        renderBitmapString(-0.1, -0.3, GLUT_BITMAP_TIMES_ROMAN_24, "Exit");
+        renderBitmapString(-0.03, -0.3, GLUT_BITMAP_TIMES_ROMAN_24, "Credits");
+        if (menupuncts[4])
+        {
+            glColor3d(1, 1, 0);
+        } else
+        {
+            glColor3d(1, 1, 1);
+        }
+        renderBitmapString(-0.015, -0.5, GLUT_BITMAP_TIMES_ROMAN_24, "Exit");
     } else
     {
         if (rules)
@@ -134,21 +160,21 @@ void displayCell()
             glColor3d(1, 1, 1);
             renderBitmapString(-0.05, 0.8, GLUT_BITMAP_TIMES_ROMAN_24, "Rules");
             renderBitmapString(-0.2, 0.6, GLUT_BITMAP_TIMES_ROMAN_24, "Welcome to 3D Sea Battle!");
-            renderBitmapString(-0.3, 0.4, GLUT_BITMAP_TIMES_ROMAN_24,
+            renderBitmapString(-0.35, 0.4, GLUT_BITMAP_TIMES_ROMAN_24,
                                "It is actually a usual Sea Battle game, but in 3D");
-            renderBitmapString(-0.3, 0.2, GLUT_BITMAP_TIMES_ROMAN_24,
+            renderBitmapString(-0.35, 0.2, GLUT_BITMAP_TIMES_ROMAN_24,
                                "Press F1 to get tips and statistics while playing");
-            renderBitmapString(-0.2, 0, GLUT_BITMAP_TIMES_ROMAN_24, "Press Esc to return to the main menu");
+            renderBitmapString(-0.27, 0, GLUT_BITMAP_TIMES_ROMAN_24, "Press Esc to return to the main menu");
         } else
         {
             if (authors)
             {
                 glColor3d(1, 1, 1);
                 renderBitmapString(-0.06, 0.8, GLUT_BITMAP_TIMES_ROMAN_24, "Credits");
-                renderBitmapString(-0.1, 0.5, GLUT_BITMAP_TIMES_ROMAN_24, "3D Sea Battle");
-                renderBitmapString(-0.15, 0.3, GLUT_BITMAP_TIMES_ROMAN_24, "By Alexander Putin,");
-                renderBitmapString(-0.12, 0.1, GLUT_BITMAP_TIMES_ROMAN_24, "Roman Mikhailov");
-                renderBitmapString(-0.11, -0.1, GLUT_BITMAP_TIMES_ROMAN_24, "and David Kim");
+                renderBitmapString(-0.1, 0.3, GLUT_BITMAP_TIMES_ROMAN_24, "3D Sea Battle");
+                renderBitmapString(-0.15, 0.1, GLUT_BITMAP_TIMES_ROMAN_24, "By Alexander Putin,");
+                renderBitmapString(-0.12, -0.1, GLUT_BITMAP_TIMES_ROMAN_24, "Roman Mikhailov");
+                renderBitmapString(-0.11, -0.3, GLUT_BITMAP_TIMES_ROMAN_24, "and David Kim");
                 renderBitmapString(-0.09, -0.8, GLUT_BITMAP_TIMES_ROMAN_24, "MIPT 2020");
             } else
             {
@@ -157,16 +183,21 @@ void displayCell()
                     glColor3d(1, 1, 1);
                     if (placing_ships)
                     {
-                        renderBitmapString(-0.1, 0.8, GLUT_BITMAP_TIMES_ROMAN_24, "Controls:");
-                        renderBitmapString(-0.3, 0.6, GLUT_BITMAP_TIMES_ROMAN_24,
+                        if (isPlayer1) {
+                            renderBitmapString(-0.05, 0.9, GLUT_BITMAP_TIMES_ROMAN_24, "Player 1");
+                        } else {
+                            renderBitmapString(-0.05, 0.9, GLUT_BITMAP_TIMES_ROMAN_24, "Player 2");
+                        }
+                        renderBitmapString(-0.055, 0.6, GLUT_BITMAP_TIMES_ROMAN_24, "Controls:");
+                        renderBitmapString(-0.3, 0.4, GLUT_BITMAP_TIMES_ROMAN_24,
                                            "Press Left/Right/Up/Down to rotate the cube");
-                        renderBitmapString(-0.18, 0.4, GLUT_BITMAP_TIMES_ROMAN_24, "Press F7/F8/F9 to choose face");
-                        renderBitmapString(-0.1, 0.2, GLUT_BITMAP_TIMES_ROMAN_24, "Press Enter to confirm");
-                        renderBitmapString(-0.11, -0.2, GLUT_BITMAP_TIMES_ROMAN_24, "Statistics:");
+                        renderBitmapString(-0.21, 0.2, GLUT_BITMAP_TIMES_ROMAN_24, "Press F7/F8/F9 to choose face");
+                        renderBitmapString(-0.14, 0, GLUT_BITMAP_TIMES_ROMAN_24, "Press Enter to confirm");
+                        renderBitmapString(-0.06, -0.4, GLUT_BITMAP_TIMES_ROMAN_24, "Statistics:");
                         sprintf(&text[24], "%u", ship);
-                        renderBitmapString(-0.22, -0.4, GLUT_BITMAP_TIMES_ROMAN_24, text);
+                        renderBitmapString(-0.17, -0.6, GLUT_BITMAP_TIMES_ROMAN_24, text);
                         sprintf(&text2[17], "%u", number_of_ships);
-                        renderBitmapString(-0.15, -0.6, GLUT_BITMAP_TIMES_ROMAN_24, text2);
+                        renderBitmapString(-0.11, -0.8, GLUT_BITMAP_TIMES_ROMAN_24, text2);
                     } else
                     {
                         renderBitmapString(0, 0, GLUT_BITMAP_TIMES_ROMAN_24, "Not ready yet");
