@@ -7,7 +7,7 @@
 
 #include "Cube.h"
 
-void Cube::paintForRotate(double angle) const
+[[maybe_unused]] void Cube::paintForRotate(double angle) const
 {
     angle -= 135;
     angle = angle * 3.14 / 180;
@@ -522,19 +522,5 @@ void Cube::paintCube() const
     glEnd();
 }
 
-Cube::Cube(Cube *pCube)
-{
-    this->x = pCube->x;
-    this->y = pCube->y;
-    this->z = pCube->z;
-    this->length = pCube->length;
-    this->blue = pCube->blue;
-    this->red = pCube->red;
-    this->green = pCube->green;
-    this->transparency = pCube->transparency;
-    this->forHit = pCube->forHit;
-    this->forTransparancy = pCube->forTransparancy;
-    this->isPaint = pCube->isPaint;
-}
 
 #endif //INC_3DSEEBUTTLE_PAINTINGCUBES_H

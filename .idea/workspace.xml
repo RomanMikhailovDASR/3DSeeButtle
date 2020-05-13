@@ -30,9 +30,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b7d39ea-9236-437e-b3fb-0f0c97fb2197" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ChooseColumn.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ChooseCube.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DisplayCubes.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Text.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TwoPlayersEnter1.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forEnter1.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forEnter3.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forEnter5_OneCube.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forEnter5_TwoCubes.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hitSide_Player1.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hitSide_Player2.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChooseSide.h" beforeDir="false" afterPath="$PROJECT_DIR$/ChooseSide.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cube.h" beforeDir="false" afterPath="$PROJECT_DIR$/Cube.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Painting.h" beforeDir="false" afterPath="$PROJECT_DIR$/Painting.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PaintingCubes.h" beforeDir="false" afterPath="$PROJECT_DIR$/PaintingCubes.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Painting_second_cube.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkWithKeys.h" beforeDir="false" afterPath="$PROJECT_DIR$/WorkWithKeys.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/3DSeeButtle" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/3DSeeButtle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/3DSeeButtle.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/3DSeeButtle.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,6 +211,8 @@
       <workItem from="1589248850299" duration="2562000" />
       <workItem from="1589253511205" duration="8000" />
       <workItem from="1589276931176" duration="6023000" />
+      <workItem from="1589342155086" duration="110000" />
+      <workItem from="1589342523919" duration="1023000" />
     </task>
     <task id="LOCAL-00001" summary="class Cube">
       <created>1584553962199</created>
@@ -433,7 +459,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589335279902</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="цветовая гамма в конце">
+      <created>1589335503126</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1589335503126</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -454,7 +487,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="пара предупреждений" />
     <MESSAGE value="Исправил рисовку/нерисовку кубиков" />
     <MESSAGE value="-Замечания" />
     <MESSAGE value="все через enter" />
@@ -479,7 +511,8 @@
     <MESSAGE value="пофиксил баги у Давида. Всё ок" />
     <MESSAGE value="недоглядел" />
     <MESSAGE value="время" />
-    <option name="LAST_COMMIT_MESSAGE" value="время" />
+    <MESSAGE value="цветовая гамма в конце" />
+    <option name="LAST_COMMIT_MESSAGE" value="цветовая гамма в конце" />
   </component>
   <component name="WindowStateProjectService">
     <state x="590" y="215" width="800" height="684" key="#Notifications" timestamp="1584123078953">
@@ -490,36 +523,36 @@
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state x="728" y="302" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/70.27.1850.1053@70.27.1850.1053" timestamp="1589333536981" />
-    <state x="163" y="128" width="1728" height="857" key="CommitChangelistDialog2" timestamp="1589335279642">
+    <state x="163" y="128" width="1728" height="857" key="CommitChangelistDialog2" timestamp="1589335502893">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state x="287" y="98" width="912" height="604" key="CommitChangelistDialog2/0.27.1366.741@0.27.1366.741" timestamp="1588712252899" />
-    <state x="163" y="128" width="1728" height="857" key="CommitChangelistDialog2/70.27.1850.1053@70.27.1850.1053" timestamp="1589335279642" />
+    <state x="163" y="128" width="1728" height="857" key="CommitChangelistDialog2/70.27.1850.1053@70.27.1850.1053" timestamp="1589335502893" />
     <state x="523" y="227" width="374" height="346" key="FileChooserDialogImpl" timestamp="1589317428075">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
     <state x="523" y="227" width="374" height="346" key="FileChooserDialogImpl/0.27.1366.741@0.27.1366.741" timestamp="1589317428075" />
     <state x="778" y="311" width="424" height="491" key="FileChooserDialogImpl/70.27.1850.1053@70.27.1850.1053" timestamp="1584818261980" />
-    <state width="1804" height="219" key="GridCell.Tab.0.bottom" timestamp="1589335423015">
+    <state width="1804" height="219" key="GridCell.Tab.0.bottom" timestamp="1589343579373">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state width="1320" height="172" key="GridCell.Tab.0.bottom/0.27.1366.741@0.27.1366.741" timestamp="1589324864411" />
-    <state width="1804" height="219" key="GridCell.Tab.0.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1589335423015" />
-    <state width="1804" height="219" key="GridCell.Tab.0.center" timestamp="1589335423014">
+    <state width="1804" height="219" key="GridCell.Tab.0.bottom/70.27.1850.1053@70.27.1850.1053" timestamp="1589343579372" />
+    <state width="1804" height="219" key="GridCell.Tab.0.center" timestamp="1589343579371">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state width="1320" height="172" key="GridCell.Tab.0.center/0.27.1366.741@0.27.1366.741" timestamp="1589324864411" />
-    <state width="1804" height="219" key="GridCell.Tab.0.center/70.27.1850.1053@70.27.1850.1053" timestamp="1589335423014" />
-    <state width="1804" height="219" key="GridCell.Tab.0.left" timestamp="1589335423014">
+    <state width="1804" height="219" key="GridCell.Tab.0.center/70.27.1850.1053@70.27.1850.1053" timestamp="1589343579371" />
+    <state width="1804" height="219" key="GridCell.Tab.0.left" timestamp="1589343579370">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state width="1320" height="172" key="GridCell.Tab.0.left/0.27.1366.741@0.27.1366.741" timestamp="1589324864410" />
-    <state width="1804" height="219" key="GridCell.Tab.0.left/70.27.1850.1053@70.27.1850.1053" timestamp="1589335423014" />
-    <state width="1804" height="219" key="GridCell.Tab.0.right" timestamp="1589335423015">
+    <state width="1804" height="219" key="GridCell.Tab.0.left/70.27.1850.1053@70.27.1850.1053" timestamp="1589343579370" />
+    <state width="1804" height="219" key="GridCell.Tab.0.right" timestamp="1589343579372">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state width="1320" height="172" key="GridCell.Tab.0.right/0.27.1366.741@0.27.1366.741" timestamp="1589324864411" />
-    <state width="1804" height="219" key="GridCell.Tab.0.right/70.27.1850.1053@70.27.1850.1053" timestamp="1589335423015" />
+    <state width="1804" height="219" key="GridCell.Tab.0.right/70.27.1850.1053@70.27.1850.1053" timestamp="1589343579372" />
     <state width="1320" height="215" key="GridCell.Tab.1.bottom" timestamp="1589324579905">
       <screen x="0" y="27" width="1366" height="741" />
     </state>
@@ -562,18 +595,18 @@
     </state>
     <state x="546" y="360" width="458" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.1366.741@0.27.1366.741" timestamp="1588712234208" />
     <state x="809" y="500" width="464" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/70.27.1850.1053@70.27.1850.1053" timestamp="1589276945789" />
-    <state x="878" y="339" width="216" height="443" key="refactoring.ChangeSignatureDialog" timestamp="1587782335965">
+    <state x="878" y="339" width="216" height="443" key="refactoring.ChangeSignatureDialog" timestamp="1589338949212">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state x="878" y="339" width="216" height="443" key="refactoring.ChangeSignatureDialog/70.27.1850.1053@70.27.1850.1053" timestamp="1587782335965" />
+    <state x="878" y="339" width="216" height="443" key="refactoring.ChangeSignatureDialog/70.27.1850.1053@70.27.1850.1053" timestamp="1589338949212" />
     <state x="659" y="252" key="run.anything.popup" timestamp="1588842776397">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state x="659" y="252" key="run.anything.popup/70.27.1850.1053@70.27.1850.1053" timestamp="1588842776397" />
-    <state x="439" y="190" width="672" height="478" key="search.everywhere.popup" timestamp="1588622160738">
-      <screen x="0" y="27" width="1366" height="741" />
+    <state x="665" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1589337986397">
+      <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state x="439" y="190" width="672" height="478" key="search.everywhere.popup/0.27.1366.741@0.27.1366.741" timestamp="1588622160738" />
-    <state x="665" y="259" width="672" height="678" key="search.everywhere.popup/70.27.1850.1053@70.27.1850.1053" timestamp="1585815653565" />
+    <state x="665" y="259" width="672" height="678" key="search.everywhere.popup/70.27.1850.1053@70.27.1850.1053" timestamp="1589337986397" />
   </component>
 </project>

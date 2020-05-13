@@ -6,6 +6,7 @@
 #define INC_3DSEEBUTTLE_CUBE_H
 
 #include <cmath>
+
 bool end1 = false;
 bool end2 = false;
 bool space = false;
@@ -24,7 +25,7 @@ private:
     int forHit;  //для ударов и выбора кубика  Если 1 - выбрали. Если 2 - стоит рядом с кубиком, который выбрали. Если 3 - в него выстрелили и промахнулись. 4 - выстрелили и попали
     bool isPaint;
     //для переключений между режимами игры (выбор, стрельба)
-    bool isRed;
+    bool isRed{};
 
     double red = 0.5;
     double blue = 0.5;
@@ -37,13 +38,13 @@ private:
 public:
     int forTransparancy;
 
-    void changeCube(double length, double x, double y, double z, double transparency)
+    void changeCube(double _length, double _x, double _y, double _z, double _transparency)
     {
-        this->length = length;
-        this->x = x;
-        this->y = y;
-        this->z = z;
-        this->transparency = transparency;
+        this->length = _length;
+        this->x = _x;
+        this->y = _y;
+        this->z = _z;
+        this->transparency = _transparency;
     }
 
     Cube()
@@ -86,12 +87,12 @@ public:
         this->green = Green;
     }
 
-    void setRed(bool isRed)
+    void setRed(bool _isRed)
     {
-        this->isRed = isRed;
+        this->isRed = _isRed;
     }
 
-    bool getRed() const
+    [[nodiscard]] bool getRed() const
     {
         return isRed;
     }
@@ -101,14 +102,9 @@ public:
         this->isPaint = isPainted;
     }
 
-    bool getPaint() const
+    [[nodiscard]] bool getPaint() const
     {
         return isPaint;
-    }
-
-    void getColor() const
-    {
-        std::cout << red << " " << green << " " << blue << std::endl;
     }
 
     void setTransparency(double transparancy)
@@ -126,7 +122,7 @@ public:
         }
     }
 
-    void paintForRotate(double angle) const;
+    [[maybe_unused]] void paintForRotate(double angle) const;
 
     void paintCube() const;
 
@@ -135,12 +131,31 @@ public:
         this->forHit = hit;
     }
 
-    int getHit()
+    [[nodiscard]] int getHit() const
     {
         return forHit;
     }
 
-    Cube(Cube *pCube);
+    Cube(Cube *pCube)
+    {
+        this->x = pCube->x;
+        this->y = pCube->y;
+        this->z = pCube->z;
+
+        this->length = pCube->length;
+
+        this->blue = pCube->blue;
+        this->red = pCube->red;
+        this->green = pCube->green;
+
+        this->transparency = pCube->transparency;
+
+        this->forHit = pCube->forHit;
+        this->forTransparancy = pCube->forTransparancy;
+
+        this->isPaint = pCube->isPaint;
+        this->isRed = false;
+    }
 };
 
 #endif //INC_3DSEEBUTTLE_CUBE_H

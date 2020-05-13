@@ -87,9 +87,6 @@
 		<Unit filename="/home/alik/Documents/Programming/Repository/3DSeeButtle/ChooseSide.h">
 			<Option target="3DSeeButtle"/>
 		</Unit>
-		<Unit filename="/home/alik/Documents/Programming/Repository/3DSeeButtle/Painting_second_cube.h">
-			<Option target="3DSeeButtle"/>
-		</Unit>
 		<Unit filename="/home/alik/Documents/Programming/Repository/3DSeeButtle/WorkWithKeys.h">
 			<Option target="3DSeeButtle"/>
 		</Unit>

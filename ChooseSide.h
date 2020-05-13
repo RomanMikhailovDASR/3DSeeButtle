@@ -187,7 +187,6 @@ void choose_third_side_Player2(double &rotateX, double &rotateY)
         }
 }
 
-
 void default_position(double &rotateX, double &rotateY)
 {
     for (auto &i : a)
@@ -317,7 +316,6 @@ void view_second_side_Player2(double &rotateX, double &rotateY)
     rotateY = 135;
 }
 
-
 void view_third_side(double &rotateX, double &rotateY)
 {
     for (auto &i : a)
@@ -336,7 +334,6 @@ void view_third_side(double &rotateX, double &rotateY)
     rotateX = 325;
     rotateY = 135;
 }
-
 
 void view_third_side_Player1(double &rotateX, double &rotateY)
 {
@@ -357,7 +354,6 @@ void view_third_side_Player1(double &rotateX, double &rotateY)
     rotateY = 135;
 }
 
-
 void view_third_side_Player2(double &rotateX, double &rotateY)
 {
     for (auto &i : Player2)
@@ -376,7 +372,6 @@ void view_third_side_Player2(double &rotateX, double &rotateY)
     rotateX = 325;
     rotateY = 135;
 }
-
 
 #endif //INC_3DSEEBUTTLE_CHOOSESIDE_H
 
