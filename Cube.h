@@ -15,6 +15,7 @@ int forTwoPlayers = 0;
 int LengthBigCube = 4;
 int forEnter = -1;
 bool firstSide = false, secondSide = false, thirdSide = false;
+
 int forOnePaint = 0;
 
 class Cube

@@ -9,17 +9,17 @@
 #include "DisplayCubes.h"
 #include "ChooseSide.h"
 
-
-
 double &r_rotate_x = rotate_x;
 double &r_rotate_y = rotate_y;
 
 int i_first_side = LengthBigCube - 1, j_first_side = 0, k_first_side = 0;
 int i_second_side = LengthBigCube - 1, j_second_side = LengthBigCube - 1, k_second_side = LengthBigCube - 1;
 int i_third_side = LengthBigCube - 1, j_third_side = 0, k_third_side = LengthBigCube - 1;
+
 int yf = j_first_side, z1 = k_first_side;
 int x2 = i_second_side, z2 = k_second_side;
 int x3 = i_third_side, y3 = j_third_side;
+
 int p1 = 0, p2 = 0, p3 = 0;
 
 void twoForEnter1First()

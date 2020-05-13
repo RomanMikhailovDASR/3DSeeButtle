@@ -17,7 +17,6 @@ Cube a[10][10][10];
 Cube Player1[10][10][10];
 Cube Player2[10][10][10];
 
-
 void twoBigCubes()
 {
     if (forOnePaint == 0 && (forEnter == 0 && forTwoPlayers != 2))

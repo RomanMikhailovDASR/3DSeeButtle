@@ -5,14 +5,17 @@
 #ifndef INC_3DSEEBUTTLE_TEXT_H
 #define INC_3DSEEBUTTLE_TEXT_H
 
-char text3[9] = "Tiles:  ";  // И сюда)
 bool menupuncts[5] = {false};   // Подсвечивает жёлтым курсор в главном меню
 bool tileschange = true;        // Устанавливает размер поля от 4 до 9 (только в начале игры)
 char textLast[25];
+
 double start = 0;
 bool placing_ships = false; // Help во время расстановки кораблей
+
 char text[25] = "Current ship's length = ";  // Сюда также числа будут переводиться в символы
+char text3[9] = "Tiles:  ";  // И сюда)
 char text2[18] = "Such ships left: ";        // И сюда тоже
+
 int ship = LengthBigCube - 2; // счетчик для расстановки кораблей
 bool isPlayer1 = true;
 int number_of_ships = 1; // счетчик числа кораблей с определенным кол-вом палуб (самый большой корабль всегда один)

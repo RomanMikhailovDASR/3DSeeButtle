@@ -30,33 +30,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b7d39ea-9236-437e-b3fb-0f0c97fb2197" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ChooseColumn.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChooseCube.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DisplayCubes.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Text.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TwoPlayersEnter1.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forEnter1.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forEnter3.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forEnter5_OneCube.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forEnter5_TwoCubes.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hitSide_Player1.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hitSide_Player2.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ChooseSide.h" beforeDir="false" afterPath="$PROJECT_DIR$/ChooseSide.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cube.h" beforeDir="false" afterPath="$PROJECT_DIR$/Cube.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Painting.h" beforeDir="false" afterPath="$PROJECT_DIR$/Painting.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PaintingCubes.h" beforeDir="false" afterPath="$PROJECT_DIR$/PaintingCubes.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Painting_second_cube.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WorkWithKeys.h" beforeDir="false" afterPath="$PROJECT_DIR$/WorkWithKeys.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/3DSeeButtle" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/3DSeeButtle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/3DSeeButtle.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/3DSeeButtle.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3DSeeButtle.dir/main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DisplayCubes.h" beforeDir="false" afterPath="$PROJECT_DIR$/DisplayCubes.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Text.h" beforeDir="false" afterPath="$PROJECT_DIR$/Text.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TwoPlayersEnter1.h" beforeDir="false" afterPath="$PROJECT_DIR$/TwoPlayersEnter1.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Безымянный документ 1" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,7 +192,7 @@
       <workItem from="1589253511205" duration="8000" />
       <workItem from="1589276931176" duration="6023000" />
       <workItem from="1589342155086" duration="110000" />
-      <workItem from="1589342523919" duration="1023000" />
+      <workItem from="1589342523919" duration="1404000" />
     </task>
     <task id="LOCAL-00001" summary="class Cube">
       <created>1584553962199</created>
@@ -466,7 +446,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589335503126</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="the End">
+      <created>1589343656604</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1589343656604</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -487,7 +474,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Исправил рисовку/нерисовку кубиков" />
     <MESSAGE value="-Замечания" />
     <MESSAGE value="все через enter" />
     <MESSAGE value="Вырезание кубиков" />
@@ -512,7 +498,8 @@
     <MESSAGE value="недоглядел" />
     <MESSAGE value="время" />
     <MESSAGE value="цветовая гамма в конце" />
-    <option name="LAST_COMMIT_MESSAGE" value="цветовая гамма в конце" />
+    <MESSAGE value="the End" />
+    <option name="LAST_COMMIT_MESSAGE" value="the End" />
   </component>
   <component name="WindowStateProjectService">
     <state x="590" y="215" width="800" height="684" key="#Notifications" timestamp="1584123078953">
@@ -523,11 +510,11 @@
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state x="728" y="302" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/70.27.1850.1053@70.27.1850.1053" timestamp="1589333536981" />
-    <state x="163" y="128" width="1728" height="857" key="CommitChangelistDialog2" timestamp="1589335502893">
+    <state x="163" y="128" width="1728" height="857" key="CommitChangelistDialog2" timestamp="1589343655933">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state x="287" y="98" width="912" height="604" key="CommitChangelistDialog2/0.27.1366.741@0.27.1366.741" timestamp="1588712252899" />
-    <state x="163" y="128" width="1728" height="857" key="CommitChangelistDialog2/70.27.1850.1053@70.27.1850.1053" timestamp="1589335502893" />
+    <state x="163" y="128" width="1728" height="857" key="CommitChangelistDialog2/70.27.1850.1053@70.27.1850.1053" timestamp="1589343655933" />
     <state x="523" y="227" width="374" height="346" key="FileChooserDialogImpl" timestamp="1589317428075">
       <screen x="0" y="27" width="1366" height="741" />
     </state>

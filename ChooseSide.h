@@ -5,10 +5,8 @@
 #ifndef INC_3DSEEBUTTLE_CHOOSESIDE_H
 #define INC_3DSEEBUTTLE_CHOOSESIDE_H
 
-
 #include "Cube.h"
 #include "Painting.h"
-
 
 void choose_first_side(double &rotateX, double &rotateY)
 {
