@@ -13,7 +13,7 @@
 #include <random>
 #include "Cube.h"
 #include "PaintingCubes.h"
-#include <math.h>
+#include <cmath>
 #include <cstdio>   // Эта штука переводит числа в строки
 
 double rotate_y = 135;  //начальный поворот куба по у
@@ -73,6 +73,7 @@ void renderBitmapString(float x, float y, void *font, char *string)
 
 void displayCell()
 {
+    //std::cout << "LengthCube: " << LengthBigCube << "                   ship: " << ship << std::endl;
     if (end1)
         glClearColor(135 / 256., 206 / 256., 250 / 256., 0.f);  //меняем цвет фона
     if (end2)

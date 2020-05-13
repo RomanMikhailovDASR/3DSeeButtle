@@ -4255,15 +4255,43 @@ void specialKeys(int key, int x, int y)
         if ((key == GLUT_KEY_LEFT) && (tileschange)) {
             if (LengthBigCube > 4) {
                 --LengthBigCube;
+                --ship;
             } else {
                 LengthBigCube = 9;
+                ship = 7;
             }
         }
         if ((key == GLUT_KEY_RIGHT) && (tileschange)) {
             if (LengthBigCube < 9) {
                 ++LengthBigCube;
+                ++ship;
+                i_first_side++;
+                i_second_side++;
+                j_second_side++;
+                k_second_side++;
+                i_third_side++;
+                k_third_side++;
+                yf = j_first_side;
+                z1 = k_first_side;
+                x2 = i_second_side;
+                z2 = k_second_side;
+                x3 = i_third_side;
+                y3 = j_third_side;
             } else {
                 LengthBigCube = 4;
+                ship = 2;
+                i_first_side = 3;
+                i_second_side = 3;
+                j_second_side = 3;
+                k_second_side = 3;
+                i_third_side = 3;
+                k_third_side = 3;
+                yf = j_first_side;
+                z1 = k_first_side;
+                x2 = i_second_side;
+                z2 = k_second_side;
+                x3 = i_third_side;
+                y3 = j_third_side;
             }
         }
     } else {
