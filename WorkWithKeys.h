@@ -4256,9 +4256,33 @@ void specialKeys(int key, int x, int y)
             if (LengthBigCube > 4) {
                 --LengthBigCube;
                 --ship;
+                i_first_side--;
+                i_second_side--;
+                j_second_side--;
+                k_second_side--;
+                i_third_side--;
+                k_third_side--;
+                yf = j_first_side;
+                z1 = k_first_side;
+                x2 = i_second_side;
+                z2 = k_second_side;
+                x3 = i_third_side;
+                y3 = j_third_side;
             } else {
                 LengthBigCube = 9;
                 ship = 7;
+                i_first_side = 8;
+                i_second_side = 8;
+                j_second_side = 8;
+                k_second_side = 8;
+                i_third_side = 8;
+                k_third_side = 8;
+                yf = j_first_side;
+                z1 = k_first_side;
+                x2 = i_second_side;
+                z2 = k_second_side;
+                x3 = i_third_side;
+                y3 = j_third_side;
             }
         }
         if ((key == GLUT_KEY_RIGHT) && (tileschange)) {
