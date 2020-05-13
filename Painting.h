@@ -15,6 +15,8 @@
 #include "PaintingCubes.h"
 #include <cmath>
 #include <cstdio>   // Эта штука переводит числа в строки
+#include <chrono>
+
 
 double rotate_y = 135;  //начальный поворот куба по у
 double rotate_x = -35; //начальный поворот куба по х
@@ -34,7 +36,8 @@ bool help = false;          // Help доступна всегда нажатие
 bool placing_ships = false; // Help во время расстановки кораблей
 char text[25] = "Current ship's length = ";  // Сюда также числа будут переводиться в символы
 char text2[18] = "Such ships left: ";        // И сюда тоже
-char text3[9] = "Tiles:  ";                  // И сюда)
+char text3[9] = "Tiles:  ";  // И сюда)
+char textLast[25];
 
 bool mainmenu = true;           // Главное меню
 bool menupuncts[5] = {false};   // Подсвечивает жёлтым курсор в главном меню
@@ -42,24 +45,17 @@ bool rules = false;             // Переходит во вкладку "Пр�
 bool authors = false;           // Переходит во вкладку "Авторы" в главном меню
 unsigned int carrier = 0;       // Листает элементы меню
 bool tileschange = true;        // Устанавливает размер поля от 4 до 9 (только в начале игры)
+bool first = true;
+double start = 0;
 
 Cube a[10][10][10];
 Cube Player1[10][10][10];
 Cube Player2[10][10][10];
 
-/*void Rotate(int value)
+double get_time()
 {
-    if (forEnter != -1)
-        return;
-    glLoadIdentity();
-    glRotatef(rotate_x, 1.0, 0.0, 0.0);  //функция, поворачивающая кубики по х
-    glRotatef(rotate_y, 0.0, 1.0, 0.0);  //а это для у
-    if (forEnter == -1)
-        rotate_y++;
-    glutPostRedisplay();
-    glutTimerFunc(2, Rotate, 1);
+    return std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::steady_clock::now().time_since_epoch()).count()/1e6;
 }
-*/
 
 void renderBitmapString(float x, float y, void *font, char *string)
 {                        // Помещает строку в указанном месте с указанным шрифтом и содержимым
@@ -73,11 +69,13 @@ void renderBitmapString(float x, float y, void *font, char *string)
 
 void displayCell()
 {
+    if(first)
+    {
+         start = get_time();
+        first = false;
+    }
     //std::cout << "LengthCube: " << LengthBigCube << "                   ship: " << ship << std::endl;
-    if (end1)
-        glClearColor(135 / 256., 206 / 256., 250 / 256., 0.f);  //меняем цвет фона
-    if (end2)
-        glClearColor(10 / 256., 254 / 256., 189 / 256., 0.f);  //меняем цвет фона
+
     if (forEnter == -1)
         glClearColor(0.07, 0.07, 0.25, 0.f);  //меняем цвет фона
     sprintf(&text3[7], "%i", LengthBigCube);    // Размер поля в главном меню
@@ -156,6 +154,40 @@ void displayCell()
         renderBitmapString(-0.015, -0.5, GLUT_BITMAP_TIMES_ROMAN_24, "Exit");
     } else
     {
+        if(end1)
+        {
+            double finish = get_time();
+            sprintf(&textLast[0], "%f", finish - start);
+            glColor3d(1, 1, 1);
+            renderBitmapString(-0.05, 0.8, GLUT_BITMAP_TIMES_ROMAN_24, "The end");
+            renderBitmapString(-0.25, 0.6, GLUT_BITMAP_TIMES_ROMAN_24, "Thank you for choose 3D Sea Battle!");
+            renderBitmapString(-0.2, 0.4, GLUT_BITMAP_TIMES_ROMAN_24,
+                               "Player 2 wins! Congratulations!");
+
+            renderBitmapString(-0.1, 0.2, GLUT_BITMAP_TIMES_ROMAN_24,
+                               "You have spent:");
+            renderBitmapString(-0.05, 0.0, GLUT_BITMAP_TIMES_ROMAN_24,
+                               textLast);
+            renderBitmapString(-0.11, -0.2, GLUT_BITMAP_TIMES_ROMAN_24,
+                               "seconds in a game");
+            renderBitmapString(-0.12, -0.6, GLUT_BITMAP_TIMES_ROMAN_24, "Press Enter to exit");
+        } else if(end2)
+        {
+            double finish = get_time();
+            sprintf(&textLast[0], "%f", finish - start);
+            glColor3d(1, 1, 1);
+            renderBitmapString(-0.05, 0.8, GLUT_BITMAP_TIMES_ROMAN_24, "The end");
+            renderBitmapString(-0.25, 0.6, GLUT_BITMAP_TIMES_ROMAN_24, "Thank you to choose 3D Sea Battle!");
+            renderBitmapString(-0.2, 0.4, GLUT_BITMAP_TIMES_ROMAN_24,
+                               "Player 1 wins! Congratulations!");
+            renderBitmapString(-0.1, 0.2, GLUT_BITMAP_TIMES_ROMAN_24,
+                               "You have spent:");
+            renderBitmapString(-0.05, 0.0, GLUT_BITMAP_TIMES_ROMAN_24,
+                               textLast);
+            renderBitmapString(-0.11, -0.2, GLUT_BITMAP_TIMES_ROMAN_24,
+                               "seconds in a game");
+            renderBitmapString(-0.12, -0.6, GLUT_BITMAP_TIMES_ROMAN_24, "Press Enter to exit");
+        } else
         if (rules)
         {
             glColor3d(1, 1, 1);

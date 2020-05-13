@@ -53,6 +53,8 @@ void Keyboard(unsigned char key, int x, int y)
             }
         }
     }
+    if(key == 13 && (end1 || end2))
+        exit(0);
 
     if (key == 27)
     {
