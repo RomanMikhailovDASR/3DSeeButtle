@@ -166,10 +166,13 @@ void displayCell()
 
             renderBitmapString(-0.1, 0.2, GLUT_BITMAP_TIMES_ROMAN_24,
                                "You have spent:");
+            glColor3d(0, 1, 0);
             renderBitmapString(-0.05, 0.0, GLUT_BITMAP_TIMES_ROMAN_24,
                                textLast);
+            glColor3d(1, 1, 1);
             renderBitmapString(-0.11, -0.2, GLUT_BITMAP_TIMES_ROMAN_24,
                                "seconds in a game");
+            glColor3d(1, 1, 0);
             renderBitmapString(-0.12, -0.6, GLUT_BITMAP_TIMES_ROMAN_24, "Press Enter to exit");
         } else if(end2)
         {
@@ -182,10 +185,13 @@ void displayCell()
                                "Player 1 wins! Congratulations!");
             renderBitmapString(-0.1, 0.2, GLUT_BITMAP_TIMES_ROMAN_24,
                                "You have spent:");
+            glColor3d(0, 1, 0);
             renderBitmapString(-0.05, 0.0, GLUT_BITMAP_TIMES_ROMAN_24,
                                textLast);
+            glColor3d(1, 1, 1);
             renderBitmapString(-0.11, -0.2, GLUT_BITMAP_TIMES_ROMAN_24,
                                "seconds in a game");
+            glColor3d(1, 1, 0);
             renderBitmapString(-0.12, -0.6, GLUT_BITMAP_TIMES_ROMAN_24, "Press Enter to exit");
         } else
         if (rules)
